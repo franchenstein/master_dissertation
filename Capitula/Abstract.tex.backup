@@ -1,0 +1,10 @@
+Random number generators are widely used in scientific and technological applications. Particularly in cryptography, 
+they are used in secret-key systems, such as key sequence generators. In this work, we present various methodologies 
+for the design of these generators from chaotic maps. The first one is based on two techniques: Skipping and time-varying 
+coded discretization. We show that the proposed method has higher bit generation rate when compared to fixed-time coded 
+discretization and dispenses post-processing in order to improve their random properties. Another methodology is the use 
+of m-sequences to eliminate the residual correlation of the coded sequence. The time-varying coded discretization has a 
+well-defined correlation characteristic that is exploited by a new block of post-processing using m-sequences that 
+requires less memory than the previous methodology. The effectiveness of this procedure is verified through the NIST 
+test.
+

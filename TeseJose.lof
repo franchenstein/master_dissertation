@@ -1,0 +1,103 @@
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Cobweb do mapa log\IeC {\'\i }stico para $a = 0,5$.\relax }}{21}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Cobweb do mapa log\IeC {\'\i }stico para $a = 2,5$.\relax }}{22}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Cobweb do mapa log\IeC {\'\i }stico para $a = 4$.\relax }}{22}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Cobweb do mapa da tenda para $0<\beta \leq 1$.\relax }}{23}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Cobweb do mapa da tenda para $1< \beta < \sqrt {2}$.\relax }}{23}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Cobweb do mapa da tenda para $\sqrt {2} <\beta < 2$.\relax }}{23}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Cobweb do mapa da tenda para $\beta =2$.\relax }}{24}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Mapa e-tanh para $r=\{0,01; 2,5; 5; 10\}$.\relax }}{24}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Mapa o-tanh para $r=\{0,01; 2,5; 5; 10\}$.\relax }}{25}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Histograma do Mapa e-tanh, com $r=3$.\relax }}{25}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Histograma do Mapa o-tanh, com $r=3$.\relax }}{25}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Expoente de Lyapunov versus o par\^ametro $r$ para o mapa e-tanh.\relax }}{26}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Digrama de orbita versus o par\^ametro $r$ para o mapa e-tanh.\relax }}{26}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Circuito para implementa\c c\~ao do mapa e-tanh.\relax }}{27}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces $H(Z_n \mid Z^{n-1})$ versus $n$ para mapa e-tanh com $q=1$ e $r=3,4,5$.\relax }}{29}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces $H(Z_n \mid Z^{n-1})$ versus $n$ para mapa o-tanh com $q=1$ e $r=3,4,5$.\relax }}{29}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama em bloco do esquema da gera\c c\~ao de um PRNG.\relax }}{30}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces $H(Z_n \mid Z^{n-1})$ versus $n$ para mapa e-tanh para $r=3$, $p=1$ e $q=1,2,3$, com CFT.\relax }}{31}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces $H(Z_n \mid Z^{n-1})$ versus $n$ para mapa o-tanh para $r=3$, $p=1$ e $q=1,2,3$, com CFT.\relax }}{31}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces $H(Z_n \mid Z^{n-1})$ versus $n$ para mapa e-tanh para $q=1$, $r=3,4,5$, com CVT.\relax }}{32}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $H(Z_n \mid Z^{n-1})$ versus $n$ para mapa o-tanh para $q=1$, $r=3,4,5$, com CVT.\relax }}{32}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de blocos para gera\c c\~ao de um PRNG.\relax }}{38}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces $H(W_n \mid W^{n-1})$ versus $n$ para sequ\^encias-m com $N = 5$ e $N=6$.\relax }}{39}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama em blocos do esquema de gera\c c\~ao de um PRNG usando sequ\^encias-m.\relax }}{40}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces $H(Y_n \mid Y^{n-1})$ versus $n$ do mapa e-tanh com $r=3$, $q=1$ e CFT para $N = 4, 6, 7$.\relax }}{42}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces $H(Y_n \mid Y^{n-1})$ versus $n$ do mapa o-tanh com $r=3$, $q=1$ e CFT para $N = 2, 4, 6$.\relax }}{42}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces $N_{min}$ versus $q$ para os mapas e-tanh e o-tanh com codifica\c c\~ao CFT.\relax }}{43}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Quantificadores do mapa e-tanh com $r=3$, $q=1$, $n^{*}=7$ e CFT.\relax }}{45}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Quantificadores do mapa e-tanh com $r=3$, $q=1$, $n^{*}=6$ e CVT.\relax }}{45}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Quantificadores do mapa o-tanh com $r=3$, $q=1$, $n^{*}=5$ e CFT.\relax }}{45}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Quantificadores do mapa o-tanh com $r=3$, $q=1$, $n^{*}=5$ e CVT.\relax }}{45}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa e-tanh com $r = 3$, $q=1$, $n^{*}=7$, para $N=4$ e $N=7$ com codifica\c c\~ao CFT.\relax }}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$.}}}{46}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Y_k\}$ com $N=4$.}}}{46}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Y_k\}$ com $N=7$.}}}{46}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa o-tanh com $r = 3$, $q=1$, $n^{*}=5$, para $N=3$ e $N=5$ com codifica\c c\~ao CFT.\relax }}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$.}}}{46}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Y_k\}$ com $N=3$.}}}{46}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Y_k\}$ com $N=5$.}}}{46}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa e-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codifica\c c\~ao CFT.\relax }}{47}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=3$.}}}{47}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=5$.}}}{47}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=7$.}}}{47}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa o-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codifica\c c\~ao CFT.\relax }}{48}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=3$.}}}{48}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=5$.}}}{48}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=7$.}}}{48}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa e-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codifica\c c\~ao CVT.\relax }}{48}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=3$.}}}{48}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=5$.}}}{48}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=7$.}}}{48}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa o-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codifica\c c\~ao CVT.\relax }}{48}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=3$.}}}{48}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=5$.}}}{48}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=7$.}}}{48}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Diagrama de blocos de um esquema da gera\c c\~ao de um PRNG usando sequ\^encias-m.\relax }}{49}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Diagrama de blocos com p\'os-processamento para gera\c c\~ao de um PRNG para $q=3$ e $P=6$.\relax }}{50}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces $R[m]$ versus $m$ de $Z_k$ e $Y_k$ para mapa e-tanh com $q = 3$, $N^{\prime }_{min}=7$ e CVT.\relax }}{51}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces $R[m]$ versus $m$ de $Z_k$ e $Y_k$ para o mapa e-tanh com $q = 5$, $N^{\prime }_{min}=6$ e CVT.\relax }}{52}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces $R[m]$ versus $m$ de $Z_k$ e $Y_k$ para o mapa o-tanh com $q = 3$, $N^{\prime }_{min}=7$ e CVT.\relax }}{52}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces $R[m]$ versus $m$ de $Z_k$ e $Y_k$ para o mapa o-tanh com $q = 5$, $N^{\prime }_{min}=6$ e CVT.\relax }}{52}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Entropia condicional de $Z_k$ e $Y_k$ versus $n$ para mapa e-tanh com $r = 3$ e $q = 3$.\relax }}{53}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Entropia condicional de $Z_k$ e $Y_k$ versus $n$ para mapa o-tanh com $r = 3$ e $q = 3$.\relax }}{53}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Quantificadores do mapa MC com $q=1$ e CFT.\relax }}{55}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Quantificadores do mapa MH com $q=1$ e CFT.\relax }}{55}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao do mapa MC para $q=3$, $q=5$ e $q=7$ com codifica\c c\~ao CFT.\relax }}{56}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=3$.}}}{56}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=5$.}}}{56}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=7$.}}}{56}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao do mapa MH com $q = 3$, $q = 5$, e $q=7$ com codifica\c c\~ao CFT.\relax }}{56}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=3$.}}}{56}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=5$.}}}{56}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ para $q=7$.}}}{56}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces $N_{min}$ versus $q$ para os mapas MC e MH com codifica\c c\~ao CFT.\relax }}{57}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces $H(Y_n \mid Y^{n-1})$ versus $n$ para mapa MC com $q=1$ e codifica\c c\~ao CFT para $N=6$ e $N=8$.\relax }}{57}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces $R[m]$ versus $m$ da sequ\^encia $\{Y_k\}$ para o mapa MC com codifica\c c\~ao CFT e $N=6$ e $N=8$.\relax }}{57}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa MC com $q = 3, 5, 7$ e codifica\c c\~ao CVT.\relax }}{58}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ com $q=3$}}}{58}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ com $q=5$}}}{58}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ com $q=7$}}}{58}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Fun\c c\~ao autocorrela\c c\~ao para o mapa MH com $q = 3, 5, 7$ e codifica\c c\~ao CVT.\relax }}{58}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ com $q=3$}}}{58}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ com $q=5$}}}{58}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Fun\c c\~ao autocorrela\c c\~ao da sequ\^encia $\{Z_k\}$ com $q=7$}}}{58}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces $R[m]$ versus $m$ para o mapa MC com $q = 3$, $N^{\prime }_{min}=7$ e CVT.\relax }}{59}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces $R[m]$ versus $m$ para o mapa MH com $q = 3$, $N^{\prime }_{min}=11$ e CVT.\relax }}{59}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Entropia condicional de $\{Z_k\}$ e $\{Y_k\}$ versus $n$ para MC com $q = 3$ e CVT.\relax }}{59}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Entropia condicional de $\{Z_k\}$ e $\{Y_k\}$ versus $n$ para MH com $q = 3$ e CVT.\relax }}{60}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagrama de LFSR de grau $N$.\relax }}{67}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Diagrama de um LFSR de grau $N = 3$ com estado inicial $\{s_2, s_1, s_0\}$.\relax }}{67}

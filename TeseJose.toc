@@ -1,0 +1,36 @@
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\contentsline {chapter}{\numberline {1}\scshape {\bfseries {Introdu\c c\~ao}}}{14}
+\contentsline {section}{\numberline {1.1}Objetivos e contribui\c c\~oes da disserta\c c\~ao}{15}
+\contentsline {section}{\numberline {1.2}Aplica\c c\~oes de sistemas ca\'oticos}{16}
+\contentsline {section}{\numberline {1.3}Organiza\c c\~ao}{17}
+\contentsline {chapter}{\numberline {2}\scshape {\bfseries {Revis\~ao de Sistemas Ca\'oticos}}}{18}
+\contentsline {section}{\numberline {2.1}Sistemas din\^amicos ca\'oticos}{18}
+\contentsline {section}{\numberline {2.2}Quantifica\c c\~ao da din\^amica ca\'otica}{19}
+\contentsline {section}{\numberline {2.3}Exemplos de mapas ca\'oticos}{21}
+\contentsline {subsection}{\numberline {2.3.1}Mapa log\IeC {\'\i }stico}{21}
+\contentsline {subsection}{\numberline {2.3.2}Mapa da tenda}{22}
+\contentsline {subsection}{\numberline {2.3.3}Mapa tangente hiperb\'olica}{23}
+\contentsline {subsubsection}{Expoente de Lyapunov}{26}
+\contentsline {subsubsection}{Diagrama de \'orbita}{26}
+\contentsline {section}{\numberline {2.4}Implementa\c c\~ao do mapa e-tanh}{27}
+\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Gera\c c\~ao de um PRNG mediante mapa ca\'otico}}}{28}
+\contentsline {section}{\numberline {3.1}Entropia condicional}{28}
+\contentsline {section}{\numberline {3.2}Gera\c c\~ao de um PRNG baseado na fam\IeC {\'\i }lia mapa tanh}{30}
+\contentsline {section}{\numberline {3.3}Teste de aleatoriedade NIST}{33}
+\contentsline {section}{\numberline {3.4}Gera\c c\~ao de um PRNG com p\'os-processamento usando \\sequ\^encias-m}{37}
+\contentsline {subsection}{\numberline {3.4.1}Sequ\^encias-m}{38}
+\contentsline {subsection}{\numberline {3.4.2}Esquema de gera\c c\~ao de um PRNG com p\'os-processamento}{39}
+\contentsline {chapter}{\numberline {4}\scshape {\bfseries {Nova unidade de p\'os-processamento com CVT}}}{44}
+\contentsline {section}{\numberline {4.1}Fun\c c\~ao autocorrela\c c\~ao}{44}
+\contentsline {subsection}{\numberline {4.1.1}Compara\c c\~ao da fun\c c\~ao autocorrela\c c\~ao das codifica\c c\~oes CFT e CVT}{46}
+\contentsline {section}{\numberline {4.2}Novo m\'etodo de p\'os-processamento utilizando codifica\c c\~ao CVT}{48}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {Implementa\c c\~ao da metodologia proposta para outros mapas ca\'oticos}}}{54}
+\contentsline {section}{\numberline {5.1}Mapas ca\'oticos}{54}
+\contentsline {section}{\numberline {5.2}Codifica\c c\~ao CVT para os novos mapas}{56}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {Conclus\~oes}}}{61}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {Testes do NIST}}}{63}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {Caracter\IeC {\'\i }sticas principais dos LFSR}}}{66}

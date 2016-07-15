@@ -1,0 +1,26 @@
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Valores de $n^{*}$ para os mapas e-tanh e o-tanh com $r = 3, 4, 5$, $q=1$ e $p=1$.\relax }}{33}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Maiores taxas $R_x$ alcan\c cadas com CFT e CVT para o mapa e-tanh com $r=3,4,5$.\relax }}{34}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Maiores taxas $R_x$ alcan\c cadas com CFT e CVT para o mapa o-tanh com $r=3,4,5$.\relax }}{34}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Taxa de Entropia para codifica\c c\~ao CFT.\relax }}{35}
+\contentsline {table}{\numberline {3.5}{\ignorespaces $P$-$value$ e a raz\~ao de testes aprovados para cada teste do NIST, para o mapa e-tanh com $r=3$, $R_x=7/7$, com CVT.\relax }}{35}
+\contentsline {table}{\numberline {3.6}{\ignorespaces $P$-$value$ e a raz\~ao de testes aprovados para cada teste do NIST, para o mapa e-tanh com $r=3$, $R_x=1/7$, com CFT.\relax }}{36}
+\contentsline {table}{\numberline {3.7}{\ignorespaces $P$-$value$ e a raz\~ao de testes aprovados para cada teste do NIST, para o mapa o-tanh com $r=3$, $R_x=4/4$, com CVT.\relax }}{36}
+\contentsline {table}{\numberline {3.8}{\ignorespaces $P$-$value$ e a raz\~ao de testes aprovados para cada teste do NIST, para o mapa o-tanh com $r=3$, $R_x=1/5$, com CFT.\relax }}{37}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Exemplos de polin\^omios primitivos de grau at\'e 50.\relax }}{38}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Compara\c c\~ao entre $N_{min}$ e $\mathaccentV {hat}05E{N}$ para o mapa e-tanh ($n^{*}=7$) e o-tanh ($n^{*}=5$) com $r=3$ e codifica\c c\~ao CFT.\relax }}{43}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Compara\c c\~ao entre $N_{min}$ e $N^{\prime }_{min}$ para o mapa e-tanh com $r=3$, com codifica\c c\~ao CVT.\relax }}{51}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces $N_{min}$ para os mapas MC e MH com codifica\c c\~ao CFT\relax }}{56}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Compara\c c\~ao entre $N_{min}$ e $N^{\prime }_{min}$ para os MC e MH, com codifica\c c\~ao CVT.\relax }}{59}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

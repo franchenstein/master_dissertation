@@ -1,0 +1,247 @@
+%% Lista de Pacotes utilizados
+
+                                             %% Recomendacao: 11pt, papel a4
+\usepackage{ifthen}                          %% Nao remover. Uso interno do sistema.
+\usepackage[T1]{fontenc}                     %% Acentuação
+%\usepackage[portugues]{babel}
+%\usepackage[latin1]{inputenc}               %% Use um dos dois esquemas
+
+\usepackage[cp1252]{inputenc}                %% Use um dos dois esquemas
+
+
+\usepackage{type1cm}                         %% Liberdade para as fontes!!!
+\usepackage{lastpage}                        %% Referênciar a última página
+\usepackage{textcomp}
+\usepackage{nfssext}
+\usepackage[labelfont={bf},textfont={it}]{caption}     %% Controlar melhor os captions....
+                                                       %% Deixando o caption mais interessante...
+
+\usepackage{times}                          %% Se estiver achando muito bonito,
+                                             %% e quizer piorar um pouco,
+                                             %% usar fonte Times
+%\usepackage[oldstyle]{sabon}                 %%
+%\usepackage{mathpazo}                        %% Fonte parecida com a sabon !
+%\usepackage{eco}                             %% Números em oldstyle em Computer Modern
+
+\usepackage{amsmath}                         %% [leqno]
+\usepackage{amsfonts,bm}                     %% Pacotes da AMS
+\usepackage{amssymb}                         %%
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{array,arydshln,colortbl}
+\usepackage{lscape}
+%\usepackage[table]{xcolor}
+%\usepackage[space]{cite}
+\usepackage[square,comma,numbers,sort&compress]{natbib} %%
+%\usepackage{longtable}                       %% Para a lista de abreviaturas
+\usepackage{wrapfig}
+\usepackage[english,portuges]{babel}         %% Hifenizacao e estilo
+\usepackage{float}                           %% Descomente caso precise de ``floats'' extra
+                                             %% ex: fragmentos de programas
+\usepackage{graphicx}                        %% Mais ferramentas para
+\usepackage{psfrag}                          %% manuseio de figuras.
+\usepackage{subfigure}
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+\usepackage{colordvi}                        %% Usar Cores...
+\usepackage{fancyhdr}
+\usepackage{yfonts}                          %% não mais restrições de tamanhho!
+\usepackage{pstricks}                        %% Pacote de comandos Postscripts
+\usepackage{pstricks-add}                    %% " "
+\usepackage{pst-all,pst-math,pst-plot}       %% " "
+
+%\usepackage{draftwatermark}                 %% Caso queira inserir uma marca d'agua
+
+\usepackage[T1]{pbsi}
+
+%\usepackage{enumerate}                       %% Pra enumeração de tópicos...
+%\usepackage{mathrsfs}                        %% $\mathscr{ABCD}$
+                                             %% Pra certos símbolos ficarem melhores...
+                                             %% como o de L^2...
+\usepackage[amsmath,thmmarks]{ntheorem}      %% Facilita a personalização do ambiente para teoremas e fornece mais opções
+
+\usepackage{multirow}                        %% Juntar linhas em tabelas
+\usepackage{eucal}                           %% beau
+\usepackage{lettrine}                        %% Pra colocar a primeira letra do capítulo
+                                             %% maior.
+\usepackage{footmisc}
+
+\usepackage{url}                             %% Para URL, PATH, etc
+
+%\usepackage{euler}
+%\usepackage[dvips]{hyperref}
+
+%\renewcommand{\captionfont}{\bfseries}
+
+\hfuzz2pt
+%
+%\hypersetup{backref,%
+%            pdfpagemode=FullScreen,%
+%            colorlinks=true,%
+%            citecolor=orange,%
+%            urlcolor=blue, %
+%            pdfauthor={José Sampaio de Lemos Neto}, %
+%            pdftitle={Construção de Sequências de Protocolo para o Canal de Colisão sem Realimentação}, %
+%            pdfcreator={José Sampaio de Lemos Neto}, %
+%           breaklinks=true, %
+%           linktocpage=true
+%            }%
+
+%%%%%%%%%%% Estilos definidos por José Sampaio de Lemos Neto em 26/12/2010 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+%% Meu estilo para Teoremas, Definições, Exemplos, etc. -----------------------------------------------
+\newtheoremstyle{sampaio}
+{\vspace{0.4cm}\item[\rlap{\hspace{-0.6cm}\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+##1\ ##2\theorem@separator}\hbox{\strut}}}]}
+{\vspace{0.4cm}\item[\rlap{\hspace{-0.6cm}\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+##1\ ##2\ -- \textmd{##3}\theorem@separator}\hbox{\strut}}}]}
+%% ----------------------------------------------------------------------------------------------------
+
+%% Estilo de referências utilizado pelo IEEEtrans.cls. Modificações executadas sobre o pacotes cite.sty
+\def\@citex[#1]#2{%
+  \let\@citea\@empty
+  \@cite{\@for\@citeb:=#2\do
+    {\@citea\def\@citea{], [}%
+     \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+     \@ifundefined{b@\@citeb}{\mbox{\reset@font\bfseries ?}%
+       \G@refundefinedtrue
+       \@latex@warning
+         {Citation `\@citeb' on page \thepage \space undefined}}%
+       {\hbox{\csname b@\@citeb\endcsname}}}}{#1}}
+\def\citepunct{], [}
+\def\citedash{]--[}
+%% ---------------------------------------------------------------------------------------------------
+
+\makeatother
+
+\theoremstyle{sampaio}
+\theoremindent0.6cm
+\theoremsymbol{$\square$}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\it}
+
+\newtheorem{proposition}{Proposi\c{c}\~{a}o}[chapter]  %%
+\newtheorem{definition}{Defini\c{c}\~{a}o}[chapter]    %%
+\newtheorem{property}{Propriedade}[chapter]            %%
+\newtheorem{theorem}{Teorema}[chapter]                 %%
+\newtheorem{lemma}{Lema}[chapter]                      %%
+\newtheorem{corollary}{Corol\'{a}rio}[chapter]         %%
+\newtheorem{conjecture}{Conjectura}[chapter]           %%
+
+\newcommand{\etal}{\emph{et\:al.}}
+\newcommand{\fonte}{\footnotesize Fonte: Próprio Autor.}
+
+\theoremstyle{sampaio}
+\theoremindent0.6cm
+\theoremsymbol{$\square$}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\it}
+
+\newtheorem{example}{Exemplo}[chapter]                 %%
+\newtheorem{construction}{Constru\c{c}\~{a}o}[chapter] %%
+\newtheorem{procedure}{Procedimento}[chapter]           %%
+
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\it}\theorembodyfont{\normalfont}
+\theoremseparator{:}
+\theoremsymbol{$\blacksquare$}
+\theoremindent0.6cm
+
+\newtheorem{proof}{\hspace{-0.85cm} Demonstra\c{c}\~{a}o}%%
+\theoremstyle{nonumberbreak}
+\theoremheaderfont{\it}\theorembodyfont{\normalfont}
+\theoremseparator{:}
+\theoremsymbol{$\blacksquare$}
+\theoremindent0.6cm
+
+\newtheorem{proof2}{\hspace{-.7cm} \underline{Demonstra\c{c}\~{a}o}}%%
+\theoremheaderfont{\sc}
+\theorembodyfont{\upshape}
+\theoremstyle{nonumberplain}
+\theoremseparator{.}
+\theoremsymbol{$\blacksquare$}
+%\theoremindent=-0.4cm
+
+
+
+%% Para personalizar as tabelas
+
+\newcolumntype{I}{!{\vrule width 1pt}}
+\newcolumntype{|}{!{\vrule width 0.5pt}}
+\newlength\savedwidth
+\newcommand\whline{\noalign{\global\savedwidth\arrayrulewidth
+\global\arrayrulewidth 1.5pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+\setlength\dashlinedash{0.25pt}
+\setlength\dashlinegap{1.5pt}
+
+%% Personalizar a Marca d'agua
+
+%\SetWatermarkLightness{0.9}
+%\SetWatermarkFontSize{2cm}
+%\SetWatermarkScale{1.2}
+%\SetWatermarkText{Versão Preliminar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% FIM DAS MINHAS DEFINIÇÕES (Sampaio) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\numberwithin{equation}{chapter}                       %%
+\numberwithin{table}{chapter}                          %% Numeração dos floats...
+\numberwithin{figure}{chapter}                         %%
+\DeclareMathAlphabet{\mathds}{U}{eus}{m}{n}            %% Definindo o comando \mathds... (José Sampaio de Lemos Neto em 29/12/2010)
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}        %% Para o mathcal ficar bom... (José Sampaio de Lemos Neto em 29/12/2010)
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}           %% Para o mathbb ficar bom...
+
+\DeclareMathOperator*{\sinc}{sinc}                     %% Declarando novos operadores
+\DeclareMathOperator*{\sen}{sen}                       %%
+\DeclareMathOperator*{\cas}{cas}                       %%
+
+\setlist{noitemsep}
+\setlist{labelindent=\parindent} % << Usually a good idea
+\setlist{itemsep=0pt}%
+\setitemize{leftmargin=*} %
+\setitemize[1]{label=$\triangleright$} %
+\setenumerate[1]{label=\arabic*., ref=\arabic*}
+%\setenumerate[1]{label=\Roman*., ref=\arabic*}
+\setenumerate[2]{label=\emph{\alph*}), ref=\theenumi.\emph{\alph*}}
+\setenumerate[3]{label=\roman*), ref=\theenumii.\roman*}
+%\setdescription{font=\sffamily\bfseries}
+
+%%% Criando novas funcoes
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+
+% Caso a tese tenha fragmentos de código no corpo da dissertação,
+% descomente as linhas abaixo e use o ambiente
+% \begin{programa} ... \end{programa}
+%%%%% Inicio da definição de ambiente para programas
+\floatstyle{ruled}
+\newfloat{Program}{thp}{lop}[chapter]
+\floatname{Program}{Programa}
+
+\newenvironment{programa}[1]
+{
+\begin{Program}
+\caption{#1} } {\end{Program}}
+
+%%%%% Fim da definição de ambiente para programas %%%%%%%
+
+%\def\QED{\mbox{\rule[0pt]{1.5ex}{1.5ex}}\vspace{2mm}}
+%\def\proof{\hspace{0.6cm}{\it Demonstra\c{c}\~{a}o: }}
+%\def\endproof{\hspace*{\fill}~\QED\par\endtrivlist\unskip}
+
+
+\renewcommand{\headrulewidth}{0pt}%
+
+\newsavebox{\mygraphic}
+\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufpe.eps}}
+
+
+\newenvironment{my-notation}{
+    \begin{list}{}{\setlength{\labelwidth}{55pt}
+                   \setlength{\labelsep}{40pt}
+                   \setlength{\leftmargin}{15em}}}
+    {\end{list}}

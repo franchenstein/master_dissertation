@@ -1,0 +1,164 @@
+\chapter{Características principais dos LFSR}\label{cap:Apendice B}
+
+
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{U}{ma} maneira de obter sequências pseudo-aleatórias de período longo é a utilização de registradores de deslocamento com 
+realimentação linear (LFSR, \textit{Linear feedback shift register}). Os LFSR são facilmente implementados em hardware e software. Embora um LFSR tenha uma realimentação linear, 
+este produz uma sequência com boas propriedades estatísticas. Neste apêndice se faz uma breve introdução aos LFSR e suas características principais.
+
+Um LFSR compreende elementos de armazenamento e um circuito de realimentação. O número de elementos de armazenamento é o grau do LFSR. Em outras palavras, um LFSR com $N$ estados de 
+armazenamento tem grau $N$ \cite{crypt}. A forma geral de um LFSR de grau $N$ é mostrada na Figura \ref{fig:fsr2}. Os $N$ estados de armazenamento são combinados por meio dos caminhos 
+de realimentação. Estes podem estar ativos ou não, característica dada pelos coeficientes de realimentação $\{c_0, c_1,. . . , c_{N-1}\}$, ou seja
+
+\begin{itemize}
+ \item se $c_i=1$, o caminho de realimentação está ativo.
+ \item se $c_i=0$, o caminho não é utilizado na realimentação.
+\end{itemize}
+
+\begin{figure}[h!]
+  \begin{pspicture}(-.6,0.3)(6.5,4)
+ \psline{->}(2.8,0.9)(3.2,0.9)
+ \psframe(3.2,0.5)(4,1.3)
+ \psframe(6.2,0.5)(7,1.3)
+ \psframe(7.8,0.5)(8.6,1.3)
+ \rput{0}(3.6,0.9){\small $s_{N-1}$}
+ \rput{0}(6.6,0.9){\small $s_1$}
+ \rput{0}(8.2,0.9){\small $s_0$}
+ 
+ \psline{->}(4,0.9)(4.8,0.9)
+ \rput{0}(5.2,0.9){\small $\cdots$}
+ \psline{->}(5.6,0.9)(6.2,0.9)
+ \psline{->}(7,0.9)(7.8,0.9)
+ \psline{->}(8.6,0.9)(9.8,0.9)
+ 
+ \psline{-}(4.4,0.9)(4.4,1.6)
+ \psline{-}(7.4,0.9)(7.4,1.6)
+ \psline{-}(9,0.9)(9,1.6)
+ 
+ \pscircle(4.4,1.75){0.15}
+ \rput{0}(4.4,1.725){\huge $\cdot$}
+ \psline{->}(4.75,1.75)(4.55,1.75)
+ \rput{0}(5.1,1.75){\footnotesize $c_{N-1}$}
+ 
+ \pscircle(7.4,1.75){0.15}
+ \rput{0}(7.4,1.725){\huge $\cdot$} 
+ \psline{->}(7.75,1.75)(7.55,1.75)
+ \rput{0}(7.95,1.75){\footnotesize $c_{1}$}
+ 
+ \pscircle(9.0,1.75){0.15}
+ \rput{0}(9.0,1.725){\huge $\cdot$} 
+ \psline{->}(9.35,1.75)(9.15,1.75)
+ \rput{0}(9.55,1.75){\footnotesize $c_0$}
+ 
+ \psline{->}(4.4,1.9)(4.4,2.4)
+ \psline{->}(7.4,1.9)(7.4,2.4)
+  
+ \pscircle(4.4,2.55){0.15}
+ \rput{0}(4.4,2.55){\large $+$}
+ 
+ \pscircle(7.4,2.55){0.15}
+ \rput{0}(7.4,2.55){\large $+$}
+ 
+ \psline{-}(2.8,0.9)(2.8,2.55)
+ \psline{-}(9,1.9)(9,2.55)
+ \psline{-}(2.8,2.55)(4.25,2.55)
+ \psline{<-}(7.55,2.55)(9,2.55)
+ \psline{<-}(4.55,2.55)(4.85,2.55)
+ \rput{0}(5.2,2.55){\small $\cdots$}
+ \psline{-}(5.55,2.55)(7.25,2.55)
+ 
+ \rput{0}(11,0.9){\footnotesize $\{s_i, \cdots , s_1, s_0\}$}
+ 
+ \end{pspicture}
+ \caption{Diagrama de LFSR de grau $N$.}\label{fig:fsr2}
+\end{figure}
+
+
+%Com essa notação, obtemos uma descrição matemática para o caminho de realimentação. Se multiplicar a saída do  $i$ por seu coeficiente de $p_i$, o resultado é o valor 
+%de saída se $p_i = 1$, o que corresponde a um interruptor fechado, ou 0 se $p_i = 0$, o que corresponde a um interruptor aberto. Os valores dos coeficientes de realimentação são cruciais 
+%para o fluxo de saída produzido pelo LFSR.
+
+Assumindo um LFSR com condições inicias $\{s_0, ..., s_{N-1}\}$, sua saída é $\{s_0, \cdots , s_{N-1}, s_N, s_{N+1}, \cdots\}$. O \textit{bit} de saída do LFSR, $s_N$, é obtido da forma: 
+
+\begin{equation}
+ s_{N} = (s_{N-1} c_{N-1} + ... + s_1 c_1 + s_0 c_0) (\mod 2).
+\end{equation}
+A próxima saída do LFSR é
+
+\begin{equation}
+ s_{N+1} = (s_{N} c_{N-1} + ... + s_2 c_1 + s_1 c_0) (\mod 2).
+\end{equation}
+Em geral
+
+\begin{equation}
+ s_{i+N} = (\sum_{j=0}^{N-1} s_{i+j} c_{j}) (\mod 2)
+\end{equation}
+com $s_i, c_j \in {0,1}, i=0,1,2,...$. Os LFSR muitas vezes são referenciados como recorrências lineares.
+
+Um exemplo de um LFSR de grau $N = 3$ é ilustrado na Figura \ref{fig:fsr1}. Os \textit{bits} dos estados de armazenamento $s_i$ são deslocados à 
+direita, sendo o \textit{bit} do estado mais a direita o \textit{bit} de saída no próximo deslocamento. O \textit{bit} do estado mais à esquerda é calculado pelo circuito de realimentação 
+dado o valor armazenado no instante de tempo anterior. Assumindo um estado inicial ($s_2 = 1$, $s_1 = 0$, $s_0 = 0$), obtemos uma sequência de saída da forma 
+$\{0010111  0010111  0010111 \cdots \}$. Observe que a sequência de saída tem período $7$.
+
+\begin{figure}[b!]
+  \begin{pspicture}(-.6,0.3)(6.5,2.3)
+  
+ \psline{->}(4.1,0.9)(4.6,0.9)
+ \psframe(4.6,0.5)(5.4,1.3)
+ \psframe(6.2,0.5)(7,1.3)
+ \psframe(7.8,0.5)(8.6,1.3)
+ \rput{0}(5,0.9){\small $s_2$}
+ \rput{0}(6.6,0.9){\small $s_1$}
+ \rput{0}(8.2,0.9){\small $s_0$}
+ 
+ \psline{->}(5.4,0.9)(6.2,0.9)
+ \psline{->}(7,0.9)(7.8,0.9)
+ \psline{->}(8.6,0.9)(9.8,0.9)
+ 
+  \psline{->}(7.4,0.9)(7.4,1.85)
+ \psline{-}(9,0.9)(9,2)
+ 
+ \pscircle(7.4,2){0.15}
+ \rput{0}(7.4,2){\large $+$}
+ 
+ \psline{-}(4.1,0.9)(4.1,2)
+ \psline{-}(4.1,2)(7.25,2)
+ \psline{<-}(7.55,2)(9,2)
+ 
+ \rput{0}(10.8,0.9){\footnotesize $\{s_i, \cdots , s_1, s_0\}$}
+ 
+ \end{pspicture}
+ \caption{Diagrama de um LFSR de grau $N = 3$ com estado inicial $\{s_2, s_1, s_0\}$.}\label{fig:fsr1}
+\end{figure}
+
+Devido ao número de estados de armazenamento ser finito, a sequência de saída de um LFSR vai se repetir periodicamente. Além disso, as sequências de saída de um LFSR podem ser de 
+diferentes comprimentos, dependendo dos coeficientes de realimentação. O período máximo de uma sequência que pode ser obtida por um LFSR é uma função do seu grau é da forma \cite{crypt}
+
+\begin{equation}
+ p_{max} = 2^N-1
+\end{equation}
+%Um estado do LFSR é determinado unicamente pelo registro interno $N$-bit. Dado um determinado estado, o LFSR assume de forma determinista sua próxima saída. Por causa disso, assim que um 
+%LFSR assume um estado anterior já utilizado, começa a repetir sua saída. 
+dado que um vetor de $N$ \textit{bits} pode assumir $2^N$ valores distintos. Se um LFSR assume o estado nulo, ele permanece indefinidamente nesse estado.
+
+Um LFSR com coeficientes de realimentação dado por um vetor $(c_{M-1} ,\cdots , c_1, c_0)$ pode ser representado de forma polinomial. Por exemplo, o LFSR representado na Figura~\ref{fig:fsr1}, 
+tem coeficientes $c_3 = 0$, $c_2 = 0$, $c_1 = 1$ e $c_0 = 1$. Alternativamente o LFSR pode ser representado em forma polinomial, sendo, $x^4 + x + 1$ o polinômio de realimentação. Uma das 
+vantagens da notação polinomial é identificar se uma sequência tem período máximo. Isso ocorre se, e somente se, o polinômio de realimentação for um polinômio primitivo \cite{crypt}. A Tabela \ref{tab:prim} mostra 
+alguns polinômios primitivos para $N = \{2, 3,\cdots, 50\}$ utilizados nesta dissertação. Por exemplo, a notação $(5, 2, 0)$ refere-se ao polinômio $\{1 + x^2 + x^5\}$. 
+
+Uma das características principais dos LFSR é a complexidade linear. Seja uma sequência finita $S= \{s_0, s_1, s_2, ..., s_n\}$ ou infinita ${S =  \{s_0, s_1, s_2, ...\}}$; sua 
+complexidade linear ($LC(S)$) é definida pelo LFSR  de menor grau que gera a sequência $S$ \cite{massey}, exemplos:
+\begin{itemize}
+ \item Se $\{S=0000...01\}$ (com $n-1$ zeros), a complexidade linear é igual a $LC(S) = n$, um polinômio de realimentação que gera a sequência $S$ é $x^n +1$.
+ \item Utilizando o polinômio $x^3 + x + 1$ e a condição inicial [$011$], obtemos uma sequência de saída $S^\prime=\{0111001011 \cdots\}$. A complexidade linear da sequência $S^\prime$ 
+ é inferior ou igual $3$, pois o polinômio tem grau $3$. Utilizando o critério acima, conclui-se que a complexidade linear é exatamente $3$.
+\end{itemize}
+
+A complexidade linear de uma sequência $S$ é denotada por $LC(S) = L$. Considerando um LFSR de grau $L$ que gera a sequência $S=\{s_0, \cdots, s_{L-1}, s_L, \cdots, s_{n-1}, s_n \}$, 
+de comprimento $n$ ($n$ pode ser infinito), então \cite{massey}
+\begin{itemize}
+ \item Os $L$ estados subsequentes do LFSR são linearmente independentes.
+ \item O $L+1$ estado subsequentes são linearmente dependentes.
+ \item Se, além disso, pelo menos $2L$ termos da sequência são dados, isto é, $n > 2L$, pode-se determinar o polinômio de realimentação do LFSR.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - MAPA+LFSR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

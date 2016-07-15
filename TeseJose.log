@@ -1,0 +1,1346 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.11.7)  6 MAY 2016 10:16
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**TeseJose.tex
+(./TeseJose.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 3 languages loaded.
+(./ppgee.cls
+Document Class: ppgee 
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2013/12/12 v0.60 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+\XKV@depth=\count88
+File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count89
+\pstFP@xia=\count90
+\pstFP@xib=\count91
+\pstFP@xfa=\count92
+\pstFP@xfb=\count93
+\pstFP@rega=\count94
+\pstFP@regb=\count95
+\pstFP@regs=\count96
+\pstFP@times=\count97
+)
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks16
+)
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks19
+))
+(/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
+\pgffor@iter=\dimen103
+\pgffor@skip=\dimen104
+\pgffor@stack=\toks20
+\pgffor@toks=\toks21
+)
+\psLoopIndex=\count98
+
+`PSTricks' v2.51  <2014/02/03> (tvz)
+\pst@dima=\dimen105
+\pst@dimb=\dimen106
+\pst@dimc=\dimen107
+\pst@dimd=\dimen108
+\pst@dimg=\dimen109
+\pst@dimh=\dimen110
+\pst@dimm=\dimen111
+\pst@dimn=\dimen112
+\pst@dimo=\dimen113
+\pst@dimp=\dimen114
+\pst@hbox=\box26
+\pst@ibox=\box27
+\pst@boxg=\box28
+\pst@cnta=\count99
+\pst@cntb=\count100
+\pst@cntc=\count101
+\pst@cntd=\count102
+\pst@cntg=\count103
+\pst@cnth=\count104
+\pst@cntm=\count105
+\pst@cntn=\count106
+\pst@cnto=\count107
+\pst@cntp=\count108
+\@zero=\count109
+\pst@toks=\toks22
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen115
+\psxunit=\dimen116
+\psyunit=\dimen117
+\pst@C@@rType=\count110
+\pslinewidth=\dimen118
+\psk@startLW=\dimen119
+\psk@endLW=\dimen120
+\pst@customdefs=\toks23
+\pslinearc=\dimen121
+\pst@symbolStep=\dimen122
+\pst@symbolWidth=\dimen123
+\pst@symbolLinewidth=\dimen124
+\everypsbox=\toks24
+\psframesep=\dimen125
+\pslabelsep=\dimen126
+\sh@wgridXunit=\dimen127
+\sh@wgridYunit=\dimen128
+\pst@shift=\dimen129
+)
+File: pstricks.tex 2014/02/03 v2.51 `PSTricks' (tvz,hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+File: pst-fp.tex 2014/02/03 v2.51 `PST-fp' (hv)
+
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+\hour=\count111
+\minute=\count112
+\dow=\count113
+\leap=\count114
+\x=\count115
+\y=\count116
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip43
+\subfigcapskip=\skip44
+\subfigcaptopadj=\dimen130
+\subfigbottomskip=\skip45
+\subfigcapmargin=\dimen131
+\subfiglabelskip=\skip46
+\c@subfigure=\count117
+\c@lofdepth=\count118
+\c@subtable=\count119
+\c@lotdepth=\count120
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip47
+\subfig@bottom=\skip48
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+)
+\Gin@req@height=\dimen132
+\Gin@req@width=\dimen133
+)
+(./Config/customization.tex
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/cp1252.def
+File: cp1252.def 2008/03/30 v1.1d Input encoding file
+)) (./type1cm.sty
+Package: type1cm 1997/02/17 v0.03 BlueSky/Y&Y Type1 CM font definitions (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
+Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+) (./nfssext.sty
+Package: nfssext 2003/03/14 v1.2 Experimental NFSS Extensions
+LaTeX Info: Redefining \itshape on input line 57.
+LaTeX Info: Redefining \scshape on input line 60.
+LaTeX Info: Redefining \upshape on input line 63.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen134
+\captionmargin@=\dimen135
+\captionwidth=\dimen136
+\caption@tempdima=\dimen137
+\caption@indent=\dimen138
+\caption@parindent=\dimen139
+\caption@hangindent=\dimen140
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\vskip \abovecaptionski
+p \sbox \@tempboxa {#1: #2}\ifdim \wd \@tempboxa >\hsize \textbf {#1:} \textit 
+{#2}\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa \h
+fil }\fi \vskip \belowcaptionskip .
+\c@ContinuedFloat=\count121
+Package caption Info: subfigure package is loaded.
+) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks27
+\ex@=\dimen141
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen142
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count122
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count123
+\leftroot@=\count124
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count125
+\DOTSCASE@=\count126
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen143
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count127
+\c@MaxMatrixCols=\count128
+\dotsspace@=\muskip10
+\c@parentequation=\count129
+\dspbrk@lvl=\count130
+\tag@help=\toks28
+\row@=\count131
+\column@=\count132
+\maxfields@=\count133
+\andhelp@=\toks29
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
+\@envbody=\toks30
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\enitkv@toks@=\toks32
+\labelindent=\skip52
+\enit@outerparindent=\dimen150
+\enit@toks=\toks33
+\enit@inbox=\box31
+\enitdp@description=\count134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen151
+\extrarowheight=\dimen152
+\NC@list=\toks34
+\extratabsurround=\skip53
+\backup@length=\skip54
+) (./arydshln.sty
+Package: arydshln 2004/08/31 v1.71 
+\dashlinedash=\dimen153
+\dashlinegap=\dimen154
+\adl@box=\box32
+\adl@height=\dimen155
+\adl@heightsave=\dimen156
+\adl@depth=\dimen157
+\adl@depthsave=\dimen158
+\adl@finaldepth=\dimen159
+\adl@columns=\count135
+\adl@ncol=\count136
+\adl@currentcolumn=\count137
+\adl@currentcolumnsave=\count138
+\adl@totalheight=\count139
+\adl@totalheightsave=\count140
+\adl@dash=\count141
+\adl@gap=\count142
+\adl@cla=\count143
+\adl@clb=\count144
+\adl@everyvbox=\toks35
+\adl@LTpagetotal=\dimen160
+)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+\everycr=\toks36
+\minrowclearance=\skip55
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip56
+\bibsep=\skip57
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count145
+)
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen161
+\WF@size=\dimen162
+\c@WF@wrappedlines=\count146
+\WF@box=\box33
+\WF@everypar=\toks37
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2013/12/03 3.9h The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2013/12/03 3.9h Babel common definitions
+\babel@savecnt=\count147
+\U@D=\dimen163
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+Package babel Info: Making " an active character on input line 145.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count148
+\float@exts=\toks38
+\float@box=\box34
+\@float@everytoks=\toks39
+\@floatcapt=\box35
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psfrag/psfrag.sty
+Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
+\pfg@pcount=\count149
+\pfg@scount=\count150
+\pfg@temp=\write3
+)
+(/usr/share/texlive/texmf-dist/tex/generic/dvips/colordvi.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip58
+\f@ncyO@elh=\skip59
+\f@ncyO@erh=\skip60
+\f@ncyO@olh=\skip61
+\f@ncyO@orh=\skip62
+\f@ncyO@elf=\skip63
+\f@ncyO@erf=\skip64
+\f@ncyO@olf=\skip65
+\f@ncyO@orf=\skip66
+) (./yfonts.sty
+Package: yfonts 2003/01/08 v1.3 (WaS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks-add/pstricks-add.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pst-plot/pst-plot.sty
+Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/pst-xkey.sty
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multido/multido.sty
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/multido/multido.tex
+ v1.42, 2010/05/14 <tvz>
+\multido@count=\count151
+\multidocount=\count152
+\multido@stuff=\toks40
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)
+Package: pst-plot 2011/04/13 package wrapper for pst-plot.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-plot/pst-plot.tex
+ v1.58, 2014/01/16 (tvz,hv)
+\pstRadUnit=\dimen164
+\pstRadUnitInv=\dimen165
+\pst@linecnt=\count153
+\RCD@file=\read1
+\psxlabelsep=\dimen166
+\psylabelsep=\dimen167
+\psk@subticksize=\dimen168
+\pst@xticksizeA=\dimen169
+\pst@xticksizeB=\dimen170
+\pst@xticksizeC=\dimen171
+\pst@yticksizeA=\dimen172
+\pst@yticksizeB=\dimen173
+\pst@yticksizeC=\dimen174
+\@digitcounter=\count154
+\psk@llx=\dimen175
+\psk@lly=\dimen176
+\psk@urx=\dimen177
+\psk@ury=\dimen178
+\pst@xunit=\dimen179
+\pst@yunit=\dimen180
+)
+File: pst-plot.tex 2014/01/16 1.58 `pst-plot' (tvz,hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-node/pst-node.sty
+Package: pst-node 2012/09/18 v1.01 LaTeX wrapper for `pst-node' (HV)
+Package: pst-node 2010/04/22 package wrapper for pst-node.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-node/pst-node.tex
+ v1.32, 2014/02/03
+\psrow=\count155
+\pscol=\count156
+\psmatrixcnt=\count157
+\psrowsep=\skip67
+\pscolsep=\skip68
+\pst@args=\count158
+\num@pts=\count159
+\pst@argcnt=\count160
+)
+File: pst-node.tex 2014/02/03 1.32 `pst-node' (tvz,hv)
+) (/usr/share/texlive/texmf-dist/tex/latex/pst-3d/pst-3d.sty
+Package: pst-3d 2009/07/28 package wrapper for pst-3d.tex (hv)
+(/usr/share/texlive/texmf-dist/tex/generic/pst-3d/pst-3d.tex
+`PST-3d' v1.11, 2010/02/14 (tvz))
+File: pst-3d.tex 2010/02/14 v1.11 `PST-3d' (hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-math/pst-math.sty
+Package: pst-math 2009/01/20 package wrapper for PSTricks pst-math.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-math/pst-math.tex
+`pst-math' v0.62 , (CJ,hv))
+File: pst-math.tex 2010/10/20 v0.62 `PST-math' (hv)
+)
+Package: pstricks-add 2010/02/11 v. 0.14 package wrapper for pstricks-add.tex (
+hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pstricks-add/pstricks-add.tex
+`pstricks-add' v3.65, 2014/01/21 (dr,hv)
+\psparallelogramsep=\dimen181
+\pshooklength=\dimen182
+\pshookwidth=\dimen183
+\pst@cntC=\count161
+\chart@ColorIndex=\dimen184
+\chart@ColorStep=\dimen185
+\pst@chartHeight=\dimen186
+\pst@chartStackDepth=\dimen187
+\pst@chartStackWidth=\dimen188
+\chart@Toggle=\count162
+\psVectorCtr=\count163
+)
+File: pstricks-add.tex 2014/01/21 v3.65 `PSTricks-add' (hv)
+Package pstricks-add Info: Local config file pstricks-add.cfg used on input lin
+e 20.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks-add/pstricks-add.cfg
+File: pstricks-add.cfg 2005/01/10 v0.1 addtional user stuff (hv)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pstricks/pst-all.sty
+Package: pst-all 2008/01/01 the main pstricks tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/pst-tree/pst-tree.sty
+Package: pst-tree 2009/01/25 package wrapper for pst-tree.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-tree/pst-tree.tex
+ v1.12, 2011/02/28(tvz,dg,hv)
+\pstree@rootbox=\box36
+\pstree@box=\box37
+\psnodecnt=\count164
+\pstreelevel=\count165
+\pstreecnt=\count166
+\pstree@cnt=\count167
+\pstree@stop=\count168
+)
+File: pst-tree.tex 2011/02/28 1.12 `pst-tree' (tvz,hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-grad/pst-grad.sty
+Package: pst-grad 2004/07/15 package wrapper for pst-grad.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-grad/pst-grad.tex
+`pst-grad' v1.06, 2006/11/27 (tvz,dg,hv))
+File: pst-grad.tex 2006/11/27 1.06 `pst-grad' (tvz)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-coil/pst-coil.sty
+Package: pst-coil 2010/02/01 package wrapper for pst-coil.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-coil/pst-coil.tex
+ v1.06, 2006/11/27
+(/usr/share/texlive/texmf-dist/tex/generic/pst-node/pst-node.tex))
+File: pst-coil.tex 2011/09/17 v1.06 `PST-coil' (tvz,hv)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-text/pst-text.sty
+Package: pst-text 2006/01/01 package wrapper for pst-text.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-text/pst-text.tex
+ v1.00, 2006/11/05(tvz,hv))
+File: pst-text.tex 2006/11/05 1.00 `pst-text' (tvz)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-eps/pst-eps.sty
+Package: pst-eps 2005/05/20 package wrapper for pst-eps.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-eps/pst-eps.tex
+ v1.00, 2006/11/04
+\pst@epsout=\write4
+\pst@tempout=\write5
+)
+File: pst-eps.tex 2006/11/04 1.00 `pst-eps' (tvz)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pst-fill/pst-fill.sty
+Package: pst-fill 2005/09/13 package wrapper for pst-fill.tex (hv)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pst-fill/pst-fill.tex
+`PST-Fill' v1.01, 2007/03/10 (tvz,dg,hv)
+\pst@fillbox=\box38
+)
+File: pst-fill.tex 2007/03/10 v1.01 `PST-fill' (tvz,dg)
+)) (./pbsi.sty
+Package: pbsi 2001/09/17 - BrushScriptX-Italic selection command 'textbsi'
+ (./t1pbsi.fd
+File: t1pbsi.fd 2001/09/24 Fontinst v1.801 font definitions for T1/pbsi.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/ntheorem/ntheorem.sty
+Style `ntheorem', Version 1.33 <2011/08/15>
+Package: ntheorem 2011/08/15 1.33
+\theorem@style=\toks41
+\theorem@@style=\toks42
+\theorembodyfont=\toks43
+\theoremnumbering=\toks44
+\theorempreskipamount=\skip69
+\theorempostskipamount=\skip70
+\theoremframepreskipamount=\skip71
+\theoremframepostskipamount=\skip72
+\theoreminframepreskipamount=\skip73
+\theoreminframepostskipamount=\skip74
+\theorem@preskip=\toks45
+\theorem@postskip=\toks46
+\theorem@framepreskip=\toks47
+\theorem@framepostskip=\toks48
+\theorem@inframepreskip=\toks49
+\theorem@inframepostskip=\toks50
+\theoremindent=\dimen189
+\theorem@indent=\dimen190
+\theoremrightindent=\dimen191
+\theorem@rightindent=\dimen192
+\theoremheaderfont=\toks51
+\theoremseparator=\toks52
+\theoremprework=\toks53
+\theorempostwork=\toks54
+\theoremsymbol=\toks55
+\qedsymbol=\toks56
+\theoremkeyword=\toks57
+\qedsymbol=\toks58
+\thm@topsep=\skip75
+\thm@topsepadd=\skip76
+Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
+\c@endNonectr=\count169
+\c@currNonectr=\count170
+\mysavskip=\skip77
+Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input
+ line 1175.
+\thm@amstmpdepth=\dimen193
+\tagwidth=\dimen194
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen195
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/eucal.sty
+Package: eucal 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lettrine/lettrine.sty
+File: lettrine.sty 2013/03/14 v1.64 (Daniel Flipo)
+\c@DefaultLines=\count171
+\DefaultFindent=\dimen196
+\DefaultNindent=\dimen197
+\DefaultSlope=\dimen198
+\L@lbox=\box39
+\L@tbox=\box40
+\c@L@lines=\count172
+\L@Pindent=\dimen199
+\L@Findent=\dimen200
+\L@Nindent=\dimen201
+\L@lraise=\dimen202
+\L@first=\dimen203
+\L@next=\dimen204
+\L@slope=\dimen205
+\L@height=\dimen206
+\LettrineWidth=\dimen207
+
+Loading lettrine.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/lettrine/lettrine.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks59
+\footnotemargin=\dimen208
+\c@pp@next@reset=\count173
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@currpropositionctr=\count174
+\c@endpropositionctr=\count175
+\c@proposition=\count176
+\c@currdefinitionctr=\count177
+\c@enddefinitionctr=\count178
+\c@definition=\count179
+\c@currpropertyctr=\count180
+\c@endpropertyctr=\count181
+\c@property=\count182
+\c@currtheoremctr=\count183
+\c@endtheoremctr=\count184
+\c@theorem=\count185
+\c@currlemmactr=\count186
+\c@endlemmactr=\count187
+\c@lemma=\count188
+\c@currcorollaryctr=\count189
+\c@endcorollaryctr=\count190
+\c@corollary=\count191
+\c@currconjecturectr=\count192
+\c@endconjecturectr=\count193
+\c@conjecture=\count194
+\c@currexamplectr=\count195
+\c@endexamplectr=\count196
+\c@example=\count197
+\c@currconstructionctr=\count198
+\c@endconstructionctr=\count199
+\c@construction=\count200
+\c@currprocedurectr=\count201
+\c@endprocedurectr=\count202
+\c@procedure=\count203
+\c@currproofctr=\count204
+\c@endproofctr=\count205
+\c@proof=\count206
+\c@currproof2ctr=\count207
+\c@endproof2ctr=\count208
+\c@proof2=\count209
+\savedwidth=\skip78
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 196.
+LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 197.
+\@float@every@Program=\toks60
+\c@Program=\count210
+\mygraphic=\box41
+File: Figuras/ufpe.eps Graphic file (type eps)
+ <Figuras/ufpe.eps>)
+(./TeseJose.aux (./Capitula/Capitulum_1.aux) (./Capitula/Capitulum_2.aux)
+(./Capitula/Capitulum_3.aux) (./Capitula/Capitulum_7.aux)
+(./Capitula/Capitulum_8.aux) (./Capitula/Capitulum_6.aux)
+(./Capitula/Capitulum_4.aux) (./Capitula/Capitulum_5.aux))
+\openout1 = `TeseJose.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 192.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 192.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 192.
+LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 192.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             macros/latex/contrib/pageslts/ 
+(lastpage)             or
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
+(lastpage)             ! on input line 192.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 198.
+ [1
+
+]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 200.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 200.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 200.
+
+Underfull \hbox (badness 1242) in paragraph at lines 200--200
+[]\T1/ptm/b/n/12 Dissertação \T1/ptm/m/n/11 sub-me-tida ao Pro-grama de Pós-
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 200--200
+\T1/ptm/m/n/11 Co-orientador: Prof. Da-niel Pe-dro Be-zerra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--200
+
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 200.
+[1]
+File: Figuras/ficha.eps Graphic file (type eps)
+ <Figuras/ficha.eps>
+Overfull \hbox (6.90572pt too wide) in paragraph at lines 202--202
+ [] 
+ []
+
+File: Figuras/Signature.eps Graphic file (type eps)
+<Figuras/Signature.eps>
+Overfull \hbox (6.15291pt too wide) in paragraph at lines 204--204
+ [] 
+ []
+
+[3] [4] [5]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 210.
+LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 210.
+ (./Capitula/Agradeco.tex) [6] (./Capitula/Resumo.tex) [7]
+(./Capitula/Abstract.tex) [8] (./TeseJose.lof [9
+
+])
+\tf@lof=\write6
+\openout6 = `TeseJose.lof'.
+
+ [10] (./TeseJose.lot)
+\tf@lot=\write7
+\openout7 = `TeseJose.lot'.
+
+
+[11
+
+] (./TeseJose.toc
+LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <11> not available
+(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 6.
+ [12
+
+])
+\tf@toc=\write8
+\openout8 = `TeseJose.toc'.
+
+ [13]
+\openout2 = `Capitula/Capitulum_1.aux'.
+
+ (./Capitula/Capitulum_1.tex
+  1.
+LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <20.74> not available
+(Font)              Font shape `T1/ptm/b/sc' tried instead on input line 1.
+LaTeX Font Info:    Try loading font information for T1+psbj on input line 1.
+LaTeX Font Info:    No file T1psbj.fd. on input line 1.
+
+LaTeX Font Warning: Font shape `T1/psbj/m/n' undefined
+(Font)              using `T1/cmr/m/n' instead on input line 1.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <60> not available
+(Font)              size <35.83> substituted on input line 1.
+
+
+LaTeX Font Warning: Font shape `T1/psbj/m/n' in size <60> not available
+(Font)              size <35.83> substituted on input line 1.
+
+[14
+
+
+] [15]
+Overfull \hbox (2.87851pt too wide) in paragraph at lines 58--60
+[]\T1/ptm/m/n/11 No Ca-pí-tulo 3 propõe-se no-vas téc-ni-cas de di-men-si-o-na-
+mento de uma uni-dade de pós-processamento
+ []
+
+[16]) [17]
+\openout2 = `Capitula/Capitulum_2.aux'.
+
+ (./Capitula/Capitulum_2.tex
+  2.
+[18
+
+
+
+]
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 71.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+) [19] [20]
+File: Figuras/1.eps Graphic file (type eps)
+
+<Figuras/1.eps>
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 194.
+File: Figuras/2.eps Graphic file (type eps)
+ <Figuras/2.eps>
+File: Figuras/3.eps Graphic file (type eps)
+ <Figuras/3.eps> [21] [22]
+File: Figuras/4.eps Graphic file (type eps)
+ <Figuras/4.eps>
+File: Figuras/5.eps Graphic file (type eps)
+
+<Figuras/5.eps>
+File: Figuras/6.eps Graphic file (type eps)
+ <Figuras/6.eps>
+File: Figuras/7.eps Graphic file (type eps)
+ <Figuras/7.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
+
+ []
+
+[23]
+File: Figuras/mpar.eps Graphic file (type eps)
+ <Figuras/mpar.eps>
+File: Figuras/mimpar.eps Graphic file (type eps)
+ <Figuras/mimpar.eps> [24]
+File: Figuras/histmp.eps Graphic file (type eps)
+ <Figuras/histmp.eps>
+File: Figuras/histmi.eps Graphic file (type eps)
+
+<Figuras/histmi.eps> [25]
+File: Figuras/9.eps Graphic file (type eps)
+ <Figuras/9.eps>
+File: Figuras/10.eps Graphic file (type eps)
+ <Figuras/10.eps> [26]
+File: Figuras/tanH.eps Graphic file (type eps)
+
+<Figuras/tanH.eps>
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 437.
+) [27]
+\openout2 = `Capitula/Capitulum_3.aux'.
+
+ (./Capitula/Capitulum_3.tex
+  3.
+[28
+
+
+
+]
+File: Figuras/entropiar.eps Graphic file (type eps)
+ <Figuras/entropiar.eps>
+File: Figuras/entropiai.eps Graphic file (type eps)
+ <Figuras/entropiai.eps> [29] [30]
+File: Figuras/graf1.eps Graphic file (type eps)
+
+<Figuras/graf1.eps>
+File: Figuras/graf2.eps Graphic file (type eps)
+ <Figuras/graf2.eps> [31]
+File: Figuras/CVTpar.eps Graphic file (type eps)
+ <Figuras/CVTpar.eps>
+File: Figuras/CVTimpar.eps Graphic file (type eps)
+
+<Figuras/CVTimpar.eps>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 327.
+
+[32] [33]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 442.
+
+[34]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[35]
+
+LaTeX Warning: Text page 36 contains only floats.
+
+[36] [37] [38]
+File: Figuras/LFSREnt.eps Graphic file (type eps)
+ <Figuras/LFSREnt.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[39] [40]
+File: Figuras/LFSR1.eps Graphic file (type eps)
+ <Figuras/LFSR1.eps>
+File: Figuras/LFSR2.eps Graphic file (type eps)
+ <Figuras/LFSR2.eps> [41]
+File: Figuras/Nq.eps Graphic file (type eps)
+ <Figuras/Nq.eps>)
+[42] [43]
+\openout2 = `Capitula/Capitulum_7.aux'.
+
+ (./Capitula/Capitulum_7.tex
+  4.
+File: Figuras/entropiar1.eps Graphic file (type eps)
+<Figuras/entropiar1.eps>
+File: Figuras/CMPFT1.eps Graphic file (type eps)
+ <Figuras/CMPFT1.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Figuras/CVTpar1.eps Graphic file (type eps)
+<Figuras/CVTpar1.eps>
+File: Figuras/CMPVT1.eps Graphic file (type eps)
+ <Figuras/CMPVT1.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Figuras/entropiai1.eps Graphic file (type eps)
+<Figuras/entropiai1.eps>
+File: Figuras/CMIFT1.eps Graphic file (type eps)
+ <Figuras/CMIFT1.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Figuras/CVTimpar1.eps Graphic file (type eps)
+<Figuras/CVTimpar1.eps>
+File: Figuras/CMIVT1.eps Graphic file (type eps)
+ <Figuras/CMIVT1.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44
+
+
+
+]
+
+LaTeX Warning: Text page 45 contains only floats.
+
+[45]
+File: Figuras/CMPFT1.eps Graphic file (type eps)
+ <Figuras/CMPFT1.eps>
+File: Figuras/MPLFSR4.eps Graphic file (type eps)
+ <Figuras/MPLFSR4.eps>
+File: Figuras/MPLFSR7.eps Graphic file (type eps)
+ <Figuras/MPLFSR7.eps>
+File: Figuras/CMIFT1.eps Graphic file (type eps)
+
+<Figuras/CMIFT1.eps>
+File: Figuras/MILFSR2.eps Graphic file (type eps)
+ <Figuras/MILFSR2.eps>
+File: Figuras/MILFSR5.eps Graphic file (type eps)
+ <Figuras/MILFSR5.eps> [46]
+File: Figuras/CMPFT3.eps Graphic file (type eps)
+
+<Figuras/CMPFT3.eps>
+File: Figuras/CMPFT5.eps Graphic file (type eps)
+ <Figuras/CMPFT5.eps>
+File: Figuras/CMPFT7.eps Graphic file (type eps)
+ <Figuras/CMPFT7.eps>
+File: Figuras/CMIFT3.eps Graphic file (type eps)
+
+<Figuras/CMIFT3.eps>
+File: Figuras/CMIFT5.eps Graphic file (type eps)
+ <Figuras/CMIFT5.eps>
+File: Figuras/CMIFT7.eps Graphic file (type eps)
+ <Figuras/CMIFT7.eps>
+File: Figuras/CMPVT3.eps Graphic file (type eps)
+
+<Figuras/CMPVT3.eps>
+File: Figuras/CMPVT5.eps Graphic file (type eps)
+ <Figuras/CMPVT5.eps>
+File: Figuras/CMPVT7.eps Graphic file (type eps)
+ <Figuras/CMPVT7.eps>
+File: Figuras/CMIVT3.eps Graphic file (type eps)
+
+<Figuras/CMIVT3.eps>
+File: Figuras/CMIVT5.eps Graphic file (type eps)
+ <Figuras/CMIVT5.eps>
+File: Figuras/CMIVT7.eps Graphic file (type eps)
+ <Figuras/CMIVT7.eps> [47] [48]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[49] [50]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 517.
+
+File: Figuras/CoMP3.eps Graphic file (type eps)
+<Figuras/CoMP3.eps>
+File: Figuras/CoMP5.eps Graphic file (type eps)
+ <Figuras/CoMP5.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Figuras/CoMI3.eps Graphic file (type eps)
+<Figuras/CoMI3.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Figuras/CoMI5.eps Graphic file (type eps)
+<Figuras/CoMI5.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Figuras/EntPos1.eps Graphic file (type eps)
+<Figuras/EntPos1.eps> [51]
+File: Figuras/EntPos2.eps Graphic file (type eps)
+ <Figuras/EntPos2.eps>) [52] [53]
+\openout2 = `Capitula/Capitulum_8.aux'.
+
+
+(./Capitula/Capitulum_8.tex
+  5.
+[54
+
+
+
+]
+File: Figuras/EMC.eps Graphic file (type eps)
+ <Figuras/EMC.eps>
+File: Figuras/CMC.eps Graphic file (type eps)
+ <Figuras/CMC.eps>
+File: Figuras/EMH.eps Graphic file (type eps)
+ <Figuras/EMH.eps>
+File: Figuras/CMH.eps Graphic file (type eps)
+ <Figuras/CMH.eps>
+File: Figuras/CMCFT3.eps Graphic file (type eps)
+
+<Figuras/CMCFT3.eps>
+File: Figuras/CMCFT5.eps Graphic file (type eps)
+ <Figuras/CMCFT5.eps>
+File: Figuras/CMCFT7.eps Graphic file (type eps)
+ <Figuras/CMCFT7.eps>
+File: Figuras/CMHFT3.eps Graphic file (type eps)
+
+<Figuras/CMHFT3.eps>
+File: Figuras/CMHFT5.eps Graphic file (type eps)
+ <Figuras/CMHFT5.eps>
+File: Figuras/CMHFT7.eps Graphic file (type eps)
+ <Figuras/CMHFT7.eps>
+File: Figuras/Nmin2.eps Graphic file (type eps)
+
+<Figuras/Nmin2.eps> [55]
+File: Figuras/EMC1.eps Graphic file (type eps)
+ <Figuras/EMC1.eps>
+File: Figuras/CMC1.eps Graphic file (type eps)
+ <Figuras/CMC1.eps> [56]
+File: Figuras/CMCVT3.eps Graphic file (type eps)
+
+<Figuras/CMCVT3.eps>
+File: Figuras/CMCVT5.eps Graphic file (type eps)
+ <Figuras/CMCVT5.eps>
+File: Figuras/CMCVT7.eps Graphic file (type eps)
+ <Figuras/CMCVT7.eps>
+File: Figuras/CMHVT3.eps Graphic file (type eps)
+
+<Figuras/CMHVT3.eps>
+File: Figuras/CMHVT5.eps Graphic file (type eps)
+ <Figuras/CMHVT5.eps>
+File: Figuras/CMHVT7.eps Graphic file (type eps)
+ <Figuras/CMHVT7.eps> [57]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 166.
+
+File: Figuras/CMC3.eps Graphic file (type eps)
+<Figuras/CMC3.eps>
+File: Figuras/CMH3.eps Graphic file (type eps)
+ <Figuras/CMH3.eps>
+File: Figuras/EMC3.eps Graphic file (type eps)
+ <Figuras/EMC3.eps>
+File: Figuras/EMH3.eps Graphic file (type eps)
+ <Figuras/EMH3.eps>)
+[58] [59] [60]
+\openout2 = `Capitula/Capitulum_6.aux'.
+
+ (./Capitula/Capitulum_6.tex
+  6.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 20--250
+
+ []
+
+[61
+
+
+
+] [62]
+\openout2 = `Capitula/Capitulum_4.aux'.
+
+ (./Capitula/Capitulum_4.tex
+  A.
+[63
+
+
+
+] [64]) [65]
+\openout2 = `Capitula/Capitulum_5.aux'.
+
+ (./Capitula/Capitulum_5.tex
+  B.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (30.94258pt too wide) in paragraph at lines 80--81
+[]\T1/ptm/m/n/11 Assumindo um LFSR com con-di-ções ini-cias $\OMS/cmsy/m/n/11 f
+\OML/cmm/m/it/11 s[]; :::; s[]\OMS/cmsy/m/n/11 g$\T1/ptm/m/n/11 , sua saída é $
+\OMS/cmsy/m/n/11 f\OML/cmm/m/it/11 s[]; []  ; s[]; s[]; s[]; [] \OMS/cmsy/m/n/1
+1 g$\T1/ptm/m/n/11 .
+ []
+
+[66
+
+
+
+] [67]) [68] (./Capitula/Vitae.tex)
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 263.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) (./TeseJose.bbl
+[69
+
+
+] [70
+
+] [71] [72]) 
+AED: lastpage setting LastPage
+[73]
+\tf@thm=\write9
+\openout9 = `TeseJose.thm'.
+
+ (./TeseJose.aux (./Capitula/Capitulum_1.aux) (./Capitula/Capitulum_2.aux)
+(./Capitula/Capitulum_3.aux) (./Capitula/Capitulum_7.aux)
+(./Capitula/Capitulum_8.aux) (./Capitula/Capitulum_6.aux)
+(./Capitula/Capitulum_4.aux) (./Capitula/Capitulum_5.aux))
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 24.17pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(\end occurred inside a group at level 7)
+
+### simple group (level 7) entered at line 4 ({)
+### simple group (level 6) entered at line 4 ({)
+### simple group (level 5) entered at line 3 ({)
+### simple group (level 4) entered at line 4 ({)
+### simple group (level 3) entered at line 4 ({)
+### simple group (level 2) entered at line 4 ({)
+### simple group (level 1) entered at line 4 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 12178 strings out of 495005
+ 182062 string characters out of 6180688
+ 409954 words of memory out of 5000000
+ 14927 multiletter control sequences out of 15000+600000
+ 111075 words of font info for 177 fonts, out of 8000000 for 9000
+ 16 hyphenation exceptions out of 8191
+ 55i,18n,92p,685b,1266s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on TeseJose.dvi (73 pages, 413996 bytes).
