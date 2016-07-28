@@ -1,0 +1,282 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%  Paulo Roberto Lima Martins
+%%%  Rua Artur Wanderley, 205
+%%%  50740-310, Várzea
+%%%  Recife - PE
+%%%  Brasil
+%%%
+%%%  e-mail: paulmrt.25@gmail.com
+%%%
+
+\documentclass[a4paper]{ppgee}         %% LaTeX2e document.a
+\usepackage{subfigure}
+\usepackage{graphicx}
+
+
+\input{Config/customization}  %% Edite o arquivo customization.tex
+                              %% para inserir macros personalizadas, mudar fontes e
+                              %% o que mais precisar!
+
+
+% INÍCIO DAS CONFIGURAÇÕES DA TESE
+% PREENCHA OS CAMPOS ADEQUADAMENTE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\cabecalho
+\numberup                            %% Segundo orientação do PPGEE-UFSC,
+                                     %% a numeração deve ser no canto superior
+                                     %% direito.
+                                     %% Comente esse comando para numeração
+                                     %% no pé da página e centralizada,
+                                     %% nesse caso faça por sua própria conta
+                                     %% e risco.
+
+
+ \mastersthesis                       %% Escolha uma das opções
+% \phdthesis                         %%
+
+
+% \thesisdraft                       %% Descomente esse comando nas versões
+                                     %% racunho para que apareca um
+                                     %% cabeçalho indicando a última versão da tese
+                                     %% (data e hora) para não misturar
+                                     %% as versões rascunho.
+
+\leftchapter                         %% Uncomment one of these if you want
+% \centerchapter                     %% left-justified, centered or
+% \rightchapter                      %% right-justified chapter headings.
+                                     %% Chapter headings includes the
+                                     %% Contents, Acknowledgments, Lists
+                                     %% of Tables and Figures and the Vita.
+                                     %% The default is \centerchapter.
+
+
+%  \singlespace                      %% Uncomment one of these if you want
+  \oneandhalfspace                   %% single-spacing, space-and-a-half
+%  \doublespace                      %% or double-spacing; the default is
+                                     %% \oneandhalfspace, which is the
+                                     %% minimum spacing accepted by the
+                                     %% Graduate School.
+
+                                     %% A recomendação do PPGEE é
+                                     %% espacamento 1,5
+
+
+\renewcommand{\thesiscopyrightholder}{UFPE}                 %%
+\renewcommand{\thesisauthor}{Daniel Kudlowiez Franch}    %% Nome do Autor.
+\renewcommand{\thesisday}{--}                               %% Dia da Defesa.
+
+\renewcommand{\thesismonth}{Fevereiro}                  %% Mês da defesa em portugues
+\renewcommand{\thesismontheng}{February}               %% Mês da defesa em ingles
+\newcommand{\thesismonthefr}{XXXX}                 %% Mês da defesa em francês
+
+\renewcommand{\thesisyear}{2017}                    %% Ano da defesa.
+
+\renewcommand{\thesistitle}{\centering
+    \begin{minipage}{.75\textwidth}
+    \begin{center}
+
+    Dynamic System Modeling and Fault Detection With Probabilistic Finite State Automata %% Título da Tese
+
+
+    \end{center}
+    \end{minipage}}
+
+
+\renewcommand{\thesistitleenglish}{\centering
+    \begin{minipage}{.75\textwidth}
+    \begin{center}
+
+    Dynamic System Modeling and Fault Detection  With Probabilistic Finite State Automata %% Título da Tese em inglês
+
+    \end{center}
+    \end{minipage}}
+
+
+\renewcommand{\thesisarea}{Comunicações} %%  Área de Concentração
+\renewcommand{\thesisareaeng}{Communications} %%  da tese
+
+
+
+\renewcommand{\palavraschaves}{Probabilistic finite state automata, dynamic systems, system modeling, fault detection, conditional entropy, Kullback-Leibler divergence.}
+
+\renewcommand{\keywords}{Probabilistic finite state automata, dynamic systems, system modeling, fault detection, conditional entropy, Kullback-Leibler divergence.}
+        %% Consultar http://www.ieee.org/web/developers/webthes/startidx.htm
+        %% para obter lis88a de palavras-chaves
+
+
+
+\renewcommand{\coordenador}{Prof. Cecilio José Lins Pimentel.}
+
+\renewcommand{\thesisauthoraddress}{Endereço}
+
+                                    %% Endereço do autor; use "\\" para
+                                    %% quebra de linhas.
+
+\newcommand{\authoremail}{{\tt daniel.k.br@ieee.org}}
+
+
+\renewcommand{\thesisdedication}{To my grandmother Z{\'e}lia\\
+                                 To my parents and sister for all the support they gave me.\\
+                                 To my advisers for all the guidance provided.}
+                                    %% Dedicatória, use "\\" para
+                                    %% quebra de linhas.
+
+
+%% A banca examinador a.
+%%
+
+
+
+%% NOTA:
+%% Caso determinado membro não exista na sua banca,
+%% coloque o nome ''nao''.
+
+\renewcommand{\thesiscosupervisor}{---}           %% Co-orientador
+\renewcommand{\thesissupervisor}{Prof. Cecilio José Lins Pimentel.}
+\renewcommand{\thesiscosupervisor}{Prof. Daniel Pedro Bezerra Chaves.}
+\renewcommand{\commiteemembera}{Prof. Cecilio José Lins Pimentel, Ph.D.}
+\renewcommand{\InstA}{Universidade Federal de Pernambuco}
+\renewcommand{\commiteememberb}{----}
+\renewcommand{\InstB}{-------} 
+\renewcommand{\commiteememberc}{nao}%%
+\renewcommand{\InstC}{nao}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% Normalmente, não é necessário
+%%% modificar os parâmetros abaixo.
+%%%
+%%%
+
+
+%\renewcommand{\thesisdegree}{...}   %% Uncomment this only if your thesis
+                                     %% degree is NOT "DOCTOR OF PHILOSOPHY"
+                                     %% for \phdthesis or "MASTER OF ARTS"
+                                     %% for \mastersthesis.  Provide the
+                                     %% correct FULL OFFICIAL name of
+                                     %% the degree.
+
+%\renewcommand{\thesisdegreeabbreviation}{...}
+                                     %% Use this if you also use the above
+                                     %% command; provide the OFFICIAL
+                                     %% abbreviation of your thesis degree.
+
+%\renewcommand{\thesistype}{...}     %% Use this ONLY if your thesis type
+                                     %% is NOT "Dissertation" for \phdthesis
+                                     %% or "Thesis" for \mastersthesis.
+                                     %% Provide the OFFICIAL type of the
+                                     %% thesis; use mixed-case.
+
+%\renewcommand{\thesistypist}{por fulano}  %% Use this to specify the name of
+                                     %% the thesis typist if it is anything
+                                     %% other than "the author".
+
+%\renewcommand{\thesisvitahead}{...}
+
+%%
+%%
+%% FIM DAS CONFIGURAÇÕES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%
+%%
+%%
+%%
+%% INÍCIO DO DOCUMENTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\fontsize{11}{\baselineskip}\selectfont
+
+%\thesiscopyrightpage                 %% Generate the copyright page.
+                                      %% Apenas em Doutoramento.
+
+\thesiscoverpage                      %% Capa da tese.
+
+
+%\include{Config/cip_nominata}        %% Catalogação bibliográfica
+                                      %% Macros ainda não completamente
+                                      %% implementada. Use ao seu
+                                      %% próprio risco.
+
+\thesistitlepage                      %% Página do título.
+
+%\thesissignaturepage                  %% Página de assinaturas
+                                      %% dos integrantes da banca etc.
+
+\thesisdedicationpage                 %% Dedicatória ... Lembrar de mudar isso!
+                                      %% (opcional).
+
+%\begin{thesisacknowledgments}         %%
+%\input{Capitula/Agradeco}             %% Agradecimentos ...
+%\end{thesisacknowledgments}           %% (opcional).
+
+%\begin{epigrafe}                      %%
+%\input{Capitula/epigrafe}             %% Epígrafo ...
+%\end{epigrafe}                        %% (opcional).
+
+
+\begin{thesisabstract}                %% Use this to write your thesis
+\input{Capitula/Resumo}               %% abstract; it can be anything
+\end{thesisabstract}                  %% allowed in LaTeX2e par-mode.
+
+\begin{thesisabstractenglish}         %% Use this to write your thesis
+\input{Capitula/Abstract}             %% abstra				28ct; it can be anything
+\end{thesisabstractenglish}           %% allowed in LaTeX2e par-mode.
+
+%% \setcounter{secnumdepth}{3}           %% Profundidade da numeração
+%% \setcounter{tocdepth}{3}              %% Profundidade do Conteúdo
+%%
+%% Não é recomendado profundidades maiores que 2,
+%% portanto não aconselho que altere esse parâmetro
+
+
+\begin{spacing}{1}
+\listoffigures                        %% Lista de figuras
+\listoftables                         %% Lista de tabelas
+\tableofcontents
+\end{spacing}                         %% Conteúdo
+\label{`lastromanpage'}               %% Marcador da última página da
+                                      %% parte pre-textual.
+                                      %% **NÃO** altere essa linha.
+                                      %% Uso interno do sistema.
+
+
+\include{Capitula/Capitulum_1}                         %%
+\include{Capitula/Capitulum_2}                         %%  Inclusão dos
+\include{Capitula/Capitulum_3}                         %%  capítulos
+\include{Capitula/Capitulum_7}                         %%
+\include{Capitula/Capitulum_8}                         %%
+\include{Capitula/Capitulum_6}                         %%
+
+
+%\include{Config/biblio}             %% o BiBTeX (thanks God!)
+
+\appendix
+
+%% Apêndices iniciam aqui.
+\include{Capitula/Capitulum_4}                      %% Inclusão dos apêndices
+\include{Capitula/Capitulum_5}
+
+\begin{thesisauthorvita}              %%
+\input{Capitula/Vitae}                 %% Sobre o autor, afinal ...
+\end{thesisauthorvita}                %%
+
+
+\label{`lastarabicpage'}              %% Marcador da última pagina
+                                      %% **NÃO** alteressa linha.
+                                      %% Uso interno do sistema
+% Bibliografia
+% É aconselhável utilizar o BibTeX a partir de um arquivo, digamos "biblio.bib".
+% Para ajuda na criação do arquivo .bib e utilização do BibTeX, recorra ao
+% BibTeXpress em www.cin.ufpe.br/~paguso/bibtexpress
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{biblio}
+
+                                      
+\end{document}                        %% Fim. (Palavra estranha para o começo de tudo!)

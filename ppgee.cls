@@ -265,7 +265,7 @@
       %{\small \copyright \thesisauthor, \thesisyear}
     \end{center}
     \end{spacing}
-    }
+    \newpage}
 
 %%%
 %%% Comando para a pagina de assinaturas
@@ -292,9 +292,9 @@
 \vspace{10cm}
 
 \begin{center}
-    \includegraphics[scale =.75]{Figuras/ficha.eps}
+    \includegraphics[scale =.75]{Figuras/Ficha.eps}
 \end{center}
-}
+\newpage}
 
 
 %%%
@@ -304,7 +304,7 @@
     \setcounter{page}{3}   %% Recomendacao ABNT
     \thispagestyle{empty}
 \begin{center}
-    \includegraphics[scale =.75]{Figuras/Signature.eps}
+    \includegraphics[scale =.95]{Figuras/Signature.eps}
 \end{center}
 \newpage}
 %

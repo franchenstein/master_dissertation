@@ -1,500 +1,285 @@
-\chapter{Revisão de Sistemas Caóticos}\label{cap:1}
+\chapter{Revision}\label{cap:2}
 
 
-{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{E}{ste} capítulo faz uma revisão de sistemas caóticos, concentrando-se em mapas caóticos unidimensionais e suas características. Informações 
-detalhadas sobre sistemas caóticos podem ser obtidas em \cite{alligood.97}.
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{T}{his} chapter revises the concepts needed to develop the algorithms and their application.
 
+\section{Sequences of Discrete Symbols}
+This section provides tools to describe sequences of discrete symbols. The length of a sequence \textit{u} is denoted by $|\textit{u}|$. The empty sequence $\epsilon$ is defined as the sequence with length 0. The set of all possible symbols for a sequence is called its alphabet, represented as $\Sigma$. The set of all possible sequences of \textit{n}, \textit{n} $in \mathbb{Z}$ symbols from $\Sigma$ is $\Sigma^n$ and the set of all sequences of symbols from $\Sigma$ with all possible lengths, including the empty sequence sequence $\epsilon$, is $\Sigma^*$. 
 
-\section{Sistemas dinâmicos caóticos}
+Two sequences \textit{u} and \textit{v} $\in \Sigma^*$ can be concatenated to form a sequence \textit{uv}. For example, using a binary alphabet $\Sigma = \{0,1\}$ and \textit{u} = 1010 and \textit{v} = 111, they can be concatenated to form \textit{uv} = 1010111. 
 
-%Nesta seção são definidos os conceitos básicos de sinais e sistemas, e as diferenças entre os sistemas lineares, que têm dominado
-%o processamento de sinal, e os sistemas não-lineares necessárias para a existência do caos determinístico. Nesta tese se tratará a estimativa de sequências binárias discretas caóticas obtidas de mapas caóticos,
-%assim como sua aleatoriedade, no nosso caso trabalharemos com o mapa tangente hiperbólica.
+Note that $|\textit{uv}| = |\textit{u}| + |\textit{v}|$. Concatenation is associative, which means \textit{u}(\textit{vw}) = (\textit{uv})\textit{w} = \textit{uvw}, but it is not commutative, as \textit{uv} is not necessarily equal to \textit{vu}. This means that $\Sigma^*$ with the operation of concatenation is a Monoid, as it is a set with an associative operation with an identity element (the empty string).
 
-%Um sinal é uma função de uma ou mais variáveis independentes que contêm informações sobre o comportamento ou a natureza de alguns
-%fenômenos. A classificação mais comum de sinais é contínuo e discreto. Nesta tese trabalharemos principalmente com os sinais de 
-%tempo discreto. Os sinais mais utilizados são correspondente às amostras da sequência caótica, que associa a cada índice de um
-%número real dentro de uma gama, $x_N: N\rightarrow I$, em que $N={0,. . . , N}$, e $I$ est\'a definido no intervalo $I=[-1,1]$ ou $I=[0,1]$.
+A sequence \textit{v} $\in \Sigma^*$ is called a suffix of a sequence \textit{w} $\in \Sigma^*$ (given $|\textit{w}| > |\textit{v}|$) if \textit{w} can be written as a concatenation \textit{uv}, where \textit{u} $\in \Sigma^*$, that is \textit{w} = \textit{uv}. In this same sense, the sequence \textit{u} is called a prefix of \textit{w}. 
 
-%Um sistema é qualquer processo através do qual um conjunto de sinais de entrada é
-%transformado para um outro conjunto de sinais de saída, ou que reage a sinais de entrada, resultando em um outro conjunto de sinais
-%de saída. Estes são classificados em sistemas lineares e não lineares. Sistemas não lineares levam a comportamentos dinâmicos mais complexos que os sistemas lineares de modo que 
-%são conhecidos como sistemas dinâmicos. O termo dinâmico indica movimento, mudança, variação. Esta é uma característica importante destes sistemas.
+\section{Graphs}
 
-%Um sistema linear define-se como um sistema que cumpre o \textit{principio de superposição}: se $\{x_1[n] \rightarrow y_1[n]\}$ e $\{x_2[n] \rightarrow y_2[n]\}$, então 
-%$\{a_1 x_1[n] + a_2 x_2[n] \rightarrow a_1 y_1[n] + a_2 y_2[n]\}$, para qualquer $a_1, a_2 \in \mathbb{R}$. Uma segunda propriedade dos sistemas lineares é a 
-%\textit{invariância frente ao deslocamento}: se $x[n] \rightarrow y[n]$, então $x[n - n_0] \rightarrow y[n - n_0]$, para qualquer $n_0 \in \mathbb{R}$ \cite{oppen1}.
-
-
-%Um sistema linear uma modificação de sinal de entrada provoca uma mudança proporcional nos sinais de saída. 
-%Isto é, uma pequenas mudanças na entrada provoca pequenas alterações em saídas, enquanto que as grandes alterações nas
-%entradas levam a grandes alterações nas saídas.
-
-%Embora os sistemas lineares sejam úteis em muitas ocasiões são uma aproximação de primeira ordem do mundo real. Na verdade, o entendimento defendido atual \'e que os sistemas
-%lineares são a exceção e não a regra, e até mesmo alguns argumentam que os sistemas lineares não existem na natureza \cite{7}.
-
-%A diferença conceitual radical entre os sistemas lineares e não lineares pode ser visto comparando algumas de suas características
-%básicas \cite{7}:
-
-%\begin{enumerate}
-% \item Sistemas lineares se assemelham entre si, enquanto cada sistema não linear é único porque existem grandes diferenças entre 
-% as várias funções não lineares, o que torna difícil desenvolver uma teoria geral dos sistemas não lineares.
-% \item Os sinais gerados pelos sistemas lineares apresentam um comportamento suave e regular a longo prazo, enquanto os gerados por
-% sistemas não lineares pode ter um comportamento irregular e errático.
-% \item Em sistemas lineares a saída varia em proporção ao estímulo recebido(entrada), enquanto que os sistemas não lineares de saída 
-% pode ser muito mais elevado ou mais baixo do que o estímulo.
-%\end{enumerate}
-
-%Um \textit{sistema dinâmico} é um conjunto de possíveis estados, junto a uma regra em que o estado atual é determinado em
-%termos dos estados anteriores \cite{alligood.97}. Define-se \textit{vetor de estado} de um sistema dinâmico o vetor que contém o valor de todas as 
-%variáveis dependentes do sistema dinâmico num dado instante de tempo ou iteração. 
-%O conjunto de todos os possíveis vetores de estados é conhecido como \textit{espaço de fase}. Se a 
-%regra for aplicada em tempos discretos, este é chamado um sistema dinâmico de tempo discreto, também denominados de \textit{mapas}.
-Um sistema é um conjunto de componentes (físicos, biológicos, mecânicos, etc.) que interagem de forma definida. Exemplos: o mercado interno de um país, o sistema circulatório do corpo 
-humano, o conjunto suspensão e amortecimento de um automóvel, um circuito eletrônico, uma coluna de destilação, uma caldeira industrial, o ecossistema de um lago etc. Um conjunto de 
-equações é também um sistema, porém, para evitar confusão, o termo ``sistema'' é muitas vezes reservado para o processo real, enquanto uma equação ou conjunto de equações recebe a denominação 
-de ``modelo''. Quando este é interpretado como uma representação daquele, recebe a denominação de modelo do sistema \cite{aguirre}.
-
-Denota-se sistema dinâmico aquele cuja saída no instante ``$k$'' depende de valores passados da saída, da entrada e do valor presente. Portanto, os sistemas dinâmicos possuem memória e são  descritos por equações 
-diferenciais no caso de sistemas contínuos, e por equações de diferença no caso de sistemas discretos. O estado de um sistema dinâmico é um conjunto de variáveis, que podem ou não estar associadas 
-a quantidades físicas, cuja especificação (na ausência de excitações externas) determina completamente a evolução do sistema. Tal conjunto de variáveis, apesar de ter cardinalidade definida, 
-não é unicamente especificado e está associado à memória do sistema dinâmico. Este conjunto recebe a denominação de vetor de estado quando é representado por meio de um espaço de dimensão $n$, 
-portanto, contém o valor de todas as variáveis dependentes do sistema dinâmico num dado instante de tempo ou iteração. O conjunto de todos os possíveis vetores de estados é conhecido 
-como \textit{espaço de fase}. Se a regra for aplicada em tempo discreto, este é chamado um sistema dinâmico de tempo discreto, também denominados de \textit{mapa}.
-
-O comportamento dos mapas é observado mediante uma série temporal discreta $\{x_i\}_{i=0}^{\infty}$, obtida pela iteração de uma função $f(x)$, não linear, sob uma condição 
-inicial $x_0$, da seguinte forma:
-\begin{equation}
- x_n = f(x_{n-1}),   n=1, 2, 3,....
-\end{equation}
-Uma \textit{órbita} de $x_0$ é um conjunto de pontos \{$x_0$, $f(x_0)$, $f^2(x_0)$ ...\}, em que $f^k$ denota a k-ésima composição de $f(x)$ \cite{alligood.97}. Um ponto fixo $x_k$ é o ponto no 
-qual se tem $f(x_k)=c$, para todo $k \in \mathbb{N}$ sendo $c$ uma constante~\cite{alligood.97}. 
-Uma órbita periódica tem período $k$, se $f^k(x_0)= x_0$, ou seja, os primeiros pontos são $\{x_0, f(x_0), f^2(x_0),..., f^{k-1}(x_0), x_0\}$, onde $f^p(x_0)\neq x_0$, para todo 
-$p=\{1,2,...,k-1\}$  \cite{alligood.97}.
-
-Pode-se representar graficamente uma órbita pelo método conhecido como diagrama cobweb~\cite{alligood.97}, uma representação do comportamento global do sistema, particularmente útil na análise 
-de sistemas não 
-lineares. O processo consiste em projetar verticalmente a amostra $x_0$ sob o gráfico da função $f(x)$ e 
-horizontalmente sob o gráfico de $y = x$. Repetindo este processo $n$ vezes obtém-se os pontos da órbita, formando-se os pares 
-$\{(0,x_0), (x_0,x_1), (x_1,x_1), (x_1,x_2), (x_2,x_2), (x_2,x_3) \cdots\}$. Neste método é possível reconhecer visualmente o comportamento do sistema. Exemplos 
-deste diagrama são apresentados na Seção 2.3.
-
-%Uma das características mais importantes dos mapas caóticos é a sensibilidade à condição inicial. Um sistema dinâmico é sensível às condições iniciais se existe um número 
-%positivo $\delta$ tal que para todo $x_0$ e $\epsilon > 0$ existem $y_0$ e $n>0$ que satisfaz \cite{alligood.97}:
-%\begin{equation}
-% |x_0 - y_0|< \epsilon, \mbox{e} |f^k(x_0)-f^k(y_0)|> \delta
-%\end{equation}
-%isto é, existe um número positivo $\delta$ tal que todos os pontos de partida do espaço de fase que são arbitrariamente próximos são separados em algum
-%tempo da órbita inicial por uma distância maior que $\delta$. 
-A seguir, define-se o conceito de expoente de Lyapunov, que quantifica a sensibilidade de um sistema às condições iniciais. Ele costuma ser empregado para caracterizar um comportamento 
-caótico de um sistema.
-
-%Um sistema de tempo discreto pode modelar fenômenos reais, e não todos os pontos fixos são iguais, eles podem ser estável o 
-%não. Os ponto fixos estável tem a propriedade que os pontos cercanos a ele, baixo o sistema dinâmico ficam mas perto de ele. Os
-%ponto fixos não estável van-se afastando dele ao longo do tempo.
-
-%\begin{itemize}
-%\item Se $|f'(p)|<1$, o ponto é de atração;
-%item Se $|f'(p)|>1$, o ponto é de repulsão;
-%\end{itemize}.
-
-%Os pontos cercanos são definidos como todos os pontos que fique a uma distancia menor que $|x-\epsilon|$, sendo $\epsilon$ um
-%valor pequeno e positivo. O conjunto de números cercanos $N_\epsilon$ estão definidos no intervalo de números
-%$\{x\in R:|x-p|<\epsilon\}$  \cite{alligood.97}.
-
-%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO -Conceitos Básicos de sistemas dinâmicos caóticos  %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Quantificação da dinâmica caótica}
-
-%Neste seção, vamos estudar propriedades elementares de expoentes de Lyapunov como principal quantificador do caos.
-
-%Dado uma condição inicial $x_0$, consideramos um ponto perto dele $x_0 + \delta$, onde a separação inicial $\delta_0$ é extremadamente pequena. Seja $\delta_k$ a separação depois de 
-%$k$ iterações. Se $|\delta_k| \approx |\delta_0| e^{k\lambda}$, com $\lambda$ é chamado o expoente de Lyapunov.
-
-O número de Lyapunov é utilizado para quantificar a taxa média de separação multiplicativa entre duas órbitas infinitesimalmente próximas com condições iniciais $x_0$ e $x_0 + \epsilon$.
-O expoente de Lyapunov é simplesmente o logaritmo natural do número de Lyapunov. Um número de Lyapunov igual a 2 (ou equivalentemente 
-um expoente de Lyapunov $\ln 2$) significa que a distância entre a órbita iniciada $x_0$ e a órbita muito próxima iniciada em $x_0 + \epsilon$ é duas vezes maior por cada iteração, em média. Um 
-número de Lyapunov $1/2$ significa que a distância é reduzida para metade em cada iteração, e as órbitas iniciadas em $x_0$ e em $x_0 + \epsilon$ ficam mais perto uma da outra.
-
-O número de Lyapunov $L(x_0)$ de uma orbita gerada por um mapa unidimensional $f(x)$ está definido como \cite{alligood.97}:
-
-\begin{equation}
- L(x_0) = \lim_{n \longrightarrow \infty} (|f^{\prime}(x_0)|...|f^{\prime}(x_{n-1})|)^{1/n}
-\end{equation}
-se o limite existe, em que $f^{\prime}$ é a derivada de $f$. O expoente de Lyapunov $h(x)$ é definido como \cite{alligood.97}:
-
-\begin{equation}
- h(x) = \lim_{n\longrightarrow \infty} \frac{1}{n}\sum_{i=0}^{n-1} \ln |f^{\prime}(x_i)|
-\end{equation}
-se o limite existe. Note-se que $h(x)$ existe se, e somente se, $L(x_0)$ existe e é diferente de zero, de modo que $h (x)= \ln L(x_0)$.
-
-%O número e o expoente de Lyapunov são indefinidos para algumas órbitas. Em particular, uma órbita que contem um ponto $x_i$ com 
-%$f^{'}(x_i)=0$ faz com que o expoente de Lyapunov seja indefinido. A definição do número de Lyapunov de um ponto fixo $x$ de um mapa unidimensional $f$ é a derivada da função nesse ponto 
-%($f^{'}(x)$), ou equivalentemente, 
-%o expoente de Lyapunov da órbita é $h(x) = \ln|f'(x)|$.
-
-Uma órbita de $x_0$ é assintoticamente periódica se converge para uma órbita periódica quando $n \rightarrow \infty$. Isto significa que existe uma órbita periódica 
-$\{y,f(y), f^2(y) ..., f^k(y),y,f(y), f^2(y) ...\}$, tal que
-
-\begin{equation}
- \lim_{n \rightarrow \infty} |x_n -y_n| = 0.
-\end{equation}
-Uma órbita é caótica se \cite{alligood.97}:
-
+\begin{definition}[\textbf{Graph}]\label{def:graph}
+A graph \textit{G} over the alphabet $\Sigma$ consists of a triple (\textit{Q}, $\Sigma$, $\delta$):
 \begin{itemize}
- \item O expoente de Lyapunov é maior que zero.
- \item A órbita não é assintoticamente periódica.
+	\item \textit{Q} is a finite set of states with cardinality $|Q|$;
+    \item $\Sigma$ is a finite alphabet with cardinality $|\Sigma|$;
+    \item $\delta$ is the state transition function $Q\times\Sigma \rightarrow Q$;
 \end{itemize}
+\end{definition}
 
-Estes parâmetros quantificam a dinâmica caótica de sistemas, mas não há uma definição formal do caos. Entretanto, sabe-se que um sistema para ser caótico deve satisfazer as 
-seguintes propriedades \cite{strogatz.01}:
+Each state \textit{q} from \textit{Q} has at most $|\Sigma|$ outgoing edges. Each outgoing edge from a state is labeled with a unique symbol from $\Sigma$ and it arrives at only one state \textit{$q^{\prime}$} $\in$ \textit{Q}. This behavior is described by the function $\delta : Q \times \Sigma \rightarrow Q$, which is the transition function. For example, leaving state \textit{q} with the edge labeled with \textit{a} and arriving at state \textit{$q^{\prime}$} is represented by $\delta(q, 0) = q^{\prime}$. Figure \ref{fig:graph} shows an example of a graph over a binary alphabet.
 
-\begin{itemize}
- \item \textbf{Comportamento aperiódico a longo prazo}: Existem órbitas que não tendem a pontos fixos, órbitas periódicas, ou quase-periódicas quando $t \rightarrow \infty$.
- \item \textbf{Determinístico}: O comportamento irregular é dado pela não linealidade do sistema, não devido a ruídos externos, ou seja, o sistema deve ser inerentemente determinístico.
- \item \textbf{Sensibilidade às condições inicias}: Órbitas com condições inicias próximas separam-se exponencialmente (quantificado pelo expoente de Lyapunov). 
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - Mapas caóticos e suas características %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Exemplos de mapas caóticos}
-
-Nesta seção, são analisados três mapas caóticos unidimensionais: 
-
-\begin{itemize}
- \item Mapa Logístico.
- \item Mapa da Tenda.
- \item Mapa Tangente Hiperbólica.
-\end{itemize}
-
-Os dois primeiros mapas (logístico, tenda) são amplamente conhecidos na literatura, enquanto o mapa tangente hiperbólica foi introduzido em \cite{tanh14}.
-
-\subsection{Mapa logístico}
-
-Para uma família de mapas logísticos $f : [0,1]\rightarrow [0,1]$, definido como~\cite{alligood.97}: 
-\begin{equation}
- f(x)=ax(1-x)
-\end{equation}
-
-tem-se que:
-
-\begin{itemize}
-\item Se o parâmetro $a$ está na faixa $0<a\leq 1$, o mapa só tem um ponto fixo em $p=0$, como mostra a Figura \ref{fig:Fig1}.
-\item Se o parâmetro $a$ está na faixa $1<a\leq 3,5$, o mapa tem dois pontos fixos em $p=0$ e $p=\frac{a-1}{a}$, como mostra a Figura \ref{fig:Fig2}.
-\item Se o parâmetro $a$ está na faixa $3,5<a\leq 4$, o mapa gera caos, como mostra a Figura \ref{fig:Fig3}.
-\end{itemize}
-
-\begin{figure}[!b]
+\begin{figure}
 \centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/1.eps}}
- \rput{90}(-3.2,2){ $x_{n+1}$}
- \rput(0.8,-.7){$x_n$} 
- \end{pspicture}
- \caption{Cobweb do mapa logístico para $a = 0,5$.}\label{fig:Fig1}
+\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 3cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (C)
+{$C$};
+\node[state] (A) [above left=of C] {$A$};
+\node[state] (B) [above right =of C] {$B$};
+\path (A) edge [loop left] node[left] {$0$} (A);
+\path (C) edge [bend left =] node[below =0.15 cm] {$0$} (A);
+%\path (A) edge [bend right = -15] node[below =0.15 cm] {$1/2$} (C);
+\path (A) edge [bend left =25] node[above] {$1$} (B);
+\path (B) edge [bend left =15] node[below =0.15 cm] {$0$} (A);
+\path (C) edge [bend left =15] node[below =0.15 cm] {$1$} (B);
+\path (B) edge [bend right = -25] node[below =0.15 cm] {$1$} (C);
+\end{tikzpicture}
+\caption{Example of a graph with Q = \{A, B, C\} and $\Sigma = \{0, 1\}$.\label{fig:graph}}
 \end{figure}
 
-\begin{figure}[!t]
-\centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/2.eps}}
- \rput{90}(-3.2,2){ $x_{n+1}$}
- \rput(0.8,-.7){$x_n$} 
- \end{pspicture}
- \caption{Cobweb do mapa logístico para $a = 2,5$.}\label{fig:Fig2}
-\end{figure}
+A graph \textit{G} can also be represented as a triple \textit{(Q, E, L)} where \textit{Q} is the set of states, \textit{E} is the set of edges connecting the states and \textit{L} is the set of edges' labels. A walk in a graph \textit{G} is the sequence of labels \textit{l} $\in$ \textit{L} formed by starting at a state \textit{q} $\in$ \textit{Q} and a string \textit{s} that starts as the empty string and going to a next state connected to it by a vertex and appending the vertex's label to \textit{s}. This process can be repeated and when it stops, \textit{s} defines a walk over \textit{G} starting at \textit{q}. Calling the graph of Figure \ref{fig:graph} as \textit{G}, the following is an example of a walk:  start at state \textit{A} and go to \textit{A}, \textit{A}, \textit{B}, \textit{C}, \textit{B}, \textit{A}. This forms the string \textit{s} = 001110.
 
-\begin{figure}[!t]
-\centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/3.eps}}
- \rput{90}(-3.2,2){$x_{n+1}$}
- \rput(0.8,-.7){$x_{n}$} 
- \end{pspicture}
- \caption{Cobweb do mapa logístico para $a = 4$.}\label{fig:Fig3}
-\end{figure}
+\begin{definition}[\textbf{Follower Set}]\label{def:followerset}
+The follower set of the graph \textit{G} rooted at state \textit{q} $\in$ \textit{Q} is defined as the set of all possible walks that can be formed by starting at state \textit{q}. That is:
+\end{definition}
 
-A família de mapas logísticos tem um comportamento caótico a partir de um valor do parâmetro $a$. O valor critico $a_c$ serve como fronteira entre a zona em que ocorrem 
-os fenômenos de convergência e zona de caos. Este foi determinado empiricamente por Mitchell Jay Feigenbaum e seu valor é $a_c \approx 3,5699456$\cite{alligood.97}.
+\[ F(q) = \{\omega \in \Sigma^* | q\cdot\omega \in \textit{Q}\}, \]
 
-%O comportamento caótico do mapa logístico pode-se ver mediante o expoente de Lyapunov, como se mostra na seguinte 
-%figura\ref{fig:Fig11}:
 
-%\begin{figure}[!h]
-%\centering
- %\includegraphics[scale=0.5]{Figuras/lyaplog.eps}
- %\caption{Mapa da Tenda para $a=4$. Neste caso a solução é caótica: Tende a ocupar tudo o espaço de fase.}\label{fig:Fig3}
-%\end{figure}
 
-%Se observa como o valor do expoente de Lyapunov \'e menor que $0$ para valores menor que $a_c$.
+\noindent where \textit{q$\cdot\omega$} denotes the state arrived after starting at \textit{q} and following the path determined by the word $\omega$.
 
-\subsection{Mapa da tenda}
 
-O mapa da tenda $f : [0,1]\rightarrow [0,\beta /2]$ é definido como \cite{6}:
-\begin{equation}
- f(x)=\left\{
- \begin{array}{ccc}
-  \displaystyle \beta x, & se & 0\leq x < \frac{1}{2} \vspace{0.5cm} \\
-  \displaystyle \beta (1-x), & se & \frac{1}{2}\leq x < 1
- \end{array}\right. 
-\end{equation}
-em que o valor do parâmetro $\beta$ está no intervalo $0<\beta \leq 2$. Dependendo do valor de $\beta$ existem cinco tipos de comportamento assintótico do mapa:
-\begin{itemize}
- \item $0< \beta < 1$: O mapa tem um ponto fixo em $x=0$. Para qualquer condição inicial, as  iterações convergem para este, como mostra a Figura \ref{fig:Fig4}.
- \item $\beta =1$: Todos os pontos da região $[0;0,5]$ são pontos fixos. Os pontos da região $(0,5;1]$ mapeiam na região $[0;0,5]$, sendo pontos eventualmente fixos.
- \item $1< \beta \leq \sqrt{2}$: As orbitas são quase-periódicas. O mapa não ocupa o espaço de fase completo $[0,\beta /2]$,
- estando restrito numa região $[\beta (2-\beta)/2,\beta/2]$, como mostra a Figura \ref{fig:Fig5}.
- \item $\sqrt{2}<\beta < 2$: Região caótica. O comportamento assintótico das sequências geradas se limita à região
- $[\beta (2-\beta)/2,\beta /2]$ e o comportamento nesta região é caótico, como mostra a Figura \ref{fig:Fig6}.
- \item $\beta =2$: As órbitas obtidas são caóticas e cobrem o espaço completo $[0,1]$, como mostra a Figura \ref{fig:Fig7}.
-\end{itemize}
+\begin{definition}[\textbf{Language of a Graph}]\label{def:language}
+The language $\mathcal{L}$ of a graph \textit{G} is the the set of follower sets for each state \textit{q} $\in$ \textit{Q}:
+\end{definition}
 
-\begin{figure}[!t]
-\centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/4.eps}}
- \rput{90}(-3.2,2){$x_{n+1}$}
- \rput(0.8,-.7){$x_n$} 
- \end{pspicture}
- \caption{Cobweb do mapa da tenda para $0<\beta \leq 1$.}\label{fig:Fig4}
-\end{figure}
+\[ \mathcal{L} = \{F(\textit{q}), \forall \textit{q} \in \textit{Q}\}. \]
 
-\begin{figure}[!t]
-\centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/5.eps}}
- \rput{90}(-3.2,2){$x_{n+1}$}
- \rput(0.8,-.7){$x_n$} 
- \end{pspicture}
- \caption{Cobweb do mapa da tenda para $1< \beta < \sqrt{2}$.}\label{fig:Fig5}
-\end{figure}
+A word \textit{w} is called a synchronizing word of \textit{G} if all walks in \textit{G} that generate \textit{w} terminate at the same state and \textit{G} is called \textit{synchronizing} if there exists a synchronization word for every state \textit{q} $\in$ \textit{Q}. 
 
-\begin{figure}[!t]
-\centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/6.eps}}
- \rput{90}(-3.2,2){$x_{n+1}$}
- \rput(0.8,-.7){$x_n$} 
- \end{pspicture}
- \caption{Cobweb do mapa da tenda para $\sqrt{2} <\beta < 2$.}\label{fig:Fig6}
-\end{figure}
+\section{Graph Minimization}
+
+This section explains the two most widely used algorithms for automata minimization: Moore and Hopcroft.
+
+\begin{definition}[\textbf{Partitions and Equivalence Relations}]\label{def:partition}
+Given a set E, a partition of E is a family $\mathcal{P}$ of nonempty, pairwise disjoint subsets of E such that $\bigcup_{P\in\mathcal{P}}P = E $. The index of the partition is its number of elements. The partition defines an equivalence relation on E and the set of all equivalence classes [x], $x\in E$, of an equivalence relation in E defines a partition of the set.
+\end{definition}
+
+When a subset \textit{F} of \textit{E} is the union of classes of $\mathcal{P}$ it said that \textit{F} is saturated by $\mathcal{P}$. Given $\mathcal{Q}$, another partition of \textit{E}, it said to be a \textit{refinement} of $\mathcal{P}$ (or that $\mathcal{P}$ is coarser than $\mathcal{Q}$) if every class of $\mathcal{Q}$ is contained by some class of $\mathcal{P}$ and it is written as $\mathcal{Q} \leq \mathcal{P}$. The index of $\mathcal{Q}$ is greater than the index of $\mathcal{P}$.
+
+Given partitions $\mathcal{P}$ and $\mathcal{Q}$ of \textit{E}, $\mathcal{U} = \mathcal{P}\wedge\mathcal{Q}$ denotes the coarsest partition which refines $\mathcal{P}$ and $\mathcal{Q}$. The elements of $\mathcal{U}$ are non-empty sets \textit{P}$\cap$\textit{Q}, \textit{P}$\in\mathcal{P}$ and \textit{Q}$\in\mathcal{Q}$. The notation is extended for multiple sets as $\mathcal{U} = \mathcal{P}_1 \wedge \mathcal{P}_2 \wedge \ldots \wedge \mathcal{P}_n$. When $n=0$,  $\mathcal{P}$ is the universal partition comprised of just \textit{E} and it is the neutral element for the $\wedge$-operation.
+
+Given $F\subseteq E$, a partition $\mathcal{P}$ of \textit{E} induces a partition $\mathcal{P}'$  
+of \textit{F} by intersection. $\mathcal{P}'$ is composed by the sets $P\cap F$ with $P\subseteq \mathcal{P}$. If $\mathcal{P}$ and $\mathcal{Q}$ are partitions of \textit{E} and $\mathcal{Q} \leq \mathcal{P}$, the restrictions $\mathcal{P}'$ and $\mathcal{Q}'$ to \textit{F} maintain $\mathcal{Q}' \leq \mathcal{P}'$.
+
+Given partitions $\mathcal{P}$ and $\mathcal{P}'$ of disjoint sets \textit{E} and \textit{E'}, the partition of set $E \cup E'$ whose restriction to \textit{E} and \textit{E'} are $\mathcal{P}$ and $\mathcal{P'}$ is denoted by $\mathcal{P}\vee\mathcal{P}'$. It is possible to write $\mathcal{P} = \vee_{P\vee\mathcal{P}}\{P\}$.
+
+\begin{definition}[\textbf{Irreducible Graph}]\label{def:mingraph}
+A graph \textit{G} is said to be irreducible if all its states have distinct follower sets (from Definition \ref{def:followerset}), that is F(p) $\neq$ F(q) for each pair of distinct states p, q $\in$ \textit{Q}.
+\end{definition}
+
+From Definition \ref{def:mingraph} it is possible to define an equivalence relation called the Nerode equivalence:
+
+\[
+p, q \in Q, p \equiv q \Leftrightarrow F(p) = F(q).
+\]
+
+A graph is considered minimal if and only if its Nerode equivalence is the identity. The problem of minimizing a graph is that of computing the Nerode equivalence. The quotient graph \textit{G}/$\equiv$ obtained by taking for \textit{Q} the set of Nerode equivalence classes. The minimal graph is unique and it accepts the same language as the original graph.
+
+Given a set of states \textit{P} $\subset$  \textit{Q} and a symbol $\sigma \in \Sigma$, let $\sigma^{-1}\textit{P}$ denote the set of states \textit{q} such that $\delta(q, \sigma) \in P$. Consider \textit{P}, \textit{R} $\subset$ \textit{Q} and $\sigma \in \Sigma$, the partition of R
+
+\[
+(P, \sigma)|R
+\]
+
+\noindent the partition composed of two non-empty subsets:
+
+\[
+R\cap\sigma^{-1}P = \{r \in R | \delta(r,\sigma) \in P\}
+\]
+
+\noindent and
+
+\[
+R\backslash\sigma^{-1}P = \{r \in R | \delta(r,\sigma) \notin P\}.
+\]
+
+The pair (\textit{P}, $\sigma$) is called a splitter. Observe that (\textit{P}, $\sigma$)|R = {R} if either $\delta(R,\sigma) \subset$ \textit{P}
+or $\delta(R,\sigma)\cap P = \emptyset$ and (\textit{P}, $\sigma$)|R is composed of two classes if both $\delta(R,\sigma)\cap P  \neq\emptyset$ and
+$\delta(R,\sigma)\cap P^c  \neq \emptyset$  or equivalently if $\delta(R,\sigma) \not\subset P $   and  $\delta(R,\sigma)\not\subset P^c $ . If (\textit{P}, $\sigma$)|R  contains two
+classes, then we say that (\textit{P}, $\sigma$) splits R. This notation can also be extended to sequences, using a sequence $\omega \in \Sigma^*$ instead of the symbol $\sigma \in \Sigma$.
+
+\begin{proposition}\label{prop:nerequiv}
+The partition corresponding to the Nerode equivalence is the coarsest partition $\mathcal{P}$ such that no splitter (P,$\sigma$), with P $\in \mathcal{P}$ and $\sigma \in \Sigma$, splits a class in $\mathcal{P}$, that is such that (P,$\sigma$)|R = {R} for all P, R $\in \mathcal{P}$ and $\sigma \in \Sigma$.
+\end{proposition}
+
+\begin{lemma}\label{lemm:hopcrof}
+Let P be a set of states and $\mathcal{P} = {P_1, P_2}$ a partition of P. For any symbol $\sigma$ and for any set of states R, one has:
+\end{lemma}
  
- \begin{figure}[!b]
+
+\[
+(P,\sigma)|R \wedge (P_1, \sigma)|R = (P, \sigma)|R \wedge (P_2, \sigma)|R = (P_1,\sigma)|R \wedge (P_2,\sigma)|R,
+\]
+
+\textit{and consequently}
+
+\[
+(P,\sigma)|R \geqslant (P_1,\sigma)|R \wedge (P_2,\sigma)|R,
+\]
+\[
+(P_1,\sigma)|R \geqslant (P,\sigma)|R \wedge (P_2,\sigma)|R.
+\]
+\subsection{Moore's Algorithm}
+
+\begin{algorithm} 
+  \caption{Moore(\textit{G})\label{alg:moore}}
+    \begin{algorithmic}[1]
+      \State $\mathcal{P} \leftarrow InitialPartition(G)$
+      \Repeat
+      	\State $\mathcal{P}' \leftarrow \mathcal{P}$
+      	\ForAll{$\sigma \in \Sigma$}
+      		\State $\mathcal{P}_{\sigma} \leftarrow \bigwedge_{P\in \mathcal{P}}(P,\sigma)|Q$
+      	\EndFor
+      	\State $\mathcal{P} \leftarrow \mathcal{P}\wedge\bigwedge_{\sigma\in\Sigma}\mathcal{P}_{\sigma}$
+      \Until{$\mathcal{P} = \mathcal{P}'$}
+    \end{algorithmic}
+  \end{algorithm}
+
+
+\subsection{Hopcroft's Algorithm}
+
+\begin{algorithm} 
+  \caption{Hopcroft(\textit{G})\label{alg:hop}}
+    \begin{algorithmic}[1]
+      \State $\mathcal{P} \leftarrow InitialPartition(G)$
+      \State $\mathcal{W} \leftarrow \emptyset$
+      \ForAll{$\sigma \in \Sigma$}
+      	\State Append(($\min$(\textit{F}, $F^c$,$\sigma$),$\mathcal{W}$)
+      	\While{$\mathcal{W} \neq \emptyset$}
+      		\State (\textit{W},$\sigma$) $\leftarrow$ TakeSome($\mathcal{W}$)
+      		\For{each \textit{P}$\in \mathcal{P}$ which is split by $(W,\sigma)$}
+				\State \textit{P', P"} $\leftarrow (W,\sigma)|P$      		
+				Replace \textit{P} by \textit{P'} and \textit{P"} in $\mathcal{P}$
+				\ForAll{$\tau \in \Sigma$}
+					\If{$(P,\tau)\in\mathcal{W}$}
+						\State Replace $(P,\tau)$ by $(P',\tau)$ and $(P",\tau)$ in $\mathcal{W}$
+					\Else
+						\State Append(($\min$(\textit{P'}, $P"$,$\tau$),$\mathcal{W}$)				
+					\EndIf				
+				\EndFor 
+      		\EndFor
+      	\EndWhile
+      \EndFor
+    \end{algorithmic}
+  \end{algorithm}
+
+\section{Probabilistic Finite State Automata}
+
+\begin{definition}[\textbf{Probabilistic Finite State Automata}]\label{definition:pfsa}
+A Probabilistic Finite State Automaton (PFSA) \textit{P} is defined as a quadruple $(Q, \Sigma, \delta, \mathcal{V})$. The first three items are the same as of a graph as defined in Definition \ref{def:graph}, while  $\mathcal{V}$ is a probability function, $\mathcal{V}$: $\delta \rightarrow [0,1)$ which associates a probability to each edge.
+\end{definition}
+
+The function $\mathcal{V}$ gives the probabilistic factor to the PFSA. It is the associated probability distribution for the outgoing edges of each state. This means that for each state \textit{q} $\in$ \textit{Q}, there will be a probability $\mathcal{V}(\delta(q, \sigma)), \forall \sigma \in \Sigma$ associated to each edge in such a way that $\Sigma_{\sigma}\mathcal{V}(\delta(q,\sigma)) = 1$ and $0 \leq \mathcal{V}(\delta(q,\sigma)) \leq 1$. The probability associated to an edge is the probability of taking this path once the system is in the state \textit{q}. 
+
+\begin{definition}[\textbf{Morph}]\label{definition:morph}
+The probability distribution $\mathcal{V}(q) = \{ \mathcal{V}(\delta(q, \sigma)); \forall \sigma \in \Sigma\}$ of a state is called the state morph.  
+\end{definition}
+
+A PFSA can be represented with a graph, in which each $q \in Q$ is represented as a node. The edges are given by function $\delta(q, a) =  q^{\prime}$, indicating there is an edge going from \textit{q} to \textit{$q^{\prime}$} labeled with the symbol \textit{a}. The probability associated with an edge, $\mathcal{V}(\delta(q,a))$ is also in the edge label.
+
+\begin{definition}[\textbf{Deterministic PFSA}]\label{definition:dpfsa}
+A PFSA is called deterministic if the outgoing edges of each state are labeled with distinct symbols. 
+\end{definition}
+
+An example of a graph of a PFSA is shown in Figure \ref{fig:pfsa}, for which \textit{Q} = $\{A, B, C\}$, $\Sigma = \{0, 1\}$ and the functions $\delta$ and $\mathcal{V}$ are represented in the edges of the graph.
+
+\begin{figure}
 \centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/7.eps}}
- \rput{90}(-3.2,2){$x_{n+1}$}
- \rput(0.8,-.7){$x_n$} 
- \end{pspicture}
- \caption{Cobweb do mapa da tenda para $\beta =2$.}\label{fig:Fig7}
+\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 3cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (C)
+{$C$};
+\node[state] (A) [above left=of C] {$A$};
+\node[state] (B) [above right =of C] {$B$};
+\path (A) edge [loop left] node[left] {$0/0.25$} (A);
+\path (C) edge [bend left =] node[below =0.15 cm] {$0/0.5$} (A);
+%\path (A) edge [bend right = -15] node[below =0.15 cm] {$1/2$} (C);
+\path (A) edge [bend left =25] node[above] {$1/0.75$} (B);
+\path (B) edge [bend left =15] node[below =0.15 cm] {$0/0.2$} (A);
+\path (C) edge [bend left =15] node[below =0.15 cm] {$1/0.5$} (B);
+\path (B) edge [bend right = -25] node[below =0.15 cm] {$1/0.8$} (C);
+\end{tikzpicture}
+\caption{A probabilistic version of the graph of Figure \ref{fig:graph}.\label{fig:pfsa}}
 \end{figure}
 
-\subsection{Mapa tangente hiperbólica}
+A sequence can be generated by a PFSA as the sequence formed by starting at a given state \textit{q} $\in$ \textit{Q} then following a path with its edges and concatenating the labels for each edge. Its probability is given by multiplying the probability of each edge that was taken.
 
-O mapa tangente hiperbólica (tanh) \cite{tanh14}, $f:[-1,1]\rightarrow [-1,1]$, é baseado na função tangente hiperbólica e é definido por\\
-\begin{equation}\label{eq:tanh_general}
-f(x)=\left\{\begin{array}{lc}
- e\cdot\tanh\bigl(r \cdot(x+1)\bigr)-1, & x < 0 \\
- (-1)^b\cdot \bigl[e \cdot\tanh\bigl(-r \cdot(x-1)\bigr)-1\bigr], & x\geq 0
-\end{array}\right.
-\end{equation}
-em que o fator de escala $e$ é dado por
+From Figure \ref{fig:pfsa}, starting at the state \textit{A}, it is possible to form the sequence \textit{u = 1011001} by taking a path going to states \textit{B,A,B,C,A,A} and \textit{B} and concatenating the labels of the path from each of these transitions. By multiplying the probabilities of these edges, it is seen that p(\textit{u}) = $0.75\times0.2\times0.75\times0.8\times0.5\times0.25\times0.75 = 0.0084375$.
+
+It is useful do adapt the concept of synchronization word to the context of PFSA:
+
+\begin{definition}[\textbf{PFSA Synchronization Word}]\label{definition:synchword}
+For a state \textit{q} $\in$ \textit{Q}, \textit{w} is a synchronization word if, $\forall \textit{u} \in \Sigma^*$ and $\forall \textit{v} \in \Sigma^*$:
+
 \begin{equation}
-e=\frac{2}{\tanh(r)}.
+\Pr(\textit{u}|\textit{w}) = \Pr(\textit{u}|\textit{vw}).
+\label{eq:synchword}
 \end{equation}
-Este mapa tem dois parâmetros de controle especificados pela dupla $(b,r)$. O parâmetro $b$ define a simetria do mapa, podendo ser 0 (simetria par) ou 1 (simetria ímpar). O parâmetro 
-$r$ é um número real positivo que controla a extensão da região planar em torno do eixo de simetria. As Figuras \ref{fig:Fig16} e \ref{fig:Fig17} mostram os mapas 
-tanh par, denominado de e-tanh, e o mapa tanh ímpar, denominado de o-tanh, para diferentes valores de $r$. Observa-se nas Figuras \ref{fig:Fig16} e \ref{fig:Fig17} 
-que quando o parâmetro $r$ tende a 0, os mapas e-tanh e o-tanh tendem a dois mapas conhecidos na literatura, o mapa da tenda e o mapa de Bernoulli, respectivamente.
+\end{definition}
 
- \begin{figure}[!b]
-\centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/mpar.eps}}
- \rput(-3.2,1.7){ $f(x)$}
- \rput(0.9,-.75){$x$} 
- \end{pspicture}
- \caption{Mapa e-tanh para $r=\{0,01; 2,5; 5; 10\}$.}\label{fig:Fig16}
-\end{figure}
+Definition \ref{definition:synchword} means that the probability of obtaining any sequence after the synchronization word does not depend on whatever came before \textit{w}. The main problem with this definition is the fact that is not possible to check (\ref{eq:synchword}) for all \textit{u} $\in \Sigma^*$ and for all \textit{v} $\in \Sigma^*$ as there are an infinite number of sequences.
 
- \begin{figure}[!t]
-\centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/mimpar.eps}}
- \rput(-3.2,1.7){ $f(x)$}
- \rput(0.9,-.8){$x$} 
- \end{pspicture}
- \caption{Mapa o-tanh para $r=\{0,01; 2,5; 5; 10\}$.}\label{fig:Fig17}
-\end{figure}
+  A solution uses the \textit{d}-th order derived frequency, which is the probability using \textit{u} and \textit{v} from $\Sigma^d$, \textit{d} $\in \mathbb{Z}$, instead of taking them from $\Sigma^*$. Calling $\Pr_d(\omega)$ the d-th order derived frequency of $\omega$, a statistical test (such as the Chi-Squared or Kolmogorov-Smirnov) with significance level $\alpha$ has to be performed with the following null hypothesis for \textit{w} being a synchronization word:
 
-
-A concentração dos pontos do mapa tanh pode ser observada nos histogramas dos mapas e-tanh e o-tanh, como mostra as Figuras \ref{fig:Fig18} e \ref{fig:Fig19}. Estas mostram a distribuição de 
-pontos de uma órbita de 1 000 000 pontos para ambos mapas com $r = 3$ e condição inicial aleatória. Existe uma clara assimetria na distribuição de pontos do histograma do mapa e-tanh
-em torno de $x = 0$. com maior concentração de pontos em torno de $x = 1$. Para o mapa e-tanh é observado que, para $r < 7,1$, os pontos são mais concentrados em torno de $x = 1$, 
-e quando $r > 7,1$ esta tendência se inverte e os pontos se concentram em $x=-1$. A Figura~\ref{fig:Fig19} ilustra que o histograma do mapa o-tanh é simétrico em torno de $x = 0$. Uma 
-característica desta família é uma concentração dos pontos da órbita em torno dos seus valores extremos, resultando em uma redução na ocorrência de valores em torno de $x=0$ com o aumento 
-do parâmetro $r$, ou seja, a probabilidade de ocorrência de pontos na região central do domínio decresce, como consequência do alargamento da região horizontal.
-
-\begin{figure}[!t]
-\centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/histmp.eps}}
- \rput{90}(-3.2,2){Número de eventos}
- \rput(0.85,-.8){$x$} 
- \end{pspicture}
- \caption{Histograma do Mapa e-tanh, com $r=3$.}\label{fig:Fig18}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/histmi.eps}}
- \rput{90}(-3.2,2){Número de eventos}
- \rput(0.85,-.8){$x$} 
- \end{pspicture}
- \caption{Histograma do Mapa o-tanh, com $r=3$.}\label{fig:Fig19}
-\end{figure}
-
-Para a avaliação do comportamento caótico do mapa tanh, emprega-se conceitos bem conhecidos para sistemas caóticos, como o expoente de Lyapunov e o diagrama de órbita.
-
-\subsubsection{Expoente de Lyapunov}
-
-A Figura \ref{fig:Fig9} mostra o valor do expoente de Lyapunov para $0 < r < 10$ para o mapa e-tanh. O expoente de Lyapunov do mapa o-tanh apresenta o mesmo comportamento do mapa e-tanh. 
-Consideramos uma orbita de $N=14000$ e desprezam-se as primeiras 400 iterações para eliminar o transiente da órbita. Quando o parâmetro
-$r$ tende a zero, o expoente de Lyapunov tende ao do mapa da tenda (0,693), e decresce suavemente quando o parâmetro $r$ 
-cresce. Pode-se observar que este é sempre positivo, então o mapa apresenta caos para todos os valores de $r$ na faixa considerada na Figura \ref{fig:Fig9}.
-
-\begin{figure}[!t]
-\centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/9.eps}}
- \rput(-3.2,2){$h$}
- \rput(0.85,-.7){$r$} 
- \end{pspicture}
- \caption{Expoente de Lyapunov versus o parâmetro $r$ para o mapa e-tanh.}\label{fig:Fig9}
-\end{figure}
-
-\subsubsection{Diagrama de órbita}
-
-O comportamento caótico do mapa e-tanh para $0 <r <10$ também é observado a partir do diagrama de órbita mostrado na Figura \ref{fig:Fig10}. 
-Deve-se observar que os pontos se concentram em torno dos valores extremos $\pm 1$ quando $r > 2,0$. O diagrama de órbita do mapa o-tanh apresenta o mesmo comportamento 
-e os pontos nos dois extremos ocorrem com a mesma probabilidade.
-
-\begin{figure}[!b]
-\centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/10.eps}}
- \rput(-3.2,2){}
- \rput(0.85,-.3){$r$}
- \rput(-2.5,1.7){$x$}
- \end{pspicture}
- \caption{Digrama de orbita versus o parâmetro $r$ para o mapa e-tanh.}\label{fig:Fig10}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - Exemplos de Mapas Caóticos  %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Implementação do mapa e-tanh}
-
-%--------------------------------Introdução motivacional aos PRNG--------------------------------
-%As propriedades inerentes aos sistemas dinâmicos caóticos, como a dependência às condições iniciais, o comportamento pseudoaleatório 
-%e o espectro faixa larga, por vezes evocadas para sua caracterização \cite{strogatz.01,alligood.97}, reservam similaridade com as 
-%funções requeridas por alguns blocos de um sistema de comunicação clássico. Nos anos 90 surgiram novas concepções de sistemas de %
-%comunicação \cite{hayes.93} que propuseram o aproveitamento dessas propriedades para transmissão de informação de forma eficiente. 
-%Desde então, diversos trabalhos científicos propiciaram o amadurecimento da área, demonstrando a vocação de sistemas caóticos para 
-%compressão de dados~\cite{chen.11,masmoudi.14}, modulação~\cite{lau.03,eisencraft.13,stavroulakis.05} e criptografia~\cite{kocarev.11,dachselt.01}.
-
-%--------------------------------Estratégias adotadas na literatura--------------------------------
-%Em decorrência da diversidade de sistemas caóticos, sua aplicação em criptografia é ubíqua, sendo utilizado em sistemas criptográficos 
-%de chave privada, geradores de números pseudo-aleatórios (PRNG, {\em pseudo-random number generator}), e sistemas criptográficos de chave 
-%pública~\cite{kocarev.11,kocarev.05}. Contudo, certas aplicações em criptografia requerem o emprego de geradores de números aleatórios 
-%(RNG, {\em random number generator}). Neste caso, o núcleo do RNG deve ser um processo físico inerentemente aleatório, o que limita 
-%consideravelmente sua aplicação, como consequência da dificuldade técnica em implementa-lo. Como alternativa, os sistemas caóticos 
-%podem ser considerados como RNG's quando, apesar de sua natureza determinística se definidos sobre o conjuntos dos números reais, 
-%forem ``observados'' através de sequências discretas de símbolos, gerados a partir de uma partição finita do seu espaço de 
-%fase~\cite{stajanovski.01I}. Isso equivale a empregar a dinâmica simbólica associada ao sistema, ao invés de uma sequência de números 
-%reais obtida pela interação do mapa que define o sistema caótico.
-
-%Uma implementação eletrônica do mapa e-tanh tem uma aderência entre a curva característica do circuito e a obtida através do mapa teórico.
-Uma vantagem do mapa e-tanh é a facilidade de implementação do mapa em circuitos eletrônicos. O mapa e-tanh é reescrito a partir de (\ref{eq:tanh_general}) da seguinte forma:
-\begin{equation}\label{eq:tanh_mod}
-f(x)=e\cdot \tanh\bigl[r\cdot (1-|x|)\bigr]-1.
+\begin{equation}
+\textnormal{Pr}_{d}(\textit{w}) = \textnormal{Pr}_{d}(\textit{uw}), \forall u \in \cup_{i=1}^{L_1}\Sigma^i, \forall d = 1,2,\ldots,L_2,  
+\label{eq:practsynchword}
 \end{equation}
 
-\begin{figure}[!b]
-\centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
-\rput(0.75,1.5){\includegraphics[width=.55\textwidth]{Figuras/tanH.eps}}
-\rput(-2.75,0.65){\scriptsize $I_{in}$}
-\rput(-2.15,1.4){\scriptsize $1 - |I_{in}|$}
-\rput(0.9,0.45){\scriptsize $B\cdot(1 - |I_{in}|)$}
-\rput(1.15,2.7){\scriptsize $R_1$}
-\rput(3.45,2.7){\scriptsize $R_2$}
-\rput(2.2,3.9){\scriptsize $V_{cc}$}
-\rput(2.77,0.25){\scriptsize $I_{EE}$}
-\rput(4.35,2.3){\scriptsize $I_{a}$}
-\rput(1.7,1.75){\scriptsize $Q_1$}
-\rput(2.85,1.75){\scriptsize $Q_2$}
-\rput{90}(2.9,2.3){\fontsize{14pt}{0} $\rightarrow$}
-\rput(2.5,2.3){\scriptsize $I_{out}$}
-\end{pspicture}
-\centering{\caption{\label{fig:tanh_core} Circuito para implementação do mapa e-tanh.}}
-\end{figure} 
+where $L_1$ and $L_2$ are precision parameters. This means that the statistical test compares the probabilities of words \textit{w} with length from 0 to \textit{$L_2$} with the probabilities of words \textit{uw}, where \textit{u} is a prefix of \textit{w} with lengths from 0 to \textit{$L_1$}. This limits the number of tests to be realized.
 
-Para implementação deste mapa, emprega-se o circuito da Fig.~\ref{fig:tanh_core}, que é baseado em um par diferencial com transistor bipolar de junção (TBJ). 
-Denomina-se por $v_{id} = B(1 - |I_{in}|)$ a tensão diferencial entre os terminais base de $Q_1$ e $Q_2$, $I_{EE}$ a corrente de polarização do par diferencial e $V_T$ a tensão térmica, 
-em torno de $26mV$ a temperatura ambiente. A entrada do circuito é $I_{in}$ e a saída é o inverso da corrente de coletor de $Q_2$ mais uma corrente constante $I_a$, ou seja, $I_{out}= -I_2+I_a$. 
-Pode-se mostrar que $I_2$ é função da tangente hiperbólica da tensão diferencial por um fator de escala $2V_T$ \cite{pederson91}, o que permite especificar $I_{out}$ da seguinte forma
-\begin{equation}\label{eq:circ_out}
-I_{out}=\frac{I_{EE}}{2} \tanh\biggl(\frac{v_{id}}{2 V_T}\biggr)-\biggr(\frac{I_{EE}}{2}-I_a\biggr).
-\end{equation}
-Para especificar (\ref{eq:tanh_mod}) em termos dos parâmetros do circuito, a corrente $I_{out}$ 
-deve ser normalizada. Aplicando esse fator de normalização para toda a equação, a transresistência $B$ é escolhida para gerar o respectivo argumento da tangente hiperbólica em 
-(\ref{eq:tanh_mod}) e a corrente $I_a$ é escolhida para que o segundo termo do lado direito da equação (\ref{eq:circ_out}) seja igual a unidade quando normalizado. 
+A synchronization words is a good starting point to model a system from its output sequence because the probability of its occurrence does not depend on what came before it. Therefore its prefix can be regarded as a transient.
 
-% \rred{ Para facilitar a visualização da similaridade entre (\ref{eq:tanh_mod}) e (\ref{eq:circ_out}), no circuito da Fig.~\ref{fig:tanh_core} os parâmetros foram especificados após normalização.}
+\section{Consolidated Algorithms}
 
-%usado um par diferencial (Fig.~\ref{tanh}), dois transistores bipolares de junção (com tensão térmica $V_{\text{T}}$ \cite{sedra}) acoplados pelos seus emissores, com entrada diferencial $v_{\text{id}}$ e a saída foi escolhida como a corrente que saí do coletor de Q2 $I_{\text{out}} = I_{\text{c2}}$. A corrente que sai do coletor é dada por~\cite{pederson}:
+\subsection{D-Markov Machines}
 
-%\begin{equation}\label{diff}
-% I_{\text{out}} = -I_{\text{c2}} = \frac{I_{\text{EE}}}{2} \cdot (\tanh\left(\frac{v_{\text{id}}}{2\cdot V_{\text{T}}}\right)
-%\end{equation}
+\subsection{CRiSSiS}
 
-Com o auxílio de um circuito periférico apropriado é possível gerar uma sequência do mapa e-tanh. Entre esses periféricos, destaca-se o papel do circuito
-\textit{sample-and-hold}~\cite{dudek.03}, que permite gerar uma sequência caótica a partir do núcleo apresentado na Fig.~\ref{fig:tanh_core}. Isso ocorre com a amostragem 
-de $I_{out}$ em um ciclo de máquina (\textit{sample}) e o emprego deste como entrada no ciclo subsequente. 
-%Para gerar a próxima saída do mapa é preciso aguardar a estabilização da 
-%saída após a atualização da entrada (hold). Este processo permite implementar eletronicamente o mecanismo de ``iteração'' do mapa descrito em (\ref{orbit}).
-
-%o sample-and-hold armazena a amostra presente, empregando-a para atualiza a saída do mapa caótico no ciclo subsequente de um sinal de relógio de controle. Assim, o mecanismo de "iteração" do mapa pode ser realizado através de circuitos eletrônicos.
-
-%\begin{figure}
-%\centering 
-%\begin{pspicture}(-3.5,-.6)(5,3.6) %\psgrid
-%\rput(0.75,1.5){\includegraphics[scale=0.25]{Figuras/transfer_r5.eps}}
-%\rput(-3.2,1.5){\footnotesize $I_{out}$}
-%\rput(0.75,-.5){\footnotesize $I_{in}$}
-%\end{pspicture}
-%\centering{\caption{\label{fig:transfer}Comparação entre a curva teórica e a curva característica do circuito para  $r = 5$.}}
-%\end{figure} 
-
-%\begin{figure}[]
-%\centering
-%\begin{pspicture}(-3.2,-.6)(4.8,3.6) %\psgrid 
-%\rput(0.8,1.5){\includegraphics[scale=0.25]{Figuras/r5trans.eps}}
-%\rput(-3.0,1.5){\footnotesize $I_{out}$}
-%\rput(0.75,-.6){\footnotesize Tempo~(s)}
-%\end{pspicture}
-%\centering{\caption{\label{fig:r5trans}Resposta no tempo do circuito para  $r = 5$.}}
-%\end{figure}
-
-%Para validar o circuito proposto são realizadas simulações com o software NGSPICE. Para ilustrar o seu funcionamento o parâmetro $r$ é fixado em $r=5$.
-% e as grandezas de corrente e tensão foram normalizadas por um fator $I_{\text{N}} = 10$mA. 
-%O modelo padrão para transistor TBJ do NGSPICE é usado na simulação. Os resistores $R_1$ e $R_2$ são escolhidos de forma que os transistores sempre operem na região ativa, no nosso caso $R_1 = R_2 = 100\, \Omega$. 
-%A Fig.~\ref{fig:transfer} compara a curva característica do circuito com a obtida pelo mapa em~(\ref{eq:tanh_mod}),  observando-se uma sobreposição destas curvas.
-%É possível observar que a função realizada pelo circuito tem uma curva característica com mesmo comportamento da teórica. 
-%A Fig.~\ref{fig:r5trans} mostra uma realização da sequência temporal da corrente de saída o circuito, em que observa-se seu comportamento errático.
-
-Aproveitando que o mapa tanh é um mapa implementável, o próximo capítulo foca na geração de sequências pseudo-aleatórias a partir deste mapa. 
-
+%\subsection{Definitions}
+%
+%\begin{definition}[\textbf{Partitions and Equivalence Relations}]\label{def:partition}
+%Given a set E, a partition of E is a family $\mathcal{P}$ of nonempty, pairwise disjoint subsets of E such that $\bigcup_{P\in\mathcal{P}}P = E $. The index of the partition is its number of elements. The partition defines an equivalence relation on E and the set of all equivalence classes [x], $x\in E$, of an equivalence relation in E defines a partition of the set.
+%\end{definition}
+%
+%When a subset \textit{F} of \textit{E} is the union of classes of $\mathcal{P}$ it said that \textit{F} is saturated by $\mathcal{P}$. Given $\mathcal{Q}$, another partition of \textit{E}, it said to be a \textit{refinement} of $\mathcal{P}$ (or that $\mathcal{P}$ is coarser than $\mathcal{Q}$) if every class of $\mathcal{Q}$ is contained by some class of $\mathcal{P}$ and it is written as $\mathcal{Q} \leq \mathcal{P}$. The index of $\mathcal{Q}$ is greater than the index of $\mathcal{P}$.
+%
+%Given partitions $\mathcal{P}$ and $\mathcal{Q}$ of \textit{E}, $\mathcal{U} = \mathcal{P}\wedge\mathcal{Q}$ denotes the coarsest partition which refines $\mathcal{P}$ and $\mathcal{Q}$. The elements of $\mathcal{U}$ are non-empty sets \textit{P}$\cap$\textit{Q}, \textit{P}$\in\mathcal{P}$ and \textit{Q}$\in\mathcal{Q}$. The notation is extended for multiple sets as $\mathcal{U} = \mathcal{P}_1 \wedge \mathcal{P}_2 \wedge \ldots \wedge \mathcal{P}_n$. When $n=0$,  $\mathcal{P}$ is the universal partition comprised of just \textit{E} and it is the neutral element for the $\wedge$-operation.
+%
+%Given $F\subseteq E$, a partition $\mathcal{P}$ of \textit{E} induces a partition $\mathcal{P}'$  
+%of \textit{F} by intersection. $\mathcal{P}'$ is composed by the sets $P\cap F$ with $P\subseteq \mathcal{P}$. If $\mathcal{P}$ and $\mathcal{Q}$ are partitions of \textit{E} and $\mathcal{Q} \leq \mathcal{P}$, the restrictions $\mathcal{P}'$ and $\mathcal{Q}'$ to \textit{F} maintain $\mathcal{Q}' \leq \mathcal{P}'$.
+%
+%Given partitions $\mathcal{P}$ and $\mathcal{P}'$ of disjoint sets \textit{E} and \textit{E'}, the partition of set $E \cup E'$ whose restriction to \textit{E} and \textit{E'} are $\mathcal{P}$ and $\mathcal{P'}$ is denoted by $\mathcal{P}\vee\mathcal{P}'$. It is possible to write $\mathcal{P} = \vee_{P\vee\mathcal{P}}\{P\}$.
+%
+%\begin{definition}[\textbf{Deterministic Automaton}]\label{def:minauto}
+%A deterministic automaton over an alphabet $\Sigma$ is a quadruple $\mathcal{A}$ = (Q, i, $\delta$, F). Q is the set of states and $\delta$ is the transition function as in the PFSA from Definition \ref{definition:pfsa}. i $\in$ Q is the initial state from which the walk in this automaton will start. F $\subset$ Q is the set of final states in which the walks can end. For each q $\in$ Q, there is a corresponding subautomaton $\mathcal{A}$ starting in q, called the subautomaton rooted in q or simply automaton at q. 
+%\end{definition}
+%
+%To each state \textit{q} there is a corresponding language $L_q(\mathcal{A}$), which is the set of sequences recognized by the automaton rooted at \textit{q}:
+%
+%\[
+%L_q(\mathcal{A}) = \{w \in \Sigma* | qw \in F\}.
+%\]
 
 

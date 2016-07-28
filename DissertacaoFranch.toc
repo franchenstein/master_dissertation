@@ -1,0 +1,23 @@
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\select@language {english}
+\select@language {portuges}
+\contentsline {chapter}{\numberline {1}\scshape {\bfseries {Introduction}}}{8}
+\contentsline {chapter}{\numberline {2}\scshape {\bfseries {Revision}}}{9}
+\contentsline {section}{\numberline {2.1}Sequences of Discrete Symbols}{9}
+\contentsline {section}{\numberline {2.2}Graphs}{10}
+\contentsline {section}{\numberline {2.3}Graph Minimization}{11}
+\contentsline {subsection}{\numberline {2.3.1}Moore's Algorithm}{13}
+\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{13}
+\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{14}
+\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{16}
+\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{16}
+\contentsline {subsection}{\numberline {2.5.2}CRiSSiS}{16}
+\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithms Descriptions}}}{17}
+\contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{17}
+\contentsline {chapter}{\numberline {4}\scshape {\bfseries {TODO}}}{24}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{25}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{26}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{27}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{28}

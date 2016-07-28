@@ -52,32 +52,31 @@ detalhadas sobre sistemas caóticos podem ser obtidas em \cite{alligood.97}.
 %regra for aplicada em tempos discretos, este é chamado um sistema dinâmico de tempo discreto, também denominados de \textit{mapas}.
 Um sistema é um conjunto de componentes (físicos, biológicos, mecânicos, etc.) que interagem de forma definida. Exemplos: o mercado interno de um país, o sistema circulatório do corpo 
 humano, o conjunto suspensão e amortecimento de um automóvel, um circuito eletrônico, uma coluna de destilação, uma caldeira industrial, o ecossistema de um lago etc. Um conjunto de 
-equações é também um sistema, porém, para evitar confusão, o termo ``sistema'' é muitas vezes reservado para o processo real, enquanto uma equação ou conjunto de equações recebe a denominação 
-de ``modelo''. Quando este é interpretado como uma representação daquele, recebe a denominação de modelo do sistema \cite{aguirre}.
+equações é também um sistema, porém, para evitar confusão, o termo "sistema" é muitas vezes reservado para o processo real, enquanto uma equação ou conjunto de equações recebe a denominação 
+de "modelo". Quando este é interpretado como uma representação daquele, recebe a denominação de modelo do sistema \cite{aguirre}.
 
-Denota-se sistema dinâmico aquele cuja saída no instante ``$k$'' depende de valores passados da saída, da entrada e do valor presente. Portanto, os sistemas dinâmicos possuem memória e são  descritos por equações 
-diferenciais no caso de sistemas contínuos, e por equações de diferença no caso de sistemas discretos. O estado de um sistema dinâmico é um conjunto de variáveis, que podem ou não estar associadas 
+Denota-se sistema dinâmico aquele cuja saída no instante ``$k$'' depende de valores passados da saída e da entrada. Portanto, os sistemas dinâmicos possuem memória e são  descritos por equações 
+diferenciais no caso de sistemas contínuos, e por equações de diferença no caso de sistemas discretos. O estado de um sistema dinâmico é um conjunto de variáveis, podendo ou não estar associadas 
 a quantidades físicas, cuja especificação (na ausência de excitações externas) determina completamente a evolução do sistema. Tal conjunto de variáveis, apesar de ter cardinalidade definida, 
-não é unicamente especificado e está associado à memória do sistema dinâmico. Este conjunto recebe a denominação de vetor de estado quando é representado por meio de um espaço de dimensão $n$, 
+não é unicamente especificado e está associado à memória do sistema dinâmico. Este conjunto recebe a denominação de vetor de estado quando é representado através de um espaço de dimensão $n$, 
 portanto, contém o valor de todas as variáveis dependentes do sistema dinâmico num dado instante de tempo ou iteração. O conjunto de todos os possíveis vetores de estados é conhecido 
-como \textit{espaço de fase}. Se a regra for aplicada em tempo discreto, este é chamado um sistema dinâmico de tempo discreto, também denominados de \textit{mapa}.
+como \textit{espaço de fase}. Se a regra for aplicada em tempos discretos, este é chamado um sistema dinâmico de tempo discreto, também denominados de \textit{mapas}.
 
 O comportamento dos mapas é observado mediante uma série temporal discreta $\{x_i\}_{i=0}^{\infty}$, obtida pela iteração de uma função $f(x)$, não linear, sob uma condição 
 inicial $x_0$, da seguinte forma:
 \begin{equation}
  x_n = f(x_{n-1}),   n=1, 2, 3,....
 \end{equation}
-Uma \textit{órbita} de $x_0$ é um conjunto de pontos \{$x_0$, $f(x_0)$, $f^2(x_0)$ ...\}, em que $f^k$ denota a k-ésima composição de $f(x)$ \cite{alligood.97}. Um ponto fixo $x_k$ é o ponto no 
-qual se tem $f(x_k)=c$, para todo $k \in \mathbb{N}$ sendo $c$ uma constante~\cite{alligood.97}. 
+Uma \textit{órbita} de $x_0$ é um conjunto de pontos \{$x_0$, $f(x_0)$, $f^2(x_0)$ ...\}, em que $f^k$ denota a k-th composição de $f(x)$ \cite{alligood.97}. Um ponto fixo $x_k$ é o ponto no 
+qual se tem $f(x_k)=c$, para todo $k \in \mathbb{R}$ sendo $c$ uma constante\cite{alligood.97}. 
 Uma órbita periódica tem período $k$, se $f^k(x_0)= x_0$, ou seja, os primeiros pontos são $\{x_0, f(x_0), f^2(x_0),..., f^{k-1}(x_0), x_0\}$, onde $f^p(x_0)\neq x_0$, para todo 
 $p=\{1,2,...,k-1\}$  \cite{alligood.97}.
 
-Pode-se representar graficamente uma órbita pelo método conhecido como diagrama cobweb~\cite{alligood.97}, uma representação do comportamento global do sistema, particularmente útil na análise 
-de sistemas não 
+Pode-se representar graficamente uma órbita pelo método conhecido como diagrama cobweb, uma representação do comportamento global do sistema, particularmente útil na análise de sistemas não 
 lineares. O processo consiste em projetar verticalmente a amostra $x_0$ sob o gráfico da função $f(x)$ e 
-horizontalmente sob o gráfico de $y = x$. Repetindo este processo $n$ vezes obtém-se os pontos da órbita, formando-se os pares 
+horizontalmente sob o gráfico de $y = x$. Repetindo este processo $n$ vezes obtêm-se os pontos da órbita, formando-se os pares 
 $\{(0,x_0), (x_0,x_1), (x_1,x_1), (x_1,x_2), (x_2,x_2), (x_2,x_3) \cdots\}$. Neste método é possível reconhecer visualmente o comportamento do sistema. Exemplos 
-deste diagrama são apresentados na Seção 2.3.
+deste diagrama são apresentados na seção 2.4.
 
 %Uma das características mais importantes dos mapas caóticos é a sensibilidade à condição inicial. Um sistema dinâmico é sensível às condições iniciais se existe um número 
 %positivo $\delta$ tal que para todo $x_0$ e $\epsilon > 0$ existem $y_0$ e $n>0$ que satisfaz \cite{alligood.97}:
@@ -86,8 +85,7 @@ deste diagrama são apresentados na Seção 2.3.
 %\end{equation}
 %isto é, existe um número positivo $\delta$ tal que todos os pontos de partida do espaço de fase que são arbitrariamente próximos são separados em algum
 %tempo da órbita inicial por uma distância maior que $\delta$. 
-A seguir, define-se o conceito de expoente de Lyapunov, que quantifica a sensibilidade de um sistema às condições iniciais. Ele costuma ser empregado para caracterizar um comportamento 
-caótico de um sistema.
+A seguir define-se o conceito de expoente de Lyapunov que quantifica a sensibilidade de um sistema às condições iniciais que costuma ser empregado para caracterizar um comportamento caótico.
 
 %Um sistema de tempo discreto pode modelar fenômenos reais, e não todos os pontos fixos são iguais, eles podem ser estável o 
 %não. Os ponto fixos estável tem a propriedade que os pontos cercanos a ele, baixo o sistema dinâmico ficam mas perto de ele. Os
@@ -113,31 +111,31 @@ caótico de um sistema.
 
 O número de Lyapunov é utilizado para quantificar a taxa média de separação multiplicativa entre duas órbitas infinitesimalmente próximas com condições iniciais $x_0$ e $x_0 + \epsilon$.
 O expoente de Lyapunov é simplesmente o logaritmo natural do número de Lyapunov. Um número de Lyapunov igual a 2 (ou equivalentemente 
-um expoente de Lyapunov $\ln 2$) significa que a distância entre a órbita iniciada $x_0$ e a órbita muito próxima iniciada em $x_0 + \epsilon$ é duas vezes maior por cada iteração, em média. Um 
-número de Lyapunov $1/2$ significa que a distância é reduzida para metade em cada iteração, e as órbitas iniciadas em $x_0$ e em $x_0 + \epsilon$ ficam mais perto uma da outra.
+um expoente de Lyapunov $\ln 2$) significa que a distância entre a órbita iniciada $x_0$ e a órbita muito próxima iniciada em $x_0 + \epsilon$ é duas vezes maior por cada iteração, em média.Um 
+número de Lyapunov $1/2$ significa que a distância é reduzida para metade em cada iteração, e as órbitas iniciadas em $x_0$ e em $x_0 + \epsilon$ ficaram mais perto uma da outra.
 
 O número de Lyapunov $L(x_0)$ de uma orbita gerada por um mapa unidimensional $f(x)$ está definido como \cite{alligood.97}:
 
 \begin{equation}
  L(x_0) = \lim_{n \longrightarrow \infty} (|f^{\prime}(x_0)|...|f^{\prime}(x_{n-1})|)^{1/n}
 \end{equation}
-se o limite existe, em que $f^{\prime}$ é a derivada de $f$. O expoente de Lyapunov $h(x)$ é definido como \cite{alligood.97}:
+se o limite existe. O expoente de Lyapunov $h(x)$ é definido como \cite{alligood.97}:
 
 \begin{equation}
  h(x_0) = \lim_{n\longrightarrow \infty} \frac{1}{n}\sum_{i=0}^{n-1} \ln |f^{\prime}(x_i)|,
 \end{equation}
-se o limite existe. Note-se que $h(x_0)$ existe se, e somente se, $L(x_0)$ existe e é diferente de zero, de modo que $h (x_0)= \ln L(x_0)$.
+se o limite existe. Note-se que $h$ existe se, e somente se, $L$ existe e é diferente de zero, de modo que $h= \ln L$.
 
 %O número e o expoente de Lyapunov são indefinidos para algumas órbitas. Em particular, uma órbita que contem um ponto $x_i$ com 
 %$f^{'}(x_i)=0$ faz com que o expoente de Lyapunov seja indefinido. A definição do número de Lyapunov de um ponto fixo $x$ de um mapa unidimensional $f$ é a derivada da função nesse ponto 
 %($f^{'}(x)$), ou equivalentemente, 
 %o expoente de Lyapunov da órbita é $h(x) = \ln|f'(x)|$.
 
-Uma órbita de $x_0$ é assintoticamente periódica se converge para uma órbita periódica quando $n \rightarrow \infty$. Isto significa que existe uma órbita periódica 
-$\{y,f(y), f^2(y) ..., f^k(y),y,f(y), f^2(y) ...\}$, tal que
+Uma órbita de $x_0$ é assintoticamente periódica, se está converge para uma órbita periódica quando $n \longrightarrow \infty$. Isto significa que existe uma órbita periódica 
+$\{y,f(y), f^2(y) ..., f^k(y),y,f(y), f^2(y) ...\}$, tal que:
 
 \begin{equation}
- \lim_{n \rightarrow \infty} |x_n -y_n| = 0.
+ \lim_{n\longrightarrow \infty} |x_n -y_n| = 0.
 \end{equation}
 Uma órbita é caótica se \cite{alligood.97}:
 
@@ -146,13 +144,13 @@ Uma órbita é caótica se \cite{alligood.97}:
  \item A órbita não é assintoticamente periódica.
 \end{itemize}
 
-Estes parâmetros quantificam a dinâmica caótica de sistemas, mas não há uma definição formal do caos. Entretanto, sabe-se que um sistema para ser caótico deve satisfazer as 
+Estes parâmetros quantificam a dinâmica caótica de sistemas, mas não há uma definição formal do caos. Entretanto, reconhece que um sistema para ser caótico deve satisfazer as 
 seguintes propriedades \cite{strogatz.01}:
 
 \begin{itemize}
  \item \textbf{Comportamento aperiódico a longo prazo}: Existem órbitas que não tendem a pontos fixos, órbitas periódicas, ou quase-periódicas quando $t \rightarrow \infty$.
- \item \textbf{Determinístico}: O comportamento irregular é dado pela não linealidade do sistema, não devido a ruídos externos, ou seja, o sistema deve ser inerentemente determinístico.
- \item \textbf{Sensibilidade às condições inicias}: Órbitas com condições inicias próximas separam-se exponencialmente (quantificado pelo expoente de Lyapunov). 
+ \item \textbf{Determinístico}: O comportamento irregular é dado pela não linealidade do sistema, não por a ruídos externos, ou seja, o sistema deve ser inerentemente determinístico.
+ \item \textbf{Sensibilidade à condições inicias}: Órbitas com condições inicias próximas separam-se exponencialmente (quantificado pela expoente de Lyapunov). 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - Mapas caóticos e suas características %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,12 +169,7 @@ Os dois primeiros mapas (logístico, tenda) são amplamente conhecidos na literatu
 
 \subsection{Mapa Logístico}
 
-Para uma família de mapas logísticos $f : [0,1]\rightarrow [0,1]$, definido como~\cite{alligood.97}: 
-\begin{equation}
- f(x)=ax(1-x),
-\end{equation}
-
-tem-se que:
+Para uma família de mapas logísticos, $f(x)=ax(1-x)$, tem-se que \cite{alligood.97}:
 
 \begin{itemize}
 \item Se o parâmetro $a$ está na faixa $0<a\leq 1$, o mapa só tem um ponto fixo em $p=0$, como mostra a Figura \ref{fig:Fig1}.
@@ -186,36 +179,24 @@ tem-se que:
 
 \begin{figure}[!b]
 \centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/1.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
- \caption{Cobweb do mapa logístico para $a = 0,5$.}\label{fig:Fig1}
+ \includegraphics[scale=0.68]{Figuras/1.eps}
+ \caption{Cobweb do mapa da logístico para $a = 0.5$.}\label{fig:Fig1}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/2.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
- \caption{Cobweb do mapa logístico para $a = 2,5$.}\label{fig:Fig2}
+ \includegraphics[scale=0.68]{Figuras/2.eps}
+ \caption{Cobweb do mapa da logístico para $a = 2.5$.}\label{fig:Fig2}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/3.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.68]{Figuras/3.eps}
  \caption{Cobweb do mapa logístico para $a = 4$.}\label{fig:Fig3}
 \end{figure}
 
 A família de mapas logísticos tem um comportamento caótico a partir de um valor do parâmetro $a$. O valor critico $a_c$ serve como fronteira entre a zona em que ocorrem 
-os fenômenos de convergência e zona de caos. Este foi determinado empiricamente por Mitchell Jay Feigenbaum e seu valor é $a_c \approx 3,5699456$\cite{alligood.97}.
+os fenômenos de convergência e zona de caos. Este foi determinado empiricamente por Mitchell Jay Feigenbaum e seu valor é $a_c=3,5699456.....$\cite{alligood.97}.
 
 %O comportamento caótico do mapa logístico pode-se ver mediante o expoente de Lyapunov, como se mostra na seguinte 
 %figura\ref{fig:Fig11}:
@@ -238,142 +219,104 @@ O mapa da tenda $f : [0,1]\rightarrow [0,\beta /2]$ é definido como \cite{6}:
   \displaystyle \beta (1-x), & se & \frac{1}{2}\leq x < 1,
  \end{array}\right. 
 \end{equation}
-em que o valor do parâmetro $\beta$ está no intervalo $0<\beta \leq 2$. Dependendo do valor de $\beta$ existem cinco tipos de comportamento assintótico do mapa:
+em que o valor do parâmetro $\beta$ está no intervalo $0<\beta \leq 2$. Dependendo do valor de $\beta$ existem seis tipos de comportamento assintótico do mapa:
 \begin{itemize}
- \item $0< \beta < 1$: O mapa tem um ponto fixo em $x=0$. Para qualquer condição inicial, as  iterações convergem para este, como mostra a Figura \ref{fig:Fig4}.
+ \item $0<\beta \leq 1$: O mapa tem um ponto fixo em $x=0$. Para qualquer condição inicial, as  iterações convergem para este, como mostra a Figura \ref{fig:Fig4}.
  \item $\beta =1$: Todos os pontos da região $[0;0,5]$ são pontos fixos. Os pontos da região $(0,5;1]$ mapeiam na região $[0;0,5]$, sendo pontos eventualmente fixos.
- \item $1< \beta \leq \sqrt{2}$: As orbitas são quase-periódicas. O mapa não ocupa o espaço de fase completo $[0,\beta /2]$,
+ \item $1< \beta < \sqrt{2}$: As orbitas são quasi-periódicas. O mapa não ocupa o espaço de fase completo $[0,\beta /2]$,
  estando restrito numa região $[\beta (2-\beta)/2,\beta/2]$, como mostra a Figura \ref{fig:Fig5}.
- \item $\sqrt{2}<\beta < 2$: Região caótica. O comportamento assintótico das sequências geradas se limita à região
+ \item $\sqrt{2}<\beta < 2$: Região caótica. O comportamento assintótico das sequências geradas se limitam na região
  $[\beta (2-\beta)/2,\beta /2]$ e o comportamento nesta região é caótico, como mostra a Figura \ref{fig:Fig6}.
  \item $\beta =2$: As órbitas obtidas são caóticas e cobrem o espaço completo $[0,1]$, como mostra a Figura \ref{fig:Fig7}.
 \end{itemize}
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/4.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.68]{Figuras/4.eps}
  \caption{Cobweb do mapa da tenda para $0<\beta \leq 1$.}\label{fig:Fig4}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/5.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.7]{Figuras/5.eps}
  \caption{Cobweb do mapa da tenda para $1< \beta < \sqrt{2}$.}\label{fig:Fig5}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/6.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.7]{Figuras/6.eps}
  \caption{Cobweb do mapa da tenda para $\sqrt{2} <\beta < 2$.}\label{fig:Fig6}
 \end{figure}
  
- \begin{figure}[!b]
+ \begin{figure}[!h]
 \centering
- \begin{pspicture}(-3.5,-0.3)(4.8,3.8) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/7.eps}}
- \rput(-3.2,2.7){ $f(x)$}
- \rput(0.8,-.7){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.7]{Figuras/7.eps}
  \caption{Cobweb do mapa da tenda para $\beta =2$.}\label{fig:Fig7}
 \end{figure}
 
 \subsection{Mapa Tangente Hiperbólica}
 
-O mapa tangente hiperbólica (tanh) \cite{tanh14}, $f:[-1,1]\rightarrow [-1,1]$, é baseado na função tangente hiperbólica e é definido por\\
-\\
-\\
+O mapa tangente hiperbólica (tanh) \cite{tanh14}, $f:[-1,1]\rightarrow [-1,1]$, é baseado na função tangente hiperbólica e é definido por: 
+
 \begin{equation}\label{eq:tanh_general}
 f(x)=\left\{\begin{array}{lc}
  e\cdot\tanh\bigl(r \cdot(x+1)\bigr)-1, & x < 0 \\
- (-1)^b\cdot \bigl[e \cdot\tanh\bigl(-r \cdot(x-1)\bigr)-1\bigr], & x\geq 0, 
+ (-1)^b\cdot \bigl[e \cdot\tanh\bigl(-r \cdot(x-1)\bigr)-1\bigr], & x\geq 0 
 \end{array}\right.
 \end{equation}
-em que o fator de escala $e$ é dado por
+em que o fator de escala $e$ é dado por:
 \begin{equation}
 e=\frac{2}{\tanh(r)}.
 \end{equation}
 Este mapa tem dois parâmetros de controle especificados pela dupla $(b,r)$. O parâmetro $b$ define a simetria do mapa, podendo ser 0 (simetria par) ou 1 (simetria ímpar). O parâmetro 
 $r$ é um número real positivo que controla a extensão da região planar em torno do eixo de simetria. As Figuras \ref{fig:Fig16} e \ref{fig:Fig17} mostram os mapas 
 tanh par, denominado de e-tanh, e o mapa tanh ímpar, denominado de o-tanh, para diferentes valores de $r$. Observa-se nas Figuras \ref{fig:Fig16} e \ref{fig:Fig17} 
-que quando o parâmetro $r$ tende a 0, os mapas e-tanh e o-tanh tendem a dois mapas conhecidos na literatura, o mapa da tenda e o mapa de Bernoulli, respectivamente.
+que quando o parâmetro $r$ tende a 0 ($r \rightarrow 0$), os mapas e-tanh e o-tanh tendem a dois mapas conhecidos na literatura, o mapa da tenda e o mapa de Bernoulli, respectivamente.
 
  \begin{figure}[!b]
 \centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/mpar.eps}}
- \rput(-3.2,1.7){ $f(x)$}
- \rput(0.9,-.75){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.7]{Figuras/mpar.eps}
  \caption{Mapa e-tanh para $r=\{0,01; 2,5; 5; 10\}$.}\label{fig:Fig16}
 \end{figure}
 
- \begin{figure}[!t]
+\begin{figure}[!b]
 \centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/mimpar.eps}}
- \rput(-3.2,1.7){ $f(x)$}
- \rput(0.9,-.8){$x$} 
- \end{pspicture}
- \caption{Mapa o-tanh para $r=\{0,01; 2,5; 5; 10\}$.}\label{fig:Fig16}
+ \includegraphics[scale=0.7]{Figuras/mimpar.eps}
+ \caption{Mapa o-tanh para $r=\{0,01; 2,5; 5; 10\}$.}\label{fig:Fig17}
 \end{figure}
 
-
 A concentração dos pontos do mapa tanh pode ser observada nos histogramas dos mapas e-tanh e o-tanh, como mostra as Figuras \ref{fig:Fig18} e \ref{fig:Fig19}. Estas mostram a distribuição de 
-pontos de uma órbita de 1 000 000 pontos para ambos mapas com $r = 3$ e condição inicial aleatória. Existe uma clara assimetria na distribuição de pontos do histograma do mapa e-tanh
-em torno de $x = 0$. com maior concentração de pontos em torno de $x = 1$. Para o mapa e-tanh é observado que, para $r < 7,1$, os pontos são mais concentrados em torno de $x = 1$, 
+pontos de uma órbita de 1.000.000 pontos para ambos mapas com $r = 3$ e condição inicial aleatória. Existe uma clara assimetria na distribuição de pontos do histograma do mapa e-tanh
+em torno de $x = 0$. com maior concentração de pontos em torno de $x = 1$. Para mapa e-tanh é observado que para $r < 7,1$ os pontos são mais concentrados em torno a $x = 1$, 
 e quando $r > 7,1$ esta tendência se inverte e os pontos se concentram em $x=-1$. A Figura~\ref{fig:Fig19} ilustra que o histograma do mapa o-tanh é simétrico em torno de $x = 0$. Uma 
 característica desta família é uma concentração dos pontos da órbita em torno dos seus valores extremos, resultando em uma redução na ocorrência de valores em torno de $x=0$ com o aumento 
 do parâmetro $r$, ou seja, a probabilidade de ocorrência de pontos na região central do domínio decresce, como consequência do alargamento da região horizontal.
 
 \begin{figure}[!t]
 \centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/histmp.eps}}
- \rput{90}(-3.2,2){Número de eventos}
- \rput(0.85,-.8){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.7]{Figuras/histmp.eps}
  \caption{Histograma do Mapa e-tanh, com $r=3$.}\label{fig:Fig18}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/histmi.eps}}
- \rput{90}(-3.2,2){Número de eventos}
- \rput(0.85,-.8){$x$} 
- \end{pspicture}
+ \includegraphics[scale=0.7]{Figuras/histmi.eps}
  \caption{Histograma do Mapa o-tanh, com $r=3$.}\label{fig:Fig19}
 \end{figure}
 
-Para a avaliação do comportamento caótico do mapa tanh, emprega-se conceitos bem conhecidos para sistemas caóticos, como o expoente de Lyapunov e o diagrama de órbita.
+Para a avaliação do comportamento caótico do mapa tanh, empregamos conceitos bem conhecidos para sistemas caóticos, como o expoente de Lyapunov e o diagrama de órbita.
 
 \subsubsection{Expoente de Lyapunov}
 
 A Figura \ref{fig:Fig9} mostra o valor do expoente de Lyapunov para $0 < r < 10$ para o mapa e-tanh. O expoente de Lyapunov do mapa o-tanh apresenta o mesmo comportamento do mapa e-tanh. 
-Consideramos uma orbita de $N=14000$ e desprezam-se as primeiras 400 iterações para eliminar o transiente da órbita. Quando o parâmetro
-$r$ tende a zero, o expoente de Lyapunov tende ao do mapa da tenda (0,693), e decresce suavemente quando o parâmetro $r$ 
-cresce. Pode-se observar que este é sempre positivo, então o mapa apresenta caos para todos os valores de $r$ na faixa considerada na Figura \ref{fig:Fig9}.
+Consideramos uma orbita de $N=14000$ e desprezamos as primeiras 400 iterações para eliminar o transiente da órbita. Quando o parâmetro
+$r$ tende a zero, o expoente de Lyapunov tende ao do mapa da tenda (0.693), e decresce suavemente quando o parâmetro $r$ 
+cresce. Podemos observar que este é sempre positivo, então o mapa apresenta caos para todos os valores de $r$ na faixa considerada na Figura \ref{fig:Fig9}.
 
 \begin{figure}[!t]
 \centering
-\begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/9.eps}}
- \rput(-3.2,2){$h$}
- \rput(0.85,-.7){$r$} 
- \end{pspicture}
- \caption{Expoente de Lyapunov versus o parâmetro $r$ para o mapa e-tanh.}\label{fig:Fig9}
+ \includegraphics[scale=0.47]{Figuras/9.eps}
+ \caption{Expoente de Lyapunov versus o parâmetro r para o mapa e-tanh.}\label{fig:Fig9}
 \end{figure}
 
 \subsubsection{Diagrama de Órbita}
@@ -384,13 +327,8 @@ e os pontos nos dois extremos ocorrem com a mesma probabilidade.
 
 \begin{figure}[!t]
 \centering
- \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
- \rput(0.75,1.5){\includegraphics[width=.45\textwidth]{Figuras/10.eps}}
- \rput(-3.2,2){}
- \rput(0.85,-.3){$r$}
- \rput{90}(-2.5,1.7){Eventos}
- \end{pspicture}
- \caption{Digrama de orbita versus o parâmetro $r$ para o mapa e-tanh.}\label{fig:Fig10}
+ \includegraphics[scale=0.5]{Figuras/10.eps}
+ \caption{Digrama de orbita versus o parâmetros r para o mapa e-tanh.}\label{fig:Fig10}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - Exemplos de Mapas Caóticos  %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -422,7 +360,7 @@ Uma vantagem do mapa e-tanh é a facilidade de implementação do mapa em circuitos
 f(x)=e\cdot \tanh\bigl[r\cdot (1-|x|)\bigr]-1.
 \end{equation}
 
-\begin{figure}[!b]
+\begin{figure}[!h]
 \centering
 \begin{pspicture}(-3.5,-0.5)(4.8,4) %\psgrid
 \rput(0.75,1.5){\includegraphics[width=.55\textwidth]{Figuras/tanH.eps}}
@@ -431,7 +369,7 @@ f(x)=e\cdot \tanh\bigl[r\cdot (1-|x|)\bigr]-1.
 \rput(0.9,0.45){\scriptsize $B\cdot(1 - |I_{in}|)$}
 \rput(1.15,2.7){\scriptsize $R_1$}
 \rput(3.35,2.7){\scriptsize $R_2$}
-\rput(2.2,3.9){\scriptsize $V_{cc}$}
+\rput(2.1,3.7){\scriptsize $V_{cc}$}
 \rput(2.77,0.25){\scriptsize $I_{EE}$}
 \rput(4.35,2.3){\scriptsize $I_{a}$}
 \rput(1.7,1.75){\scriptsize $Q_1$}
@@ -443,11 +381,11 @@ f(x)=e\cdot \tanh\bigl[r\cdot (1-|x|)\bigr]-1.
 \end{figure} 
 
 Para implementação deste mapa, emprega-se o circuito da Fig.~\ref{fig:tanh_core}, que é baseado em um par diferencial com transistor bipolar de junção (TBJ). 
-Denomina-se por $v_{id} = B(1 - |I_{in}|)$ a tensão diferencial entre os terminais base de $Q_1$ e $Q_2$, $I_{EE}$ a corrente de polarização do par diferencial e $V_T$ a tensão térmica, 
+Denominamos por $v_{id} = B(1 - |I_{in}|)$ a tensão diferencial entre os terminais base de $Q_1$ e $Q_2$, $I_{EE}$ a corrente de polarização do par diferencial e $V_T$ a tensão térmica, 
 em torno de $26mV$ a temperatura ambiente. A entrada do circuito é $I_{in}$ e a saída é o inverso da corrente de coletor de $Q_2$ mais uma corrente constante $I_a$, ou seja, $I_{out}= -I_2+I_a$. 
-Pode-se mostrar que $I_2$ é função da tangente hiperbólica da tensão diferencial por um fator de escala $2V_T$ \cite{pederson91}, o que permite especificar $I_{out}$ da seguinte forma
+Pode-se mostrar que $I_2$ é função da tangente hiperbólica da tensão diferencial por um fator de escala $2\cdot V_T$ \cite{pederson91}, o que permite especificar $I_{out}$ da seguinte forma
 \begin{equation}\label{eq:circ_out}
-I_{out}=\frac{I_{EE}}{2} \tanh\biggl(\frac{v_{id}}{2 V_T}\biggr)-\biggr(\frac{I_{EE}}{2}-I_a\biggr).
+I_{out}=\frac{I_{EE}}{2}\cdot \tanh\biggl(\frac{v_{id}}{2\cdot V_T}\biggr)-\biggr(\frac{I_{EE}}{2}-I_a\biggr).
 \end{equation}
 Para especificar (\ref{eq:tanh_mod}) em termos dos parâmetros do circuito, a corrente $I_{out}$ 
 deve ser normalizada. Aplicando esse fator de normalização para toda a equação, a transresistência $B$ é escolhida para gerar o respectivo argumento da tangente hiperbólica em 
@@ -461,9 +399,9 @@ deve ser normalizada. Aplicando esse fator de normalização para toda a equação, 
 % I_{\text{out}} = -I_{\text{c2}} = \frac{I_{\text{EE}}}{2} \cdot (\tanh\left(\frac{v_{\text{id}}}{2\cdot V_{\text{T}}}\right)
 %\end{equation}
 
-Com o auxílio de um circuito periférico apropriado é possível gerar uma sequência do mapa e-tanh. Entre esses periféricos, destaca-se o papel do circuito
+Com o auxílio de um circuitos periféricos apropriado é possível gerar uma sequência do mapa e-tanh. Entre esses periféricos, destaca-se o papel do circuito
 \textit{sample-and-hold}~\cite{dudek.03}, que permite gerar uma sequência caótica a partir do núcleo apresentado na Fig.~\ref{fig:tanh_core}. Isso ocorre com a amostragem 
-de $I_{out}$ em um ciclo de máquina (\textit{sample}) e o emprego deste como entrada no ciclo subsequente. 
+de $I_{out}$ em um ciclo de máquina (sample) e o emprego deste como entrada no ciclo subsequente. 
 %Para gerar a próxima saída do mapa é preciso aguardar a estabilização da 
 %saída após a atualização da entrada (hold). Este processo permite implementar eletronicamente o mecanismo de ``iteração'' do mapa descrito em (\ref{orbit}).
 

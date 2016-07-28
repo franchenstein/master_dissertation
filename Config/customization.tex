@@ -68,7 +68,15 @@
 \usepackage{footmisc}
 
 \usepackage{url}                             %% Para URL, PATH, etc
-
+\usepackage{mathrsfs}
+\usepackage{algorithm}
+\usepackage{varwidth}
+\usepackage[noend]{algpseudocode}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{graphs, graphs.standard}
+\usetikzlibrary{trees}
+\usetikzlibrary{positioning}
 %\usepackage{euler}
 %\usepackage[dvips]{hyperref}
 
@@ -124,16 +132,16 @@
 \theoremheaderfont{\normalfont\bfseries}
 \theorembodyfont{\it}
 
-\newtheorem{proposition}{Proposi\c{c}\~{a}o}[chapter]  %%
-\newtheorem{definition}{Defini\c{c}\~{a}o}[chapter]    %%
-\newtheorem{property}{Propriedade}[chapter]            %%
-\newtheorem{theorem}{Teorema}[chapter]                 %%
-\newtheorem{lemma}{Lema}[chapter]                      %%
-\newtheorem{corollary}{Corol\'{a}rio}[chapter]         %%
-\newtheorem{conjecture}{Conjectura}[chapter]           %%
+\newtheorem{proposition}{Proposition}[chapter]  %%
+\newtheorem{definition}{Definition}[chapter]    %%
+\newtheorem{property}{Property}[chapter]            %%
+\newtheorem{theorem}{Theorem}[chapter]                 %%
+\newtheorem{lemma}{Lemma}[chapter]                      %%
+\newtheorem{corollary}{Corollary}[chapter]         %%
+\newtheorem{conjecture}{Conjecture}[chapter]           %%
 
 \newcommand{\etal}{\emph{et\:al.}}
-\newcommand{\fonte}{\footnotesize Fonte: Próprio Autor.}
+\newcommand{\fonte}{\footnotesize Source: Author.}
 
 \theoremstyle{sampaio}
 \theoremindent0.6cm
@@ -141,9 +149,9 @@
 \theoremheaderfont{\normalfont\bfseries}
 \theorembodyfont{\it}
 
-\newtheorem{example}{Exemplo}[chapter]                 %%
-\newtheorem{construction}{Constru\c{c}\~{a}o}[chapter] %%
-\newtheorem{procedure}{Procedimento}[chapter]           %%
+\newtheorem{example}{Example}[chapter]                 %%
+\newtheorem{construction}{Construction}[chapter] %%
+\newtheorem{procedure}{Procedure}[chapter]           %%
 
 \theoremstyle{nonumberplain}
 \theoremheaderfont{\it}\theorembodyfont{\normalfont}
@@ -151,14 +159,14 @@
 \theoremsymbol{$\blacksquare$}
 \theoremindent0.6cm
 
-\newtheorem{proof}{\hspace{-0.85cm} Demonstra\c{c}\~{a}o}%%
+\newtheorem{proof}{\hspace{-0.85cm} Proof}%%
 \theoremstyle{nonumberbreak}
 \theoremheaderfont{\it}\theorembodyfont{\normalfont}
 \theoremseparator{:}
 \theoremsymbol{$\blacksquare$}
 \theoremindent0.6cm
 
-\newtheorem{proof2}{\hspace{-.7cm} \underline{Demonstra\c{c}\~{a}o}}%%
+\newtheorem{proof2}{\hspace{-.7cm} \underline{Proof}}%%
 \theoremheaderfont{\sc}
 \theorembodyfont{\upshape}
 \theoremstyle{nonumberplain}
@@ -237,7 +245,7 @@
 \renewcommand{\headrulewidth}{0pt}%
 
 \newsavebox{\mygraphic}
-\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufpe.eps}}
+%\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufpe.eps}}
 
 
 \newenvironment{my-notation}{
