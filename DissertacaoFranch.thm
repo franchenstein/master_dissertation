@@ -5,8 +5,11 @@
 \contentsline {definition}{{Definition}{2.{5}}{\textbf {Irreducible Graph}}}{12}
 \contentsline {proposition}{{Proposition}{2.{1}}{}}{12}
 \contentsline {lemma}{{Lemma}{2.{1}}{}}{13}
-\contentsline {definition}{{Definition}{2.{6}}{\textbf {Probabilistic Finite State Automata}}}{14}
-\contentsline {definition}{{Definition}{2.{7}}{\textbf {Morph}}}{14}
-\contentsline {definition}{{Definition}{2.{8}}{\textbf {Deterministic PFSA}}}{14}
-\contentsline {definition}{{Definition}{2.{9}}{\textbf {PFSA Synchronization Word}}}{15}
-\contentsline {definition}{{Definition}{3.{1}}{}}{18}
+\contentsline {proposition}{{Proposition}{2.{2}}{}}{13}
+\contentsline {proposition}{{Proposition}{2.{3}}{}}{14}
+\contentsline {definition}{{Definition}{2.{6}}{\textbf {Probabilistic Finite State Automata}}}{15}
+\contentsline {definition}{{Definition}{2.{7}}{\textbf {Morph}}}{15}
+\contentsline {definition}{{Definition}{2.{8}}{\textbf {Deterministic PFSA}}}{16}
+\contentsline {definition}{{Definition}{2.{9}}{\textbf {PFSA Synchronization Word}}}{16}
+\contentsline {definition}{{Definition}{2.{10}}{}}{17}
+\contentsline {definition}{{Definition}{3.{1}}{}}{26}

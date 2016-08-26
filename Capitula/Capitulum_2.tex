@@ -1,5 +1,13 @@
 \chapter{Revision}\label{cap:2}
 
+\tikzset{
+  treenode/.style = {shape=circle,
+                     draw, align=center,
+                     top color=white},
+  root/.style     = {treenode, font=\ttfamily\normalsize},
+  env/.style      = {treenode, font=\ttfamily\normalsize},
+  leaf/.style    = {treenode,font=\ttfamily\normalsize, bottom color=red}
+}
 
 {\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{T}{his} chapter revises the concepts needed to develop the algorithms and their application.
 
@@ -154,7 +162,44 @@ Let P be a set of states and $\mathcal{P} = {P_1, P_2}$ a partition of P. For an
       \Until{$\mathcal{P} = \mathcal{P}'$}
     \end{algorithmic}
   \end{algorithm}
+ 
+Given a graph \textit{G = (Q, $\Sigma, \delta$)}, the set $L_q^{(h)}$ is defined as:
 
+\[
+L_q^{(h)}(G) = \{w \in \Sigma^* | |w| \leq h\, qw \in G\}.
+\]
+
+The Moore equivalence of order \textit{h} (denoted by $\equiv_h$) is defined by:
+
+\[
+p \equiv_h q \Leftrightarrow L_p^{(h)}(G) = L_q^{(h)}(G)
+\]
+
+The depth of Moore's algorithm on a graph \textit{G} is the integer \textit{h} such that the Moore equivalence $\equiv_h$ becomes equal to the Nerode equivalence $\equiv$ and it is dependent only on the graph's language. The depth is the smallest \textit{h} such that $\equiv_h$ equals $\equiv_{h+1}$, which leads to an algorithm that computes successive Moore equivalences until it finds two consecutive equivalences that are equal, making it halt.
+
+\begin{proposition}\label{prop:makemooreeasy}
+For two states \textit{p, q} $\in$ \textit{Q} and \textit{h} $\geq$ 0, one has
+
+\end{proposition}
+
+\[
+p \equiv_{h+1} q \Longleftrightarrow p \equiv_{h} q and p\cdot \sigma \equiv_h q\cdot \sigma for all \sigma \in \Sigma.
+\]
+
+Using this formulation and defining as $\mathcal{M}_h$ the partition defined by the Moore equivalence of depth \textit{h}, the following equations hold:
+
+\begin{proposition}\label{prop:moorecomp}
+For \textit{h} $\geq$ 0, one has
+
+\end{proposition}
+
+\[
+\mathcal{M}_{h+1} = \mathcal{M}_h \wedge \bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q = \bigvee_{R\in\mathcal{M}_h} (\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|R).
+\]
+
+This previous computation is done in Algorithm \ref{alg:moore} in which the loop refines the current partition. As will be explored in this work, the initial partition can be created with different criteria. For the deterministic case, it is done by grouping together states in \textit{Q} which have outgoing edges with the same labels, but another criterion will be used in the probabilistic case (Section \ref{subsec:inipart}).
+
+Moore's algorithm of the refinement of \textit{k} partition of a set with \textit{n} elements can be done in time \textit{O(k$n^2$)}. Each loop is processed in time \textit{O(kn)}, so the total time is \textit{O(lkn)}, where \textit{l} is the total number of refinement steps needed to compute the Nerode equivalence.
 
 \subsection{Hopcroft's Algorithm}
 
@@ -182,6 +227,12 @@ Let P be a set of states and $\mathcal{P} = {P_1, P_2}$ a partition of P. For an
       \EndFor
     \end{algorithmic}
   \end{algorithm}
+
+The notation min(\textit{P, P'}) indicates the set of smaller size of the two sets \textit{P} and \textit{P'} or any of them when both have the same size. Hopcroft's algorithm computes the coarsest partition that saturates the set \textit{F} of final states. The algorithm keeps a current partition $\mathcal{P} = \{P_1, \ldots, P_n\}$ and a current set $\mathcal{W}$ of splitters (i.e. pairs (\textit{W,$\sigma$}) that remain to be processed where \textit{W} is a class of $\mathcal{P}$ and $\sigma$ is a letter) which is called the \textit{waiting set}. $\mathcal{P}$ is initialized with the initial partition following the same criteria as described in Moore's algorithm. The waiting set is initialized with all the pairs (min(\textit{F, $F^c$}), $\sigma$) for $\sigma\in\Sigma$.
+
+For each iteration of the loop, one splitter (\textit{W,$\sigma$}) is taken from the waiting set. It then checks whether (\textit{W,$\sigma$}) splits each class of \textit{P} of $\mathcal{P}$. If it does not split, nothing is done, but if it does then \textit{P'} and \textit{P"} (which are the result of splitting \textit{P} by (\textit{W,$\sigma$})) replace \textit{P} in $\mathcal{P}$. Next, for each letter $\tau\in\Sigma$, if the pair (\textit{P,$\tau$}) is present in $\mathcal{W}$ is replaced by the two pairs (\textit{P',$\tau$}) and (\textit{P",$\tau$}). Otherwise, only (\textit{min(P',P"),$\tau$}) is added to $\mathcal{W}$.
+
+The previous computation is performed until $\mathcal{W}$ is empty. It is proven that the final partition of the algorithm is the same as the one given by the Nerode equivalence. No specific order of pairs (\textit{W,$\sigma$}) is described, which gives rise to different implementations in how the pairs are taken from the waiting set but all of them produce the right partition of states. Hopcroft proved that the running time of any execution of his algorithm is bounded by \textit{O(|$\Sigma| n\log n$)}.
 
 \section{Probabilistic Finite State Automata}
 
@@ -251,11 +302,313 @@ where $L_1$ and $L_2$ are precision parameters. This means that the statistical 
 
 A synchronization words is a good starting point to model a system from its output sequence because the probability of its occurrence does not depend on what came before it. Therefore its prefix can be regarded as a transient.
 
+\subsection{Initial Partition for PFSA}\label{subsec:inipart}
+
+In the current work, when applying a Graph Reduction algorithm (such as Moore's (Algorithm \ref{alg:moore}) or Hopcroft's (Algorithm \ref{alg:hop}) on a PFSA's graph, the following criterion will be used to create the initial partition:
+
+\begin{definition}\label{def:inipartpfsa}
+
+Given a PFSA \textit{G = (Q, $\Sigma, \delta, \mathcal{V}$)}, two states \textit{p, q} $\in$ \textit{Q} will be grouped together in the initial partition if their morphs are equivalent via a statistical test, i.e. $\mathcal{V}(p) = \mathcal{V}(q)$.
+
+\end{definition}
+
+
+
 \section{Consolidated Algorithms}
+
+In this section, other algorithms that achieve the same goal as the current work are described. In later sections, it will be pointed out how the proposed algorithm performs better than the ones detailed in this section.
 
 \subsection{D-Markov Machines}
 
-\subsection{CRiSSiS}
+A D-Markov machine is a PFSA that generates symbols that depend only on the history of at most \textit{D} symbols in the sequence, in which \textit{D} is the machine's \textit{depth}. It is equivalent to stochastic process where the probability of a symbol depends only on the last \textit{D} symbols:
+
+\[
+P(s_n|\ldots s_{n-D}\ldots s_{n-1}) = P(s_n|s_{n-D}\ldots s_{n-1}).
+\]
+
+To construct a D-Markov Machine, first all symbol blocks of length \textit{D} of a given sequence \textit{S} are taken as the states in the set \textit{Q} and their transition probabilities can be computed by frequency counting. The transition from a state \textit{q} with symbol $\sigma$ will have probability:
+
+\begin{equation}\label{eq:condprob}
+P(\sigma | q) = \frac{P(q\cdot\sigma)}{P(q)},
+\end{equation}
+
+\noindent and, considering that \textit{q = \textit{$\tau\cdot q'$}}, in which $\tau\in\Sigma$ and $q'\in\Sigma^{D-1}$, this transition will go to state \textit{p = $q'\cdot\sigma$}, i.e. $\delta(q,\sigma) = p = q'\sigma$.
+
+For example, using the following sequence \textit{S} over a binary alphabet: 10000000111101000100011\linebreak 11010100001011000110101011111010000111010011111011100011110100010110011001000.
+To build a 2-Markov Machine, the states will be 00, 01, 10 and 11. Table \ref{tab:subseq} shows the frequency-counting probability of sub-sequences up to length 3. Using this table and Equation \ref{eq:condprob}, the D-Markov machine shown in Figure \ref{fig:dmarkov} is built.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{L = 1} & \textbf{Prob.} & \textbf{L = 2} & \textbf{Prob.} & \textbf{L = 3} & \textbf{Prob.} \\
+\hline
+0 & 0.51 & 00 & 0.27 & 000 & 0.15\\
+1 & 0.49 & 01 & 0.23 & 001 & 0.12\\
+  &      & 10 & 0.24 & 010 & 0.12\\
+  &      & 11 & 0.25 & 011 & 0.11\\
+  &	     &    &      & 100 & 0.12\\
+  &      &    &      & 101 & 0.12\\
+  &      &    &      & 110 & 0.11\\
+  &      &    &      & 111 & 0.14\\
+\hline
+\end{tabular}\caption{Sequence \textit{s} subsequence probabilities. \label{tab:subseq}}
+\end{table}
+
+\begin{figure}
+\centering
+\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 3cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (11)
+{$11$};
+\node[state] (01) [above left=of 11] {$01$};
+\node[state] (10) [above right =of 11] {$10$};
+\node[state] (00) [above right=of 01] {$00$};
+\path (00) edge [loop above] node[above] {$0|0.56$} (00);
+\path (00) edge [bend left = -15] node[above =0.35 cm] {$1|0.44$} (01);
+\path (11) edge [loop below] node[below] {$1|0.56$} (11);
+\path (11) edge [bend left = -15] node[below =0.35 cm] {$0|0.44$} (10);
+\path (01) edge [bend left = 15] node[above =0.15 cm] {$0|0.5$} (10);
+\path (01) edge [bend left = -15] node[above =0.35 cm] {$1|0.5$} (11);
+\path (10) edge [bend right = 15] node[above =0.35 cm] {$0|0.5$} (00);
+\path (10) edge [bend right = -15] node[below =0.15 cm] {$1|0.5$} (01);
+\end{tikzpicture}
+\caption{A D-Markov machine for sequence s and D = 2.\label{fig:dmarkov}}
+\end{figure}
+ 
+\subsection{CRISSiS}
+
+The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS) algorithm was presented in [ref]. It starts with a stationary symbol sequence \textit{X} of length N which should be generated by a synchronizable and irreducible PFSA. CRISSiS estimates the original PFSA by looking at its output sequence. CRISSiS is shown in Algorithm \ref{alg:crissis} and it consists of three steps:
+
+\begin{algorithm} 
+  \caption{CRISSiS\label{alg:crissis}}
+    \begin{algorithmic}[1]
+      \State \textbf{Inputs:} Symbolics string $X, \Sigma, L_1, L_2$, significance level $\alpha$
+      \State \textbf{Outputs:} PFSA \^{G} = \{Q, $\Sigma, \delta, \pi$\}
+      \State $\omega_{syn} \leftarrow $ null
+      \State d $\leftarrow $ 0
+      \While{$\omega_{syn}$ is null}
+      	\State $\Omega \leftarrow \Sigma^d$
+      	\ForAll{$\omega \in \Omega$}
+      		\If{(isSynString($\omega, L_1$))}
+      			\State $\omega_{syn}\leftarrow\omega$
+      			\State \textbf{break}
+      		\EndIf
+      	\EndFor
+      	\State d $\leftarrow$ d + 1
+      \EndWhile
+      \State Q $\leftarrow$ \{$\omega_{syn}$\}
+      \State \~{Q} $\leftarrow$ \{\}
+      \State Add $\omega_{syn}\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i  \forall \sigma\in\Sigma$
+      \ForAll{$\omega\in$ \~{Q}}
+      	\If{$\omega$ occurs in \textit{X}}
+      		\State $\omega^* \leftarrow$ matchStates($\omega$, Q, $L_2$)
+      		\If{$\omega^*$ is null}
+      			\State Add $\omega$ to Q
+      			\State Add $\omega\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i  \forall \sigma\in\Sigma$
+      		\Else
+      		\EndIf
+      	\EndIf
+      \EndFor
+      \State Find \textit{k} such that $X_k$ is the symbol after the first occurrence of $\omega_{syn}$ in \textit{X}
+      \State Initialize $\pi$ to zero
+      \State \textit{state} $\leftarrow \omega_{syn}$
+      \ForAll{i $\geq$ \textit{k} in \textit{X}}
+		\State $\pi($\textit{state}, $X_i) \leftarrow \pi($\textit{state},$X_i) + 1$
+		\State \textit{state} $\leftarrow \delta($\textit{state},$X_i)$      
+      \EndFor 
+      \State Normalize $\pi$ for each state
+    \end{algorithmic}
+  \end{algorithm}
+  
+\subsubsection{Identification of Shortest Synchronization Word}
+
+Using the definition of Synchronization Word given by \ref{definition:synchword}, CRISSiS uses brute force to find the shortest synchronization word. This is shown in Algorithm \ref{alg:issynstring} where each state's morph is checked with its extensions' morphs up to a length $L_2$. If all statistical tests are positive for a given word, it is returned as the synchronization word to be used.
+  
+\begin{algorithm}
+\caption{isSynString($\omega, L_1$)\label{alg:issynstring}}
+	\begin{algorithmic}[1]
+	\State \textbf{Outputs:} true or false
+	\For{D = 0 to $L_1$}
+		\ForAll{s $\in \Sigma^D$}
+			\If{$\mathcal{V}_d(\omega) = \mathcal{V}_d($s$\omega)$ fails the statistic test for some d $\leq L_2$}
+				\State \textbf{return} false
+			\EndIf
+		\EndFor
+	\EndFor
+	\State \textbf{return} true
+	\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Recursive Identification of States}
+
+States are equivalence class of strings under Nerode equivalence class. For any two strings $\omega_1$ and $\omega_2$ in a state q,
+
+\begin{equation}\label{eq:classeqprob}
+\Pr(\omega|\omega_1) = \Pr(\omega|\omega_2).
+\end{equation}
+
+These future conditional probabilities uniquely identify each state and Equation \ref{eq:classeqprob} can be used to check whether two states q$_1$ and q$_2$ are the same given $\omega_1\in$ q$_1$ and $\omega_1\in$ q$_2$. Once again, the problem of checking all possible strings can not be done in finite time, so only $L_2$-steps ahead are to be checked, giving:
+
+\begin{equation}\label{eq:classeqprobd}
+\mathcal{V}_d(\omega_1) = \mathcal{V}_d(\omega_2), \forall d = 1,2,\ldots,L_2.
+\end{equation}
+
+If two states pass the statistical test using Equation \ref{eq:classeqprobd}, they are considered to be statistically the same. Strings $\omega_1$ and $\omega_2$ need to be synchronizing in order to use Equation \ref{eq:classeqprobd}. If $\omega$ is a synchronization word for q$_i \in$ Q, then $\omega\tau$ is also a synchronization word for q$_j = \delta(q_i,\tau)$.
+
+The next procedure starts by letting Q be the set of states to be discovered for the PFSA and it is initialized containing only the state defined by the synchronization word $\omega_{syn}$ found in the first step. Then, a tree is constructed using $\omega_{syn}$ as the root node to $|\Sigma|$ children. Each one of the children nodes is regarded as a candidate states with a representation $\omega_{syn}\sigma$ for $\sigma\in\Sigma$. Each one of them will be tested using Equation \ref{eq:classeqprobd} with each of the states in Q. If a match is found, the child state is removed and its parent $\sigma$-transition should be connected to the matching state. If it does not match any state in Q, it is considered a new state and it is then added to Q and it should also be split in $|\Sigma|$ new candidate states. This procedure is to be repeated until no new candidate states have to be visited.
+
+As CRISSiS should be applied to estimate finite PFSA G, this procedure will terminate. The edges of the created tree correspond to the PFSA's $\delta$.   
+
+\begin{algorithm}
+\caption{matchStates($\omega$, Q, $L_2$)\label{alg:matchstates}}
+\begin{algorithmic}[1]
+	\ForAll{i $\in$ Q}
+		\If{$\mathcal{V}_d(\omega) = \mathcal{V}_d$(Q(i)) fails the statistic test for all d}
+			\State \textbf{return} Q(i), the i-th element of Q
+		\EndIf
+	\EndFor
+	\State \textbf{return} null
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Estimation of Morph Probabilities}
+
+To recover the morphs of each state in Q found in the last step, the sequence \textit{X} is fed to the PFSA starting at state $\omega_{syn}$ and transition following the first symbol after the first occurunce of $\omega_{syn}$ in \textit{X}. Each transition is counted and then normalized in order to recover an estimation of the morph.
+
+\subsubsection{Example}
+
+The PFSA in Figure \ref{fig:trishift}, which will be called Tri-Shift in this work, was presented in [ref]. It is synchronizable and works over a binary alphabet. It is used to generate a string \textit{X} of length 10000. Table \ref{tab:trishiftsub} gives the frequency count of some subsequences occurring in \textit{X}. In this example, $L_1 = L_2 = 1$.
+
+\begin{figure}
+\centering
+\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (A)
+{$A$};
+\node[state] (B) [above right=of A] {$B$};
+\node[state] (C) [below right =of B] {$C$};
+\path (A) edge [loop left] node[above] {$0|0.5$} (A);
+\path (A) edge [bend left = 15] node[above =0.35 cm] {$1|0.5$} (B);
+\path (B) edge [bend left = 15] node[above =0.35 cm] {$0|0.8$} (C);
+\path (B) edge [bend left = 15] node[below =0.35 cm] {$1|0.2$} (A);
+\path (C) edge [loop right] node[above] {$1|0.3$} (C);
+\path (C) edge [bend left = 15] node[below =0.15 cm] {$0|0.7$} (A);
+\end{tikzpicture}
+\caption{The Tri-Shift PFSA.\label{fig:trishift}}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{L = 1} & \textbf{Freq.} & \textbf{L = 2} & \textbf{Freq.} & \textbf{L = 3} & \textbf{Freq.} & \textbf{L = 4} & \textbf{Freq.}& \textbf{L $\geq$ 5} & \textbf{Freq.}\\
+\hline
+0 & 62711 & 00 & 35164 & 000 & 17565 & 0000 & 8673 & 00100 & 9881\\
+1 & 37291 & 01 & 27546 & 001 & 17599 & 0001 & 8892 & 00101 & 4181\\
+  &      & 10 & 27546 & 010 & 21451 & 0010 & 14062 & 001000 & 4990\\
+  &      & 11 & 9745 & 011 & 6094 & 0011 & 3536 & 001001 & 4891\\
+  &	     &    &      & 100 & 17599 & 0100 & 14206 & 001010 & 2926\\
+  &      &    &      & 101 & 9946 & 0101 & 7245 & 001011 & 1255\\
+  &      &    &      & 110 & 6094 & 1000 & 8892 &        &     \\
+  &      &    &      & 111 & 3651 & 1001 & 8707 &        &     \\
+  &      &    &      &     &      & 1100 & 3393 &        &     \\
+  &      &    &      &     &      & 1101 & 2701 &        &     \\
+\hline
+\end{tabular}\caption{Subsequence frequencies of a sequence generated by the Tri-Shift. \label{tab:trishiftsub}}
+\end{table}
+
+First, the synchronization word needs to be found. States 0, 1 and so on are checked with Equation \ref{eq:practsynchword}. Starting by 0, neither $\Pr_1(0) = \Pr_1(00)$ nor $\Pr_1(0) = \Pr_1(01)$ pass the $\chi^2$ test. Then the state 1 is tested, which also fails. For state 00, the derived frequencies are relatively close and it passes the test, giving 00 the status of synchronization word.
+
+The second step starts by defining the synchronization word's state 00 and split it into two candidates states, 000 and 001 (Figure \ref{fig:tree00}. State 00 is added to Q. Each candidate has its derived frequencies compared to 00, which is the only state in Q, with Equation \ref{eq:classeqprobd}. $\mathcal{V}_1(000) = [0.494 0.506]$ is considerably close to $\mathcal{V}_1(00) = [0.500 0.500]$, so they pass the statistical test and 00 and 000 are considered to be the same state. 000 is removed and the edge going from 00 to 000 becomes a self-loop from 00 to itself. On the other hand, $\mathcal{V}_1(001) = [0.800 0.200]$ is considerably different from 00's morph, therefore it is considered a state and added to Q and then it is split into two new candidates (Figure \ref{fig:tree00-2}).
+
+The same procedure is then repeated for the candidates 0010 and 0011. $\mathcal{V}_1(0010) = [0.703 0.297]$ is different from both 00 and 001, therefore it is a new state, it is added to Q and split into the new candidates 00100 and 00101. $\mathcal{V}_1(0011) = [0.500 0.500]$ passes the test with $\mathcal{V}_1(00)$, which means that 0011 is removed and the edge from 001 to 0011 goes back to 00. This leads to the configuration in Figure \ref{fig:tree00-3}.
+
+The next candidates are similar to two states in Q ($\mathcal{V}_1(00100) = [0.505 0.495]$ passes with 00 and $\mathcal{V}_1(00101) = [0.700 0.300]$ passes with 0010), so both are removed and its edges rearranged to the configuration in Figure \ref{fig:rectrishift}, which is the same topology as the original Tri-Shift, showing that CRISSiS already recovered the PFSA's topology. All that is left is to run step 3, feeding the input sequence to the graph and computing the morph probabilities, which will recover an accurate Tri-Shift PFSA.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+  [
+    grow                    = right,
+    sibling distance        = 6em,
+    level distance          = 6em,
+    edge from parent/.style = {draw, -latex},
+    every node/.style       = {font=\footnotesize},
+    sloped
+  ]
+  \node [root] {00}
+    child { node [env] {000}
+      edge from parent node [below] {0} }
+    child { node [env] {001}
+      edge from parent node [above] {1} };
+\end{tikzpicture}
+\caption{Tree with 00 at its root. \label{fig:tree00}}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (00)
+{$00$};
+\node[state] (001) [right=of 00] {$001$};
+\node[state] (0010) [below right =of 001] {$0010$};
+\node[state] (0011) [above right =of 001] {$0011$};
+\path (00) edge [loop left] node[above =0.15 cm] {$0$} (00);
+\path (00) edge node[above =0.15 cm] {$1$} (001);
+\path (001) edge node[above =0.15 cm] {$1$} (0011);
+\path (001) edge node[below =0.15 cm] {$0$} (0010);
+\end{tikzpicture}
+\caption{Second iteration of three.\label{fig:tree00-2}}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (00)
+{$00$};
+\node[state] (001) [right=of 00] {$001$};
+\node[state] (0010) [right =of 001] {$0010$};
+\node[state] (00100) [below right =of 0010] {$00100$};
+\node[state] (00101) [above right =of 0010] {$00101$};
+\path (00) edge [loop left] node[above =0.15 cm] {$0$} (00);
+\path (00) edge [bend left = 15] node[above =0.15 cm] {$1$} (001);
+\path (001) edge [bend left = 15] node[below =0.15 cm] {$1$} (00);
+\path (001) edge node[below =0.15 cm] {$0$} (0010);
+\path (0010) edge node[above =0.15 cm] {$0$} (00100);
+\path (0010) edge node[below =0.15 cm] {$1$} (00101);
+\end{tikzpicture}
+\caption{Third iteration of the three.\label{fig:tree00-3}}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (00)
+{$00$};
+\node[state] (001) [above right=of 00] {$001$};
+\node[state] (0010) [below right =of 001] {$0010$};
+\path (A) edge [loop left] node[above] {$0$} (A);
+\path (A) edge [bend left = 15] node[above =0.35 cm] {$1$} (B);
+\path (B) edge [bend left = 15] node[above =0.35 cm] {$0$} (C);
+\path (B) edge [bend left = 15] node[below =0.35 cm] {$1$} (A);
+\path (C) edge [loop right] node[above] {$1$} (C);
+\path (C) edge [bend left = 15] node[below =0.15 cm] {$0$} (A);
+\end{tikzpicture}
+\caption{Recovered Tri-Shift topology.\label{fig:rectrishift}}
+\end{figure}
+
+\subsubsection{Time Complexity}
+
+As shown in [ref], CRISSiS operates with a time complexity of $O(N)\cdot(|\Sigma|^{O(|Q|^3)+L_1+L_2}+|Q||\Sigma|^{L_2})$, where N is the length of the input sequence, $|\Sigma|$ is the sequence's alphabet size, $|Q|$ is the number of states in the original PFSA and $L_1$ and $L_2$ are parameters determining how much of the past and future of a state is needed to determine it. It is stated that as $L_1$ and $L_2$ are both usually small, it does not affect the performance greatly, even though the algorithm is exponential in these parameters. The biggest burden lies in finding the synchronization word, which can be very time consuming when it is very large.
 
 %\subsection{Definitions}
 %

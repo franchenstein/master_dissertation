@@ -27,29 +27,70 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Moore's Algorithm}{13}}
 \newlabel{alg:moore}{{1}{13}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Moore(\textit  {G})\relax }}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{13}}
-\newlabel{alg:hop}{{2}{13}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Hopcroft(\textit  {G})\relax }}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces A probabilistic version of the graph of Figure \ref  {fig:graph}.\relax }}{14}}
-\newlabel{fig:pfsa}{{2.2}{14}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{14}}
-\@writefile{thm}{\contentsline {definition}{{Definition}{2.{6}}{\textbf {Probabilistic Finite State Automata}}}{14}}
-\newlabel{definition:pfsa}{{2.{6}}{14}}
-\@writefile{thm}{\contentsline {definition}{{Definition}{2.{7}}{\textbf {Morph}}}{14}}
-\newlabel{definition:morph}{{2.{7}}{14}}
-\@writefile{thm}{\contentsline {definition}{{Definition}{2.{8}}{\textbf {Deterministic PFSA}}}{14}}
-\newlabel{definition:dpfsa}{{2.{8}}{14}}
-\@writefile{thm}{\contentsline {definition}{{Definition}{2.{9}}{\textbf {PFSA Synchronization Word}}}{15}}
-\newlabel{definition:synchword}{{2.{9}}{15}}
-\newlabel{eq:synchword}{{2.1}{15}}
+\@writefile{thm}{\contentsline {proposition}{{Proposition}{2.{2}}{}}{13}}
+\newlabel{prop:makemooreeasy}{{2.{2}}{13}}
+\global\def\markiiproposition{$\square $}
+\@writefile{thm}{\contentsline {proposition}{{Proposition}{2.{3}}{}}{14}}
+\newlabel{prop:moorecomp}{{2.{3}}{14}}
+\global\def\markiiiproposition{$\square $}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{14}}
+\newlabel{alg:hop}{{2}{14}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Hopcroft(\textit  {G})\relax }}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{15}}
+\@writefile{thm}{\contentsline {definition}{{Definition}{2.{6}}{\textbf {Probabilistic Finite State Automata}}}{15}}
+\newlabel{definition:pfsa}{{2.{6}}{15}}
+\@writefile{thm}{\contentsline {definition}{{Definition}{2.{7}}{\textbf {Morph}}}{15}}
+\newlabel{definition:morph}{{2.{7}}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces A probabilistic version of the graph of Figure \ref  {fig:graph}.\relax }}{16}}
+\newlabel{fig:pfsa}{{2.2}{16}}
+\@writefile{thm}{\contentsline {definition}{{Definition}{2.{8}}{\textbf {Deterministic PFSA}}}{16}}
+\newlabel{definition:dpfsa}{{2.{8}}{16}}
+\@writefile{thm}{\contentsline {definition}{{Definition}{2.{9}}{\textbf {PFSA Synchronization Word}}}{16}}
+\newlabel{definition:synchword}{{2.{9}}{16}}
+\newlabel{eq:synchword}{{2.1}{16}}
 \global\def\markixdefinitioni{$\square $}
-\newlabel{eq:practsynchword}{{2.2}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}CRiSSiS}{16}}
+\newlabel{eq:practsynchword}{{2.2}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{17}}
+\newlabel{subsec:inipart}{{2.4.1}{17}}
+\@writefile{thm}{\contentsline {definition}{{Definition}{2.{10}}{}}{17}}
+\newlabel{def:inipartpfsa}{{2.{10}}{17}}
+\global\def\markxdefinition{$\square $}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Sequence \textit  {s} subsequence probabilities. \relax }}{18}}
+\newlabel{tab:subseq}{{2.1}{18}}
+\newlabel{eq:condprob}{{2.3}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{18}}
+\newlabel{alg:crissis}{{3}{19}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces CRISSiS\relax }}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces A D-Markov machine for sequence s and D = 2.\relax }}{20}}
+\newlabel{fig:dmarkov}{{2.3}{20}}
+\newlabel{alg:issynstring}{{4}{20}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {4}{\ignorespaces isSynString($\omega , L_1$)\relax }}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{Recursive Identification of States}{20}}
+\newlabel{eq:classeqprob}{{2.4}{20}}
+\newlabel{eq:classeqprobd}{{2.5}{21}}
+\newlabel{alg:matchstates}{{5}{21}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {5}{\ignorespaces matchStates($\omega $, Q, $L_2$)\relax }}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{Estimation of Morph Probabilities}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{Example}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces The Tri-Shift PFSA.\relax }}{22}}
+\newlabel{fig:trishift}{{2.4}{22}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Subsequence frequencies of a sequence generated by the Tri-Shift. \relax }}{22}}
+\newlabel{tab:trishiftsub}{{2.2}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Tree with 00 at its root. \relax }}{23}}
+\newlabel{fig:tree00}{{2.5}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{Time Complexity}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Second iteration of three.\relax }}{23}}
+\newlabel{fig:tree00-2}{{2.6}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Third iteration of the three.\relax }}{24}}
+\newlabel{fig:tree00-3}{{2.7}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Recovered Tri-Shift topology.\relax }}{24}}
+\newlabel{fig:rectrishift}{{2.8}{24}}
 \@setckpt{Capitula/Capitulum_2}{
-\setcounter{page}{17}
-\setcounter{equation}{2}
+\setcounter{page}{25}
+\setcounter{equation}{5}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -63,8 +104,8 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{2}
-\setcounter{table}{0}
+\setcounter{figure}{8}
+\setcounter{table}{2}
 \setcounter{subfigure}{0}
 \setcounter{lofdepth}{1}
 \setcounter{subtable}{0}
@@ -73,27 +114,27 @@
 \setcounter{parentequation}{0}
 \setcounter{NAT@ctr}{0}
 \setcounter{float@type}{16}
-\setcounter{endNonectr}{29}
+\setcounter{endNonectr}{43}
 \setcounter{currNonectr}{0}
 \setcounter{DefaultLines}{2}
 \setcounter{DefaultDepth}{0}
 \setcounter{L@lines}{3}
 \setcounter{L@depth}{0}
 \setcounter{pp@next@reset}{0}
-\setcounter{algorithm}{2}
-\setcounter{ALG@line}{13}
+\setcounter{algorithm}{5}
+\setcounter{ALG@line}{4}
 \setcounter{ALG@rem}{0}
 \setcounter{ALG@nested}{0}
 \setcounter{ALG@Lnr}{2}
 \setcounter{ALG@blocknr}{10}
 \setcounter{ALG@storecount}{0}
 \setcounter{ALG@tmpcounter}{0}
-\setcounter{currpropositionctr}{1}
+\setcounter{currpropositionctr}{3}
 \setcounter{endpropositionctr}{0}
-\setcounter{proposition}{1}
-\setcounter{currdefinitionctr}{9}
-\setcounter{enddefinitionctr}{1}
-\setcounter{definition}{9}
+\setcounter{proposition}{3}
+\setcounter{currdefinitionctr}{10}
+\setcounter{enddefinitionctr}{0}
+\setcounter{definition}{10}
 \setcounter{currpropertyctr}{0}
 \setcounter{endpropertyctr}{0}
 \setcounter{property}{0}

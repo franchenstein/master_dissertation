@@ -9,15 +9,21 @@
 \contentsline {section}{\numberline {2.2}Graphs}{10}
 \contentsline {section}{\numberline {2.3}Graph Minimization}{11}
 \contentsline {subsection}{\numberline {2.3.1}Moore's Algorithm}{13}
-\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{13}
-\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{14}
-\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{16}
-\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{16}
-\contentsline {subsection}{\numberline {2.5.2}CRiSSiS}{16}
-\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithms Descriptions}}}{17}
-\contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{17}
-\contentsline {chapter}{\numberline {4}\scshape {\bfseries {TODO}}}{24}
-\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{25}
-\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{26}
-\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{27}
-\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{28}
+\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{14}
+\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{15}
+\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{17}
+\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{17}
+\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{17}
+\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{18}
+\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{18}
+\contentsline {subsubsection}{Recursive Identification of States}{20}
+\contentsline {subsubsection}{Estimation of Morph Probabilities}{21}
+\contentsline {subsubsection}{Example}{21}
+\contentsline {subsubsection}{Time Complexity}{23}
+\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithms Descriptions}}}{25}
+\contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{25}
+\contentsline {chapter}{\numberline {4}\scshape {\bfseries {TODO}}}{32}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{33}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{34}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{35}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{36}
