@@ -10,9 +10,7 @@
 }
 
 
-{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{N}{este} capítulo propomos técnicas para o projeto de RNG a partir de mapas caóticos e introduzimos técnicas de discretização codificada 
-variante no tempo. Apesar dos métodos considerado serem independente do mapa caótico, empregamos para o estudo de caos o mapa tanh. Para testar a aleatoriedade das sequências geradas empregamos 
-a entropia condicional e o teste NIST.
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{N}{o}
 
 \section{A New Algorithm for Finding Synchronization Words}
 
@@ -140,17 +138,17 @@ Figures \ref{fig:treet} and \ref{fig:trees} are used as examples. They are both 
 
 When two morphs are compared as in $\mathcal{V}(q) = \mathcal{V}(p)$ it means that both of these distributions are being compared via an appropriate statistical test and this operation returns a true or false whether the test was successful or not for a predetermined confidence level $\alpha$.
 
-To find the synchronization words, algorithm~\ref{alg:findsynchwords} is used. It receives as parameters both trees and \textit{W}. The lists $\Gamma$ and $\Delta$ are then created as described above. Besides that, the list $\Omega_{syn}$, which will receive the results from the algorithm is initialized as an empty list. Another list $\Theta$ is created to store triples \textit{(t, s, result)}, where \textit{t} is a state from $\mathcal{T}$, \textit{s} is a state from $\mathcal{S}$ and \textit{result} is the result from the statistical test of comparing the morphs of \textit{t} and \textit{s}. Whenever a statistical test needs to be performed, the result is first checked in this list. If the test has been performed in a given pair of states before, it saves time not to do it again. $\Theta$ is initialized empty.
+To find the synchronization words, algorithm~\ref{alg:findsynchwords} is used. It receives as parameters both trees and \textit{W}. The lists $\Gamma$ and $\Delta$ are then created as described above. Besides that, the list $\Omega_{syn}$, which will receive the results from the algorithm, is initialized as an empty list.
 
 At the start of each iteration, the function \textit{nextValidState} is applied to $\Gamma$ and returns the shortest valid candidate for synchronization word \textit{c}. If no valid states are found, $\Omega_{syn}$ will receive the labels of all elements in $\Gamma$ for which the candidacy flags are set to true. Given the tuple $\omega = (x_1, x_2, \ldots, x_t)$, the notation $\omega.x_i$ is used to denote the element $x_i$ from $\omega$. In other words, $\Omega_{syn}$ receives all elements $\gamma$ from $\Gamma$ for which $\gamma.candidacy$ is true. This list is then returned. As there are no valid states, this means that all possible states have been tested and the states which still have the candidacy flag set to true are the synchronization words to be returned.
 
-If there is a valid state \textit{c}, a new list $\Psi$ is created empty. It is used to store states from $\mathcal{T}$ for which the suffix was already found. This is done in order to save time. If the suffix was found the algorithm will not search for it again. If the label of \textit{c} is shorter than \textit{W}, another list $\Lambda$ is created with all the elements from $\Delta$ whose lengths are less than the length of \textit{c}. They also cannot be present in the $\Psi$ list nor the pair \textit{(c.label, s)} can be present in the list $\Theta$. These restrictions prevent the algorithm from doing redundant work of finding suffixes which were already found or repeating tests for which the results are known.
+If there is a valid state \textit{c}. If the label of \textit{c} is shorter than \textit{W}, another list $\Lambda$ is created with all the elements from $\Delta$ whose lengths are less than the length of \textit{c}. On the other hand, if it larger than the window size, this candidate is not taken into consideration.
 
-Each element $\lambda$ of $\Lambda$ is then compared to \textit{c}. First, it is checked if \textit{c.label} is a suffix of $\lambda$. In the affirmative case, $\lambda$ is added to $\Psi$. Then the label of \textit{c} and $\lambda$ are compared via a statistical test.
+Each element $\lambda$ of $\Lambda$ is then compared to \textit{c}. First, it is checked if \textit{c.label} is a suffix of $\lambda$. In the affirmative case, the label of \textit{c} and $\lambda$ are compared via a statistical test (usually the $\chi^2$ test as noted before).
 
 If the test result is positive, the current candidate keeps its candidacy status and the algorithm keeps iterating. After \textit{c} is tested against all states from $\Lambda$ for which it is a suffix, the candidate is marked as tested.
 
-On the other hand, if the test fails, $\Gamma$ and $\Delta$ are expanded via algorithm~\ref{alg:expand} and all states from $\Gamma$ are marked as untested as they will have to go through a new phase of testing with the new states that were added to the lists $\Gamma$ and $\Delta$ from the expansion.
+On the other hand, if the test fails, $\Gamma$ and $\Delta$ are expanded via Algorithm \ref{alg:expand} and all states from $\Gamma$ are marked as untested as they will have to go through a new phase of testing with the new states that were added to the lists $\Gamma$ and $\Delta$ from the expansion.
 
 This is a way of implementing Equation \ref{eq:practsynchword}. Each word is tested against all its possible suffixes in each iteration and if it still keeps the candidacy flag set to true, it is a synchronization word. The tree structure improves on the brute force method as no unnecessary tests will be performed for longer words if a shorter one is still valid.
 
@@ -161,8 +159,6 @@ This is a way of implementing Equation \ref{eq:practsynchword}. Each word is tes
       	\State $\Gamma \gets \{(\epsilon,True,False)\}$ 
         \State $\Delta \gets \{\epsilon, \delta(\epsilon_T, \sigma)\text{ } \forall \sigma \in \Sigma\}$
         \State $\Omega_{syn} \gets \{\emptyset\}$ 
-        \State $\Theta \gets \{\emptyset\}$
-        \State $\Psi \gets \{\emptyset\}$
       \EndProcedure	
       \Procedure{MainLoop}{}
         \State $\textit{c} \gets nextValidState(\Gamma)$
@@ -172,17 +168,14 @@ This is a way of implementing Equation \ref{eq:practsynchword}. Each word is tes
         \Else
           \State $\textit{l} \gets length(c.label)$
           \If {$\textit{l} < \textit{W}$}
-            \State $\Lambda \gets \{\textit{s} \in \Delta : length(s) > l\text{, }\textit{s} \notin \Psi \text{, } (\textit{c.label}, \textit{s}) \notin \Theta \}$
+            \State $\Lambda \gets \{\textit{s} \in \Delta : length(s) > l\}$
             \For{$\text{each } \lambda \in \Lambda$} 
               \If{$\textit{c.label}$ is a suffix of $\lambda$}
-                \State $\Psi \gets \Psi\cup\lambda$
                 \State $\textit{p} \gets \mathcal{V}(c(label)) = \mathcal{V}(h)$
-                \State $\Theta \gets \Theta\cup(c.label, \lambda, p)$
                 \If{$\textit{p} = False$}
                   \State c.candidacy = False
                   \State $expandTrees(c.label, \mathcal{S}, \mathcal{T}, \Gamma, \Delta, \Sigma)$
                   \State $\gamma.tested = False\text{ } \forall \gamma \in \Gamma$
-                  \State $\Psi \gets \{\emptyset\}$
                   \State \textbf{break}
                   \Else
                   \If{all elements in $\Lambda$ were tested}
@@ -198,7 +191,7 @@ This is a way of implementing Equation \ref{eq:practsynchword}. Each word is tes
     \end{algorithmic}
   \end{algorithm}
   
-Algorithm~\ref{alg:expand} will properly expand $\Gamma$ and $\Delta$ after a statistical test fails. First, the candidate for which the test failed is expanded in $\Delta$: its children are stored in a list called $\Phi$ and $\Delta$ is updated appending these new states. As the nodes in $\mathcal{S}$ have inverted labels in regard to $\mathcal{T}$, the components of $\Phi$ have their names inverted and stored in $\Upsilon$. For each element $\upsilon$ in $\Upsilon$, its shortest valid suffix in $\mathcal{S}$ is found and stored in $\eta$. To find the shortest valid suffix, the procedure described before to find a suffix is used and it stops when a state in $\mathcal{S}$ is found for which its \textit{candidacy} flag in $\Gamma$ is true. If the label of $\upsilon$ and $\eta$ are the same state, the list $\Pi$ receives all of the children of $\upsilon$. After repeating this process for all elements in $\Upsilon$, the updated $\Pi$ is appended to the list $\Delta$.
+Algorithm \ref{alg:expand} will properly expand $\Gamma$ and $\Delta$ after a statistical test fails. First, the candidate for which the test failed is expanded in $\Delta$: its children are stored in a list called $\Phi$ and $\Delta$ is updated appending these new states. As the nodes in $\mathcal{S}$ have inverted labels in regard to $\mathcal{T}$, the components of $\Phi$ have their names inverted and stored in $\Upsilon$. For each element $\upsilon$ in $\Upsilon$, its shortest valid suffix in $\mathcal{S}$ is found and stored in $\eta$. To find the shortest valid suffix, the procedure described before to find a suffix is used and it stops when a state in $\mathcal{S}$ is found for which its \textit{candidacy} flag in $\Gamma$ is true. If the label of $\upsilon$ and $\eta$ are the same state, the list $\Pi$ receives all of the children of $\upsilon$. After repeating this process for all elements in $\Upsilon$, the updated $\Pi$ is appended to the list $\Delta$.
 
 When Algorithm \ref{alg:expand} is called, the lists of tree elements are updated with the new nodes that will be needed for synchronization worda analysis.
   
@@ -223,4 +216,8 @@ When Algorithm \ref{alg:expand} is called, the lists of tree elements are update
   \end{algorithm}
 
 %
+\subsection{An Example}
 
+\section{Tree Termination}
+
+\section{Graph Construction}

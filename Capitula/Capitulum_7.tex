@@ -1,9 +1,78 @@
-\chapter{TODO}\label{cap:4}
+\chapter{Results}\label{cap:4}
 
 
 {\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{T}{ODO}  
 
-%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - INTRODUÇÃO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Evaluation Metrics}
 
+\subsection{Number of States}
+
+\subsection{Entropy Rate}
+
+\subsection{Kullback-Leibler Divergence}
+
+\subsection{L1 Metric}
+
+\section{Ternary Even Shift}
+
+The Ternary Even Shift is a symbolic dynamic system with a ternary alphabet where there can be no odd-numbered succession of non-zero symbols between zeros. This means that there must be an even number of 1's or two's between 0's. This is represented by the graph shown in Figure \ref{fig:ternaryeven}. For this system, 0 is a synchronization word.
+
+\begin{figure}
+\centering
+\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+semithick ,
+state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+\node[state] (0)
+{$0$};
+\node[state] (1) [below left=of 0] {$1$};
+\node[state] (2) [below right =of 0] {$2$};
+\path (0) edge [loop above] node[above = 0.1 cm] {$0|0.5$} (0);
+\path (0) edge [bend left = 15] node[below = 0.3 cm] {$1|0.25$} (1);
+\path (0) edge [bend right = 15] node[below =0.3 cm] {$2|0.25$} (2);
+\path (1) edge [bend left =15] node[above = 0.25 cm] {$1|1.0$} (0);
+\path (2) edge [bend right =15] node[above =0.25 cm] {$2|1.0$} (0);
+\end{tikzpicture}
+\caption{The graph of a Ternary Even-Shift.\label{fig:ternaryeven}}
+\end{figure}
+
+The results of our algorithm are compared to D-Markov and CRISSiS in Table \ref{tab:ternaryeven}. Our algorithm used the Omega termination and L equals to 4 and 6. D-Markov machines of D = 6 and 7 were used. CRISSiS was tested using $L_1 = L_2 = 1$. It is possible to see that in this case, both CRISSiS and our algorithm perform equally well, while a large D-Markov machine of at least 169 states is needed to obtain the same performance. Even though D = 6 and 7, these D-Markov machines do not have 64 and 128 states respectively because there are forbidden words in the original system, which results in some states being non-existent in the RTP.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+ & \multicolumn{2}{c}{\textbf{D-Markov}} & \multicolumn{2}{|c|}{\textbf{Algo}} & \textbf{CRISSiS}\\
+ \hline
+\textbf{D/L} & \textbf{6} & \textbf{7} & \textbf{4} & \textbf{6} & \\
+\hline
+\textbf{\# of States} & 169 & 339 & 3 & 3 & 3 \\ 
+\textbf{H} & 1.0084 & 1.0058 & 1.0058 & 1.0057 & 1.0057 \\
+\textbf{K} & $2.7\cdot10^{-3}$ & $4.16\cdot10^{-5}$ & $9.55\cdot10^{-5}$ & $10.09\cdot10^{-5}$ & $8.72\cdot10^{-5}$\\
+\textbf{L1} & $2.1\cdot10^{-3}$ & $1.2\cdot10^{-3}$ & $2.3\cdot10^{-3}$ & $1.56\cdot10^{-3}$ & $9.0\cdot10^{-4}$ \\
+ \hline
+\end{tabular}
+\caption{Results for Ternary Even Shift. \label{tab:ternaryeven}}
+\end{table}
+
+\section{Tri-Shift}
+
+The Tri-Shift was previously discussed in Section \ref{sec:crissis} and its graph is shown in Figure \ref{fig:trishift}. It was shown that its synchronization word is 00. The comparative results are shown in Table \ref{tab:trishift}. Once again this is an example where our algorithm and CRISSiS perform similarly and are able to recover the three states from the original PFSA. To obtain a similar performance with a D-Markov machine, 128 or 256 states might be needed.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+ & \multicolumn{2}{c}{\textbf{D-Markov}} & \multicolumn{2}{|c|}{\textbf{Algo}} & \textbf{CRISSiS}\\
+ \hline
+\textbf{D/L} & \textbf{7} & \textbf{8} & \textbf{4} & \textbf{6} & \\
+\hline
+\textbf{\# of States} & 128 & 256 & 3 & 3 & 3 \\ 
+\textbf{H} & 0.9016 & 0.9005 & 0.9001 & 0.9002 & 0.9002 \\
+\textbf{K} & $4.1\cdot10^{-3}$ & $1.65\cdot10^{-3}$ & $1.16\cdot10^{-3}$ & $1.19\cdot10^{-3}$ & $1.2\cdot10^{-3}$\\
+\textbf{L1} & $2.1\cdot10^{-3}$ & $7.2\cdot10^{-4}$ & $8.2\cdot10^{-4}$ & $1.22\cdot10^{-3}$ & $9.0\cdot10^{-4}$ \\
+ \hline
+\end{tabular}
+\caption{Results for the Tri-Shift. \label{tab:trishift}}
+\end{table}
 %%%%%%%%%%%%%%%%%%%%%% INICIO DA SEÇÃO - Entropia condicional Familia Mapa Tanh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

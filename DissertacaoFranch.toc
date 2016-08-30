@@ -3,27 +3,37 @@
 \select@language {portuges}
 \select@language {english}
 \select@language {portuges}
-\contentsline {chapter}{\numberline {1}\scshape {\bfseries {Introduction}}}{8}
-\contentsline {chapter}{\numberline {2}\scshape {\bfseries {Revision}}}{9}
-\contentsline {section}{\numberline {2.1}Sequences of Discrete Symbols}{9}
-\contentsline {section}{\numberline {2.2}Graphs}{10}
-\contentsline {section}{\numberline {2.3}Graph Minimization}{11}
-\contentsline {subsection}{\numberline {2.3.1}Moore's Algorithm}{13}
-\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{14}
-\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{15}
-\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{17}
-\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{17}
-\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{17}
-\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{18}
-\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{18}
-\contentsline {subsubsection}{Recursive Identification of States}{20}
-\contentsline {subsubsection}{Estimation of Morph Probabilities}{21}
-\contentsline {subsubsection}{Example}{21}
-\contentsline {subsubsection}{Time Complexity}{23}
-\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithms Descriptions}}}{25}
-\contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{25}
-\contentsline {chapter}{\numberline {4}\scshape {\bfseries {TODO}}}{32}
-\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{33}
-\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{34}
-\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{35}
-\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{36}
+\contentsline {chapter}{\numberline {1}\scshape {\bfseries {Introduction}}}{9}
+\contentsline {chapter}{\numberline {2}\scshape {\bfseries {Revision}}}{10}
+\contentsline {section}{\numberline {2.1}Sequences of Discrete Symbols}{10}
+\contentsline {section}{\numberline {2.2}Graphs}{11}
+\contentsline {section}{\numberline {2.3}Graph Minimization}{12}
+\contentsline {subsection}{\numberline {2.3.1}Moore's Algorithm}{14}
+\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{15}
+\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{16}
+\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{18}
+\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{18}
+\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{18}
+\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{19}
+\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{19}
+\contentsline {subsubsection}{Recursive Identification of States}{21}
+\contentsline {subsubsection}{Estimation of Morph Probabilities}{22}
+\contentsline {subsubsection}{Example}{22}
+\contentsline {subsubsection}{Time Complexity}{24}
+\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithms Descriptions}}}{26}
+\contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{26}
+\contentsline {subsection}{\numberline {3.1.1}An Example}{31}
+\contentsline {section}{\numberline {3.2}Tree Termination}{31}
+\contentsline {section}{\numberline {3.3}Graph Construction}{31}
+\contentsline {chapter}{\numberline {4}\scshape {\bfseries {Results}}}{32}
+\contentsline {section}{\numberline {4.1}Evaluation Metrics}{32}
+\contentsline {subsection}{\numberline {4.1.1}Number of States}{32}
+\contentsline {subsection}{\numberline {4.1.2}Entropy Rate}{32}
+\contentsline {subsection}{\numberline {4.1.3}Kullback-Leibler Divergence}{32}
+\contentsline {subsection}{\numberline {4.1.4}L1 Metric}{32}
+\contentsline {section}{\numberline {4.2}Ternary Even Shift}{32}
+\contentsline {section}{\numberline {4.3}Tri-Shift}{33}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{34}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{35}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{36}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{37}

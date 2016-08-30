@@ -5,19 +5,20 @@
 \select@language {portuges}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of a graph with Q = \{A, B, C\} and $\Sigma = \{0, 1\}$.\relax }}{10}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A probabilistic version of the graph of Figure \ref {fig:graph}.\relax }}{16}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces A D-Markov machine for sequence s and D = 2.\relax }}{20}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The Tri-Shift PFSA.\relax }}{22}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Tree with 00 at its root. \relax }}{23}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Second iteration of three.\relax }}{23}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Third iteration of the three.\relax }}{24}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Recovered Tri-Shift topology.\relax }}{24}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of a graph with Q = \{A, B, C\} and $\Sigma = \{0, 1\}$.\relax }}{11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A probabilistic version of the graph of Figure \ref {fig:graph}.\relax }}{17}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces A D-Markov machine for sequence s and D = 2.\relax }}{21}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The Tri-Shift PFSA.\relax }}{23}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Tree with 00 at its root. \relax }}{24}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Second iteration of three.\relax }}{24}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Third iteration of the three.\relax }}{25}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Recovered Tri-Shift topology.\relax }}{25}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of a rooted tree with probabilities. \relax }}{26}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of binary $\mathcal {T}$ \relax }}{27}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of binary $\mathcal {S}$ \relax }}{28}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of a rooted tree with probabilities. \relax }}{27}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of binary $\mathcal {T}$ \relax }}{28}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of binary $\mathcal {S}$ \relax }}{29}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The graph of a Ternary Even-Shift.\relax }}{33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
