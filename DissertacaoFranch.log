@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.25)  30 AUG 2016 00:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.25)  3 SEP 2016 00:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,8 +1128,8 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 \c@endproof2ctr=\count313
 \c@proof2=\count314
 \savedwidth=\skip81
-LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 204.
-LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 205.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 209.
+LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 210.
 \@float@every@Program=\toks70
 \c@Program=\count315
 \mygraphic=\box53
@@ -1385,12 +1385,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-]) [33]
+] [33] [34] [35] [36]
+
+LaTeX Warning: Command \L invalid in math mode on input line 208.
+
+Missing character: There is no Š in font cmr10!
+[37]) [38] [39]
 \openout2 = `Capitula/Capitulum_8.aux'.
 
  (./Capitula/Capitulum_8.tex
   5.
-) [34
+) [40
 
 
 
@@ -1399,7 +1404,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (./Capitula/Capitulum_6.tex
   6.
-) [35
+) [41
 
 
 
@@ -1408,7 +1413,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (./Capitula/Capitulum_4.tex
   A.
-) [36
+) [42
 
 
 
@@ -1417,19 +1422,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (./Capitula/Capitulum_5.tex
   B.
-) [37
+) [43
 
 
 
-] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [38
+] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [44
 
 
-] [39
-
-] [40] [41])
+])
 
 AED: lastpage setting LastPage
-[42]
+[45
+
+]
 \tf@thm=\write10
 \openout10 = `DissertacaoFranch.thm'.
 
@@ -1459,11 +1464,11 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 ### simple group (level 1) entered at line 12 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 23817 strings out of 493013
- 430549 string characters out of 6139317
- 588220 words of memory out of 5000000
- 26659 multiletter control sequences out of 15000+600000
- 142011 words of font info for 185 fonts, out of 8000000 for 9000
+ 23773 strings out of 493013
+ 429784 string characters out of 6139317
+ 587911 words of memory out of 5000000
+ 26615 multiletter control sequences out of 15000+600000
+ 142128 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,92p,1092b,1632s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/
@@ -1473,21 +1478,22 @@ s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public
 mmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
 share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/mathpaz
-o/fplmbb.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr
-/share/texmf-dist/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf-di
-st/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/ti
-mes/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
-are/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DissertacaoFranch.pdf (43 pages, 299215 bytes).
+ublic/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-di
+st/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf-dist/fonts/type1/
+urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
+</usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on DissertacaoFranch.pdf (46 pages, 321150 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 165 compressed objects within 2 object streams
+ 247 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

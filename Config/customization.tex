@@ -35,7 +35,7 @@
 \usepackage[square,comma,numbers,sort&compress]{natbib} %%
 %\usepackage{longtable}                       %% Para a lista de abreviaturas
 \usepackage{wrapfig}
-\usepackage[english,portuges]{babel}         %% Hifenizacao e estilo
+\usepackage[english, portuges]{babel}         %% Hifenizacao e estilo
 \usepackage{float}                           %% Descomente caso precise de ``floats'' extra
                                              %% ex: fragmentos de programas
 \usepackage{graphicx}                        %% Mais ferramentas para
@@ -81,6 +81,11 @@
 %\usepackage[dvips]{hyperref}
 
 %\renewcommand{\captionfont}{\bfseries}
+\addto\captionsenglish{\renewcommand{\chaptername}{Chapter}}
+\addto\captionsenglish{\renewcommand{\figurename}{Figure}}
+\addto\captionsenglish{\renewcommand{\tablename}{Table}}
+
+
 
 \hfuzz2pt
 %
@@ -243,6 +248,7 @@
 
 
 \renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\figurename}{Figure}
 
 \newsavebox{\mygraphic}
 %\sbox{\mygraphic}{\includegraphics[scale=1.2]{Figuras/ufpe.eps}}
