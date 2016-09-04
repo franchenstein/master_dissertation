@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.25)  3 SEP 2016 00:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.25)  3 SEP 2016 21:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1385,17 +1385,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] [33] [34] [35] [36]
-
-LaTeX Warning: Command \L invalid in math mode on input line 208.
-
-Missing character: There is no Š in font cmr10!
-[37]) [38] [39]
+] [33] [34] [35] [36] [37]) [38] [39] [40]
 \openout2 = `Capitula/Capitulum_8.aux'.
 
  (./Capitula/Capitulum_8.tex
   5.
-) [40
+) [41
 
 
 
@@ -1404,7 +1399,7 @@ Missing character: There is no Š in font cmr10!
 
  (./Capitula/Capitulum_6.tex
   6.
-) [41
+) [42
 
 
 
@@ -1413,7 +1408,7 @@ Missing character: There is no Š in font cmr10!
 
  (./Capitula/Capitulum_4.tex
   A.
-) [42
+) [43
 
 
 
@@ -1422,17 +1417,17 @@ Missing character: There is no Š in font cmr10!
 
  (./Capitula/Capitulum_5.tex
   B.
-) [43
+) [44
 
 
 
-] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [44
+] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [45
 
 
 ])
 
 AED: lastpage setting LastPage
-[45
+[46
 
 ]
 \tf@thm=\write10
@@ -1450,9 +1445,6 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  )
 (\end occurred inside a group at level 6)
 
@@ -1464,11 +1456,11 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 ### simple group (level 1) entered at line 12 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 23773 strings out of 493013
- 429784 string characters out of 6139317
- 587911 words of memory out of 5000000
- 26615 multiletter control sequences out of 15000+600000
- 142128 words of font info for 186 fonts, out of 8000000 for 9000
+ 23791 strings out of 493013
+ 430093 string characters out of 6139317
+ 589961 words of memory out of 5000000
+ 26632 multiletter control sequences out of 15000+600000
+ 144976 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,92p,1092b,1632s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/
@@ -1490,10 +1482,10 @@ st/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf-dist/fonts/type1/
 urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on DissertacaoFranch.pdf (46 pages, 321150 bytes).
+Output written on DissertacaoFranch.pdf (47 pages, 326881 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
+ 250 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

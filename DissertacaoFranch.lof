@@ -24,6 +24,8 @@
 \contentsline {figure}{\numberline {4.4}{\ignorespaces A Six-State PFSA.\relax }}{37}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces The Recovered Six-State PFSA by CRISSiS with $L_1 = L_2 = 1$.\relax }}{38}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces The Recovered Six-State PFSA by our algorithm.\relax }}{39}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces The Maximum Entropy (3,5)-Constrained Code PFSA.\relax }}{39}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The Maximum Entropy (3,5)-Constrained Code PFSA recovered by our algoritum and by CRISSiS.\relax }}{40}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
