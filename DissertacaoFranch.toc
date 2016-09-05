@@ -38,7 +38,7 @@
 \contentsline {subsection}{\numberline {4.2.4}Maximum Entropy \textit {(d,k)}-Constrained Code}{38}
 \contentsline {subsection}{\numberline {4.2.5}Logistic Map}{40}
 \contentsline {subsection}{\numberline {4.2.6}Gilbert-Elliot Channel}{40}
-\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{41}
-\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{42}
-\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{43}
-\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{44}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{42}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{43}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{44}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{45}

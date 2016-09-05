@@ -11,6 +11,12 @@ K.~Mukherjee and A.~Ray.
   for signal representation and analysis.
 \newblock {\em Signal Processing}, 104:105--119, April 2014.
 
+\bibitem{immink.98}
+K.~A. Schouhamer, P.~H. Siegel, and J.~K. Wolf.
+\newblock Codes for digital recorders.
+\newblock {\em IEEE Transactions on Information Theory}, 44(6):2260--2299,
+  October 1998.
+
 \bibitem{brianmarcus}
 D.~Lind and B.~Marcus.
 \newblock {\em An Introduction To Symbolic Dynamics and Codings}.
@@ -33,10 +39,10 @@ J.~Berstel, L.~Boasson, O.~Carton, and I.~Fagnot.
 \newblock Minimization of automata.
 \newblock {\em arXiv:1010.5318}, December 2010.
 
-\bibitem{immink.98}
-K.~A. Schouhamer, P.~H. Siegel, and J.~K. Wolf.
-\newblock Codes for digital recorders.
-\newblock {\em IEEE Transactions on Information Theory}, 44(6):2260--2299,
-  October 1998.
+\bibitem{mushkin.89}
+M.~Mushkin and I.~Bar-David.
+\newblock Capacity and coding for the gilbert-elliot channels.
+\newblock {\em IEEE Transactions on Information Theory}, 35(6):1277--1290,
+  November 1989.
 
 \end{thebibliography}
