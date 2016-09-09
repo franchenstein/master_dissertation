@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.25)  6 SEP 2016 23:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.8.25)  9 SEP 2016 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1385,31 +1385,26 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-] [33] [34] [35] [36] [37] [38] [39]
+] [33] [34] [35] [36] [37] [38] [39] [40]
 Package epstopdf Info: Source file: <Figuras/logisticmap.eps>
 (epstopdf)                    date: 2016-09-06 23:57:17
 (epstopdf)                    size: 36097 bytes
 (epstopdf)             Output file: <Figuras/logisticmap-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-06 22:43:50
-(epstopdf)                    size: 21849 bytes
+(epstopdf)                    date: 2016-09-06 23:57:26
+(epstopdf)                    size: 21532 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figuras/logisticmap-eps-co
 nverted-to.pdf Figuras/logisticmap.eps>
-(epstopdf)             \includegraphics on input line 345.
-runsystem(repstopdf --outfile=Figuras/logisticmap-eps-converted-to.pdf Figuras/
-logisticmap.eps)...executed safely (allowed).
+(epstopdf)             \includegraphics on input line 419.
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <Figuras/logisticmap-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-06 23:57:26
-(epstopdf)                    size: 21532 bytes.
-
-<Figuras/logisticmap-eps-converted-to.pdf, id=157, 1734.48pt x 881.2925pt>
+<Figuras/logisticmap-eps-converted-to.pdf, id=160, 1734.48pt x 881.2925pt>
 File: Figuras/logisticmap-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figuras/logisticmap-eps-converted-to.pdf>
 Package pdftex.def Info: Figuras/logisticmap-eps-converted-to.pdf used on input
- line 345.
+ line 419.
 (pdftex.def)             Requested size: 433.61894pt x 220.32259pt.
- [40]
+ [41] [42 <./Figuras/logisticmap-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figuras/figgec.eps>
 (epstopdf)                    date: 2016-09-06 22:51:13
 (epstopdf)                    size: 133979 bytes
@@ -1418,32 +1413,31 @@ Package epstopdf Info: Source file: <Figuras/figgec.eps>
 (epstopdf)                    size: 29998 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figuras/figgec-eps-convert
 ed-to.pdf Figuras/figgec.eps>
-(epstopdf)             \includegraphics on input line 357.
+(epstopdf)             \includegraphics on input line 450.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figuras/figgec-eps-converted-to.pdf, id=161, 958.58125pt x 667.49374pt>
+<Figuras/figgec-eps-converted-to.pdf, id=204, 958.58125pt x 667.49374pt>
 File: Figuras/figgec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figuras/figgec-eps-converted-to.pdf>
 Package pdftex.def Info: Figuras/figgec-eps-converted-to.pdf used on input line
- 357.
+ 450.
 (pdftex.def)             Requested size: 227.62154pt x 170.71281pt.
- [41 <./Figuras/logisticmap-eps-converted-to.pdf> <./Figuras/figgec-eps-convert
-ed-to.pdf>]
-
-LaTeX Warning: Command \^ invalid in math mode on input line 370.
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 370.
+LaTeX Warning: Command \^ invalid in math mode on input line 463.
+
+
+LaTeX Warning: Command \^ invalid in math mode on input line 463.
 
 Missing character: There is no Â in font cmr10!
 Missing character: There is no Â in font cmr10!
-) [42]
+[43 <./Figuras/figgec-eps-converted-to.pdf>]) [44]
 \openout2 = `Capitula/Capitulum_8.aux'.
 
  (./Capitula/Capitulum_8.tex
   5.
-) [43
+) [45
 
 
 
@@ -1452,7 +1446,7 @@ Missing character: There is no Â in font cmr10!
 
  (./Capitula/Capitulum_6.tex
   6.
-) [44
+) [46
 
 
 
@@ -1461,7 +1455,7 @@ Missing character: There is no Â in font cmr10!
 
  (./Capitula/Capitulum_4.tex
   A.
-) [45
+) [47
 
 
 
@@ -1470,17 +1464,17 @@ Missing character: There is no Â in font cmr10!
 
  (./Capitula/Capitulum_5.tex
   B.
-) [46
+) [48
 
 
 
-] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [47
+] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [49
 
 
 ])
 
 AED: lastpage setting LastPage
-[48
+[50
 
 ]
 \tf@thm=\write10
@@ -1498,6 +1492,9 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  )
 (\end occurred inside a group at level 6)
 
@@ -1509,10 +1506,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 12 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 23820 strings out of 493013
- 430701 string characters out of 6139317
- 591059 words of memory out of 5000000
- 26657 multiletter control sequences out of 15000+600000
+ 23825 strings out of 493013
+ 430786 string characters out of 6139317
+ 589114 words of memory out of 5000000
+ 26662 multiletter control sequences out of 15000+600000
  144976 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,92p,1190b,1632s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1535,10 +1532,10 @@ st/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf-dist/fonts/type1/
 urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/
 fonts/type1/urw/times/utmri8a.pfb>
-Output written on DissertacaoFranch.pdf (49 pages, 381809 bytes).
+Output written on DissertacaoFranch.pdf (51 pages, 386108 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
+ 304 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  35 words of extra memory for PDF output out of 10000 (max. 10000000)
 

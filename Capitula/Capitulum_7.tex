@@ -71,7 +71,7 @@ As with the Kullback-Leibler Divergence, the $\Phi$-Metric can be applied to com
 
 \subsection{Ternary Even Shift}
 
-The Ternary Even Shift is a symbolic dynamic system with a ternary alphabet where there can be no odd-numbered succession of non-zero symbols between zeros. This means that there must be an even number of 1's or two's between 0's. This is represented by the graph shown in Figure \ref{fig:ternaryeven}. For this system, 0 is a synchronization word.
+The Ternary Even Shift is a symbolic dynamic system with a ternary alphabet where there can be no odd-numbered succession of non-zero symbols between zeros. This means that there must be an even number of 1's or two's between 0's. This is represented by the graph shown in Figure \ref{fig:ternaryeven}. 
 
 \begin{figure}
 \centering
@@ -90,6 +90,25 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \end{tikzpicture}
 \caption{The graph of a Ternary Even-Shift.\label{fig:ternaryeven}}
 \end{figure}
+
+The synchronization words found by our algorithm are shown in Table \ref{tab:ternaryevensynch}. It is possible to check in the graph that all found synchronization words are indeed valid and comprise the three states of the graph. They can all be used as starting points for the algorithm.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{$\alpha$}}\\
+ \hline
+\textbf{W} & 0.95 & 0.99 \\
+\hline
+2 & 0 & 0 \\ 
+3 & 0, 12, 21 & 0, 12, 21 \\ 
+4 & 0, 12, 21 & 0, 12, 21 \\ 
+5 & 0, 12, 21 & 0, 12, 21 \\
+ \hline
+\end{tabular}
+\caption{Synchronization Words for Ternary Even Shift. \label{tab:ternaryevensynch}}
+\end{table}
 
 The results of our algorithm are compared to D-Markov and CRISSiS in Table \ref{tab:ternaryeven}. Our algorithm used the Omega termination and handed the same results for any L greater than 2. D-Markov machines of D = 6 and 7 were used. CRISSiS was tested using $L_1 = L_2 = 1$. It is possible to see that in this case, both CRISSiS and our algorithm reconstruct the same PFSA (shown in Figure \ref{fig:ternaryevengen}) and are a good estimate to the original PFSA  while a large D-Markov machine of at least 169 states is needed to obtain approximately the same performance. Even though D = 6 and 7, these D-Markov machines do not have 64 and 128 states respectively because there are forbidden words in the original system, which results in some states being non-existent in the RTP. The original system had $h_{10} = 1.0013$, which is close to the value found by all the algorithms.
 
@@ -130,7 +149,25 @@ $\Phi_{10}$  & $2.1\cdot10^{-3}$ & $1.2\cdot10^{-3}$ & $2.3\cdot10^{-3}$ \\
 
 \subsection{Tri-Shift}
 
-The Tri-Shift was previously discussed in Section \ref{sec:crissis} and its graph is shown in Figure \ref{fig:trishift}. It was shown that its synchronization word is 00. The comparative results are shown in Table \ref{tab:trishift}. Once again this is an example where our algorithm and CRISSiS are able to recover the three states from the original PFSA with a good estimate for the morphs as seen in Figure \ref{fig:rectrishift}. To obtain a similar performance with a D-Markov machine, 128 or 256 states might be needed. The original system presented has $h_{10} = 0.9005$, showing that our algorithm, CRISSiS and the 7-Markov Machine are able to capture the system's memory.
+The Tri-Shift was previously discussed in Section \ref{sec:crissis} and its graph is shown in Figure \ref{fig:trishift}. The synchronization words found by the algorithm are shown in Table \ref{tab:trishiftsynch} and 00 appeared, as expected, and 0110 synchronizes to the same state as 00. The comparative results are shown in Table \ref{tab:trishift}. Once again this is an example where our algorithm and CRISSiS are able to recover the three states from the original PFSA with a good estimate for the morphs as seen in Figure \ref{fig:rectrishift}. To obtain a similar performance with a D-Markov machine, 128 or 256 states might be needed. The original system presented has $h_{10} = 0.9005$, showing that our algorithm, CRISSiS and the 7-Markov Machine are able to capture the system's memory.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{$\alpha$}}\\
+ \hline
+\textbf{W} & 0.95 & 0.99 \\
+\hline
+2 & None & None \\ 
+3 & 00 & 00 \\ 
+4 & 00 & 00 \\ 
+5 & 00, 0110 & 00, 0110 \\
+6 & 00, 0110 & 00, 0110 \\
+ \hline
+\end{tabular}
+\caption{Synchronization Words for Tri-Shift. \label{tab:trishiftsynch}}
+\end{table}
 
 
 \begin{figure}
@@ -171,7 +208,7 @@ $\Phi_{10}$ & $2.1\cdot10^{-3}$ & $7.2\cdot10^{-4}$ & $8.2\cdot10^{-4}$ \\
 
 \subsection{A Six State PFSA}
 
-Figure \ref{fig:sixstate} shows a PFSA with six states that elucidates the differences between our algorithm and CRISSiS. This system has 4 synchronization words: 00, 01, 10 and 1111. The comparative results between the algorithms is show in Table \ref{tab:sixstate}.
+Figure \ref{fig:sixstate} shows a PFSA with six states that elucidates the differences between our algorithm and CRISSiS. This system has 4 synchronization words: 00, 01, 10 and 1111, as shown in Table \ref{tab:tswsynch}. The comparative results between the algorithms is show in Table \ref{tab:sixstate}.
 
 \begin{figure}
 \centering
@@ -196,6 +233,24 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \end{tikzpicture}
 \caption{A Six-State PFSA.\label{fig:sixstate}}
 \end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{$\alpha$}}\\
+ \hline
+\textbf{W} & 0.95 & 0.99 \\
+\hline
+2 & None & None \\ 
+3 & 00, 01, 10  & 00, 01, 10 \\ 
+4 & 00, 01, 10  & 00, 01, 10 \\ 
+5 & 00, 01, 10, 1111  & 00, 01, 10, 1111 \\
+6 & 00, 01, 10, 1111  & 00, 01, 10, 1111 \\
+ \hline
+\end{tabular}
+\caption{Synchronization Words for the Six-State PFSA. \label{tab:tswsynch}}
+\end{table}
 
 In this example, CRISSiS using $L_1 = L_2 = 1$ is not able to recover the original machine . It creates a PFSA with 2 states (Figure \ref{fig:sixstatecrissis}) which generates sequences fairly different from the original, as after a small transient, it outputs sequences of just 1's. On the other hand, by using any L larger than 4, our algorithm is capable of reconstructing a good estimate to the original system, shown in Figure \ref{fig:sixstatealgo}. For a D-Markov Machine to perform similarly, it is necessary to use D = 3 or 4, obtaining a PFSA with 7 and 11 states respectively. Once again, some sequences do not occur, therefore the D-Markov Machine in those cases will not have $2^D$ states.
 
@@ -259,7 +314,7 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 
 \subsection{Maximum Entropy \textit{(d,k)}-Constrained Code}
 
-As seen in \cite{immink.98}, a \textit{(d,k)}-constrained code is a code used in digital recording devices and other systems in which a long sequences of 1's might cause desynchronization issues. This code guarantees that at lest \textit{d} 1's are generated between occurrences of 0's and that after \textit{k} 1's, a 0 has to appear. A Maximum Entropy \textit{(d,k)}-Constrained Code is a PFSA that generates sequences with those restrictions and that also have maximum information entropy. The algorithms were tested to recover a Maximum Entropy (3,5)-Constrained Code shown in Figure \ref{fig:dk_35}. To achieve maximum entropy, a parameter $\lambda$ has to be set at 1.24985. The synchronization words for this system are 0 and 11111.
+As seen in \cite{immink.98}, a \textit{(d,k)}-constrained code is a code used in digital recording devices and other systems in which a long sequences of 1's might cause desynchronization issues. This code guarantees that at lest \textit{d} 1's are generated between occurrences of 0's and that after \textit{k} 1's, a 0 has to appear. A Maximum Entropy \textit{(d,k)}-Constrained Code is a PFSA that generates sequences with those restrictions and that also have maximum information entropy. The algorithms were tested to recover a Maximum Entropy (3,5)-Constrained Code shown in Figure \ref{fig:dk_35}. To achieve maximum entropy, a parameter $\lambda$ has to be set at 1.24985. The synchronization words for this system are 0 and 11111, as shown in Table \ref{tab:dk35synch}.
 
 \begin{figure}
 \centering
@@ -285,13 +340,32 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \caption{The Maximum Entropy (3,5)-Constrained Code PFSA.\label{fig:dk_35}}
 \end{figure}
 
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{$\alpha$}}\\
+ \hline
+\textbf{W} & 0.95 & 0.99 \\
+\hline
+2 & 0 & 0 \\ 
+3 & 0 & 0 \\ 
+4 & 0 & 0 \\ 
+5 & 0  & 0 \\
+6 & 00, 11111  & 00, 11111 \\
+7 & 00, 11111  & 00, 11111 \\
+ \hline
+\end{tabular}
+\caption{Synchronization Words for the Maximum Entropy (3,5)-Constrained Code. \label{tab:dk35synch}}
+\end{table}
+
 The results for this system are shown in Table \ref{tab:dk35}. This is a practical case where CRISSiS needs a higher $L_2$ to obtain a correct estimate, implying a cubic complexity. When $L_2$ is 3, CRISSiS recovers the same PFSA as our algorithm (shown in Figure \ref{fig:dk_35r}) and perform equally well. On the other hand, when $L_2$ is lower than 3, CRISSiS creates a PFSA with one state that continually generates the symbol 1, which performs poorly. The original $h_{10}$ is 0.3218, showing that both CRISSiS and our algorithm are able to capture the system memory correctly. For a D-Markov Machine to have a similarly good performance, a D of 5 is needed, generating machines of 7 states, which are bigger than the original PFSA.
 
 \begin{table}
 \centering
 \begin{tabular}{|l|c|c|c|c|c|}
 \hline
- & \multicolumn{2}{c|}{\textbf{D-Markov}} & \textbf{Algo} & \multicolumn{2}{|c|}{\textbf{CRISSiS}}\\
+ & \multicolumn{2}{c|}{\textbf{D-Markov}} & \textbf{Algo} & \multicolumn{2}{c|}{\textbf{CRISSiS}}\\
  \hline
 D/L/$L_1$ and $L_2$ & 4 & 5 & 6 & 1/1 & 1/3\\
 \hline
@@ -346,7 +420,26 @@ x_{k+1} \triangleq rx_k(1-x_k), \label{eq:logisticmap}
 \caption{Part of the Logistic Map generated by Equation \ref{eq:logisticmap} with x$_0$ = 0.5 and $r$ = 3.75.\label{fig:lmapseq}}
 \end{figure}
 
-From this ternary sequence, the three algorithms were applied in order to obtain a Markovian model for the logistic map.
+From this ternary sequence, the three algorithms were applied in order to obtain a Markovian model for the logistic map. As seen in Table \ref{tab:lmapsynch}, two sets of synchronization words were found for the sequence, one for each of the confidence levels used in the algorithm. For $\alpha = 0.95$, the synchronization words are 2, 00, 01, 10 and 11. On the other hand, for $\alpha = 0.99$, the synchronization words are 2, 00, 01, 10 and 111. The higher value of $\alpha$ made 11 be discarded as synchronization word candidate and allowed 111 to be tested. With the lower value, 11 was never discarded and 111 could not achieve candidate status.
+
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+ & \multicolumn{2}{c|}{\textbf{$\alpha$}}\\
+ \hline
+\textbf{W} & 0.95 & 0.99 \\
+\hline
+2 & 2 & 2 \\ 
+3 & 2, 00, 01, 10, 11 & 2, 00, 01, 10 \\ 
+4 & 2, 00, 01, 10, 11 & 2, 00, 01, 10, 111 \\ 
+5 & 2, 00, 01, 10, 11 & 2, 00, 01, 10, 111 \\
+6 & 2, 00, 01, 10, 11 & 2, 00, 01, 10, 111 \\ 
+7 & 2, 00, 01, 10, 11 & 2, 00, 01, 10, 111 \\ 
+ \hline
+\end{tabular}
+\caption{Synchronization Words for the Logistic Map Ternary Sequence. \label{tab:lmapsynch}}
+\end{table}
 
 \subsection{Gilbert-Elliot Channel}
 

@@ -34,11 +34,11 @@
 \contentsline {section}{\numberline {4.2}Test Cases}{35}
 \contentsline {subsection}{\numberline {4.2.1}Ternary Even Shift}{35}
 \contentsline {subsection}{\numberline {4.2.2}Tri-Shift}{36}
-\contentsline {subsection}{\numberline {4.2.3}A Six State PFSA}{37}
-\contentsline {subsection}{\numberline {4.2.4}Maximum Entropy \textit {(d,k)}-Constrained Code}{38}
+\contentsline {subsection}{\numberline {4.2.3}A Six State PFSA}{36}
+\contentsline {subsection}{\numberline {4.2.4}Maximum Entropy \textit {(d,k)}-Constrained Code}{39}
 \contentsline {subsection}{\numberline {4.2.5}Logistic Map}{40}
-\contentsline {subsection}{\numberline {4.2.6}Gilbert-Elliot Channel}{40}
-\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{43}
-\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{44}
-\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{45}
-\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{46}
+\contentsline {subsection}{\numberline {4.2.6}Gilbert-Elliot Channel}{43}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {TODO}}}{45}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{46}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{47}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{48}
