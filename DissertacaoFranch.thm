@@ -1,15 +1,13 @@
 \contentsline {definition}{{Definition}{2.{1}}{\textbf {Graph}}}{11}
 \contentsline {definition}{{Definition}{2.{2}}{\textbf {Follower Set}}}{11}
-\contentsline {definition}{{Definition}{2.{3}}{\textbf {Language of a Graph}}}{12}
-\contentsline {definition}{{Definition}{2.{4}}{\textbf {Partitions and Equivalence Relations}}}{12}
-\contentsline {definition}{{Definition}{2.{5}}{\textbf {Irreducible Graph}}}{13}
-\contentsline {proposition}{{Proposition}{2.{1}}{}}{13}
+\contentsline {definition}{{Definition}{2.{3}}{\textbf {Language of a Graph}}}{11}
+\contentsline {definition}{{Definition}{2.{4}}{\textbf {Minimal Graph}}}{12}
+\contentsline {definition}{{Definition}{2.{5}}{\textbf {Partitions and Equivalence Relations}}}{13}
+\contentsline {proposition}{{Proposition}{2.{1}}{}}{14}
 \contentsline {lemma}{{Lemma}{2.{1}}{}}{14}
-\contentsline {proposition}{{Proposition}{2.{2}}{}}{14}
+\contentsline {proposition}{{Proposition}{2.{2}}{}}{15}
 \contentsline {proposition}{{Proposition}{2.{3}}{}}{15}
-\contentsline {definition}{{Definition}{2.{6}}{\textbf {Probabilistic Finite State Automata}}}{16}
-\contentsline {definition}{{Definition}{2.{7}}{\textbf {Morph}}}{16}
-\contentsline {definition}{{Definition}{2.{8}}{\textbf {Deterministic PFSA}}}{17}
-\contentsline {definition}{{Definition}{2.{9}}{\textbf {PFSA Synchronization Word}}}{17}
-\contentsline {definition}{{Definition}{2.{10}}{}}{18}
-\contentsline {definition}{{Definition}{3.{1}}{}}{27}
+\contentsline {definition}{{Definition}{2.{6}}{\textbf {Probabilistic Finite State Automata}}}{17}
+\contentsline {definition}{{Definition}{2.{7}}{\textbf {Morph}}}{17}
+\contentsline {definition}{{Definition}{2.{8}}{\textbf {PFSA Synchronization Word}}}{17}
+\contentsline {definition}{{Definition}{2.{9}}{}}{18}

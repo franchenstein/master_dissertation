@@ -1,4 +1,4 @@
-\chapter{Revision}\label{cap:2}
+\chapter{Preliminaries on Graphs and Probabilistic Finite State Automata}\label{cap:2}
 
 \tikzset{
   treenode/.style = {shape=circle,
@@ -9,29 +9,29 @@
   leaf/.style    = {treenode,font=\ttfamily\normalsize, bottom color=red}
 }
 
-{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{T}{his} chapter revises the concepts needed to develop the algorithms and their application.
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{I}{n} this chapter we revise concepts from graphs and Probabilistic Finite State Automata (PFSA) that will be required in the subsequent chapters\cite{brianmarcus}\cite{vidal.05}. The concept of graph minimization is presented and two mainstream algorithms to achieve this are described, Moore's and Hopcroft's. Finally, two algorithms to model dynamic systems with PFSA are presented in the last session, D-Markov and CRISSiS.
 
 \section{Sequences of Discrete Symbols}
-This section provides tools to describe sequences of discrete symbols. The length of a sequence \textit{u} is denoted by $|\textit{u}|$. The empty sequence $\epsilon$ is defined as the sequence with length 0. The set of all possible symbols for a sequence is called its alphabet, represented as $\Sigma$. The set of all possible sequences of \textit{n}, \textit{n} $in \mathbb{Z}$ symbols from $\Sigma$ is $\Sigma^n$ and the set of all sequences of symbols from $\Sigma$ with all possible lengths, including the empty sequence sequence $\epsilon$, is $\Sigma^*$. 
+This section provides tools to describe sequences of discrete symbols. A finite sequence $u$ of symbols from an alphabet $\Sigma$ is called a word and its length is denoted by $|\textit{u}|$. The empty sequence $\varepsilon$ is defined as the sequence with length 0. The set of all possible words of length $n$ symbols from $\Sigma$ is $\Sigma^n$ and the set of all sequences of symbols from $\Sigma$ with all possible lengths, including the empty sequence sequence $\varepsilon$, is $\Sigma^*$. 
 
-Two sequences \textit{u} and \textit{v} $\in \Sigma^*$ can be concatenated to form a sequence \textit{uv}. For example, using a binary alphabet $\Sigma = \{0,1\}$ and \textit{u} = 1010 and \textit{v} = 111, they can be concatenated to form \textit{uv} = 1010111. 
+Two sequences \textit{u} and \textit{v} $\in \Sigma^*$ can be concatenated to form a sequence \textit{uv}. For example, using a binary alphabet $\Sigma = \{0,1\}$, the sequences \textit{u} = 1010 and \textit{v} = 111, they can be concatenated to form \textit{uv} = 1010111. Note that $|\textit{uv}| = |\textit{u}| + |\textit{v}|$. Concatenation is associative, which means \textit{u}(\textit{vw}) = (\textit{uv})\textit{w} = \textit{uvw}, but it is not commutative, as \textit{uv} is not necessarily equal to \textit{vu}. The empty word $\varepsilon$ is a neutral element for concatenation. That is, $\varepsilon u = u\varepsilon = u$. This means that $\Sigma^*$ with the operation of concatenation is a Monoid, as it is a set with an associative operation with an identity element.
 
-Note that $|\textit{uv}| = |\textit{u}| + |\textit{v}|$. Concatenation is associative, which means \textit{u}(\textit{vw}) = (\textit{uv})\textit{w} = \textit{uvw}, but it is not commutative, as \textit{uv} is not necessarily equal to \textit{vu}. This means that $\Sigma^*$ with the operation of concatenation is a Monoid, as it is a set with an associative operation with an identity element (the empty string).
-
-A sequence \textit{v} $\in \Sigma^*$ is called a suffix of a sequence \textit{w} $\in \Sigma^*$ (given $|\textit{w}| > |\textit{v}|$) if \textit{w} can be written as a concatenation \textit{uv}, where \textit{u} $\in \Sigma^*$, that is \textit{w} = \textit{uv}. In this same sense, the sequence \textit{u} is called a prefix of \textit{w}. 
+A sequence $v \in \Sigma^*$ is called a suffix of a sequence $w \in \Sigma^*$ ( $|\textit{w}| > |\textit{v}|$) if $w$ can be written as a concatenation $uv$, where $u \in \Sigma^*$. In this same sense, the sequence $u$ is called a prefix of $w$. 
 
 \section{Graphs}
 
 \begin{definition}[\textbf{Graph}]\label{def:graph}
-A graph \textit{G} over the alphabet $\Sigma$ consists of a triple (\textit{Q}, $\Sigma$, $\delta$):
+A graph \textit{G} over the alphabet $\Sigma$ consists of a triple ($Q, \Sigma,\delta$):
 \begin{itemize}
-	\item \textit{Q} is a finite set of states with cardinality $|Q|$;
+	\item $Q$ is a finite set of states with cardinality $|Q|$;
     \item $\Sigma$ is a finite alphabet with cardinality $|\Sigma|$;
     \item $\delta$ is the state transition function $Q\times\Sigma \rightarrow Q$;
 \end{itemize}
 \end{definition}
 
-Each state \textit{q} from \textit{Q} has at most $|\Sigma|$ outgoing edges. Each outgoing edge from a state is labeled with a unique symbol from $\Sigma$ and it arrives at only one state \textit{$q^{\prime}$} $\in$ \textit{Q}. This behavior is described by the function $\delta : Q \times \Sigma \rightarrow Q$, which is the transition function. For example, leaving state \textit{q} with the edge labeled with \textit{a} and arriving at state \textit{$q^{\prime}$} is represented by $\delta(q, 0) = q^{\prime}$. Figure \ref{fig:graph} shows an example of a graph over a binary alphabet.
+Each state $q \in Q$ can be represented as a dot or circle and if $\exists \delta(q, \sigma) = q'$ for $q, q' \in Q$ and $\sigma \in \Sigma$, this transition can be represented with a directed arrow coming out of state $q$ and pointing to state $q'$. The arrow is labeled with the symbol $\sigma$. This realization of the transition function can be called the outgoing edge from $q$ to $q'$ with symbol $\sigma$. Figure \ref{fig:graph} shows an example of three state graph over a binary alphabet from where it possible to see there is an outgoing edge from state $A$ to state $B$ with the symbol $1$, representing $\delta(A, 1) = B$.
+
+It is possible to extend the transition function so it accepts words and not just symbols. Given $\omega \in \Sigma^n$ and $\omega = \sigma_1\sigma_2\ldots\sigma_n$ with $\sigma_m \in \Sigma$ for $m = 1\ldots n$. Also, given states $q_0, q_1, \ldots, q_n \in Q$, we define the function $\delta^*(q_0, \omega) = q_n$ if $\delta(q_0, \sigma_1) = q_1, \delta(q_1,\sigma_2) = q_2, \ldots, \delta(q_{n-1},\sigma_n) = q_n$. If $\exists \omega \in \Sigma^*$ such that for states $q_1, q_2 \in Q$ it is said there is a path between $q_1$ and $q_2$ and that $\omega$ is generated by $G$. Calling the graph of Figure \ref{fig:graph} as $G$, the following is an example of a path:  start at state $A$ and go to $A$, $A$, $B$, \textit{C}, $B$, $A$. This generates the string $s$ = 001110.
 
 \begin{figure}
 \centering
@@ -50,20 +50,15 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \path (C) edge [bend left =15] node[below =0.15 cm] {$1$} (B);
 \path (B) edge [bend right = -25] node[below =0.15 cm] {$1$} (C);
 \end{tikzpicture}
-\caption{Example of a graph with Q = \{A, B, C\} and $\Sigma = \{0, 1\}$.\label{fig:graph}}
+\caption{A graph with $Q$ = \{A, B, C\} and $\Sigma = \{0, 1\}$.\label{fig:graph}}
 \end{figure}
 
-A graph \textit{G} can also be represented as a triple \textit{(Q, E, L)} where \textit{Q} is the set of states, \textit{E} is the set of edges connecting the states and \textit{L} is the set of edges' labels. A walk in a graph \textit{G} is the sequence of labels \textit{l} $\in$ \textit{L} formed by starting at a state \textit{q} $\in$ \textit{Q} and a string \textit{s} that starts as the empty string and going to a next state connected to it by a vertex and appending the vertex's label to \textit{s}. This process can be repeated and when it stops, \textit{s} defines a walk over \textit{G} starting at \textit{q}. Calling the graph of Figure \ref{fig:graph} as \textit{G}, the following is an example of a walk:  start at state \textit{A} and go to \textit{A}, \textit{A}, \textit{B}, \textit{C}, \textit{B}, \textit{A}. This forms the string \textit{s} = 001110.
 
 \begin{definition}[\textbf{Follower Set}]\label{def:followerset}
-The follower set of the graph \textit{G} rooted at state \textit{q} $\in$ \textit{Q} is defined as the set of all possible walks that can be formed by starting at state \textit{q}. That is:
+The follower set of a state $q \in Q$ is defined as the set of all possible paths that start at $q$ and end in a state of $Q$:
 \end{definition}
 
-\[ F(q) = \{\omega \in \Sigma^* | q\cdot\omega \in \textit{Q}\}, \]
-
-
-
-\noindent where \textit{q$\cdot\omega$} denotes the state arrived after starting at \textit{q} and following the path determined by the word $\omega$.
+\[ F(q) = \{\omega \in \Sigma^* | \delta^*(q, \omega) \in \textit{Q}\}. \]
 
 
 \begin{definition}[\textbf{Language of a Graph}]\label{def:language}
@@ -72,14 +67,22 @@ The language $\mathcal{L}$ of a graph \textit{G} is the the set of follower sets
 
 \[ \mathcal{L} = \{F(\textit{q}), \forall \textit{q} \in \textit{Q}\}. \]
 
-A word \textit{w} is called a synchronizing word of \textit{G} if all walks in \textit{G} that generate \textit{w} terminate at the same state and \textit{G} is called \textit{synchronizing} if there exists a synchronization word for every state \textit{q} $\in$ \textit{Q}. 
+A word $\omega \in \Sigma^*$ is called a synchronizing word of $G$ if starting from any state $q \in Q$ and following the path defined by $\omega$ the same state $q_{syn} \in Q$ is reached. That is, if $\omega$ is a synchronizing word, $\delta^*(q, \omega) = q_{syn}, \forall q \in Q$. $q_{syn}$ is called a synchronizing state for $\omega$. In the example of Figure \ref{fig:graph}, $0$ is a synchronizing word that synchronizes to state $A$.
 
 \section{Graph Minimization}
 
-This section explains the two most widely used algorithms for automata minimization: Moore and Hopcroft.
+There are times when two graphs $G_1 = \{Q_1, \Sigma, \delta_1\}$ and $G_2 = \{Q_2, \Sigma, \delta_2\}$ with $|Q_1|\neq |Q_2|$ and are capable of generating the same language. It is desirable to use a graph with fewer states as it can be represented in a computer with less memory consumption. And for all graphs that have certain language, there is always one with the least number of states, which is called the Minimal Graph. 
+
+\begin{definition}[\textbf{Minimal Graph}]\label{def:mingraph}
+For a given language $\mathcal{L}$ there is a minimal graph $G_{min} = \{Q,\Sigma ,\delta \}$ capable of generating it. The minimal graph is the one for which each state $q \in Q$ has a distinct follower set.
+\end{definition}
+
+It is elementary to see that if a graph has two distinct states with the same follower set, a new graph can be obtained by excluding one of them and the graph will still be able to generate the same language. When all the states have distinct follower sets, none of them can be excluded without affecting the generated language.
+
+Given some graph $G$ there are two main algorithms used to obtain a minimal graph from it, Moore's and Hopcroft's. Both will be described in this section, but some definitions are due before getting into the algorithms.
 
 \begin{definition}[\textbf{Partitions and Equivalence Relations}]\label{def:partition}
-Given a set E, a partition of E is a family $\mathcal{P}$ of nonempty, pairwise disjoint subsets of E such that $\bigcup_{P\in\mathcal{P}}P = E $. The index of the partition is its number of elements. The partition defines an equivalence relation on E and the set of all equivalence classes [x], $x\in E$, of an equivalence relation in E defines a partition of the set.
+Given a set $E$, a partition of $E$ is a family $\mathcal{P}$ of nonempty, pairwise disjoint subsets of $E$ such that $\bigcup_{P\in\mathcal{P}}P = E $. The index of the partition is its number of elements. The partition $\mathcal{P}$ defines an equivalence relation on $E$ and the set of all equivalence classes of an equivalence relation in $E$ defines a partition of the set.
 \end{definition}
 
 When a subset \textit{F} of \textit{E} is the union of classes of $\mathcal{P}$ it said that \textit{F} is saturated by $\mathcal{P}$. Given $\mathcal{Q}$, another partition of \textit{E}, it said to be a \textit{refinement} of $\mathcal{P}$ (or that $\mathcal{P}$ is coarser than $\mathcal{Q}$) if every class of $\mathcal{Q}$ is contained by some class of $\mathcal{P}$ and it is written as $\mathcal{Q} \leq \mathcal{P}$. The index of $\mathcal{Q}$ is greater than the index of $\mathcal{P}$.
@@ -90,10 +93,6 @@ Given $F\subseteq E$, a partition $\mathcal{P}$ of \textit{E} induces a partitio
 of \textit{F} by intersection. $\mathcal{P}'$ is composed by the sets $P\cap F$ with $P\subseteq \mathcal{P}$. If $\mathcal{P}$ and $\mathcal{Q}$ are partitions of \textit{E} and $\mathcal{Q} \leq \mathcal{P}$, the restrictions $\mathcal{P}'$ and $\mathcal{Q}'$ to \textit{F} maintain $\mathcal{Q}' \leq \mathcal{P}'$.
 
 Given partitions $\mathcal{P}$ and $\mathcal{P}'$ of disjoint sets \textit{E} and \textit{E'}, the partition of set $E \cup E'$ whose restriction to \textit{E} and \textit{E'} are $\mathcal{P}$ and $\mathcal{P'}$ is denoted by $\mathcal{P}\vee\mathcal{P}'$. It is possible to write $\mathcal{P} = \vee_{P\vee\mathcal{P}}\{P\}$.
-
-\begin{definition}[\textbf{Irreducible Graph}]\label{def:mingraph}
-A graph \textit{G} is said to be irreducible if all its states have distinct follower sets (from Definition \ref{def:followerset}), that is F(p) $\neq$ F(q) for each pair of distinct states p, q $\in$ \textit{Q}.
-\end{definition}
 
 From Definition \ref{def:mingraph} it is possible to define an equivalence relation called the Nerode equivalence:
 
@@ -237,22 +236,14 @@ The previous computation is performed until $\mathcal{W}$ is empty. It is proven
 \section{Probabilistic Finite State Automata}
 
 \begin{definition}[\textbf{Probabilistic Finite State Automata}]\label{definition:pfsa}
-A Probabilistic Finite State Automaton (PFSA) \textit{P} is defined as a quadruple $(Q, \Sigma, \delta, \mathcal{V})$. The first three items are the same as of a graph as defined in Definition \ref{def:graph}, while  $\mathcal{V}$ is a probability function, $\mathcal{V}$: $\delta \rightarrow [0,1)$ which associates a probability to each edge.
-\end{definition}
-
-The function $\mathcal{V}$ gives the probabilistic factor to the PFSA. It is the associated probability distribution for the outgoing edges of each state. This means that for each state \textit{q} $\in$ \textit{Q}, there will be a probability $\mathcal{V}(\delta(q, \sigma)), \forall \sigma \in \Sigma$ associated to each edge in such a way that $\Sigma_{\sigma}\mathcal{V}(\delta(q,\sigma)) = 1$ and $0 \leq \mathcal{V}(\delta(q,\sigma)) \leq 1$. The probability associated to an edge is the probability of taking this path once the system is in the state \textit{q}. 
+A Probabilistic Finite State Automaton (PFSA) $P$ is defined as a graph $G$ and a probability function $\pi$ associated to each of its outgoing edges, i.e. $(G, \pi)$. The function $\pi: Q\times\Sigma \rightarrow [0,1]$ such that for a state $q \in Q$, $\sum_{\sigma\in\Sigma}\pi(q,\sigma) = 1$ which defines a probability distribution associated with each state of $G$.
+\end{definition} 
 
 \begin{definition}[\textbf{Morph}]\label{definition:morph}
-The probability distribution $\mathcal{V}(q) = \{ \mathcal{V}(\delta(q, \sigma)); \forall \sigma \in \Sigma\}$ of a state is called the state morph.  
+Given a state $q \in Q$, the probability distribution $\mathcal{V}(q) = \{ \pi(\delta(q, \sigma)); \forall \sigma \in \Sigma\}$ associated with $q$ is called its morph.  
 \end{definition}
 
-A PFSA can be represented with a graph, in which each $q \in Q$ is represented as a node. The edges are given by function $\delta(q, a) =  q^{\prime}$, indicating there is an edge going from \textit{q} to \textit{$q^{\prime}$} labeled with the symbol \textit{a}. The probability associated with an edge, $\mathcal{V}(\delta(q,a))$ is also in the edge label.
-
-\begin{definition}[\textbf{Deterministic PFSA}]\label{definition:dpfsa}
-A PFSA is called deterministic if the outgoing edges of each state are labeled with distinct symbols. 
-\end{definition}
-
-An example of a graph of a PFSA is shown in Figure \ref{fig:pfsa}, for which \textit{Q} = $\{A, B, C\}$, $\Sigma = \{0, 1\}$ and the functions $\delta$ and $\mathcal{V}$ are represented in the edges of the graph.
+A PFSA can be drawn with its graph with each outgoing edge labeled not only with a symbol, but the probability $\pi(q,\sigma)$ associated with it. An example of a PFSA $P$ is shown in Figure \ref{fig:pfsa}. for which \textit{Q} = $\{A, B, C\}$, $\Sigma = \{0, 1\}$. It is the same graph from Figure \ref{fig:graph} but now probabilities have been associated to its edges to create a PFSA.
 
 \begin{figure}
 \centering
@@ -263,22 +254,20 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 {$C$};
 \node[state] (A) [above left=of C] {$A$};
 \node[state] (B) [above right =of C] {$B$};
-\path (A) edge [loop left] node[left] {$0/0.25$} (A);
-\path (C) edge [bend left =] node[below =0.15 cm] {$0/0.5$} (A);
+\path (A) edge [loop left] node[left] {$0|0.25$} (A);
+\path (C) edge [bend left = 15] node[left =0.15 cm] {$0|0.5$} (A);
 %\path (A) edge [bend right = -15] node[below =0.15 cm] {$1/2$} (C);
-\path (A) edge [bend left =25] node[above] {$1/0.75$} (B);
-\path (B) edge [bend left =15] node[above =0.15 cm] {$0/0.2$} (A);
-\path (C) edge [bend left =15] node[above =0.15 cm] {$1/0.5$} (B);
-\path (B) edge [bend right = -25] node[below =0.15 cm] {$1/0.8$} (C);
+\path (A) edge [bend left =15] node[above] {$1|0.75$} (B);
+\path (B) edge [bend left =15] node[above =0.15 cm] {$0|0.2$} (A);
+\path (C) edge [bend left =15] node[left =0.15 cm] {$1|0.5$} (B);
+\path (B) edge [bend right = -25] node[right =0.15 cm] {$1|0.8$} (C);
 \end{tikzpicture}
 \caption{A probabilistic version of the graph of Figure \ref{fig:graph}.\label{fig:pfsa}}
 \end{figure}
 
-A sequence can be generated by a PFSA as the sequence formed by starting at a given state \textit{q} $\in$ \textit{Q} then following a path with its edges and concatenating the labels for each edge. Its probability is given by multiplying the probability of each edge that was taken.
+Given a PFSA $P=\{Q, \Sigma, \delta, \pi\}$, there is a probability associated with each word $\omega \in \Sigma^*$ that can be generated from its graph $G=\{Q,\Sigma,\delta\}$. From Figure \ref{fig:pfsa}, starting at the state $A$, it is possible to generate the word $\omega = 1011001$ (as $\delta^*(A, \omega) = B$) by taking a path going to states $B,A,B,C,A,A$ and $B$ and concatenating the labels of the path from each of these transitions. By multiplying the probabilities of these edges, it is seen that  = $\Pr (\omega |A) = 0.75\times0.2\times0.75\times0.8\times0.5\times0.25\times0.75 = 0.0084375$.
 
-From Figure \ref{fig:pfsa}, starting at the state \textit{A}, it is possible to form the sequence \textit{u = 1011001} by taking a path going to states \textit{B,A,B,C,A,A} and \textit{B} and concatenating the labels of the path from each of these transitions. By multiplying the probabilities of these edges, it is seen that p(\textit{u}) = $0.75\times0.2\times0.75\times0.8\times0.5\times0.25\times0.75 = 0.0084375$.
-
-It is useful do adapt the concept of synchronization word to the context of PFSA:
+It is useful do adapt the concept of synchronization word to the context of PFSA as seen in \citep{asok.11}:
 
 \begin{definition}[\textbf{PFSA Synchronization Word}]\label{definition:synchword}
 For a state \textit{q} $\in$ \textit{Q}, \textit{w} is a synchronization word if, $\forall \textit{u} \in \Sigma^*$ and $\forall \textit{v} \in \Sigma^*$:
@@ -339,6 +328,7 @@ To build a 2-Markov Machine, the states will be 00, 01, 10 and 11. Table \ref{ta
 
 \begin{table}
 \centering
+\caption{Sequence \textit{s} subsequence probabilities. \label{tab:subseq}}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 \textbf{L = 1} & \textbf{Prob.} & \textbf{L = 2} & \textbf{Prob.} & \textbf{L = 3} & \textbf{Prob.} \\
@@ -352,7 +342,7 @@ To build a 2-Markov Machine, the states will be 00, 01, 10 and 11. Table \ref{ta
   &      &    &      & 110 & 0.11\\
   &      &    &      & 111 & 0.14\\
 \hline
-\end{tabular}\caption{Sequence \textit{s} subsequence probabilities. \label{tab:subseq}}
+\end{tabular}
 \end{table}
 
 \begin{figure}
@@ -502,6 +492,7 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 
 \begin{table}
 \centering
+\caption{Subsequence frequencies of a sequence generated by the Tri-Shift. \label{tab:trishiftsub}}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \textbf{L = 1} & \textbf{Freq.} & \textbf{L = 2} & \textbf{Freq.} & \textbf{L = 3} & \textbf{Freq.} & \textbf{L = 4} & \textbf{Freq.}& \textbf{L $\geq$ 5} & \textbf{Freq.}\\
@@ -517,7 +508,7 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
   &      &    &      &     &      & 1100 & 3393 &        &     \\
   &      &    &      &     &      & 1101 & 2701 &        &     \\
 \hline
-\end{tabular}\caption{Subsequence frequencies of a sequence generated by the Tri-Shift. \label{tab:trishiftsub}}
+\end{tabular}
 \end{table}
 
 First, the synchronization word needs to be found. States 0, 1 and so on are checked with Equation \ref{eq:practsynchword}. Starting by 0, neither $\Pr_1(0) = \Pr_1(00)$ nor $\Pr_1(0) = \Pr_1(01)$ pass the $\chi^2$ test. Then the state 1 is tested, which also fails. For state 00, the derived frequencies are relatively close and it passes the test, giving 00 the status of synchronization word.
