@@ -75,6 +75,39 @@
 \usepackage{amssymb}
 \usepackage{tikz}
 \usetikzlibrary{graphs, graphs.standard}
+
+%\newdimen\pgf@lib@svg@lastmoveto@x
+%\newdimen\pgf@lib@svg@lastmoveto@y
+%
+%\def\pgf@lib@svg@moveto{%
+%  \pgf@lib@svg@clear@bezier@quad%
+%  \pgf@lib@svg@last@x=\pgf@lib@svg@get@num{0}pt%
+%  \pgf@lib@svg@last@y=\pgf@lib@svg@get@num{1}pt%
+%  \pgf@lib@svg@lastmoveto@x=\pgf@lib@svg@last@x% NEW LINE
+%  \pgf@lib@svg@lastmoveto@y=\pgf@lib@svg@last@y% NEW LINE
+%  \pgfpathmoveto{\pgfqpoint{\pgf@lib@svg@last@x}{\pgf@lib@svg@last@y}}%
+%  \pgf@lib@svg@read@nums{2}{\pgf@lib@svg@lineto}
+%}
+%\def\pgf@lib@svg@moveto@rel{%
+%  \pgf@lib@svg@clear@bezier@quad%
+%  \advance\pgf@lib@svg@last@x by\pgf@lib@svg@get@num{0}pt%
+%  \advance\pgf@lib@svg@last@y by\pgf@lib@svg@get@num{1}pt%
+%  \pgf@lib@svg@lastmoveto@x=\pgf@lib@svg@last@x% NEW LINE
+%  \pgf@lib@svg@lastmoveto@y=\pgf@lib@svg@last@y% NEW LINE
+%  \pgfpathmoveto{\pgfqpoint{\pgf@lib@svg@last@x}{\pgf@lib@svg@last@y}}%
+%  \pgf@lib@svg@read@nums{2}{\pgf@lib@svg@lineto@rel}
+%}
+%
+%\def\pgf@lib@svg@closepath{
+%  \pgf@lib@svg@finish@prev
+%  \pgf@lib@svg@last@x=\pgf@lib@svg@lastmoveto@x% NEW LINE
+%  \pgf@lib@svg@last@y=\pgf@lib@svg@lastmoveto@y% NEW LINE
+%  \pgfpathclose
+%  \let\pgf@lib@svg@finish@prev=\relax
+%  \pgf@lib@svg@clear@bezier@quad%
+%  \pgfparserswitch{initial}%
+%}
+
 \usetikzlibrary{trees}
 \usetikzlibrary{positioning}
 %\usepackage{euler}

@@ -9,7 +9,6 @@
   leaf/.style    = {treenode,font=\ttfamily\normalsize, bottom color=red}
 }
 
-
 {\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{I}{n} this chapter, the proposed algorithm to model a system by its sequence \textit{S} is presented. The first section discusses an algorithm to find synchronization words which has lower complexity than the brute force method used by CRISSiS. Later, the PFSA construction algorithm is shown. It is further divided in two parts: the PFSA completion, which will make sure that all states have outgoing edges and the full $\aleph$ algorithm which will create the most compact PFSA for the provided parameters. 
 
 Thus, the proposed algorithm consists of the following three steps: 
@@ -35,7 +34,7 @@ A rooted tree with probabilities (RTP) $\mathcal{S}$ over $\Sigma = \{0, 1\}$ is
 
 An RTP has its maximum depth \textit{L} ultimately constrained by the length of \textit{S}. If \textit{S} is infinite, $\mathcal{S}$ can also have infinite \textit{L}. In practice, that is not possible and a user defined maximum depth has to be used. It is good to remind that as the chance of sub-sequences occurring gets smaller as their length increases, the statistics of really large sub-sequences might be really poor. This means that using a very large \textit{L} implies that the probabilities of states closer to the leaves tend to be unreliable.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \begin{tikzpicture}
   [
@@ -47,14 +46,14 @@ An RTP has its maximum depth \textit{L} ultimately constrained by the length of 
     sloped
   ]
   \node [root] {$\epsilon$}
-    child { state [env] {1}
-      child{ state [leaf] {11}
-      	edge from parent state [below] {1/P(1$|$1)}}
-      child{ state [leaf] {10}
-      	edge from parent state [above] {0/P(0$|$1)}}
-      edge from parent state [below] {1/P(1)} }
-    child { state [leaf] {0}
-      edge from parent state [above] {0/P(0)} };
+    child { node [env] {1}
+      child{ node [leaf] {11}
+      	edge from parent node [below] {1/P(1$|$1)}}
+      child{ node [leaf] {10}
+      	edge from parent node [above] {0/P(0$|$1)}}
+     edge from parent node [below] {1/P(1)} }
+   child { node [leaf] {0}
+      edge from parent node [above] {0/P(0)} };
 \end{tikzpicture}
 \caption{Example of a rooted tree with probabilities. \label{fig:rtp}}
 \end{figure}
@@ -85,38 +84,38 @@ When two states $p, q \in \mathcal{S}$ are compared (with the notation $\mathcal
 	[
     grow = right,
     edge from parent/.style = {draw, -latex},
-    every state/.style       = {font=\footnotesize},
+    every node/.style       = {font=\footnotesize},
     sloped    
     ]
   \node [root] {$\epsilon$}
-    child { state [env] {1}
-      child{ state [env] {11}
-      	child{ state [leaf] {111}
-        	edge from parent state [below] {1/$P(1|11)$}}
-      	child{ state [leaf] {110}
-        	edge from parent state [above] {0/$P(0|11)$}}
-      	edge from parent state [below] {1/P(1$|$1)}}
-      child{ state [leaf] {10}
-      	child{ state [leaf] {101}
-        	edge from parent state [below] {1/$P(1|10)$}}
-      	child{ state [leaf] {100}
-        	edge from parent state [above] {0/$P(0|10)$}}
-      	edge from parent state [above] {0/P(0$|$1)}}
-      edge from parent state [below] {1/P(1)} }
-    child { state [env] {0}
-      child{ state [env] {01}
-       	child{ state [leaf] {011}
-         	edge from parent state [below] {1/$P(1|01)$}}
-       	child{ state [leaf] {010}
-         	edge from parent state [above] {0/$P(0|01)$}}
-      	edge from parent state [below] {1/P(1$|$0)}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-         	edge from parent state [below] {1/$P(1|00)$}}
-       	child{ state [leaf] {000}
-         	edge from parent state [above] {0/$P(0|00)$}}
-      	edge from parent state [above] {0/P(0$|$0)}}
-      edge from parent state [above] {0/P(0)} };
+    child { node [env] {1}
+      child{ node [env] {11}
+      	child{ node [leaf] {111}
+        	edge from parent node [below] {1/$P(1|11)$}}
+      	child{ node [leaf] {110}
+        	edge from parent node [above] {0/$P(0|11)$}}
+      	edge from parent node [below] {1/P(1$|$1)}}
+      child{ node [leaf] {10}
+      	child{ node [leaf] {101}
+        	edge from parent node [below] {1/$P(1|10)$}}
+      	child{ node [leaf] {100}
+        	edge from parent node [above] {0/$P(0|10)$}}
+      	edge from parent node [above] {0/P(0$|$1)}}
+      edge from parent node [below] {1/P(1)} }
+    child { node [env] {0}
+      child{ node [env] {01}
+       	child{ node [leaf] {011}
+         	edge from parent node [below] {1/$P(1|01)$}}
+       	child{ node [leaf] {010}
+         	edge from parent node [above] {0/$P(0|01)$}}
+      	edge from parent node [below] {1/P(1$|$0)}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+         	edge from parent node [below] {1/$P(1|00)$}}
+       	child{ node [leaf] {000}
+         	edge from parent node [above] {0/$P(0|00)$}}
+      	edge from parent node [above] {0/P(0$|$0)}}
+      edge from parent node [above] {0/P(0)} };
 \end{tikzpicture}
 \caption{Example of binary $\mathcal{S}$ \label{fig:treet}}
 \end{figure}
@@ -170,7 +169,7 @@ The next step is to iterate for each element $d$ in $\Psi$ and check if they are
 
 On the other hand, if $\zeta = d$, this element is then added to the end of the queue $\Gamma$ and it will be later dequeued and tested.  The last step is to update the suffix dictionary so there are new elements to be compared with their suffixes. The list ofall the descendants of $\zeta$ is iterated. The shortest valid suffix \textit{short} of each of its elements $t$ is found and used as an entry of \textit{suffixes}, such that \textit{suffixes}[short] appends $t$.
   
-  \begin{algorithm}
+  \begin{algorithm}[t]
   \caption{expand($c, V, \mathcal{S},\Gamma,$ candidacy, suffixes)\label{alg:expand}}
     \begin{algorithmic}[1]
       \Procedure{Expand $\Gamma$}{}
@@ -207,7 +206,7 @@ As $\Gamma$ is not empty, it is dequeued and $c = \epsilon$, which has a label l
 
 The list $\Psi$ is initialized with the direct descendants of $c = \epsilon$, that is $\Psi = \{0, 1\}$. $V[\epsilon]$ is empty and can be disregarded. It is easy to check that all elements in $\Psi$ are their own shortest valid suffixes after $\epsilon$ candidacy becomes false (seen in Figure \ref{fig:trishifttree1}). This means both of them are queued into $\Gamma$, so that $\Gamma = \{0, 1\}$. For both 0 and 1, they are their direct descendants' shortest valid suffixes, which means that suffixes[0] = \{00, 10\} and suffixes[1] = \{01, 11\}. The expansion algorithm returns to the synchronization algorithm. The list $\Theta$ is appended to the end of $\Gamma$, but as it is currently empty it does not change $\Gamma$. This ends the first iteration. 
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \tikzstyle{level 1}=[level distance=2.5cm, sibling distance=11.5cm]
 \tikzstyle{level 2}=[level distance=2.5cm, sibling distance=5.5cm]
@@ -217,70 +216,70 @@ The list $\Psi$ is initialized with the direct descendants of $c = \epsilon$, th
 	[
     grow = right,
     edge from parent/.style = {draw, -latex},
-    every state/.style       = {font=\footnotesize},
+    every node/.style       = {font=\footnotesize},
     sloped    
     ]
   \node [leaf] {$\epsilon$}
-    child { state [leaf] {1}
-      child{ state [leaf] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [leaf] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [leaf] {0}
-      child{ state [leaf] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [leaf] {1}
+      child{ node [leaf] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [leaf] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [leaf] {0}
+      child{ node [leaf] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Input Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example. \label{fig:trishifttree0}}
 \end{figure}
@@ -291,7 +290,7 @@ For $c = 0$, the expansion algorithm has $\Psi = \{00, 01\}$ and $0$ is not amon
 
 In the beginning of the next iteration, we have $\Gamma = \{1, 000\}$, $V[1] = \{01\}$, $\Theta = \emptyset$, suffixes[$1$] = $\{01, 11, 001\}$ and suffixes[$00$] = $\{000\}$. $\Gamma$ is dequeued and $c = 1$, \textit{suffixes}[$1$] = $\{01, 11, 001\}$ is iterated through. First, $\mathcal{V}(1) = \mathcal{V}(01)$ is checked to be false ($[0.779, 0.221]$ against $[0.739, 0.261]$) making \textit{candidacy}[$1$] = False and the call to the expansion algorithm.
 
-In the expansion algorithm, $\Psi = \{10, 11\}$ and it is appended of $01$ because $V[1] = \{01\}$, making $\Psi = \{10, 11, 01\}$. Now that both \textit{candidacy}[$0$] = \textit{candidacy}[$1$] = False, all of them are their own shortest valid suffixes and they are their children states' shortest valid suffixes. Thus, $\Gamma = \{00, 01, 10, 11\}$ and \textit{suffixes}[$00$] = $\{000, 100\}$, \textit{suffixes}[$01$] = $\{001, 101\}$, \textit{suffixes}[$10$] = $\{010, 110\}$ and \textit{suffixes}[$11$] = $\{011, 111\}$. Once again $\Theta$ is appended in $\Gamma$ and emptied.
+In the expansion algorithm, $\Psi = \{10, 11\}$ and it is appended of $01$ because $V[1] = \{01\}$, making $\Psi = \{10, 11, 01\}$. Now that both \textit{candidacy}[$0$] = \textit{candidacy}[$1$] = False, all of them are their own shortest valid suffixes and they are their children nodes' shortest valid suffixes. Thus, $\Gamma = \{00, 01, 10, 11\}$ and \textit{suffixes}[$00$] = $\{000, 100\}$, \textit{suffixes}[$01$] = $\{001, 101\}$, \textit{suffixes}[$10$] = $\{010, 110\}$ and \textit{suffixes}[$11$] = $\{011, 111\}$. Once again $\Theta$ is appended in $\Gamma$ and emptied.
 
 The fourth iteration has $c = 00$ and \textit{suffixes}[$c$]$ = \{000, 100\}$. All the states in \textit{suffixes}[$c$] have the same morph as $c$, so it passes all its tests, keeps its candidacy as True and it is added to $\Theta$.
 
@@ -301,7 +300,7 @@ In the sixth iteration, $\Gamma = \{10, 11, 010, 00\}$, $V[11] = \{011\}$, \text
 
 The following iteration has $\Gamma = \{11, 010, 00, 101\}$, $V[11] = \{011\}$, $V[00] = \{100\}$, \textit{suffixes}[$11$] = $\{011, 111, 1011\}$,  \textit{suffixes}[$010$] = $\{1010\}$, \textit{suffixes}[$00$] = $\{000, 100, 0100\}$ and \textit{suffixes}[$101$] = $\{0101\}$. $c = 11$ and \textit{suffixes}[$c$]$ = \{011, 111, 1011\}$. The test $\mathcal{V}(11) = \mathcal{V}(011)$ fails ([0.6256, 0.3744] against [0.5575, 0.4425]). In the expansion for $c = 11$, $\Psi = \{110, 111, 011\}$ (because $V[11] = \{011\}$).  All of them are their own shortest valid suffixes, so they are appended to $\Gamma$ and suffixes is updated with \textit{suffixes}[00] receiving 1100; \textit{suffixes}[101] receives 1101; \textit{suffixes}[110], 1110 and 0110; \textit{suffixes}[111], 1111 and 0111.
 
-In the eight iteration, $\Gamma = \{010, 00, 101, 110, 111, 011\}$, $V[00] = \{100\}$, \textit{suffixes}[$010$] = $\{1010\}$, \textit{suffixes}[$00$] = $\{000, 100, 0100, 1100\}$, \textit{suffixes}[$101$] = $\{0101, 1101\}$, \textit{suffixes}[$110$] = $\{1110, 0110\}$, \textit{suffixes}[$111$] = $\{1111, 0111\}$ and \textit{suffixes}[$011$] = $\{1011\}$. $c = 010$ which is now equal in length to $W = 3$, which means it is no longer tested.
+In the eighth iteration, $\Gamma = \{010, 00, 101, 110, 111, 011\}$, $V[00] = \{100\}$, \textit{suffixes}[$010$] = $\{1010\}$, \textit{suffixes}[$00$] = $\{000, 100, 0100, 1100\}$, \textit{suffixes}[$101$] = $\{0101, 1101\}$, \textit{suffixes}[$110$] = $\{1110, 0110\}$, \textit{suffixes}[$111$] = $\{1111, 0111\}$ and \textit{suffixes}[$011$] = $\{1011\}$. $c = 010$ which is now equal in length to $W = 3$, which means it is no longer tested.
 
 In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All of these states have morphs close to [0.5, 0.5] and they pass in all statistical test. This keeps 00 candidacy as True and it is once again added to $\Theta$. The rest of the elements in $\Gamma = \{101, 110, 111, 011\}$ have labels equal to than $W$ so they are all skipped and the algorithm returns $\Theta = \{00\}$. This result is the same as the one found by CRISSiS. Although this Algorithm seems more contrived, less statistical tests were performed and the search was more thorough than CRISSiS.
 
@@ -315,70 +314,70 @@ In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All o
 	[
     grow = right,
     edge from parent/.style = {draw, -latex},
-    every state/.style       = {font=\footnotesize},
+    every node/.style       = {font=\footnotesize},
     sloped    
     ]
   \node [env] {$\epsilon$}
-    child { state [leaf] {1}
-      child{ state [leaf] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [leaf] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [leaf] {0}
-      child{ state [leaf] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [leaf] {1}
+      child{ node [leaf] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [leaf] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [leaf] {0}
+      child{ node [leaf] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example after the first iteration. \label{fig:trishifttree1}}
 \end{figure}
@@ -393,70 +392,70 @@ In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All o
 	[
     grow = right,
     edge from parent/.style = {draw, -latex},
-    every state/.style       = {font=\footnotesize},
+    every node/.style       = {font=\footnotesize},
     sloped    
     ]
   \node [env] {$\epsilon$}
-    child { state [leaf] {1}
-      child{ state [leaf] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [leaf] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [env] {0}
-      child{ state [leaf] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [leaf] {1}
+      child{ node [leaf] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [leaf] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [env] {0}
+      child{ node [leaf] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example after the second iteration. \label{fig:trishifttree2}}
 \end{figure}
@@ -475,66 +474,66 @@ In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All o
     sloped    
     ]
   \node [env] {$\epsilon$}
-    child { state [env] {1}
-      child{ state [leaf] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [leaf] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [env] {0}
-      child{ state [leaf] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [env] {1}
+      child{ node [leaf] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [leaf] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [env] {0}
+      child{ node [leaf] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example after the third and fourth iterations. \label{fig:trishifttree34}}
 \end{figure}
@@ -553,66 +552,66 @@ In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All o
     sloped    
     ]
   \node [env] {$\epsilon$}
-    child { state [env] {1}
-      child{ state [leaf] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [leaf] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [env] {0}
-      child{ state [env] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [env] {1}
+      child{ node [leaf] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [leaf] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [env] {0}
+      child{ node [env] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example after the fifth iteration. \label{fig:trishifttree5}}
 \end{figure}
@@ -630,66 +629,66 @@ In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All o
     sloped    
     ]
   \node [env] {$\epsilon$}
-    child { state [env] {1}
-      child{ state [leaf] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [env] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [env] {0}
-      child{ state [env] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [env] {1}
+      child{ node [leaf] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [env] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [env] {0}
+      child{ node [env] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example after the sixth iteration. \label{fig:trishifttree6}}
 \end{figure}
@@ -708,76 +707,82 @@ In the ninth iteration, $c = 00$ and $\Lambda = \{000, 100, 0100, 1100\}$. All o
     sloped    
     ]
   \node [env] {$\epsilon$}
-    child { state [env] {1}
-      child{ state [env] {11}
-      	child{ state [leaf] {111}
-      		child{ state [leaf] {1111}
-      			edge from parent state [below] {1/0.2606}}
-      		child{ state [leaf] {1110}
-      			edge from parent state [above] {0/0.7394}}
-        	edge from parent state [below] {1/0.3744}}
-      	child{ state [leaf] {110}
-      		child{ state [leaf] {1101}
-      			edge from parent state [below] {1/0.4364}}
-      		child{ state [leaf] {1100}
-      			edge from parent state [above] {0/0.5636}}
-        	edge from parent state [above] {0/0.6256}}
-      	edge from parent state [below] {1/0.2610}}
-      child{ state [env] {10}
-      	child{ state [leaf] {101}
-      		child{ state [leaf] {1011}
-      			edge from parent state [below] {1/0.7417}}
-      		child{ state [leaf] {1010}
-      			edge from parent state [above] {0/0.2583}}
-        	edge from parent state [below] {1/0.3597}}
-      	child{ state [leaf] {100}
-      		child{ state [leaf] {1001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {1000}
-      			edge from parent state [above] {0/0.5000}}
-        	edge from parent state [above] {0/0.6403}}
-      	edge from parent state [above] {0/0.7390}}
-      edge from parent state [below] {1/0.3724} }
-    child { state [env] {0}
-      child{ state [env] {01}
-       	child{ state [leaf] {011}
-      		child{ state [leaf] {0111}
-      			edge from parent state [below] {1/0.4425}}
-      		child{ state [leaf] {0110}
-      			edge from parent state [above] {0/0.5575}}
-         	edge from parent state [below] {1/0.2210}}
-       	child{ state [leaf] {010}
-      		child{ state [leaf] {0101}
-      			edge from parent state [below] {1/0.3380}}
-      		child{ state [leaf] {0100}
-      			edge from parent state [above] {0/0.6620}}
-         	edge from parent state [above] {0/0.7790}}
-      	edge from parent state [below] {1/0.4385}}
-      child{ state [leaf] {00}
-       	child{ state [leaf] {001}
-      		child{ state [leaf] {0011}
-      			edge from parent state [below] {1/0.2000}}
-      		child{ state [leaf] {0010}
-      			edge from parent state [above] {0/0.8000}}
-         	edge from parent state [below] {1/0.5000}}
-       	child{ state [leaf] {000}
-      		child{ state [leaf] {0001}
-      			edge from parent state [below] {1/0.5000}}
-      		child{ state [leaf] {0000}
-      			edge from parent state [above] {0/0.5000}}
-         	edge from parent state [above] {0/0.5000}}
-      	edge from parent state [above] {0/0.5615}}
-      edge from parent state [above] {0/0.6276} };
+    child { node [env] {1}
+      child{ node [env] {11}
+      	child{ node [leaf] {111}
+      		child{ node [leaf] {1111}
+      			edge from parent node [below] {1/0.2606}}
+      		child{ node [leaf] {1110}
+      			edge from parent node [above] {0/0.7394}}
+        	edge from parent node [below] {1/0.3744}}
+      	child{ node [leaf] {110}
+      		child{ node [leaf] {1101}
+      			edge from parent node [below] {1/0.4364}}
+      		child{ node [leaf] {1100}
+      			edge from parent node [above] {0/0.5636}}
+        	edge from parent node [above] {0/0.6256}}
+      	edge from parent node [below] {1/0.2610}}
+      child{ node [env] {10}
+      	child{ node [leaf] {101}
+      		child{ node [leaf] {1011}
+      			edge from parent node [below] {1/0.7417}}
+      		child{ node [leaf] {1010}
+      			edge from parent node [above] {0/0.2583}}
+        	edge from parent node [below] {1/0.3597}}
+      	child{ node [leaf] {100}
+      		child{ node [leaf] {1001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {1000}
+      			edge from parent node [above] {0/0.5000}}
+        	edge from parent node [above] {0/0.6403}}
+      	edge from parent node [above] {0/0.7390}}
+      edge from parent node [below] {1/0.3724} }
+    child { node [env] {0}
+      child{ node [env] {01}
+       	child{ node [leaf] {011}
+      		child{ node [leaf] {0111}
+      			edge from parent node [below] {1/0.4425}}
+      		child{ node [leaf] {0110}
+      			edge from parent node [above] {0/0.5575}}
+         	edge from parent node [below] {1/0.2210}}
+       	child{ node [leaf] {010}
+      		child{ node [leaf] {0101}
+      			edge from parent node [below] {1/0.3380}}
+      		child{ node [leaf] {0100}
+      			edge from parent node [above] {0/0.6620}}
+         	edge from parent node [above] {0/0.7790}}
+      	edge from parent node [below] {1/0.4385}}
+      child{ node [leaf] {00}
+       	child{ node [leaf] {001}
+      		child{ node [leaf] {0011}
+      			edge from parent node [below] {1/0.2000}}
+      		child{ node [leaf] {0010}
+      			edge from parent node [above] {0/0.8000}}
+         	edge from parent node [below] {1/0.5000}}
+       	child{ node [leaf] {000}
+      		child{ node [leaf] {0001}
+      			edge from parent node [below] {1/0.5000}}
+      		child{ node [leaf] {0000}
+      			edge from parent node [above] {0/0.5000}}
+         	edge from parent node [above] {0/0.5000}}
+      	edge from parent node [above] {0/0.5615}}
+      edge from parent node [above] {0/0.6276} };
 \end{tikzpicture}
 \caption{Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example after the seventh iteration. \label{fig:trishifttree7}}
 \end{figure}
 
+\section{PFSA Construction \label{sec:pfsacons}}
 
-\section{Tree Termination\label{sec:treeterm}}
+In this section we discuss the $\aleph$ algorithm that constructs a PFSA from the RTP $\mathcal{S}$. Whether synchronization words were found or not will influence the operations of the algorithm. The first step is to transform $\mathcal{S}$ into a graph as no leaf states (i.e. states with no outgoing edges) can exist during the PFSA construction. This transformation is done via the transformation criteria described in Section \ref{sec:treeterm} that will reconnect states in such a way that all remaining states are non-leaf states. Different criteria are used when synchronization words are found and when there are none.
 
-Unlike CRISSiS, the algorithms developed in this work need the rooted tree with probabilities to end, otherwise it will keep going without end. The rooted tree with probabilities raised from the sub-sequence probabilities will end in the $L$th level whose states will have outgoing edges initially pointing out to nowhere. Two termination criteria were implemented and in chapters 4 and 5 it will be shown in which cases each of these terminations should be applied. The termination criteria are the D-Markov Termination and $\Omega$ Termination.
+Once $\mathcal{S}$ has been turned into a graph, $\aleph$ will apply a procedure to reduce the number of states if there are synchronization words. If there are none, this step is skiped. The final procedure will group states in equivalence classes of states that have statistically similar morphs (checked by $\chi^2$ or Kolmogorov-Smirnov for a given confidence level $\alpha$) and the partition given by these equivalence classes is used as an initial partition for a graph reduction algorihm (such as Moore or Hopcroft) to obtain the final reduced PFSA.
 
-\subsection{D-Markov Termination}
+\subsection{Termination Criteria\label{sec:treeterm}}
+
+%Unlike CRISSiS, the algorithms developed in this work need the rooted tree with probabilities to end, otherwise it will keep going without end. The rooted tree with probabilities raised from the sub-sequence probabilities will end in the $L$th level whose states will have outgoing edges initially pointing out to nowhere. 
+The $\aleph$ algorithm creates equivalence classes for states with statistically similar morphs. In order to have every state in an equivalence class, all of them need to have a morph, which is not the case for leaf states. Two criteria are used to terminate the last levels of the RTP $\mathcal{S}$ and turn it into a PFSA. The first one, the D-Markov termination, is more straightforward while the $\Omega$ termination depends on the system having synchronization words and is able to create connections that better represent the original system.
+
+\subsubsection{D-Markov Termination}
 
 This is the simplest termination criterion. It will aim to form a D-Markov Machine with the states in the last level. This means that a state labeled with $\omega = \sigma_0\sigma_1\ldots\sigma_L \in \Sigma^L$ will have its $\tau \in \Sigma$ labeled edge connected to the state labeled with $\sigma_1\sigma_2\ldots\sigma_L\tau$ for each $\tau \in \Sigma$. This is shown in Algorithm \ref{alg:dmarkterm}.
 
@@ -798,64 +803,64 @@ This termination does not rely on the system's memory, preferring to count on th
     \end{algorithmic}
   \end{algorithm}
   
-\textbf{TO DO:}Figure \ref{fig:trishiftdmark} shows the rooted tree with probabilities from the Trishift example with $L=3$ and the D-Markov termination.
-
-%\begin{figure}
-%\centering
-%\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
-%semithick ,
-%state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
-%\node[state] (root)
-%{$\epsilon$};
-%\node[state] (0) [above right=of root] {$0$};
-%\node[state] (1) [below right =of root] {$1$};
-%\node[state] (00) [above right =of 0] {$00$};
-%\node[state] (01) [right =of 0] {$01$};
-%\node[state] (10) [right =of 1] {$10$};
-%\node[state] (11) [below right =of 1] {$11$};
-%\node[state] (000) [above =of 00] {$000$};
-%\node[state] (001) [above right =of 00] {$001$};
-%\node[state] (010) [above right =of 01] {$010$};
-%\node[state] (011) [right =of 01] {$011$};
-%\node[state] (100) [right =of 10] {$100$};
-%\node[state] (101) [below right =of 10] {$101$};
-%\node[state] (110) [below right =of 11] {$110$};
-%\node[state] (111) [below =of 11] {$111$};
-%\path (root) edge state[above] {$0$} (0);
-%\path (root) edge state[below] {$1$} (1);
-%\path (0) edge state[above] {$1$} (00);
-%\path (0) edge state[below] {$0$} (01);
-%\path (1) edge state[above] {$0$} (10);
-%\path (1) edge state[below] {$1$} (11);
-%\path (00) edge state[left] {$0$} (000);
-%\path (00) edge state[below] {$1$} (001);
-%\path (01) edge state[above] {$0$} (010);
-%\path (01) edge state[below] {$1$} (011);
-%\path (10) edge state[above] {$0$} (100);
-%\path (10) edge state[below] {$1$} (101);
-%\path (11) edge state[above] {$0$} (110);
-%\path (11) edge state[left] {$1$} (111);
-%\path (000) [loop left] edge state[left] {$0$} (000);
-%\path (000) edge state[above] {$1$} (001);
-%\path (001) edge state[right] {$0$} (010);
-%\path (001) [bend left] edge state[right] {$1$} (011);
-%\path (010) [bend left] edge state[right] {$0$} (100);
-%\path (010) [bend right=1.0cm] edge state[below =0.15 cm] {$1$} (101);
-%\path (011) [bend left] edge state[below =0.15 cm] {$0$} (110);
-%\path (011) [bend left] edge state[below =0.15 cm] {$1$} (111);
-%\path (100) [bend left] edge state[below =0.15 cm] {$0$} (000);
-%\path (100) [bend left] edge state[below =0.15 cm] {$1$} (001);
-%\path (101) [bend left] edge state[below =0.15 cm] {$0$} (010);
-%\path (101) [bend left] edge state[below =0.15 cm] {$1$} (011);
-%\path (110) [bend right] edge state[right] {$0$} (100);
-%\path (110) edge state[right] {$1$} (101);
-%\path (111) [loop left] edge state[left] {$1$} (111);
-%\path (111) edge state[below] {$0$} (110);
-%\end{tikzpicture}
-%\caption{Tri-Shift rooted tree with probabilities with D-Markov termination and $L=3$.\label{fig:trishiftdmark}}
-%\end{figure}
-
-\subsection{$\Omega$ Termination}
+%\textbf{TO DO:}Figure \ref{fig:trishiftdmark} shows the rooted tree with probabilities from the Trishift example with $L=3$ and the D-Markov termination.
+%
+%%\begin{figure}
+%%\centering
+%%\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+%%semithick ,
+%%state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+%%\node[state] (root)
+%%{$\epsilon$};
+%%\node[state] (0) [above right=of root] {$0$};
+%%\node[state] (1) [below right =of root] {$1$};
+%%\node[state] (00) [above right =of 0] {$00$};
+%%\node[state] (01) [right =of 0] {$01$};
+%%\node[state] (10) [right =of 1] {$10$};
+%%\node[state] (11) [below right =of 1] {$11$};
+%%\node[state] (000) [above =of 00] {$000$};
+%%\node[state] (001) [above right =of 00] {$001$};
+%%\node[state] (010) [above right =of 01] {$010$};
+%%\node[state] (011) [right =of 01] {$011$};
+%%\node[state] (100) [right =of 10] {$100$};
+%%\node[state] (101) [below right =of 10] {$101$};
+%%\node[state] (110) [below right =of 11] {$110$};
+%%\node[state] (111) [below =of 11] {$111$};
+%%\path (root) edge state[above] {$0$} (0);
+%%\path (root) edge state[below] {$1$} (1);
+%%\path (0) edge state[above] {$1$} (00);
+%%\path (0) edge state[below] {$0$} (01);
+%%\path (1) edge state[above] {$0$} (10);
+%%\path (1) edge state[below] {$1$} (11);
+%%\path (00) edge state[left] {$0$} (000);
+%%\path (00) edge state[below] {$1$} (001);
+%%\path (01) edge state[above] {$0$} (010);
+%%\path (01) edge state[below] {$1$} (011);
+%%\path (10) edge state[above] {$0$} (100);
+%%\path (10) edge state[below] {$1$} (101);
+%%\path (11) edge state[above] {$0$} (110);
+%%\path (11) edge state[left] {$1$} (111);
+%%\path (000) [loop left] edge state[left] {$0$} (000);
+%%\path (000) edge state[above] {$1$} (001);
+%%\path (001) edge state[right] {$0$} (010);
+%%\path (001) [bend left] edge state[right] {$1$} (011);
+%%\path (010) [bend left] edge state[right] {$0$} (100);
+%%\path (010) [bend right=1.0cm] edge state[below =0.15 cm] {$1$} (101);
+%%\path (011) [bend left] edge state[below =0.15 cm] {$0$} (110);
+%%\path (011) [bend left] edge state[below =0.15 cm] {$1$} (111);
+%%\path (100) [bend left] edge state[below =0.15 cm] {$0$} (000);
+%%\path (100) [bend left] edge state[below =0.15 cm] {$1$} (001);
+%%\path (101) [bend left] edge state[below =0.15 cm] {$0$} (010);
+%%\path (101) [bend left] edge state[below =0.15 cm] {$1$} (011);
+%%\path (110) [bend right] edge state[right] {$0$} (100);
+%%\path (110) edge state[right] {$1$} (101);
+%%\path (111) [loop left] edge state[left] {$1$} (111);
+%%\path (111) edge state[below] {$0$} (110);
+%%\end{tikzpicture}
+%%\caption{Tri-Shift rooted tree with probabilities with D-Markov termination and $L=3$.\label{fig:trishiftdmark}}
+%%\end{figure}
+%
+\subsubsection{$\Omega$ Termination}
 
 This termination criteria relies more on using synchronization words, which means it is more suitable to systems that synchronize and that have some memory. For each state $n$ in level $L+1$, it checks via statistical test if $n$ has similar morph to any of the synchronization words states. If it is not, it subsequently tests with the morphs of each extension of synchronization words up to length $L$. If any of these tests succeeds, the state $m$ in level $L$ that has $\delta(\tau,m) = n$ for $\tau \in \Sigma$ will have this edge reassigned for the state with which the test was successful. In case no test passes, the D-Markov criteria is used for $m$. This is shown in Algorithm \ref{alg:omegaterm} whose inputs are the rooted tree with probabilities $\mathcal{S}$, the desired last level $L$ and a list of synchronization words $\Omega_{syn}$.  
 
@@ -878,7 +883,7 @@ This termination criteria relies more on using synchronization words, which mean
       			\If{next = NULL}
       				\State $\eta \gets \{$All extensions of $\omega$ up to length $L, \forall \omega \in \Omega_{syn}\}$
       				\For{$e \in \eta$}
-      				\State $r \gets \mathcal{V}(n) = \mathcal{V}(e)$
+      				\State $r \gets$ \textit{statisticalTest}($n, e$)
       					\If{$r = True$}
       						\State next $\gets e$
       						\State \textbf{break}
@@ -896,49 +901,53 @@ This termination criteria relies more on using synchronization words, which mean
     \end{algorithmic}
   \end{algorithm}
 
-\section{Graph Construction}
+\subsection{$\aleph$ Algorithm}
 
-Two different methods can be used to retrieve the final PFSA: the $\aleph_0$ and $\aleph_1$ algorithms. As with the termination criteria, each one of them is better suited for a specific type of application. The $\aleph_0$ algorithm is less dependent on synchronization words and performs better in systems that do not synchronize. The $\aleph_1$ algorithm is faster, but heavily relies on synchronization words, so it tends to construct better PFSA when the original system synchronizes. Both algorithms take as inputs a terminated rooted tree with probabilities (using one of the criteria from Section \ref{sec:treeterm}) $\mathcal{S}$ and a list of synchronization words $\Omega_{syn}$.
+The full $\aleph$ algorithm is shown in Algorithm \ref{alg:aleph}. When there are no synchronization words (i.e. the $\Omega_{syn}$ list is empty), the D-Markov termination is applied to $\mathcal{S}$ and an equivalence class is created with just the root state $\epsilon$. When $\Omega_{syn}$ is not empty, the $\Omega$ termination is used in $\mathcal{S}$. In this case, each state $q'$ is visited, starting by the synchronization word states and it is checked if any of its descendents (i.e. $\delta(q,\sigma)$ for some $\sigma \in \Sigma$) has a synchronization word $\omega$ as suffix. If it has, this outgoing edge is reassigned to point to $\omega$. This is done because a state that has a synchronization word as suffix is bound to have a morph similar to the synchronization word and generate the same sequences, so they can safely be discarded. As the rest of the algorithm depends on the number of states of the original PFSA, rapidly discarding some states guarantees more efficiency in the following steps. The case where $\Omega_{syn}$ is not empty ends by creating an equivalence class for each of the synchronization words. In both cases, all equivalence classes are stored in the list $\mathcal{P}$. 
 
-\subsection{$\aleph_0$ Algorithm}
+A list $Q$ is created containing the descendants of the states in each of the initial equivalence classes. This list is iterated and each element $q$ from it is compared via statistical test with each of the equivalence classes head states. If $q$ passes in a test, it is added to the equivalence class for each the test was sucessful. If no test is positive, a new equivalence class is created for $q$ and this class is subsequently added to $\mathcal{P}$. Once every state of $\mathcal{S}$ is in one class of $\mathcal{P}$, a graph reduction algorithm (either Moore or Hopcroft) is applied using $\mathcal{P}$ as the initial partition. This initial partition guarantees that the elements in the equivalence class have the same morph and the reduction algorithm will break this class if they eventually point to states with different morphs.  The final result is the minimal PFSA that represents the original system for the given parameters.  
 
-This algorithm starts by taking only the first element of $\Omega_{syn}$ as $\omega$. If the system has no synchronization words, $\omega$ is then the root state $\epsilon$. The algorithm will then expand the children states of $\omega$ and compare them with $\omega$ via statistical test. If the test passes, the states are grouped together in the same partition. If not, a new partition is created for that state. This procedure is then repeated for each subsequent state until all states of $\mathcal{S}$ are in one partition. These partitions are then used as an initial partition for the Moore or Hopcroft Algorithms. This is shown in Algorithm \ref{alg:aleph0}.
-
-By applying this algorithm, states that have similar morphs are grouped together as they potentially produce the same sequences. By applying a graph reduction algorithm after the initial partition, states with similar morphs but distinct languages are then separated, while the ones with same languages are kept together. This procedure reduces the number of redundant states (the ones with same morphs and same languages).
-
-\begin{algorithm}
-  \caption{$\aleph_0$($\mathcal{S}, \Omega_{syn}$)\label{alg:aleph0}}
-    \begin{algorithmic}[1]
-      \Procedure{}{}
-      	\If{$\Omega_{syn} \neq \emptyset$}
-      		\State $\omega \gets \Omega_{syn}[0]$
-      	\Else
-      		\State $\omega \gets \epsilon$
-      	\EndIf
-      	\State $P \gets \{\omega\}$
-      	\State $\mathcal{P} \gets \{P\}$
-      	\State $Q \gets \{\delta(\sigma,\omega), \forall \sigma \in \Sigma\}$
-      	\For{$q \in Q$}
-      		\State $r \gets$ False
-      		\For{$p \in \mathcal{P}$}
-      			\State $r \gets \mathcal{V}(q) = \mathcal{V}(p[0])$
-      			\If{$r =$ True}
-      				\State $p \gets p\bigcup\{q\}$
-      				\State \textbf{break}
-      			\EndIf
-      		\EndFor
-      		\If{$r =$ False}
-      			\State $R \gets \{q\}$
-      			\State $\mathcal{P} \gets \mathcal{P}\bigcup\{R\}$
-      		\EndIf 
-      		\State $Q \gets Q\bigcup\{\delta(\sigma,q),\forall \sigma\in\Sigma|\delta(\sigma,q)$ not in any $p\in\mathcal{P}\}$
-      	\EndFor
-      	\State $G \gets$ GraphReduction($\mathcal{P}$)
-      	\State \textbf{return} $G$
-      \EndProcedure
-    \end{algorithmic}
-  \end{algorithm}
-
+%Two different methods can be used to retrieve the final PFSA: the $\aleph_0$ and $\aleph_1$ algorithms. As with the termination criteria, each one of them is better suited for a specific type of application. The $\aleph_0$ algorithm is less dependent on synchronization words and performs better in systems that do not synchronize. The $\aleph_1$ algorithm is faster, but heavily relies on synchronization words, so it tends to construct better PFSA when the original system synchronizes. Both algorithms take as inputs a terminated rooted tree with probabilities (using one of the criteria from Section \ref{sec:treeterm}) $\mathcal{S}$ and a list of synchronization words $\Omega_{syn}$.
+%
+%\subsection{$\aleph_0$ Algorithm}
+%
+%This algorithm starts by taking only the first element of $\Omega_{syn}$ as $\omega$. If the system has no synchronization words, $\omega$ is then the root state $\epsilon$. The algorithm will then expand the children states of $\omega$ and compare them with $\omega$ via statistical test. If the test passes, the states are grouped together in the same partition. If not, a new partition is created for that state. This procedure is then repeated for each subsequent state until all states of $\mathcal{S}$ are in one partition. These partitions are then used as an initial partition for the Moore or Hopcroft Algorithms. This is shown in Algorithm \ref{alg:aleph0}.
+%
+%By applying this algorithm, states that have similar morphs are grouped together as they potentially produce the same sequences. By applying a graph reduction algorithm after the initial partition, states with similar morphs but distinct languages are then separated, while the ones with same languages are kept together. This procedure reduces the number of redundant states (the ones with same morphs and same languages).
+%
+%\begin{algorithm}
+%  \caption{$\aleph_0$($\mathcal{S}, \Omega_{syn}$)\label{alg:aleph0}}
+%    \begin{algorithmic}[1]
+%      \Procedure{}{}
+%      	\If{$\Omega_{syn} \neq \emptyset$}
+%      		\State $\omega \gets \Omega_{syn}[0]$
+%      	\Else
+%      		\State $\omega \gets \epsilon$
+%      	\EndIf
+%      	\State $P \gets \{\omega\}$
+%      	\State $\mathcal{P} \gets \{P\}$
+%      	\State $Q \gets \{\delta(\sigma,\omega), \forall \sigma \in \Sigma\}$
+%      	\For{$q \in Q$}
+%      		\State $r \gets$ False
+%      		\For{$p \in \mathcal{P}$}
+%      			\State $r \gets \mathcal{V}(q) = \mathcal{V}(p[0])$
+%      			\If{$r =$ True}
+%      				\State $p \gets p\bigcup\{q\}$
+%      				\State \textbf{break}
+%      			\EndIf
+%      		\EndFor
+%      		\If{$r =$ False}
+%      			\State $R \gets \{q\}$
+%      			\State $\mathcal{P} \gets \mathcal{P}\bigcup\{R\}$
+%      		\EndIf 
+%      		\State $Q \gets Q\bigcup\{\delta(\sigma,q),\forall \sigma\in\Sigma|\delta(\sigma,q)$ not in any $p\in\mathcal{P}\}$
+%      	\EndFor
+%      	\State $G \gets$ GraphReduction($\mathcal{P}$)
+%      	\State \textbf{return} $G$
+%      \EndProcedure
+%    \end{algorithmic}
+%  \end{algorithm}
+%
 \begin{algorithm}
   \caption{$\aleph$($\mathcal{S}, \Omega_{syn}$)\label{alg:aleph}}
     \begin{algorithmic}[1]
@@ -948,17 +957,17 @@ By applying this algorithm, states that have similar morphs are grouped together
 	      	\State $Q_0 \gets \Omega_{syn}$
 	      	\State $Q_1 \gets \emptyset$
 	      	\While{$Q_0 \neq \emptyset$}
-	      		\State $q \gets Q_0.pop()$
+	      		\State $q_0 \gets Q_0.pop()$
 	      		\For{$\sigma \in \Sigma$}
-	      			\State $q' \gets \delta(q,\sigma)$
-	      			\If{for some $\omega \in \Omega_{syn}, \omega$ is a suffix of $q'$}
-	      				\State $\delta(\sigma,q) \gets \omega$
+	      			\State $q_0' \gets \delta(q_0,\sigma)$
+	      			\If{for some $\omega \in \Omega_{syn}, \omega$ is a suffix of $q_0'$}
+	      				\State $\delta(\sigma,q_0) \gets \omega$
 	      			\Else
-	      				\If{$q' \notin Q_0$ and $q' \notin Q_1$}
-	      					\State $Q_0 \gets Q_0\bigcup\{q'\}$
+	      				\If{$q_0' \notin Q_0$ and $q_0' \notin Q_1$}
+	      					\State $Q_0 \gets Q_0\bigcup\{q_0'\}$
 	      				\EndIf 
 	      			\EndIf
-	      			\State $Q_1 \gets Q_1\bigcup\{q\}$
+	      			\State $Q_1 \gets Q_1\bigcup\{q_0\}$
 	      		\EndFor
 	      	\EndWhile	      	
       		\State $Q \gets \{\delta(\sigma,\omega), \forall \sigma \in \Sigma, \forall \omega \in \Omega_{syn}\}$
@@ -989,71 +998,91 @@ By applying this algorithm, states that have similar morphs are grouped together
       \EndProcedure
     \end{algorithmic}
   \end{algorithm}
-
-
-\subsection{$\aleph_1$ Algorithm}
-
-The $\aleph_1$ algorithm is similar to $\aleph_0$, but it includes a step prior to creating the initial partition for the graph reduction algorithm in order to make a smaller initial partition, which, in turn, makes the graph reduction faster. This step uses all synchronization words in $\Omega_{syn}$ as starting points and checks if any of them has an edge pointing to a state whose label has a synchronization word as suffix. If it has, this edge is reassigned to point to that synchronization word. This procedure is then repeated for each subsequent state in $\mathcal{S}$. Words ending in synchronization words will always point again to the synchronization word state. This procedure reduces the number of states as anything ending with a synchronization word and its extensions will not be used anymore. As the following steps have their complexities depending on number of states, this will speed up the rest of the process.
-
-Once this is done, the rest of the algorithm will repeat $\aleph_0$: starting from the synchronization words, its children will have their morphs compared and partitions will be created following this criterion. When the initial partition is finished, a graph reduction algorithm is applied. Algorithm $\aleph_1$ is shown in Algorithm \ref{alg:aleph1}.
-
-\begin{algorithm}
-  \caption{$\aleph_1$($\mathcal{S}, \Omega_{syn}$)\label{alg:aleph1}}
-    \begin{algorithmic}[1]
-      \Procedure{}{}
-      	\State $Q_0 \gets \Omega_{syn}$
-      	\State $Q_1 \gets \emptyset$
-      	\While{$Q_0 \neq \emptyset$}
-      		\State $q \gets Q_0.pop()$
-      		\For{$\sigma \in \Sigma$}
-      			\State $q' \gets \delta(q,\sigma)$
-      			\If{for some $\omega \in \Omega_{syn}, \omega$ is a suffix of $q'$}
-      				\State $\delta(\sigma,q) \gets \omega$
-      			\Else
-      				\If{$q' \notin Q_0$ and $q' \notin Q_1$}
-      					\State $Q_0 \gets Q_0\bigcup\{q'\}$
-      				\EndIf 
-      			\EndIf
-      			\State $Q_1 \gets Q_1\bigcup\{q\}$
-      		\EndFor
-      	\EndWhile
-      	\State \textit{$\#\#$ From here on, the algorithm is a slight variation of $\aleph_0\#\#$}
-      	\State $\mathcal{P} \gets \{\{\omega\}, \forall \omega \in \Omega_{syn}\}$
-      	\State $Q \gets \{\delta(\sigma,\omega), \forall \sigma \in \Sigma, \forall \omega \in \Omega_{syn}\}$
-      	\For{$q \in Q$}
-      		\State $r \gets$ False
-      		\For{$p \in \mathcal{P}$}
-      			\State $r \gets \mathcal{V}(q) = \mathcal{V}(p[0])$
-      			\If{$r =$ True}
-      				\State $p \gets p\bigcup\{q\}$
-      				\State \textbf{break}
-      			\EndIf
-      		\EndFor
-      		\If{$r =$ False}
-      			\State $R \gets \{q\}$
-      			\State $\mathcal{P} \gets \mathcal{P}\bigcup\{R\}$
-      		\EndIf 
-      		\State $Q \gets Q\bigcup\{\delta(\sigma,q),\forall \sigma\in\Sigma|\delta(\sigma,q)$ not in any $p\in\mathcal{P}\}$
-      	\EndFor
-      	\State $G \gets$ GraphReduction($\mathcal{P}$)
-      	\State \textbf{return} $G$
-      \EndProcedure
-    \end{algorithmic}
-  \end{algorithm}
-
-
-%\section{Complete Algorithm}
 %
-%The final algorithm consists of the steps presented in the previous sections. The input is the original sequence \textit{S} and the algorithm outputs a PFSA.
 %
-%\begin{enumerate}
-%\item[1] Find synchronization words from sequence \textit{S};
-%\item[2] Apply a termination criterion for the rooted tree with probabilities $\mathcal{S}$ based on \textit{S};
-%	\begin{enumerate}
-%	\item Use D-Markov Termination if no synchronization words were found;
-%	\item Use $\Omega$ if synchronization words were found;
-%	\end{enumerate}
-%\item[3] Apply a PFSA construction algorithm ($\aleph_0$ or $\aleph_1$).
-%\end{enumerate}
-
+%\subsection{$\aleph_1$ Algorithm}
+%
+%The $\aleph_1$ algorithm is similar to $\aleph_0$, but it includes a step prior to creating the initial partition for the graph reduction algorithm in order to make a smaller initial partition, which, in turn, makes the graph reduction faster. This step uses all synchronization words in $\Omega_{syn}$ as starting points and checks if any of them has an edge pointing to a state whose label has a synchronization word as suffix. If it has, this edge is reassigned to point to that synchronization word. This procedure is then repeated for each subsequent state in $\mathcal{S}$. Words ending in synchronization words will always point again to the synchronization word state. This procedure reduces the number of states as anything ending with a synchronization word and its extensions will not be used anymore. As the following steps have their complexities depending on number of states, this will speed up the rest of the process.
+%
+%Once this is done, the rest of the algorithm will repeat $\aleph_0$: starting from the synchronization words, its children will have their morphs compared and partitions will be created following this criterion. When the initial partition is finished, a graph reduction algorithm is applied. Algorithm $\aleph_1$ is shown in Algorithm \ref{alg:aleph1}.
+%
+%\begin{algorithm}
+%  \caption{$\aleph_1$($\mathcal{S}, \Omega_{syn}$)\label{alg:aleph1}}
+%    \begin{algorithmic}[1]
+%      \Procedure{}{}
+%      	\State $Q_0 \gets \Omega_{syn}$
+%      	\State $Q_1 \gets \emptyset$
+%      	\While{$Q_0 \neq \emptyset$}
+%      		\State $q \gets Q_0.pop()$
+%      		\For{$\sigma \in \Sigma$}
+%      			\State $q' \gets \delta(q,\sigma)$
+%      			\If{for some $\omega \in \Omega_{syn}, \omega$ is a suffix of $q'$}
+%      				\State $\delta(\sigma,q) \gets \omega$
+%      			\Else
+%      				\If{$q' \notin Q_0$ and $q' \notin Q_1$}
+%      					\State $Q_0 \gets Q_0\bigcup\{q'\}$
+%      				\EndIf 
+%      			\EndIf
+%      			\State $Q_1 \gets Q_1\bigcup\{q\}$
+%      		\EndFor
+%      	\EndWhile
+%      	\State \textit{$\#\#$ From here on, the algorithm is a slight variation of $\aleph_0\#\#$}
+%      	\State $\mathcal{P} \gets \{\{\omega\}, \forall \omega \in \Omega_{syn}\}$
+%      	\State $Q \gets \{\delta(\sigma,\omega), \forall \sigma \in \Sigma, \forall \omega \in \Omega_{syn}\}$
+%      	\For{$q \in Q$}
+%      		\State $r \gets$ False
+%      		\For{$p \in \mathcal{P}$}
+%      			\State $r \gets \mathcal{V}(q) = \mathcal{V}(p[0])$
+%      			\If{$r =$ True}
+%      				\State $p \gets p\bigcup\{q\}$
+%      				\State \textbf{break}
+%      			\EndIf
+%      		\EndFor
+%      		\If{$r =$ False}
+%      			\State $R \gets \{q\}$
+%      			\State $\mathcal{P} \gets \mathcal{P}\bigcup\{R\}$
+%      		\EndIf 
+%      		\State $Q \gets Q\bigcup\{\delta(\sigma,q),\forall \sigma\in\Sigma|\delta(\sigma,q)$ not in any $p\in\mathcal{P}\}$
+%      	\EndFor
+%      	\State $G \gets$ GraphReduction($\mathcal{P}$)
+%      	\State \textbf{return} $G$
+%      \EndProcedure
+%    \end{algorithmic}
+%  \end{algorithm}
+%
+%
+%%\section{Complete Algorithm}
+%%
+%%The final algorithm consists of the steps presented in the previous sections. The input is the original sequence \textit{S} and the algorithm outputs a PFSA.
+%%
+%%\begin{enumerate}
+%%\item[1] Find synchronization words from sequence \textit{S};
+%%\item[2] Apply a termination criterion for the rooted tree with probabilities $mathcal{S}$ based on \textit{S};
+%%	\begin{enumerate}
+%%	\item Use D-Markov Termination if no synchronization words were found;
+%%	\item Use $\Omega$ if synchronization words were found;
+%%	\end{enumerate}
+%%\item[3] Apply a PFSA construction algorithm ($\aleph_0$ or $\aleph_1$).
+%%\end{enumerate}
+%
 \section{Time Complexity}
+
+The main improvements of the $\aleph$ algorithm are that, unlike CRISSiS, it does not depend on the original system being synchronizable (the original system does not even need to be represented by a PFSA and $\aleph$ will generate a PFSA that approximates it) and the lower time complexity to run the algorithm. As seen in \citep{asok.11}, CRISSiS complexity depends on the number of states of the original system which, in practical applications, remains unknown until the end of the algorithm. As it is discussed in this section, the complexity of $\alpha$ depends only on paramters known prior the the algorithm execution. The complexity of each part of the algorithm is discussed individually and a final complexity is given in the end.
+
+\subsection{Synchronization Word Search}
+
+For a given state with length $n < W$, the maximum amount of statistical tests it will go through is $n$ for each of its suffixes, starting by $\epsilon$. For each of these tests, one search for SVS is performed. This search has complexity $O(m)$ for a SVS of length $m$. Thus, for the given state of length $n$, searches of length 0 to $n-1$ are performed, resulting in a complexity of $O(n^2)$ for the searches. As in CRISSiS, a complexity of $O(1)$ is used for the statistical test. This implies that for a given state of length $n$, $O(n^3)$ operations are performed.
+
+Looking at $\mathcal{S}$, for a given level $d$, $|\Sigma|^d$ tests and searches of length $d$ are performed, giving a complexity of $O(|\Sigma|^dd^3)$ per level. The total complexity is the sum of all levels from 1 to $W$. Therefore, it is $O(\sum\limits_{d=1}^{W}|\Sigma|^dd^3)$ and as usually $W > |\Sigma|$, the final complexity for the synchronization word search is $O(\frac{|\Sigma|^{W+1}W^3}{|\Sigma|-1})$.
+
+\subsection{Termination}
+
+In the D-Markov termination, each of the $|\Sigma|^L$ elements in the last level has their $|\Sigma|$ edges reassigned, giving a complexity of $O(|\Sigma|^{L+1})$.
+
+The $\Omega$ termination is a little more complex to analyze. It also needs to perform operations for each of the $|\Sigma|$ outgoing edges of each of the $|\Sigma|^{L}$ states in level $L$, but those operations are not simply reconnections of complexity $O(1)$. It performs tests with all states in $\Omega_{syn}$ and its descendants up to length $L$, which in a worst case scenario means testing against states from level 0 to $L$ in a total of $O(|\Sigma||\Omega_{syn}|L^2)$ tests per state in the last level and a final complexity of $O(|\Sigma|^{L+1}|\Omega_{syn}|L^2)$.
+
+\subsection{PFSA Construction}
+
+When there are synchronization words, the algorithm starts by checking if all the $|\Sigma|^L$ states have an outgoing edge that could be substituted by a synchronization word, giving a final complexity of $O(|\Sigma|^{L+1})$ for this additional step.
+
+To separate all the $|\Sigma|^{L+1}$ states of $\mathcal{S}$ (worst case scenario) in equivalence classes, each one of them has to be tested against the 

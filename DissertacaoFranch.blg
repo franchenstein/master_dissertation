@@ -1,6 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: DissertacaoFranch.aux
+The top-level auxiliary file: TeseJose.aux
 A level-1 auxiliary file: Capitula/Capitulum_1.aux
 A level-1 auxiliary file: Capitula/Capitulum_2.aux
 A level-1 auxiliary file: Capitula/Capitulum_3.aux
@@ -11,44 +11,77 @@ A level-1 auxiliary file: Capitula/Capitulum_4.aux
 A level-1 auxiliary file: Capitula/Capitulum_5.aux
 The style file: unsrt.bst
 Database file #1: biblio.bib
-You've used 8 entries,
+I was expecting a `,' or a `}'---line 105 of file biblio.bib
+ : 
+ : @book{stavroulakis.05,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 436 of file biblio.bib
+ : @article{micco.08
+ :                  ,
+I'm skipping whatever remains of this entry
+Name 1 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 2 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 3 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 4 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 5 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 6 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 7 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 8 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 9 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 10 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Name 11 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
+while executing---line 944 of file unsrt.bst
+Warning--empty journal in 56
+You've used 39 entries,
             1791 wiz_defined-function locations,
-            502 strings with 4902 characters,
-and the built_in function-call counts, 1719 in all, are:
-= -- 140
-> -- 88
-< -- 0
-+ -- 32
-- -- 24
-* -- 121
-:= -- 289
-add.period$ -- 24
-call.type$ -- 8
-change.case$ -- 6
+            689 strings with 9468 characters,
+and the built_in function-call counts, 8125 in all, are:
+= -- 712
+> -- 336
+< -- 2
++ -- 129
+- -- 90
+* -- 502
+:= -- 1298
+add.period$ -- 123
+call.type$ -- 39
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 72
-empty$ -- 168
-format.name$ -- 24
-if$ -- 378
+cite$ -- 40
+duplicate$ -- 383
+empty$ -- 848
+format.name$ -- 90
+if$ -- 1856
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 10
-newline$ -- 43
-num.names$ -- 8
-pop$ -- 24
+int.to.str$ -- 39
+missing$ -- 57
+newline$ -- 198
+num.names$ -- 39
+pop$ -- 145
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 26
+skip$ -- 135
 stack$ -- 0
-substring$ -- 102
-swap$ -- 8
-text.length$ -- 0
+substring$ -- 465
+swap$ -- 54
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 12
-width$ -- 9
-write$ -- 86
+warning$ -- 1
+while$ -- 63
+width$ -- 41
+write$ -- 416
+(There were 13 error messages)
