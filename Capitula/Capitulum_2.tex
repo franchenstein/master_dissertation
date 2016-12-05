@@ -165,28 +165,28 @@ The first minimization algorithm is the Moore algorithm. It is based on the idea
     \end{algorithmic}
   \end{algorithm}
  
-Given a graph \textit{G = (Q, $\Sigma, \delta$)} and the initial partition $\mathcal{P} = \{\mathcal{P}_1,\ldots,\mathcal{P}_n\}$, the set $L_q^{(h)}$ is defined as:
+Given a graph \textit{G = (Q, $\Sigma, \delta$)} and the initial partition $\mathcal{P} = \{P_1,\ldots, P_n\}$, the set $L_q^{(h)}$ is defined as:
 
 \[
-L_q^{(h)}(G) = \{w \in \Sigma^* | |w| \leq h, \delta^*(q,w) \in \mathcal{P}_j\},
+L_q^{(h)}(G) = \{w \in \Sigma^* | |w| \leq h, \delta^*(q,w) \in P_j\},
 \]
 
-\noindent where $\mathcal{P}_j$ is an arbitrary equivalence class in the initial partition. The set $L_q^{(h)}$ is comprised of all words up to length $h$ that can be generated starting from a certain $q \in Q$ and reaching a state in the equivalence class $\mathcal{P}_j$. The Moore equivalence of order $h$ (denoted by $\equiv_h$) is defined by:
+\noindent where $P_j$ is an arbitrary equivalence class in the initial partition. The set $L_q^{(h)}$ is comprised of all words up to length $h$ that can be generated starting from a certain $q \in Q$ and reaching a state in the equivalence class $P_j$. The Moore equivalence of order $h$ (denoted by $\equiv_h$) is defined by:
 
 \[
 p \equiv_h q \Leftrightarrow L_p^{(h)}(G) = L_q^{(h)}(G).
 \]
 
-\noindent This equivalence relation states that two states are equivalent if they generate the same words of length up to $h$ that reach a state in $mathcal{P}_j$. The depth of the Moore algorithm on a graph $G$ is the integer $h$ such that the Moore equivalence $\equiv_h$ becomes equal to the Nerode equivalence $\equiv$ and it is dependent only on the language of the graph. The depth is the smallest $h$ such that $\equiv_h$ equals $\equiv_{h+1}$, which leads to an algorithm that computes successive Moore equivalences until it finds two consecutive equivalences that are equal, making it halt.
+\noindent This equivalence relation states that two states are equivalent if they generate the same words of length up to $h$ that reach a state in $\mathcal{P}_j$. The depth of the Moore algorithm on a graph $G$ is the integer $h$ such that the Moore equivalence $\equiv_h$ becomes equal to the Nerode equivalence $\equiv$ and it is dependent only on the language of the graph. The depth is the smallest $h$ such that $\equiv_h$ equals $\equiv_{h+1}$, which leads to an algorithm that computes successive Moore equivalences until it finds two consecutive equivalences that are equal, making it halt.
 
 \begin{proposition}\label{prop:makemooreeasy}
 For two states $p, q \in Q$ and $h \geq 0$, one has
 
 \end{proposition}
 
-\[
+\begin{equation}\label{eq:mooreequiv}
 p \equiv_{h+1} q \Longleftrightarrow p \equiv_{h} q\; \text{and} \;\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma.
-\]
+\end{equation}
 
 \noindent Using this formulation and defining $\mathcal{M}_h$ as the partition defined by the Moore equivalence of depth $h$, the following equations hold:
 
@@ -199,7 +199,9 @@ For \textit{h} $\geq$ 0, one has
 \mathcal{M}_{h+1} = \mathcal{M}_h \wedge \bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q.
 \]
 
-\noindent This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition. As will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (Section \ref{subsec:inipart}).
+\noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
+
+ This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition until no change occurs between $\mathcal{M}_h$ and $\mathcal{M}_{h+1}$, which means the Nerode equivalence is reached. As it will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (Section \ref{subsec:inipart}).
 
 Moore algorithm of the refinement of $k$ partition of a set with $n$ elements can be done in time $O(kn^2)$. Each loop is processed in time $O(kn)$, so the total time is $O(\ell kn)$, where $\ell$ is the total number of refinement steps needed to compute the Nerode equivalence.
 

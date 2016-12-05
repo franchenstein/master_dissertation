@@ -9,15 +9,15 @@
 \contentsline {section}{\numberline {2.2}Graphs}{12}
 \contentsline {section}{\numberline {2.3}Graph Minimization}{13}
 \contentsline {subsection}{\numberline {2.3.1}Moore Algorithm}{15}
-\contentsline {subsubsection}{An Example}{16}
+\contentsline {subsubsection}{An Example}{17}
 \contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{18}
 \contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{19}
-\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{20}
+\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{21}
 \contentsline {section}{\numberline {2.5}Consolidated Algorithms}{21}
 \contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{21}
-\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{21}
-\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{24}
-\contentsline {subsubsection}{Recursive Identification of States}{24}
+\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{22}
+\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{22}
+\contentsline {subsubsection}{Recursive Identification of States}{22}
 \contentsline {subsubsection}{Estimation of Morph Probabilities}{25}
 \contentsline {subsubsection}{Example}{25}
 \contentsline {subsubsection}{Time Complexity}{27}

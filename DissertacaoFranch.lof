@@ -7,14 +7,14 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces A graph with $Q$ = \{A, B, C\} and $\Sigma = \{0, 1\}$.\relax }}{12}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces An example of a graph that is not minimal.\relax }}{17}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Initial partition of the graph in Figure \ref {fig:moore_ex}.\relax }}{17}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Initial partition of the graph in Figure \ref {fig:moore_ex}.\relax }}{18}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Application of Moore algorithm to the initial partition in Figure \ref {fig:moore_ini}.\relax }}{18}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces A PFSA with the same graph of Figure \ref {fig:graph}.\relax }}{20}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces A D-Markov machine with sequence \textit {S} and $D$ = 2.\relax }}{22}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces The Tri-Shift PFSA.\relax }}{25}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces A D-Markov machine with sequence \textit {S} and $D$ = 2.\relax }}{24}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces The Tri-Shift PFSA.\relax }}{26}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Tree with 00 at its root, $Q$ = \{00\}. \relax }}{27}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Second iteration of three, $Q$ = \{00, 001\}.\relax }}{27}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Third iteration of the three, $Q$ = \{00, 001, 0010\}.\relax }}{27}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Second iteration of three, $Q$ = \{00, 001\}.\relax }}{28}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Third iteration of the three, $Q$ = \{00, 001, 0010\}.\relax }}{28}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Recovered Tri-Shift topology.\relax }}{28}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Example of a rooted tree with probabilities. \relax }}{30}
