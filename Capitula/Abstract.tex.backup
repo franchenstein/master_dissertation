@@ -1,8 +1,0 @@
-Random number generators are widely used in scientific and technological applications. Particularly in encryption, they are employed in these secret-key systems, such as cifregem sequence 
-generators. In this paper, we propose various methodologies for the design of these generators from chaotic maps. The first is based on two techniques: Jumping samples and discretization 
-time varying coded.
-It is shown that the procedure has a high bit rate for generating chaotic sample when compared to fixed encoding time, and did not require post-processing for improvement of their random 
-properties.
-Another methodology is the use of m-sequences to eliminate residual correlation in the encoded sequence.
-The variant discretization in time has a well defined correlation characteristic which is exploited by a new block of post-processing using m-sequences of length less than the previous 
-methodology. We validate the proposed methods employing the test battery NIST.

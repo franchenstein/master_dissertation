@@ -9,12 +9,12 @@
   leaf/.style    = {treenode,font=\ttfamily\normalsize, bottom color=red}
 }
 
-{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{I}{n} this chapter we revise concepts from graphs and PFSA \cite{brianmarcus}\cite{vidal.05}. that will be required in the subsequent chapters. The concept of graph minimization is presented and two mainstream algorithms to achieve this are described, Moore's and Hopcroft's. Finally, two well known algorithms to model dynamic systems with PFSA are presented in the last session, D-Markov and CRISSiS.
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{I}{n} this chapter we revise concepts from graphs and PFSA \cite{brianmarcus}\cite{vidal.05}. that will be required in the subsequent chapters. The concept of graph minimization is presented and two mainstream algorithms to achieve this are described, Moore and Hopcroft. Finally, two well known algorithms to model dynamic systems with PFSA are presented, D-Markov and CRISSiS.
 
 \section{Sequences of Discrete Symbols}
 This section provides tools to describe sequences of discrete symbols. A finite sequence $u$ of symbols from an alphabet $\Sigma$ is called a word and its length is denoted by $|\textit{u}|$. The empty word $\varepsilon$ is defined as the sequence with length 0. The set of all possible words of length $n$ symbols from $\Sigma$ is $\Sigma^n$ and the set of all sequences of symbols from $\Sigma$ with all possible lengths, including the empty sequence sequence $\varepsilon$, is $\Sigma^*$. 
 
-Two words \textit{u} and \textit{v} $\in \Sigma^*$ can be concatenated to form a sequence \textit{uv}. For example, using a binary alphabet $\Sigma = \{0,1\}$, the concatenation of \textit{u} = 1010 and \textit{v} = 111 is \textit{uv} = 1010111. Note that $|\textit{uv}| = |\textit{u}| + |\textit{v}|$. Concatenation is associative, which means \textit{u}(\textit{vw}) = (\textit{uv})\textit{w} = \textit{uvw}, but it is not commutative, as \textit{uv} is not necessarily equal to \textit{vu}. The empty word $\varepsilon$ is a neutral element for concatenation. That is, $\varepsilon u = u\varepsilon = u$. This means that $\Sigma^*$ with the operation of concatenation is a Monoid, as it is a set with an associative operation with an identity element.
+Two words \textit{u} and \textit{v} $\in \Sigma^*$ can be concatenated to form a sequence \textit{uv}. For example, using a binary alphabet, $\Sigma = \{0,1\}$, the concatenation of \textit{u} = 1010 and \textit{v} = 111 is \textit{uv} = 1010111. Note that $|\textit{uv}| = |\textit{u}| + |\textit{v}|$. Concatenation is associative, which means \textit{u}(\textit{vw}) = (\textit{uv})\textit{w} = \textit{uvw}, but it is not commutative, as \textit{uv} is not necessarily equal to \textit{vu}. The empty word $\varepsilon$ is a neutral element for concatenation, that is, $\varepsilon u = u\varepsilon = u$. This means that $\Sigma^*$ with the operation of concatenation is a Monoid, as it is a set with an associative operation with an identity element.
 
 A word $v \in \Sigma^*$ is called a suffix of a word $w \in \Sigma^*$ ( $|\textit{w}| > |\textit{v}|$) if $w$ can be written as a concatenation $uv$, where $u \in \Sigma^*$. In this same sense, the sequence $u$ is called a prefix of $w$. 
 
@@ -29,9 +29,9 @@ A graph \textit{G} over the alphabet $\Sigma$ consists of a triple ($Q, \Sigma,\
 \end{itemize}
 \end{definition}
 
-Each state $q \in Q$ can be represented as a dot or circle and if $\exists\, \delta(q, \sigma) = q'$ for $q, q' \in Q$ and $\sigma \in \Sigma$, this transition can be represented with a directed arrow from state $q$ to state $q'$. The arrow is labeled with the symbol $\sigma$. This realization of the transition function can be called the outgoing edge from $q$ to $q'$ with symbol $\sigma$. Figure \ref{fig:graph} shows an example of a three-state graph over a binary alphabet from where it possible to see there is an outgoing edge from state $A$ to state $B$ with the symbol $1$, thus $\delta(A, 1) = B$.
+\noindent Each state $q \in Q$ can be represented as a dot or circle and if $\exists\, \delta(q, \sigma) = q^{\prime}$, for $q, q^{\prime} \in Q$ and $\sigma \in \Sigma$, this transition can be represented with a directed arrow from state $q$ to state $q^{\prime}$ labeled with the symbol $\sigma$. This realization of the transition function is called the outgoing edge from $q$ to $q^{\prime}$ with symbol $\sigma$. Figure \ref{fig:graph} shows an example of a three-state graph over a binary alphabet from where it possible to see there is an outgoing edge from state $A$ to state $B$ with the symbol $1$, thus $\delta(A, 1) = B$.
 
-It is possible to extend the transition function so it accepts words and not just symbols. Given $\omega \in \Sigma^n$, where $\omega = \sigma_1\sigma_2\ldots\sigma_n$ with $\sigma_m \in \Sigma$ for $m = 1\ldots n$ and given states $q_0, q_1, \ldots, q_n \in Q$, we define the function $\delta^*(q_0, \omega) = q_n$ if $\delta(q_0, \sigma_1) = q_1, \delta(q_1,\sigma_2) = q_2, \ldots, \delta(q_{n-1},\sigma_n) = q_n$. If $\exists\, \omega \in \Sigma^*$ such that for states $q_1, q_2 \in Q$, $\delta^*(q_1,\omega) = q_2$ it is said there is a path between $q_1$ and $q_2$ and that $\omega$ is generated by $G$. In Figure \ref{fig:graph} the path starting at state $A$ and going through $A$, $A$, $B$, $C$, $B$, $A$ generates the string $\omega	$ = 001110.
+It is possible to extend the transition function so it accepts words and not just symbols. Given $\omega \in \Sigma^n$, where $\omega = \sigma_1\sigma_2\ldots\sigma_n$ with $\sigma_m \in \Sigma$, for $m = 1\ldots n$, and given states $q_0, q_1, \ldots, q_n \in Q$, we define the function $\delta^*(q_0, \omega) = q_n$ if $\delta(q_0, \sigma_1) = q_1, \delta(q_1,\sigma_2) = q_2, \ldots, \delta(q_{n-1},\sigma_n) = q_n$. If $\exists\, \omega \in \Sigma^*$ such that for two states $q_1, q_2 \in Q$, $\delta^*(q_1,\omega) = q_2$, it is said there is a path between $q_1$ and $q_2$ and that $\omega$ is generated by $G$. In Figure \ref{fig:graph} the path starting at state $A$ and going through $A$, $A$, $B$, $C$, $B$, $A$ generates the word $\omega	$ = 001110.
 
 \begin{figure}
 \centering
@@ -50,12 +50,12 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \path (C) edge [bend left =15] node[below =0.15 cm] {$1$} (B);
 \path (B) edge [bend right = -25] node[below =0.15 cm] {$1$} (C);
 \end{tikzpicture}
-\caption{A graph with $Q$ = \{A, B, C\} and $\Sigma = \{0, 1\}$.\label{fig:graph}}
+\caption{A three-state graph with $Q$ = \{A, B, C\} and $\Sigma = \{0, 1\}$.\label{fig:graph}}
 \end{figure}
 
 
 \begin{definition}[\textbf{Follower Set}]\label{def:followerset}
-The follower set of a state $q \in Q$ is defined as the set of all possible paths that start at $q$ and end in a state of $Q$:
+The follower set of a state $q \in Q$ is defined as the set of all possible words generated by paths that start at $q$ and end in a state of $Q$:
 \end{definition}
 
 \[ F(q) = \{\omega \in \Sigma^* | \delta^*(q, \omega) \in Q\}. \]
@@ -67,7 +67,7 @@ The language $\mathcal{L}$ of a graph \textit{G} is the the set of follower sets
 
 \[ \mathcal{L} = \{F(\textit{q}), \forall \textit{q} \in Q\}. \]
 
-A word $\omega \in \Sigma^*$ is called a synchronization word of $G$ if starting from any state $q \in Q$ and following that generates $\omega$ the same state $q_{syn} \in Q$ is reached. That is, if $\omega$ is a synchronization word, $\delta^*(q, \omega) = q_{syn}, \forall q \in Q$. $q_{syn}$ is called a synchronization state for $\omega$. In the graph of Figure \ref{fig:graph}, $0$ is a synchronization word that synchronizes to state $A$.
+\noindent A word $\omega \in \Sigma^*$ is called a synchronization word of $G$ if starting from any state $q \in Q$ that generates $\omega$ the same state in $Q$ is reached. That is, if $\omega$ is a synchronization word, $\delta^*(q, \omega) = q^{\prime}$, for any $q\in Q$ that generates $\omega$. In the graph of Figure \ref{fig:graph}, $0$ is a synchronization word that synchronizes to state $A$.
 
 \section{Graph Minimization}
 
@@ -104,7 +104,7 @@ of \textit{F} by intersection. $\mathcal{P}'$ is composed by the sets $P\cap F$ 
 %Given partitions $\mathcal{P}$ and $\mathcal{P}\prime$ of disjoint sets $E$ and $E\prime$, the partition of set $E \cup E\prime$ whose restriction to $E$ and $E\prime$ are $\mathcal{P}$ and $\mathcal{P'}$ is denoted by $\mathcal{P}\vee\mathcal{P}'$. It is possible to write $\mathcal{P} = \vee_{P\vee\mathcal{P}}\{P\}$.
 
 
-Given a set of states $P \subset Q$ and a symbol $\sigma \in \Sigma$, let $\sigma^{-1}\textit{P}$ denote the set of states |$q\in Q$ such that $\delta(q, \sigma) \in P$. Consider $P, R\subset Q$ and $\sigma \in \Sigma$, the partition of $R$
+Given a set of states $P \subset Q$ and a symbol $\sigma \in \Sigma$, let $\sigma^{-1}\textit{P}$ denote the set of states $q\in Q$ such that $\delta(q, \sigma) \in P$. Consider $P, R\subset Q$ and $\sigma \in \Sigma$, the partition of $R$
 
 \[
 (P, \sigma)|R
@@ -112,22 +112,22 @@ Given a set of states $P \subset Q$ and a symbol $\sigma \in \Sigma$, let $\sigm
 
 \noindent is the partition composed of two non-empty subsets:
 
-\[
+\begin{equation}\label{eq:splitintersec}
 R\cap\sigma^{-1}P = \{r \in R | \delta(r,\sigma) \in P\}
-\]
+\end{equation}
 
 \noindent and
 
-\[
+\begin{equation}\label{eq:splitquot}
 R\backslash\sigma^{-1}P = \{r \in R | \delta(r,\sigma) \notin P\}.
-\]
+\end{equation}
 
-The pair $(P, \sigma)$ is called a splitter. Observe that $(P, \sigma|R) = \{R\}$ if either $\delta(r,\sigma) \subset P$
+\noindent The pair $(P, \sigma)$ is called a splitter. Observe that $(P, \sigma)|R = R$ if either $\delta(r,\sigma) \subset P$
 or $\delta(r,\sigma)\,\cap\,P = \emptyset,\,\forall r \in R$ and $(P,\sigma)|R$ is composed of two classes if both $\delta(r,\sigma)\cap P  \neq \emptyset$ and
 $\delta(r,\sigma)\cap P^c  \neq \emptyset, \,\forall r \in R$  or equivalently if $\delta(r,\sigma) \not\subset P $   and  $\delta(r,\sigma)\not\subset P^c, \, \forall r \in R $ . If $(P, \sigma)|R$ contains two classes, then we say that $(P, \sigma)$ splits $R$. This notation can also be extended to sequences, using a sequence $\omega \in \Sigma^*$ instead of the symbol $\sigma \in \Sigma$.
 
 \begin{proposition}\label{prop:nerequiv}
-The partition corresponding to the Nerode equivalence is the coarsest partition $\mathcal{P}$ such that no splitter (P,$\sigma$), with P $\in \mathcal{P}$ and $\sigma \in \Sigma$, splits a class in $\mathcal{P}$, that is such that (P,$\sigma$)|R = {R} for all P, R $\in \mathcal{P}$ and $\sigma \in \Sigma$.
+The partition corresponding to the Nerode equivalence is the coarsest partition $\mathcal{P}$ such that no splitter $(P,\sigma)$, with $P \in \mathcal{P}$ and $\sigma \in \Sigma$, splits a class in $\mathcal{P}$, such that $(P,\sigma)|R = R$ for all $P, R \in \mathcal{P}$ and $\sigma \in \Sigma$.
 \end{proposition}
 
 %\begin{lemma}\label{lemm:hopcrof}
@@ -149,7 +149,7 @@ The partition corresponding to the Nerode equivalence is the coarsest partition 
 %\]
 \subsection{Moore Algorithm}
 
-The first minimization algorithm is the Moore algorithm. It is based on the idea of taking an initial partition with a very wide criteria and then refining it until the Nerode equivalence classes are obtained. The outline of the algorithm is shown in Algorithm \ref{alg:moore}.
+The first minimization algorithm is the Moore algorithm \cite{moore1956gedanken}. It is based on the idea of taking an initial partition with a very wide criteria and then refining it until the Nerode equivalence classes are obtained. The outline of the algorithm is shown in Algorithm \ref{alg:moore}.
 
 \begin{algorithm} [b]
   \caption{Moore(\textit{G})\label{alg:moore}}
@@ -171,7 +171,11 @@ Given a graph \textit{G = (Q, $\Sigma, \delta$)} and the initial partition $\mat
 L_q^{(h)}(G) = \{w \in \Sigma^* | |w| \leq h, \delta^*(q,w) \in P_j\},
 \]
 
+<<<<<<< HEAD
+\noindent where $\mathcal{P}_j \in \mathcal{P}$  is comprised of all words up to length $h$ that can be generated starting from a certain $q \in Q$ and reaching a state in the equivalence class $\mathcal{P}_j$. The Moore equivalence of order $h$ (denoted by $\equiv_h$) is defined by:
+=======
 \noindent where $P_j$ is an arbitrary equivalence class in the initial partition. The set $L_q^{(h)}$ is comprised of all words up to length $h$ that can be generated starting from a certain $q \in Q$ and reaching a state in the equivalence class $P_j$. The Moore equivalence of order $h$ (denoted by $\equiv_h$) is defined by:
+>>>>>>> c36c0aefd7d800ea23687cad1a168257e649c923
 
 \[
 p \equiv_h q \Leftrightarrow L_p^{(h)}(G) = L_q^{(h)}(G).
@@ -195,19 +199,25 @@ For \textit{h} $\geq$ 0, one has
 
 \end{proposition}
 
-\[
+\begin{equation}\label{eq:mooreequiv}
 \mathcal{M}_{h+1} = \mathcal{M}_h \wedge \bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q.
-\]
+\end{equation}
 
+<<<<<<< HEAD
+\noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $\mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
+=======
 \noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
 
  This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition until no change occurs between $\mathcal{M}_h$ and $\mathcal{M}_{h+1}$, which means the Nerode equivalence is reached. As it will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (Section \ref{subsec:inipart}).
+>>>>>>> c36c0aefd7d800ea23687cad1a168257e649c923
 
-Moore algorithm of the refinement of $k$ partition of a set with $n$ elements can be done in time $O(kn^2)$. Each loop is processed in time $O(kn)$, so the total time is $O(\ell kn)$, where $\ell$ is the total number of refinement steps needed to compute the Nerode equivalence.
+ This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition. As will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (see Section \ref{subsec:inipart}).
+
+Moore algorithm of the refinement of $k$ partition of a set with $n$ elements can be done in time $O(kn^2)$. Each loop is processed in time $O(kn)$, so the total time is $O(m kn)$, where $m$ is the total number of refinement steps needed to compute the Nerode equivalence.
 
 \subsubsection{An Example}
 
-To illustrate how the Moore algorithm works, this example will apply it to the graph of Figure \ref{fig:moore_ex}, which has $Q = \{A, B, C, D, E\}$, $\Sigma = \{0, 1\}$ and it is not minimal. The first step is to create the initial partition based on the criteria of grouping states together in equivalence classes if they have the same amount of outgoing edges with the same labels. In Figure \ref{fig:moore_ex}, states $A$ and $D$ have outgoing edges labeled with 0 and 1 while $B, C$ and $E$ have only an outgoing edge labeled with 0. Thus, the initial partition has two equivalence classes, $\mathcal{P} = \{\{A,D\}$,  $\{B,C,E\}\}$ shown in Figure \ref{fig:moore_ini}.
+To illustrate how the Moore algorithm works, this example will apply it to the graph of Figure \ref{fig:moore_ex}, which has $Q = \{A, B, C, D, E\}$, $\Sigma = \{0, 1\}$ and it is not minimal. The first step is to create the initial partition based on the criteria of grouping states together in equivalence classes if they have the same outgoing edges with the same labels. In Figure \ref{fig:moore_ex}, states $A$ and $D$ have outgoing edges labeled with 0 and 1 while $B, C$ and $E$ have only an outgoing edge labeled with 0. Thus, the initial partition has two equivalence classes, $\mathcal{P} = \{\{A,D\}$,  $\{B,C,E\}\}$ shown in Figure \ref{fig:moore_ini}.
 
 \begin{figure}
 \centering
@@ -230,9 +240,57 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \caption{An example of a graph that is not minimal.\label{fig:moore_ex}}
 \end{figure}
 
-Applying the Moore algorithm, $\mathcal{P}^{\prime}$ will store the current state of $\mathcal{P}$. First, consider $\sigma = 0$. To create the equivalence class $\mathcal{P}_0$, we consider the splitters $(\{A,D\},0)$ and $(\{B,C,E\},0)$ applied to $Q$. First, take $(\{A,D\},0)|Q$: $Q\cap 0^{-1}\{A,D\} = \{B,E\}$ and $Q\backslash 0^{-1}\{A,D\} = \{A, C, D\}$. The same process is repeated for the splitter $(\{B,C,E\},0)$: $Q\cap 0^{-1}\{B,C,E\} = \{A,C,D\}$ and $Q\backslash 0^{-1}\{B,C,E\} = \{B,E\}$. $\mathcal{P}_0$ is then the coarsest partition between $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$ and $(\{B,C,E\},0)|Q = \{\{A,C,D\},\{B,E\}\}$. Thus $\mathcal{P}_0 = \{\{A,C,D\},\{B,E\}\}$.
+Applying the Moore algorithm, $\mathcal{P}^{\prime}$ will store the current state of $\mathcal{P}$. First, consider $\sigma = 0$. To create the equivalence class $\mathcal{P}_0$, we consider the splitters $(\{A,D\},0)$ and $(\{B,C,E\},0)$ applied to $Q$. First, take $(\{A,D\},0)|Q$. From (\ref{eq:splitintersec}) we have:
 
-This process is repeated to obtain $\mathcal{P}_1$. $(\{A,D\},1)|Q$: $Q\cap 1^{-1}\{A,D\} = \emptyset$ and $Q\backslash 1^{-1}\{A,D\} = \{A, B, C, D, E\}$ and $(\{B,C,E\},1)|Q$: $Q\cap 1^{-1}\{B,C,E\} = \{A,D\}$ and $Q\backslash 0^{-1}\{A,D\} = \{B, C, E\}$. The coarsest partition between $\{\{A,B,C,D,E\}\}$ and $\{\{A,D\},\{B,C,E\}\}$ is $\{\{A,D\},\{B,C,E\}\} = \mathcal{P}_1$.
+\[
+Q\cap 0^{-1}\{A,D\} = \{B,E\}
+\]
+
+\noindent and from (\ref{eq:splitquot}): 
+
+\[
+Q\backslash 0^{-1}\{A,D\} = \{A, C, D\}.
+\]
+
+\noindent The same process is repeated for the splitter $(\{B,C,E\},0)$. From (\ref{eq:splitintersec}):
+
+\[
+Q\cap 0^{-1}\{B,C,E\} = \{A,C,D\}
+\]
+
+\noindent and from  (\ref{eq:splitquot}):
+
+\[
+Q\backslash 0^{-1}\{B,C,E\} = \{B,E\}.
+\]
+
+\noindent $\mathcal{P}_0$ is then the coarsest partition between $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$ and $(\{B,C,E\},0)|Q = \{\{A,C,D\},\{B,E\}\}$. Thus $\mathcal{P}_0 = \{\{A,C,D\},\{B,E\}\}$.
+
+This process is repeated to obtain $\mathcal{P}_1$. $(\{A,D\},1)|Q$: from (\ref{eq:splitintersec}):
+
+\[
+Q\cap 1^{-1}\{A,D\} = \emptyset
+\]
+
+\noindent and from (\ref{eq:splitquot}):
+
+\[
+Q\backslash 1^{-1}\{A,D\} = \{A, B, C, D, E\}
+\]
+
+\noindent and for $(\{B,C,E\},1)|Q$: 
+
+\[
+Q\cap 1^{-1}\{B,C,E\} = \{A,D\}
+\]
+
+\noindent and 
+
+\[
+Q\backslash 0^{-1}\{A,D\} = \{B, C, E\}.
+\]
+
+\noindent The coarsest partition between $\{\{A,B,C,D,E\}\}$ and $\{\{A,D\},\{B,C,E\}\}$ is $\{\{A,D\},\{B,C,E\}\} = \mathcal{P}_1$.
 
 The next step is to take the coarsest partition between $\mathcal{P}_0$ and $\mathcal{P}_1$, which is $\{\{A,D\},\{C\},\{B,E\}\}$. Then the coarsest partition between this result and the current $\mathcal{P}$ is taken, which leaves it unchanged. This result is then stored as the new partition $\mathcal{P}$ and it is shown in Figure \ref{fig:moore_fin}.
 

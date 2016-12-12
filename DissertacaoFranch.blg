@@ -1,6 +1,6 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2016/Arch Linux)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: TeseJose.aux
+The top-level auxiliary file: DissertacaoFranch.aux
 A level-1 auxiliary file: Capitula/Capitulum_1.aux
 A level-1 auxiliary file: Capitula/Capitulum_2.aux
 A level-1 auxiliary file: Capitula/Capitulum_3.aux
@@ -9,79 +9,58 @@ A level-1 auxiliary file: Capitula/Capitulum_8.aux
 A level-1 auxiliary file: Capitula/Capitulum_6.aux
 A level-1 auxiliary file: Capitula/Capitulum_4.aux
 A level-1 auxiliary file: Capitula/Capitulum_5.aux
-The style file: unsrt.bst
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: biblio.bib
-I was expecting a `,' or a `}'---line 105 of file biblio.bib
- : 
- : @book{stavroulakis.05,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Repeated entry---line 436 of file biblio.bib
- : @article{micco.08
- :                  ,
-I'm skipping whatever remains of this entry
-Name 1 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 2 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 3 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 4 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 5 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 6 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 7 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 8 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 9 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 10 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Name 11 in "A. Rukhin, and J. Soto, and J. Nechvatal, and M. Smid, and E. Barker, and S. Leigh, and M. Levenson, and M. Vangel, and D. Banks, and A. Heckert, and J. Dray, and S. Vo" has a comma at the end for entry nist
-while executing---line 944 of file unsrt.bst
-Warning--empty journal in 56
-You've used 39 entries,
-            1791 wiz_defined-function locations,
-            689 strings with 9468 characters,
-and the built_in function-call counts, 8125 in all, are:
-= -- 712
-> -- 336
-< -- 2
-+ -- 129
-- -- 90
-* -- 502
-:= -- 1298
-add.period$ -- 123
-call.type$ -- 39
-change.case$ -- 21
-chr.to.int$ -- 0
-cite$ -- 40
-duplicate$ -- 383
-empty$ -- 848
-format.name$ -- 90
-if$ -- 1856
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in murphy1995passively
+
+Done.
+You've used 21 entries,
+            4087 wiz_defined-function locations,
+            963 strings with 10881 characters,
+and the built_in function-call counts, 15677 in all, are:
+= -- 1296
+> -- 326
+< -- 149
++ -- 190
+- -- 50
+* -- 768
+:= -- 2377
+add.period$ -- 44
+call.type$ -- 21
+change.case$ -- 17
+chr.to.int$ -- 336
+cite$ -- 22
+duplicate$ -- 1101
+empty$ -- 1228
+format.name$ -- 65
+if$ -- 3645
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 57
-newline$ -- 198
-num.names$ -- 39
-pop$ -- 145
+int.to.str$ -- 21
+missing$ -- 176
+newline$ -- 92
+num.names$ -- 21
+pop$ -- 379
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 0
-skip$ -- 135
+quote$ -- 2
+skip$ -- 1227
 stack$ -- 0
-substring$ -- 465
-swap$ -- 54
-text.length$ -- 2
+substring$ -- 801
+swap$ -- 936
+text.length$ -- 37
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
+top$ -- 5
+type$ -- 21
 warning$ -- 1
-while$ -- 63
-width$ -- 41
-write$ -- 416
-(There were 13 error messages)
+while$ -- 69
+width$ -- 23
+write$ -- 230
+(There was 1 warning)

@@ -4,6 +4,56 @@
 \select@language {english}
 \select@language {portuges}
 \contentsline {chapter}{\numberline {1}\scshape {\bfseries {Introduction}}}{10}
+<<<<<<< HEAD
+\contentsline {section}{\numberline {1.1}Probabilistic Finite State Automata}{11}
+\contentsline {section}{\numberline {1.2}Work Structure}{12}
+\contentsline {chapter}{\numberline {2}\scshape {\bfseries {Preliminaries on Graphs and Probabilistic Finite State Automata}}}{13}
+\contentsline {section}{\numberline {2.1}Sequences of Discrete Symbols}{13}
+\contentsline {section}{\numberline {2.2}Graphs}{14}
+\contentsline {section}{\numberline {2.3}Graph Minimization}{15}
+\contentsline {subsection}{\numberline {2.3.1}Moore Algorithm}{17}
+\contentsline {subsubsection}{An Example}{19}
+\contentsline {subsection}{\numberline {2.3.2}Hopcroft's Algorithm}{21}
+\contentsline {section}{\numberline {2.4}Probabilistic Finite State Automata}{22}
+\contentsline {subsection}{\numberline {2.4.1}Initial Partition for PFSA}{23}
+\contentsline {section}{\numberline {2.5}Consolidated Algorithms}{24}
+\contentsline {subsection}{\numberline {2.5.1}D-Markov Machines}{24}
+\contentsline {subsection}{\numberline {2.5.2}CRISSiS}{25}
+\contentsline {subsubsection}{Identification of Shortest Synchronization Word}{25}
+\contentsline {subsubsection}{Recursive Identification of States}{25}
+\contentsline {subsubsection}{Estimation of Morph Probabilities}{27}
+\contentsline {subsubsection}{Example}{28}
+\contentsline {subsubsection}{Time Complexity}{29}
+\contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithm Description}}}{32}
+\contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{32}
+\contentsline {subsection}{\numberline {3.1.1}An Example}{37}
+\contentsline {section}{\numberline {3.2}PFSA Construction }{40}
+\contentsline {subsection}{\numberline {3.2.1}Termination Criteria}{40}
+\contentsline {subsubsection}{D-Markov Termination}{40}
+\contentsline {subsubsection}{$\Omega $ Termination}{41}
+\contentsline {subsection}{\numberline {3.2.2}ALEPH Algorithm}{41}
+\contentsline {section}{\numberline {3.3}Time Complexity}{43}
+\contentsline {subsection}{\numberline {3.3.1}RTP Construction}{43}
+\contentsline {subsection}{\numberline {3.3.2}Synchronization Word Search}{43}
+\contentsline {subsection}{\numberline {3.3.3}Termination}{45}
+\contentsline {subsection}{\numberline {3.3.4}PFSA Construction}{45}
+\contentsline {chapter}{\numberline {4}\scshape {\bfseries {Results}}}{53}
+\contentsline {section}{\numberline {4.1}Evaluation Metrics}{53}
+\contentsline {subsection}{\numberline {4.1.1}Entropy Rate}{53}
+\contentsline {subsection}{\numberline {4.1.2}Kullback-Leibler Divergence}{54}
+\contentsline {subsection}{\numberline {4.1.3}$\Phi $-Metric}{54}
+\contentsline {section}{\numberline {4.2}Construction of PFSA for Dynamic Systems}{55}
+\contentsline {subsection}{\numberline {4.2.1}Ternary Even Shift}{55}
+\contentsline {subsection}{\numberline {4.2.2}Tri-Shift}{56}
+\contentsline {subsection}{\numberline {4.2.3}A Six State PFSA}{57}
+\contentsline {subsection}{\numberline {4.2.4}Maximum Entropy \textit {(d,k)}-Constrained Code}{60}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {Applications}}}{63}
+\contentsline {subsection}{\numberline {5.0.1}Logistic Map}{63}
+\contentsline {subsection}{\numberline {5.0.2}Gilbert-Elliot Channel}{64}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {Conclusion}}}{67}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{68}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{69}
+=======
 \contentsline {chapter}{\numberline {2}\scshape {\bfseries {Preliminaries on Graphs and Probabilistic Finite State Automata}}}{11}
 \contentsline {section}{\numberline {2.1}Sequences of Discrete Symbols}{11}
 \contentsline {section}{\numberline {2.2}Graphs}{12}
@@ -50,3 +100,4 @@
 \contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{64}
 \contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{65}
 \contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{66}
+>>>>>>> c36c0aefd7d800ea23687cad1a168257e649c923
