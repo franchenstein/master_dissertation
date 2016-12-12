@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: DissertacaoFranch.aux
 A level-1 auxiliary file: Capitula/Capitulum_1.aux
@@ -9,58 +9,48 @@ A level-1 auxiliary file: Capitula/Capitulum_8.aux
 A level-1 auxiliary file: Capitula/Capitulum_6.aux
 A level-1 auxiliary file: Capitula/Capitulum_4.aux
 A level-1 auxiliary file: Capitula/Capitulum_5.aux
-The style file: IEEEtran.bst
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
-Reallocated singl_function (elt_size=8) to 100 items from 50.
+The style file: ieeetr.bst
 Database file #1: biblio.bib
--- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
--- http://www.michaelshell.org/tex/ieeetran/bibtex/
--- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty booktitle in murphy1995passively
-
-Done.
 You've used 21 entries,
-            4087 wiz_defined-function locations,
-            963 strings with 10881 characters,
-and the built_in function-call counts, 15677 in all, are:
-= -- 1296
-> -- 326
-< -- 149
-+ -- 190
+            1876 wiz_defined-function locations,
+            617 strings with 6946 characters,
+and the built_in function-call counts, 5869 in all, are:
+= -- 611
+> -- 186
+< -- 0
++ -- 71
 - -- 50
-* -- 768
-:= -- 2377
-add.period$ -- 44
+* -- 393
+:= -- 799
+add.period$ -- 25
 call.type$ -- 21
 change.case$ -- 17
-chr.to.int$ -- 336
+chr.to.int$ -- 0
 cite$ -- 22
-duplicate$ -- 1101
-empty$ -- 1228
-format.name$ -- 65
-if$ -- 3645
+duplicate$ -- 303
+empty$ -- 566
+format.name$ -- 50
+if$ -- 1458
 int.to.chr$ -- 0
 int.to.str$ -- 21
-missing$ -- 176
-newline$ -- 92
+missing$ -- 24
+newline$ -- 70
 num.names$ -- 21
-pop$ -- 379
+pop$ -- 64
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 2
-skip$ -- 1227
+quote$ -- 0
+skip$ -- 223
 stack$ -- 0
-substring$ -- 801
-swap$ -- 936
-text.length$ -- 37
+substring$ -- 448
+swap$ -- 135
+text.length$ -- 0
 text.prefix$ -- 0
-top$ -- 5
-type$ -- 21
+top$ -- 0
+type$ -- 0
 warning$ -- 1
-while$ -- 69
+while$ -- 56
 width$ -- 23
-write$ -- 230
+write$ -- 210
 (There was 1 warning)

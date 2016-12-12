@@ -1,0 +1,84 @@
+\chapter{Testes do NIST}\label{cap:correcao}
+
+
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{O}{s} testes da bateria NIST focam-se em uma variedade de características de não-aleatoriedade que existem nas sequências. 
+Os 15 testes são \cite{nist}:
+
+\begin{enumerate}
+ \item The Frequency Test.
+ \item Block Frequency Test.
+ \item The Run Test.
+ \item Tests for the Longest-Run-of-Ones in a Block.
+ \item The Binary Matrix Rank Test.
+ \item The Discrete Fourier Transform (Spectral) Test.
+ \item The Non-overlapping Template Matching Test.
+ \item The Overlapping Template Matching Test.
+ \item Maurer's "Universal Statistical"  Test.
+ \item The Linear Complexity Test.
+ \item The Serial Test.
+ \item The Approximate Entropy Test.
+ \item The Cumulative Sums (Cusums) Test.
+ \item The Random Excursions Test.
+ \item The Random Excursions Variant Test.
+\end{enumerate}
+
+Faz-se uma breve descrição dos conjunto de teste adotado pelo NIST \cite{nist}.
+
+\textbf{The Frequency Test}: Este teste determina se o número de uns e zeros é aproximadamente igual, que é o 
+comportamento esperado das sequências verdadeiramente aleatórias. A implementação da suíte de teste do NIST depende da aprovação deste teste.
+
+\textbf{Block Frequency Test}: O propósito deste teste é determinar se a frequência de zeros e uns em um bolco de comprimento $M$ \textit{bits} é aproximadamente $\frac{M}{2}$, como 
+pode-se esperar de uma sequência aleatória. Para blocos de comprimento $M=1$, o teste torna-se o teste anterior. 
+
+\textbf{The Run Test}: Neste teste avalia-se o número de \textit{runs} na sequência testada. Um \textit{run} é uma sequência ininterrupta de \textit{bits} idênticos. Um \textit{run} de 
+comprimento $k$, consiste em $k$ \textit{bits} iguais limitados antes e depois por \textit{bits} de outro valor. A proposta do teste é determinar se o número de \textit{runs} de zeros e uns de 
+vários comprimentos que acontecem na sequência testada e é esperado em uma sequência verdadeiramente aleatória, ou seja, ele determina se a oscilação entre zeros e uns é rápida ou lenta.
+
+\textbf{Tests for the Longest-Run-of-Ones in a Block}: Este teste determina se o maior comprimento de uma sequência ininterrupta de uns (\textit{run}) dentro da sequencia testada é consistente 
+com o esperado para uma sequência verdadeiramente aleatória. Uma irregularidade no comprimento esperado do maior \textit{run} de uns, implicará uma irregularidade nos \textit{run} de zeros. 
+Então só é necessário testar os \textit{runs} de uns.
+
+\textbf{Binary Matrix Rank Test}: O objetivo deste teste é verificar se há dependência linear entre as subsequências da sequência testada. Isto é feito calculando-se o posto de submatrizes 
+formadas por subsequências. Este teste também aparece na bateria de testes DieHard \cite{56}.
+
+\textbf{Discrete Fourier Transform (Spectral) Test}: O objetivo deste teste é determinar aspectos periodicos na sequeência testada, ou seja, padrões repetitivos que estejam próximos entre si. 
+Estas características periódicas da sequência, se fossem detectadas, isso indicaria um afastamento da pressuposta aleatoriedade da sequência. A intenção é a de detectar se o número de picos no 
+gráfico da transformada discreta de Fourier que excedem o limite de 95\% é significativamente maior que o 5\%.
+
+\textbf{Non-overlapping Template Matching Test}: Neste teste detecta-se a ocorrência de padrões não-periódico na sequência testada. A sequência é particionada em $N$ blocos de comprimento $M$. 
+Para este teste e o próximo, será construída uma janela de $m$ \textit{bits}. A janela será usada para encontrar a ocorrência de padrões, se o padrão não for encontrado, a janela é deslocada 
+num \text{bit}. Se o padrão for encontrado, a janela é deslocada para o próximo \textit{bit} depois da janela testada, e a busca do padrão recomeça.
+
+\textbf{Overlapping Template Matching Test}: Tanto este teste como o anterior usam uma janela de $m$ \textit{bits} para encontrar padrões não-periódicos na sequência testada. 
+Tal como o teste anterior, se o padrão não é encontrado, a janela se desloca um \textit{bit}. A diferença entre eles, é que, quando o padrão é encontrado, a janela se desloca 
+apenas um \textit{bit} e começa a busca novamente.
+
+\textbf{Maurers Universal Statistical Test}: O objetivo deste teste é detectar se uma sequência pode ser comprimida ou não sem perda de informação. Uma sequência 
+significativamente compressível é considerada não aleatória.
+
+\textbf{Linear Complexity Test}: Neste teste determina-se se a sequência testada é gerada por um gerador que possui complexidade linear suficiente para que esta seja considerada aleatória. 
+Sequências aleatórias são caracterizadas por ser geradas por LFSR de períodos grandes, ou seja, possuem muitos elemento de retardo. Se o período do LFSR que gera a sequência é curto,
+a sequência é considerada não aleatória.
+
+\textbf{Serial Test}: O objetivo deste teste é determinar se o número de ocorrências dos  $2^m$ padrões sobrepostos de $m$ \textit{bits} é aproximadamente a mesma, que é esperado para uma 
+sequência aleatória. As sequências aleatórias apresentam a característica de uniformidade, ou seja, cada padrão de $m$ \textit{bits} tem a mesma probabilidade de acontecer. Note-se 
+que para $m = 1$, este testes é equivalente ao teste The Frequency Teset.
+
+\textbf{Approximate Entropy Test}: Tal como o teste anterior calcula-se a frequência de ocorrência de todos os padrões possíveis de $m$ \textit{bits} ao longo da sequência testada. O objetivo 
+deste teste é comparar a frequência de ocorrência de blocos sobreposto de dois comprimentos consecutivos, $m$ e $m+1$, com o resultado 
+esperado para uma sequência verdadeiramente aleatória.
+
+\textbf{Cumulative Sums (Cusum) Test}: O propósito deste teste é determinar se a soma cumulativa das subsequência que ocorrem na sequencia testada é muito grande ou pequena em relação com a 
+soma cumulativa de sequências aleatórias. Se a soma cumulativa da sequência testada é muito diferente de zero, que é o valor esperado de uma sequência aleatória, a sequência apresenta 
+um comportamento não-aleatório.
+
+\textbf{Random Excursions Test}: Um ciclo de caminhada aleatória consiste em uma sequência de passos de comprimento unitário dados aleatoriamente, iniciando e retornando  à origem. O propósito 
+deste teste é determinar o desvio do número visitas em um estado particular  em um ciclo em relação ao esperado  para uma sequência verdadeiramente aleatória. Este teste 
+consiste em uma série de oito testes e conclusões, um para cada estado: $\{-4, -3, -2, -1 e 1, 2, 3, 4\}$.   
+
+\textbf{Random Excursions Variant Test}: O objetivo deste teste é o mesmo que o anterior (\textbf{Random Excursions Test}) com a diferença que são considerados dezoito estados diferentes:
+$\{-9, -8, -7,... e ...,7, 8, 9\}$.
+
+Para maiores detalhes consultar a referência \cite{nist}. 
+%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - FIM DO CAPÍTULO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+

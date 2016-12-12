@@ -1,0 +1,597 @@
+\chapter{Nova unidade de pós-processamento com CVT}\label{cap:Geraçã de PRNG}
+
+
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{E}{ste} capítulo emprega a função autocorrelação para quantificar a memória de uma sequência discreta e analisar seu comportamento 
+para a família de mapas tanh usando as duas codificações CFT e CVT. A partir do comportamento desta função para codificação CVT, propõe-se um novo bloco de pós-processamento com menor 
+requerimento de memória em relação os obtidos no capítulo anterior. 
+
+%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - INTRODUÇÃO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%% INICIO DA SEÇÃO - Entropia condicional Familia Mapa Tanh %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Função autocorrelação}
+
+A entropia condicional pode ser interpretada como um quantificador que reflete algumas propriedades estatísticas de uma sequência discreta. A função autocorrelação também pode servir 
+para determinar a memória da sequência $\{Z_k\}$ e consequentemente o dimensionamento do bloco de pós-processamento. A função autocorrelação de um processo estacionário $\{X_k\}$ é definida por:
+\begin{equation}
+ R_x[m] = E[X_k X_{k+m}]
+\end{equation}
+em que $E[X_k]$ é valor esperado da variável aleatória $X_k$. As Figuras \ref{fig:CE1} e \ref{fig:CE2} apresentam os gráficos de entropia condicional das sequências codificadas $\{Z_k\}$ do sistema apresentado na Seção 3.2, para o mapa e-tanh com $r=3$, 
+$q = 1$, com codificação CFT e CVT, respectivamente, e a curva da função autocorrelação destas sequências com os mesmos parâmetros. Análises semelhantes para o mapa o-tanh são mostradas 
+nas Figuras \ref{fig:CE3} e \ref{fig:CE4}.
+
+\begin{figure}[!h]
+\centering
+\subfigure[Entropia condicional da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/entropiar1}}
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/CMPFT1}}
+\caption{Quantificadores do mapa e-tanh com $r=3$, $q=1$, $n^{*}=7$ e CFT.} \label{fig:CE1}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\subfigure[Entropia condicional da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/CVTpar1}}
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/CMPVT1}}
+\caption{Quantificadores do mapa e-tanh com $r=3$, $q=1$, $n^{*}=6$ e CVT.} \label{fig:CE2}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\subfigure[Entropia condicional da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/entropiai1}}
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/CMIFT1}}
+\caption{Quantificadores do mapa o-tanh com $r=3$, $q=1$, $n^{*}=5$ e CFT..} \label{fig:CE3}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\subfigure[Entropia condicional da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/CVTimpar1}}
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$]{\includegraphics[scale=0.6]{Figuras/CMIVT1}}
+\caption{Quantificadores do mapa o-tanh com $r=3$, $q=1$, $n^{*}=5$ e CVT.} \label{fig:CE4}
+\end{figure}
+
+Observa-se que os gráficos da função autocorrelação para cada codificação tem um comportamento semelhante e o valor de $n^{*}$ estabelecido pela entropia condicional está em consonância 
+com o indicado pela função autocorrelação.
+
+%Nos gráficos da função de autocorrelação da sequência $Z_k$ converge, como pode-se observar nas figuras, em um valor aproximado a $n^{*}$, obtido através da entropia condicional. 
+%Como foi dito anteriormente, o aumento de $q > 1$ introduz uma correlação a mais na sequência $\{Z_k ... Z_{qk}\}$, que o bloco de pós-processamento e a soma módulo dois com as sequências-m 
+%eliminam, e obtêm-se uma sequência $\{Y_k ... Y_{qk}\}$ aleatória. 
+
+No processo descrito na Seção 3.4.2 foi definido um valor estimado para o comprimento do LFSR ($\hat{N}$) para que a sequência $\{Y_k\}$ tenha propriedades de uma sequência aleatória, 
+dependendo dos parâmetros $n^{*}$ e $q$. 
+Também observa-se que o valor de $\hat{N}$ aumenta linearmente com o valor de $q$ para codificação CFT. As Figuras \ref{fig:cp} e \ref{fig:ci} apresentam o comportamento da função autocorrelação dos processos 
+$\{Z_k\}$ e $\{Y_k\}$, com a utilização de dois valores de $N$ ($N=4$ e $N=7$). Observa-se que para $N=n^{*}$ a função autocorrelação da sequência de saída $\{Y_k\}$ tem comportamento de um impulso 
+que é típico de uma sequência aleatória.
+
+\begin{figure}[!h]
+\centering
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$]{\includegraphics[scale=0.5]{Figuras/CMPFT1}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Y_k\}$ com $N=4$]{\includegraphics[scale=0.5]{Figuras/MPLFSR4}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Y_k\}$ com $N=7$]{\includegraphics[scale=0.5]{Figuras/MPLFSR7}}
+\caption{Função autocorrelação para o mapa e-tanh com $r = 3$, $q=1$, $n^{*}=7$, para $N=4$ e $N=7$ com codificação CFT.} \label{fig:cp}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$]{\includegraphics[scale=0.5]{Figuras/CMIFT1}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Y_k\}$ com $N=3$]{\includegraphics[scale=0.5]{Figuras/MILFSR2}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Y_k\}$ com $N=5$]{\includegraphics[scale=0.5]{Figuras/MILFSR5}}
+\caption{Função autocorrelação para o mapa o-tanh com $r = 3$, $q=1$, $n^{*}=5$, para $N=3$ e $N=5$ com codificação CFT.} \label{fig:ci}
+\end{figure}
+Como foi descrito no capítulo anterior a sequência $\{Y_k\}$ é obtida da forma:
+\begin{equation}
+ Y_k = Z_k \oplus W_k.
+\end{equation}
+%Uma sequência-m com característica local ideal é balanceada $E[W_k]=\frac{1}{2}$ e a função autocorrelação é dada por:
+Supondo que $W_k$ é uma sequência com estatística local ideal de ordem $N$, a função autocorrelação é dada por:
+\begin{equation}
+ R_W[m]=\left\{
+ \begin{array}{ccc}
+  \displaystyle \frac{1}{4}, & \textrm{se} & m\mod(2^N-1) \neq 0 \vspace{0.5cm} \\
+  \displaystyle \frac{1}{2}, & \textrm{se} & m\mod(2^N-1) = 0.
+ \end{array}\right. 
+\end{equation}
+A seguir deduz-se a função autocorrelação da sequência $\{Y_k\}$, $R_Y[m]$, em função de $R_Z[m]$ e $E[Z_k]$, onde $\{W_k\}$ é uma sequência-m com $R_W[m]$ dado por (4.3). Então
+\begin{eqnarray}
+ R_Y[m] &=& E[Y_k  Y_{k+m}] \\
+ &=& E[(Z_k \oplus W_k) (Z_{k+m} \oplus W_{k+m})] \\
+ &=& E[(Z_k + W_k - 2Z_k W_k) (Z_{k+m} + W_{k+m} - 2Z_{k+m} W_{k+m})]. 
+\end{eqnarray}
+Assumindo que os processos $\{Z_k\}$ e $\{W_k\}$ são independentes e estacionários:
+\begin{eqnarray}
+ R_Y[m]\hspace{-0.2cm} &=&\hspace{-0.2cm} R_Z[m] + E[Z_k]E[W_{k+m}] - 2E[W_{k+m}]R_Z[m] + E[W_k]E[Z_{k+m}] + R_W[m]  \nonumber \\
+       \hspace{-0.2cm} & &\hspace{-0.2cm} - 2E[Z_{k+m}]R_W[m] - 2E[W_k]R_Z[m] -2E[Z_k]R_W[m] + 4R_W[m]R_Z[m] \\ 
+ \hspace{-0.2cm}&=&\hspace{-0.2cm} R_Z[m] + R_W[m] - 4R_Z[m]E[W_k] - 4R_W[m]E[Z_k] + 2E[W_k]E[Z_k] \nonumber \\
+       \hspace{-0.2cm} & &\hspace{-0.2cm} + 4R_Z[m]R_W[m]\\   
+ \hspace{-0.2cm}&=&\hspace{-0.2cm} R_W[m]\{1 - 4E[Z_k] + 4R_Z[m]\} + E[W_k]\{2E[Z_k] - 4R_Z[m]\} + R_Z[m]
+\end{eqnarray}
+Substituindo $E[W_k]=1/2$ em (4.9) e simplificando, obtemos:
+\begin{equation}
+ R_Y[m]= R_W[m]\{1 - 4E[Z_k] + 4R_Z[m]\} - R_Z[m] + E[Z_k]
+\end{equation}
+Para $m \mod(2^N-1) \neq 0$, temos $R_W[m]=\frac{1}{4}$, então (4.10) simplifica para:
+\begin{eqnarray}
+ R_Y[m] &=& \frac{1}{4}\{1 - 4E[Z_k] + 4R_Z[m]\} - R_Z[m] + E[Z_k] \\
+ &=& \frac{1}{4} 
+\end{eqnarray}
+Para $m \mod(2^N-1) = 0$, temos $R_W[m]=\frac{1}{2}$, então (4.10) simplifica para:
+\begin{eqnarray}
+ R_Y[m] &=& \frac{1}{2}\{1 - 4E[Z_k] + 4R_Z[m]\} - R_Z[m] + E[Z_k] \\
+ &=& \frac{1}{2} + R_Z[m] - E[Z_k]
+\end{eqnarray}
+Como a sequência discretizada $\{Z_k\}$ tem $E[Z_k]= \frac{1}{2}$, então, $R_Y[m]=R_Z[m]$ para  $m \mod(2^N-1) = 0$. \textcolor{blue}{Se o valor de 
+$R_Z[m]= \frac{1}{4}$ para $m > n^{*}$, a função $R_Y[m]$ tende a uma característica impulsional, típica de uma sequência descorrelacionada}.
+
+\subsection{Comparação da função autocorrelação das codificações CFT e CVT}
+
+A utilização da codificação CFT, como foi mostrado no capítulo anterior, o valor de $\hat{N}$ cresce linearmente com o aumento de $q$. As 
+Figuras \ref{fig:AC1} e \ref{fig:AC2} mostram a função de autocorrelação dos mapas e-tanh e o-tanh, respectivamente, 
+com $r=3$, $q=3, 5, 7$, com codificação CFT. Observa-se um espalhamento linearmente dependente de $q$ da autocorrelação existente na sequência binária. As Figuras \ref{fig:AC3} e \ref{fig:AC4} 
+mostram a função autocorrelação da sequência $\{Z_k\}$ utilizando 
+codificação CVT, para os mapas e-tanh e o-tanh, respectivamente, com $r=3$, $q=3, 5, 7$. Diferentemente do caso CFT, 
+estas figuras mostram que $R_Z[m]$ possui um padrão de concentração para cada valor de $q$. Existem picos desta 
+função em valores específicos de $m$ dado 
+por:
+\begin{equation}
+ m_p = kq
+\end{equation}
+sendo $m_p$ o valor de $m$ em que ocorre um pico, para $k=1,2,3...$. Este comportamento indica que existe correlação entre \textit{bits} de sequência códigos distintas separadas de $q$ posições.
+Por exemplo, três amostras caóticas consecutivas $X_1X_2X_3$ geram três sequências códigos $(Z_1Z_2Z_3)$, $(Z_4Z_5Z_6)$ e $(Z_7Z_8Z_9)$. Portanto existe nestas sequências código correlação 
+apenas entre os \textit{bits} de cada um dos três conjuntos $\{Z_1,Z_4,Z_7\}$, $\{Z_2,Z_5,Z_8\}$, e $\{Z_3,Z_6,Z_9\}$. O comportamento de $R_z[m]$ indica que não existe correlação entre os \textit{bits} de uma mesma 
+sequência código, ou em \textit{bits} de sequências códigos distintas que estão em posições distintas. 
+
+\begin{figure}[!h]
+\centering
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=3$]{\includegraphics[scale=0.5]{Figuras/CMPFT3}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=5$]{\includegraphics[scale=0.5]{Figuras/CMPFT5}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=7$]{\includegraphics[scale=0.5]{Figuras/CMPFT7}}
+\caption{Função autocorrelação para o mapa e-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codificação CFT.} \label{fig:AC1}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=3$]{\includegraphics[scale=0.5]{Figuras/CMIFT3}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=5$]{\includegraphics[scale=0.5]{Figuras/CMIFT5}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=7$]{\includegraphics[scale=0.5]{Figuras/CMIFT7}}
+\caption{Função autocorrelação para o mapa o-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codificação CFT.} \label{fig:AC2}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=3$]{\includegraphics[scale=0.5]{Figuras/CMPVT3}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=5$]{\includegraphics[scale=0.5]{Figuras/CMPVT5}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=7$]{\includegraphics[scale=0.5]{Figuras/CMPVT7}}
+\caption{Função autocorrelação para o mapa e-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codificação CVT.} \label{fig:AC3}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=3$]{\includegraphics[scale=0.5]{Figuras/CMIVT3}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=5$]{\includegraphics[scale=0.5]{Figuras/CMIVT5}}\hfill
+\subfigure[Função autocorrelação da sequência $\{Z_k\}$ para $q=7$]{\includegraphics[scale=0.5]{Figuras/CMIVT7}}
+\caption{Função autocorrelação para o mapa o-tanh com $r = 3$, $q=3$, $q=5$ e $q=7$ com codificação CVT.} \label{fig:AC4}
+\end{figure}
+
+Este comportamento implica em uma diferença entre as duas codificações, CFT e CVT, em termos de memória do pós-processamento. A codificação CVT apresenta intervalos de \textit{bits} 
+na sequência $\{Z_k\}$ que são descorrelacionados, precisando de uma quantidade menor de \textit{bits} que apresentam estatística local quase-ideal na sequência-m para eliminar a 
+correlação de $\{Z_k\}$.
+
+A magnitude dos picos de $R_z[m]$ nos intervalos $m_p = kq$ decresce com $k$ e pode-se definir um número finito de picos, denotado por $P$. Observa-se na Figura \ref{fig:AC3} e \ref{fig:AC4} 
+que o valor de $P$ é praticamente constante com $q$ para os mapas e-tanh e o-tanh. Considera-se neste trabalho $P=6$ e propõe-se na próxima seção um bloco de pós-processamento que faz uso desta 
+característica da função de autocorrelação.
+
+\section{Novo método de pós-processamento utilizando codificação CVT}
+
+Para eliminar a correlação existente na sequência $\{Z_k\}$ gerada pela codificação CVT, utiliza-se a característica apresentada nas Figuras \ref{fig:AC3} e \ref{fig:AC4}, que é a presença de $P$
+picos. A Figura \ref{fig:bloco4} mostra a implementação do novo bloco de pós-processamento. A ideia central consiste em projetar um LFSR que quebre a correlação entre amostras 
+($Z_k$ e $Z_j$) em posições relativas indicados pelos $P$ picos, isto é, separadas por $kq$ amostras, $k = 1,2...,P$.
+
+\begin{figure}[t!]
+  \begin{pspicture}(-.6,-1.2)(6.5,4)
+ \psline{->}(4,1.5)(5,1.5)
+ \psframe(1,1)(4,2)
+ \rput{0}(2.5,1.5){\small Mapa tanh}
+ \psframe(5,1)(8,2)
+ \rput{0}(6.5,1.75){\small Codificação}
+ \rput{0}(6.5,1.25){\small CVT}
+ \psline{->}(8,1.5)(9.7,1.5)
+ \pscircle(9.85,1.5){0.15}
+ \psline(9.85,1.65)(9.85,1.35)
+ \psline(9.7,1.5)(10,1.5)
+ \psline{-o}(10,1.5)(10.6,1.5)
+ \psframe(10.5,1.2)(11.5,2.2)
+ \psline{->}(11.2,1.5)(10.85,1.8)
+ \psline{->}(9.85,-.15)(9.85,1.35)
+ \psarc{->}(11.25,1.4){0.4}{90}{180}
+ \psline{->}(11.5,1.5)(12.5,1.5)
+ %\psframe(9.35,-0.2)(10.35,0.8)
+ \psframe(9,-0.85)(10.7,-0.15)%LFSR
+ \psframe(11.2,-0.85)(12.8,-0.15)%Controle
+ \psline{->}(10.7,-0.55)(11.2,-0.55)
+ %\psline{-o}(9.85,-0.2)(9.85,0.1)
+ %\psline{-o}(9.85,0.8)(9.85,0.5)
+ %\psline{->}(9.85,0.1)(10.15,0.5)
+ %\psarc{->}(9.8,0.1){0.3}{0}{90}
+ \psline{-}(9.3,1.5)(9.3,1.8)
+ \psline{-o}(9.3,1.8)(10.6,1.8)
+ \rput{0}(9.85,-0.55){\small LFSR}
+ \rput{0}(11.98,-0.55){\small Controle}
+ \rput{0}(11,1){\small $I_1$}
+ %\rput{0}(10.55,0.2){\small $I_2$}
+ \rput{0}(4.5,1.7){\small $\{X_k\}$}
+ \rput{0}(8.6,1.7){\small $\{Z_k\}$}
+ \rput{0}(12,1.7){\small $\{Y_k\}$}
+ \rput{0}(10.4,.1){\small $\{W_k\}$}
+ \end{pspicture}
+ \caption{\label{fig:bloco4} Diagrama de blocos de um esquema da geração de um PRNG usando sequências-m.}
+\end{figure}
+
+Mostra-se no digrama de blocos da Figura \ref{fig:bloco4} uma chave $I_1$, quando esta está aberta os \textit{bits} do 
+processo de codificação são iguais aos \textit{bits} da saída do sistema. Quando a chave está fechada os
+\textit{bits} da saída $\{Y_k\}$ são obtidos da soma modulo-2 das sequências $\{Z_k\}$ e $\{W_k\}$. Os \textit{bits} da 
+sequência-m são utilizados de tal forma que para os \textit{bits} 
+correlacionados da sequência $\{Z_k\}$ utiliza-se \textit{bits} descorrelacionados da sequência $\{W_k\}$ que apresentam 
+estatística local quase-ideal entre eles, garantindo que a sequência $\{Y_k\}$ seja 
+descorrelacionada. \textcolor{blue}{O bloco de controle tem a função de fazer o um deslocamento nos bits da sequência-m.}
+
+A operação das chaves depende dos valores de $q$ e $P$ como é exemplificado na Figura \ref{fig:QQ} para os 
+parâmetros $q=3$ e $P=6$. Define-se uma janela de comprimento, 
+$J = q(P+1)$ \textit{bits} para garantir que todos os picos fiquem no comprimento da janela. Os primeiros $q$ \textit{bits} 
+são os mesmos do processo de quantização do mapa caótico, 
+$Y_1 = Z_1$, $Y_2 = Z_2$ e $Y_3 = Z_3$, os demais \textit{bits} da janela são obtidos da soma módulo-2 entre 
+a sequência $\{Z_k\}$ e a sequência-m como se mostra na Figura \ref{fig:QQ}. Na próxima janela faz-se o mesmo procedimento, 
+os primeiros $q$ \textit{bits} da janela são obtidos diretamente do codificador CVT, 
+$Y_{22} = Z_{22}$, $Y_{23} = Z_{23}$ e $Y_{24} = Z_{24}$, os demais \textit{bits} novamente somam-se modulo-2 com a 
+sequência-m. Este processo é controlado 
+mediante a chave $I_1$. \textcolor{blue}{Os \textit{bits} da sequência-m em janelas adjacentes são deslocados em um \textit{bit}, por exemplo, 
+a primeira janela começa com $W_1$ até $W_{18}$, na segunda 
+utiliza-se de $W_2$ até $W_{19}$ e a terceira começa de novo com $W_1$ até $W_{18}$. O processo de deslocamento é realizado pelo bloco de controle, fazendo que janelas adjacentes comecem 
+alternadamente com $W_1$ ou $W_2$}.
+
+
+\begin{figure}[h!]
+  \begin{pspicture}(-1.5,-1)(6.5,4)
+ \psframe(1,2.5)(2.8,3) %x1
+ \psframe(2.8,2.5)(4.6,3) %X2
+% \psframe(4.6,2.5)(6.4,3) %x3
+% \psframe(6.4,2.5)(8.2,3) %X4
+ \psframe(8.2,2.5)(10,3) %X7
+ \psframe(10,2.5)(11.8,3) %X8
+ \psframe(11.8,2.5)(13.6,3) %X9
+ 
+ \psframe(1,2)(1.6,2.5) %z1
+ \psframe(1.6,2)(2.2,2.5) %z2
+ \psframe(2.2,2)(2.8,2.5) %z3
+ \psframe(2.8,2)(3.4,2.5) %z4
+ \psframe(3.4,2)(4,2.5) %z5 
+ \psframe(4,2)(4.6,2.5) %z6
+% \psframe(4.6,2)(5.2,2.5) %z7
+% \psframe(5.2,2)(5.8,2.5) %z8
+% \psframe(5.8,2)(6.4,2.5) %z9
+% \psframe(6.4,2)(7,2.5) %z10
+% \psframe(7,2)(7.6,2.5) %z11
+% \psframe(7.6,2)(8.2,2.5) %z12
+ \psframe(8.2,2)(8.8,2.5) %z13
+ \psframe(8.8,2)(9.4,2.5) %z14
+ \psframe(9.4,2)(10,2.5) %z16
+ \psframe(10,2)(10.6,2.5) %z16
+ \psframe(10.6,2)(11.2,2.5) %z17
+ \psframe(11.2,2)(11.8,2.5) %z18
+ \psframe(11.8,2)(12.4,2.5) %z19
+ \psframe(12.4,2)(13,2.5) %z20
+ \psframe(13,2)(13.6,2.5) %z21
+ 
+ \rput{0}(1.35,2.25){\small $Z_1$}
+ \rput{0}(1.95,2.25){\small $Z_2$}
+ \rput{0}(2.55,2.25){\small $Z_3$}
+ \rput{0}(3.15,2.25){\small $Z_4$}
+ \rput{0}(3.75,2.25){\small $Z_5$}
+ \rput{0}(4.35,2.25){\small $Z_6$}
+% \rput{0}(4.95,2.25){\small $Z_7$}
+% \rput{0}(5.55,2.25){\small $Z_8$}
+% \rput{0}(6.15,2.25){\small $Z_9$}
+% \rput{0}(6.7,2.25){\small $Z_{10}$}
+% \rput{0}(7.3,2.25){\small $Z_{11}$}
+% \rput{0}(7.9,2.25){\small $Z_{12}$}
+ \rput{0}(8.5,2.25){\small $Z_{19}$}
+ \rput{0}(9.1,2.25){\small $Z_{20}$}
+ \rput{0}(9.7,2.25){\small $Z_{21}$} 
+ \rput{0}(10.3,2.25){\small $Z_{22}$}
+ \rput{0}(10.9,2.25){\small $Z_{23}$}
+ \rput{0}(11.5,2.25){\small $Z_{24}$}
+ \rput{0}(12.1,2.25){\small $Z_{25}$}
+ \rput{0}(12.7,2.25){\small $Z_{26}$}
+ \rput{0}(13.3,2.25){\small $Z_{27}$}
+ 
+ \rput{0}(1.9,2.75){\small $X_{1}$} 
+ \rput{0}(3.7,2.75){\small $X_{2}$} 
+% \rput{0}(5.5,2.75){\small $X_{3}$} 
+% \rput{0}(7.3,2.75){\small $X_{4}$}
+ \rput{0}(9.1,2.75){\small $X_{7}$}
+ \rput{0}(10.9,2.75){\small $X_{8}$}
+ \rput{0}(12.7,2.75){\small $X_{9}$}
+ 
+% \psline(3.1,2)(3.1,1.25)
+% \pscircle(3.1,1.1){0.15}
+% \psline(3.1,0.95)(3.1,1.25)
+% \psline(2.95,1.1)(3.25,1.1)
+% \psline(3.1,0.95)(3.1,0.5)
+ 
+% \psline(2.5,2)(2.5,1.25)
+% \pscircle(2.5,1.1){0.15}
+% \psline(2.5,0.95)(2.5,1.25)
+% \psline(2.35,1.1)(2.65,1.1)
+% \psline(2.5,0.95)(2.5,0.5)
+ 
+% \psline(3.7,2)(3.7,1.25)
+% \pscircle(3.7,1.1){0.15}
+% \psline(3.7,0.95)(3.7,1.25)
+% \psline(3.55,1.1)(3.85,1.1)
+% \psline(3.7,0.95)(3.7,0.5)
+ 
+% \psline(4.3,2)(4.3,1.25)
+% \pscircle(4.3,1.1){0.15}
+% \psline(4.3,0.95)(4.3,1.25)
+% \psline(4.15,1.1)(4.45,1.1)
+% \psline(4.3,0.95)(4.3,0.5)
+ 
+ \psframe(4,0.5)(4.6,1) %w1
+ \psframe(2.8,0.5)(3.4,1) %w2
+ \psframe (3.4,0.5)(4,1) %w3
+% \psframe (4.6,0.5)(5.2,1) %w4
+% \psframe (5.2,0.5)(5.8,1) %w5
+% \psframe (5.8,0.5)(6.4,1) %w6
+% \psframe (6.4,0.5)(7,1) %w7
+% \psframe (7,0.5)(7.6,1) %w8
+% \psframe (7.6,0.5)(8.2,1) %w9
+ \psframe (8.2,0.5)(8.8,1) %w16
+ \psframe (8.8,0.5)(9.4,1) %w17
+ \psframe (9.4,0.5)(10,1) %w18
+ \psframe (11.8,0.5)(12.4,1) %w19
+% \psframe (10.6,0.5)(11.2,1) %w11
+ \psframe (12.4,0.5)(13,1) %w2  
+% \psframe (10.6,0.5)(11.2,1) %w13
+ \psframe (13,0.5)(13.6,1) %w3 
+ 
+ 
+ \rput{0}(4.35,0.7){\small $W_3$}
+ \rput{0}(3.1,0.7){\small $W_1$}
+ \rput{0}(3.7,0.7){\small $W_2$}
+% \rput{0}(4.3,0.25){\small $W_4$}
+% \rput{0}(4.9,0.7){\small $W_4$}
+% \rput{0}(5.5,0.7){\small $W_5$}
+% \rput{0}(6.1,0.7){\small $W_6$}
+% \rput{0}(6.7,0.7){\small $W_7$}
+% \rput{0}(7.3,0.7){\small $W_8$}
+% \rput{0}(7.9,0.7){\small $W_{9}$}
+ \rput{0}(8.5,0.7){\small $W_{16}$}
+ \rput{0}(9.1,0.7){\small $W_{17}$}
+ \rput{0}(9.7,0.7){\small $W_{18}$}
+ \rput{0}(12.1,0.7){\small $W_{2}$}
+% \rput{0}(10.9,0.7){\small $W_{19}$}
+ \rput{0}(12.7,0.7){\small $W_{3}$}
+ \rput{0}(13.3,0.7){\small $W_{4}$}
+ \rput{0}(-0.5,0.7){\small Sequência-m}
+ \rput{0}(-0.5,2.5){\small Codificação}
+ \rput{0}(-0.5,-0.25){\small Sequência de saída}
+ \rput{0}(6,2.5){\small . . . . . . . }
+ \rput{0}(6,0.7){\small . . . . . . . }
+ \rput{0}(6,-0.25){\small . . . . . . . }
+ 
+\psframe(1,-0.5)(1.6,0) %z1
+ \psframe(1.6,-0.5)(2.2,0) %z2
+ \psframe(2.2,-0.5)(2.8,0) %z3
+ \psframe(2.8,-0.5)(3.4,0) %z4
+ \psframe(3.4,-0.5)(4,0) %z5 
+ \psframe(4,-0.5)(4.6,0) %z6
+% \psframe(4.6,-0.5)(5.2,0) %z7
+% \psframe(5.2,-0.5)(5.8,0) %z8
+% \psframe(5.8,-0.5)(6.4,0) %z9
+% \psframe(6.4,-0.5)(7,0) %z10
+% \psframe(7,-0.5)(7.6,0) %z11
+% \psframe(7.6,-0.5)(8.2,0) %z12
+ \psframe(8.2,-0.5)(8.8,0) %z13
+ \psframe(8.8,-0.5)(9.4,0) %z14
+ \psframe(9.4,-0.5)(10,0) %z16
+ \psframe(10,-0.5)(10.6,0) %z16
+ \psframe(10.6,-0.5)(11.2,0) %z17
+ \psframe(11.2,-0.5)(11.8,0) %z18
+ \psframe(11.8,-0.5)(12.4,0) %z19
+ \psframe(12.4,-0.5)(13,0) %z20
+ \psframe(13,-0.5)(13.6,0) %z21
+ 
+ \rput{0}(1.35,-0.25){\small $Y_1$}
+ \rput{0}(1.95,-0.25){\small $Y_2$}
+ \rput{0}(2.55,-0.25){\small $Y_3$}
+ \rput{0}(3.15,-0.25){\small $Y_4$}
+ \rput{0}(3.75,-0.25){\small $Y_5$}
+ \rput{0}(4.35,-0.25){\small $Y_6$}
+% \rput{0}(4.95,-0.25){\small $Y_7$}
+% \rput{0}(5.55,-0.25){\small $Y_8$}
+% \rput{0}(6.15,-0.25){\small $Y_9$}
+% \rput{0}(6.7,-0.25){\small $Y_{10}$}
+% \rput{0}(7.3,-0.25){\small $Y_{11}$}
+% \rput{0}(7.9,-0.25){\small $Y_{12}$}
+ \rput{0}(8.5,-0.25){\small $Y_{19}$}
+ \rput{0}(9.1,-0.25){\small $Y_{20}$}
+ \rput{0}(9.7,-0.25){\small $Y_{21}$} 
+ \rput{0}(10.3,-0.25){\small $Y_{22}$}
+ \rput{0}(10.9,-0.25){\small $Y_{23}$}
+ \rput{0}(11.5,-0.25){\small $Y_{24}$}
+ \rput{0}(12.1,-0.25){\small $Y_{25}$}
+ \rput{0}(12.7,-0.25){\small $Y_{26}$}
+ \rput{0}(13.3,-0.25){\small $Y_{27}$}
+ 
+ \psline{->}(1.3,2)(1.3,0)
+ \psline{->}(1.9,2)(1.9,0)
+ \psline{->}(2.5,2)(2.5,0)
+ \psline{->}(10.9,2)(10.9,0)
+ \psline{->}(11.5,2)(11.5,0)
+ %\psline{->}(12.1,2)(12.1,0)
+
+ \psline{->}(3.1,2)(3.1,1)
+ \psline{->}(3.7,2)(3.7,1)
+ \psline{->}(3.1,0.5)(3.1,0)
+ \psline{->}(3.7,0.5)(3.7,0)
+ \psline{->}(4.3,0.5)(4.3,0)
+ \psline{->}(4.3,2)(4.3,1)
+ \psline{->}(12.1,0.5)(12.1,0)
+ 
+ \psline{->}(9.1,2)(9.1,1)
+ \psline{->}(12.1,2)(12.1,1)
+ \psline{->}(9.7,2)(9.7,1)
+ \psline{->}(8.5,2)(8.5,1)
+ \psline{->}(12.7,2)(12.7,1)
+ \psline{->}(13.3,2)(13.3,1)
+ \psline{->}(10.3,2)(10.3,0)
+ \psline{->}(9.1,0.5)(9.1,0)
+ \psline{->}(9.7,0.5)(9.7,0)
+ \psline{->}(8.5,0.5)(8.5,0)
+ \psline{->}(12.7,0.5)(12.7,0)
+ \psline{->}(13.3,0.5)(13.3,0)
+  \end{pspicture}
+ \caption{\label{fig:QQ} Diagrama de blocos com pós-processamento para geração de um PRNG para $q=3$ e $P=6$.}
+\end{figure}
+
+Uma estimativa do grau do polinômio gerador que gera uma sequência $\{Y_k\}$ com propriedades de uma sequência descorrelacionada, denominado $\hat{N^{\prime}}$, deve cumprir dois 
+requerimentos, tal que:
+\begin{itemize}
+ \item O grau do polinômio deve ser maior ou igual ao número de picos existentes da função autocorrelação da sequência $\{Z_k\}$.
+ \item O período da sequência-m deve ser maior que o comprimento da janela. 
+\end{itemize}
+isto é, que $\hat{N^{\prime}} \geq P$, o número de \textit{bits} com estatística local quase-ideal na sequência-m seja maior ou igual a quantidade de bits correlacionados na janela, 
+e que $2^{\hat{N^{\prime}}}-1 \geq q(P+1)$, garantindo que em uma janela não existam \textit{bits} correlacionados da sequência-m. Uma propriedade relevante da sequência-m é que sua 
+decimação pode formar uma nova sequência-m, conforme é descrito no próximo teorema \cite{chaos1}.
+
+\textbf{Teorema 1}\cite{chaos1}: Seja $\{ W_k\}$ uma sequência-m gerada por um polinômio primitivo de grau $N$. Uma sequência de decimação $\{ W^\prime_k\}$ de parâmetro $s$ obtida a partir de 
+$\{W_k\}$ é da forma
+$W^\prime_k = W_{sk}$. Esta sequência de decimação também é uma sequência-m se, e somente se, $\textrm{gcd}(s,2^N -1)=1$.
+%\begin{equation}
+% b_i=a_{si} \forall i \geq 0,
+%\end{equation}
+%\textit{então $b$ é denominada como sequência de decimação de $a$}.
+
+%\textbf{Colorario 1}: \textit{Se $P(X)$ é um polinômio primitivo, a sequência $a$ é uma sequência-m. Neste caso, uma sequência 
+%de decimação de $a$ é támbem uma sequência-m, se e solo se, o $gcd(s,2^N -1) = 1$. Além disso, o número de deslocamentos-distância
+%da sequência-m ao longo do período $2^{N}-1$ é dado por:}
+%\begin{equation}
+% \phi(2^{N}-1)/ n
+%\end{equation}
+%\textit{que é igual ao número de polinômios primitivos de grau $N$}.
+
+Observe que os bits de $\{ Z_k\}$ correlacionados na primeira janela da Figura 4.12 são, por exemplo, $Z_1, Z_4, Z_7, Z_{10},  \cdots$. Estes são somados com uma decimação 
+de $\{ W_k\}$ de parâmetro $q$ para formar a sequência de saída $Z_1, Z_4 \oplus W_1, Z_7 \oplus W_4 , Z_{10} \oplus W_7, \cdots$.
+De acordo com o Teorema 1 a sequência dezimada será uma sequência-m se, e somente se, $q$ e $2^{N-1}$ sejam primos entre si. Para a família de mapas tanh com $P=6$, um valor
+estimado do cumprimento do LFSR $\hat{N}^\prime$ que cumpre os requerimentos discutidos anteriormente é $\hat{N}^\prime=6$, exceto para $q=3,6,9,\cdots$, visto que para estes valores de
+$q$ a decimação não gera uma sequência-m (de acordo com o Teorema 1). Nestes casos, devemos usar  $\hat{N}^\prime=7$.
+
+Denota-se por $N^{\prime}_{min}$ o menor valor do grau do polinômio gerador da sequência $\{W_k\}$ da Figura \ref{fig:QQ} no qual 
+a sequência $\{Y_k\}$ passa 
+no teste NIST. A Tabela \ref{tab:NN} apresenta uma comparação dos valores de $N_{min}$ (definido na Seção 3.4) e $N^{\prime}_{min}$ para a família de 
+mapas tanh com $r=3$, e diferentes valores de $q$, com codificação CVT. Fazendo uma comparação entre os valores de $N_{min}$ para 
+as duas codificações, pode-se observar que o aumento de $q$, não leva a um aumento $N_{min}$, ficando quase constante. A utilização
+do novo bloco de pós-processamento leva a uma diminuição de aproximadamente $30 \%$ da memória do LFSR, para diferentes 
+valores de $q$, entretanto a complexidade é maior com a introdução das duas chaves $I_1$ e $I_2$. O novo bloco de pós-processamento utiliza os requerimentos antes 
+expostos, $(\hat{N^{\prime}} \geq P)$ e 
+$(2^{\hat{N^{\prime}}}-1 \geq q(P+1))$, assim como que o deslocamento realizado na sequência-m, faz que cada janela soma-se modulo-2 com 
+sequências de decimação diferentes, o que é o mesmo, sequências-m diferentes (geradas por polinômios primitivos diferentes). Os valores de $N^{\prime}_{min}$ indicados nesta tabela coincidem 
+com o valor estimado de $\hat{N}^{\prime}$ para esta família de mapas.
+
+\begin{table}[]
+\centering
+\caption{Comparação entre $N_{min}$ e $N^{\prime}_{min}$ para o mapa e-tanh com $r=3$, com codificação CVT.}
+\label{tab:NN}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+                                                        & \multicolumn{2}{c|}{Mapa e-tanh} & \multicolumn{2}{c|}{Mapa o-tanh} \\ \hline
+\begin{tabular}[c]{@{}c@{}}Taxa de \\ Bits\end{tabular} & $N_{min}$       & $N^{\prime}_{min}$      & $N_{min}$       & $N^{\prime}_{min}$      \\ \hline
+$q=3$                                                     & 9               & 7              & 11              & 7            \\ \hline
+$q=4$                                                     & 10              & 6              & 10              & 6            \\ \hline
+$q=5$                                                     & 10              & 6              & 9               & 6            \\ \hline
+$q=6$                                                     & 11              & 7              & 10              & 7            \\ \hline
+$q=7$                                                     & 10              & 6              & 10              & 6            \\ \hline
+\end{tabular}
+\end{table}
+
+%Na Tabela \ref{tab:NN} pode-se observar como o valor de $\{N^{\prime}\}$ é praticamente constante, comportamento esperado, porque os picos na família de mapas tanh também é praticamente constante. 
+%Quando $q = 3$ ou $q=6$ temos que utilizar um $N^{\prime} =7$, devido a que os \textit{bits} correlacionados da sequência-m coincidem com \textit{bits} que não apresentam características 
+%quase-ideal. Exemplo, para $q=6$ e $N^{\prime}=6$, os \textit{bits} correlacionados da sequência $\{Z_k\}$ são $\{Z_1 - Z_7 - Z_{13} - Z_{19} - Z_{25} - Z_{31} - Z_{37} - Z_{43}\}$ (o ultimo pico 
+%não aparece), e na sequência-m os \textit{bits} $\{W_1 - W_7 - W_{13} - ...\}$ como foi apresentado na Figura \ref{fig:LFSREnt} depois de seis \textit{bits} perde a característica quase-ideal, 
+%característica necessária para a eliminação dos picos de correlação da sequência codificada $\{Z_k\}$. Esta característica esta presente em todos os picos de autocorrelação da sequência $\{Z_k\}$, 
+%o qual leva a que a sequência de saída $\{Y_k\}$ seja não aleatória. Para $q=3$ dos seis picos existentes, três deles vão apresentar a característica antes 
+%exposta (segundo, quarto e sexto). 
+
+As Figuras \ref{fig:P1} e \ref{fig:P2} ilustra a função autocorrelação das sequências $\{Z_k\}$ (antes do pós-processamento) 
+e $\{Y_k\}$ (depois do pós-processamento) do mapa e-tanh com $r=3$, 
+$q=3$ e $q=5$, respectivamente, com codificação CVT. Um analise semelhante faz-se para o mapa o-tanh nas Figuras \ref{fig:P3} 
+e \ref{fig:P4}. A função autocorrelação de $\{Y_k\}$ tem um comportamento de um impulso, 
+o que é esperado para uma sequência descorrelacionada.
+
+\begin{figure}[!b]
+ \centering %
+ \begin{pspicture}(-.6,-.4)(6.5,4) 
+ \rput(3,2){\includegraphics[scale=0.7]{Figuras/CoMP3.eps}}
+ \rput{0}(3.2,-.05){\small $m$}
+ \rput{90}(-.5,2.1){\small $R[m]$}
+ \end{pspicture}
+ \caption{\label{fig:P1} $R[m]$ versus $m$ para mapa e-tanh com $q = 3$ e $N^{\prime}_{min}=7$.}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering %
+ \begin{pspicture}(-.6,-.4)(6.5,4) 
+ \rput(3,2){\includegraphics[scale=0.7]{Figuras/CoMP5.eps}}
+ \rput{0}(3.2,-.05){\small $m$}
+ \rput{90}(-.5,2.1){\small $R[m]$}
+ \end{pspicture}
+ \caption{\label{fig:P2} $R[m]$ versus $m$ para mapa e-tanh com $q = 5$ e $N^{\prime}_{min}=6$.}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering %
+ \begin{pspicture}(-.6,-.4)(6.5,4) 
+ \rput(3,2){\includegraphics[scale=0.7]{Figuras/CoMI3.eps}}
+ \rput{0}(3.2,-.05){\small $m$}
+ \rput{90}(-.5,2.1){\small $R[m]$}
+ \end{pspicture}
+ \caption{\label{fig:P3} $R[m]$ versus $m$ para mapa o-tanh com $q = 3$ e $N^{\prime}_{min}=7$.}
+\end{figure}
+
+\begin{figure}[!h]
+ \centering %
+ \begin{pspicture}(-.6,-.4)(6.5,4) 
+ \rput(3,2){\includegraphics[scale=0.7]{Figuras/CoMI5.eps}}
+ \rput{0}(3.2,-.05){\small $m$}
+ \rput{90}(-.5,2.1){\small $R[m]$}
+ \end{pspicture}
+ \caption{\label{fig:P4} $R[m]$ versus $m$ para mapa o-tanh com $q = 5$ e $N^{\prime}_{min}=6$.}
+\end{figure}
+
+Um comportamento semelhante apresenta o quantificador da entropia condicional. As Figuras \ref{fig:EntPos1} e \ref{fig:EntPos2} ilustram os 
+gráficos de entropia condicional das sequências $\{Z_k\}$ e $\{Y_k\}$ do processo de pós-processamento proposto. A Figura \ref{fig:EntPos1} mostra a entropia condicional 
+para o mapa e-tanh com $r=3$, $q=3$, e a Figura \ref{fig:EntPos2} mesmo quantificador e mesmos parâmetros para o mapa o-tanh.
+
+\begin{figure}[!h]
+ \centering %
+ \begin{pspicture}(-.6,-.4)(6.5,4) 
+ \rput(3,2){\includegraphics[scale=0.7]{Figuras/EntPos1.eps}}
+ \rput{0}(3.2,-.05){\small $n$}
+ \rput{90}(-.5,2.1){\small Entropia condicional}
+ \end{pspicture}
+ \caption{\label{fig:EntPos1} Entropia condicional de $\{Z_k\}$ e $\{Y_k\}$ versus $n$ para mapa e-tanh com $r = 3$ e $q = 3$.}
+\end{figure}
+
+\begin{figure}[!t]
+ \centering %
+ \begin{pspicture}(-.6,-.4)(6.5,4) 
+ \rput(3,2){\includegraphics[scale=0.7]{Figuras/EntPos2.eps}}
+ \rput{0}(3.2,-.05){\small $n$}
+ \rput{90}(-.5,2.1){\small Entropia condicional}
+ \end{pspicture}
+ \caption{\label{fig:EntPos2} Entropia condicional de $\{Z_k\}$ e $\{Y_k\}$ versus $n$ para mapa o-tanh com $r = 3$ e $q = 3$.}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%% INICIO DA SEÇÃO - NOVOS MAPAS CAOTICOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%% FIM DA SEÇÃO - FIM DO CAPÍTULO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

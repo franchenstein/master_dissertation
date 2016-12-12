@@ -217,7 +217,7 @@ Moore algorithm of the refinement of $k$ partition of a set with $n$ elements ca
 
 \subsubsection{An Example}
 
-To illustrate how the Moore algorithm works, this example will apply it to the graph of Figure \ref{fig:moore_ex}, which has $Q = \{A, B, C, D, E\}$, $\Sigma = \{0, 1\}$ and it is not minimal. The first step is to create the initial partition based on the criteria of grouping states together in equivalence classes if they have the same outgoing edges with the same labels. In Figure \ref{fig:moore_ex}, states $A$ and $D$ have outgoing edges labeled with 0 and 1 while $B, C$ and $E$ have only an outgoing edge labeled with 0. Thus, the initial partition has two equivalence classes, $\mathcal{P} = \{\{A,D\}$,  $\{B,C,E\}\}$ shown in Figure \ref{fig:moore_ini}.
+To illustrate how the Moore algorithm works, this example will apply it to the graph of Figure \ref{fig:moore_ex}, which has $Q = \{A, B, C, D, E\}$, $\Sigma = \{0, 1\}$ and it is not minimal. The first step is to create the initial partition based on the criteria of grouping states together in equivalence classes if they have the same outgoing edges with the same labels. In Figure \ref{fig:moore_ex}, states $A$ and $D$ have outgoing edges labeled with 0 and 1 while $B, C$ and $E$ have only an outgoing edge labeled with 0. Thus, the initial partition has two equivalence classes, $\mathcal{P} = \{\{A,D\}$,  $\{B,C,E\}\}$.
 
 \begin{figure}
 \centering
@@ -264,7 +264,7 @@ Q\cap 0^{-1}\{B,C,E\} = \{A,C,D\}
 Q\backslash 0^{-1}\{B,C,E\} = \{B,E\}.
 \]
 
-\noindent $\mathcal{P}_0$ is then the coarsest partition between $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$ and $(\{B,C,E\},0)|Q = \{\{A,C,D\},\{B,E\}\}$. Thus $\mathcal{P}_0 = \{\{A,C,D\},\{B,E\}\}$.
+\noindent $\mathcal{P}_0$ is then the coarsest partition between $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$ and \linebreak $(\{B,C,E\},0)|Q = \{\{A,C,D\},\{B,E\}\}$. Thus $\mathcal{P}_0 = \{\{A,C,D\},\{B,E\}\}$.
 
 This process is repeated to obtain $\mathcal{P}_1$. $(\{A,D\},1)|Q$: from (\ref{eq:splitintersec}):
 
@@ -290,25 +290,25 @@ Q\cap 1^{-1}\{B,C,E\} = \{A,D\}
 Q\backslash 0^{-1}\{A,D\} = \{B, C, E\}.
 \]
 
-\noindent The coarsest partition between $\{\{A,B,C,D,E\}\}$ and $\{\{A,D\},\{B,C,E\}\}$ is $\{\{A,D\},\{B,C,E\}\} = \mathcal{P}_1$.
+\noindent The coarsest partition between $\{\{A,B,C,D,E\}\}$ and \linebreak $\{\{A,D\},\{B,C,E\}\}$ is $\{\{A,D\},\{B,C,E\}\} = \mathcal{P}_1$.
 
 The next step is to take the coarsest partition between $\mathcal{P}_0$ and $\mathcal{P}_1$, which is $\{\{A,D\},\{C\},\{B,E\}\}$. Then the coarsest partition between this result and the current $\mathcal{P}$ is taken, which leaves it unchanged. This result is then stored as the new partition $\mathcal{P}$ and it is shown in Figure \ref{fig:moore_fin}.
 
 
-\begin{figure}
-\centering
-\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 3cm ,on grid ,
-semithick ,
-state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
-\node[state] (A)  {$A,D$};
-\node[state] (B) [right =of A] {$B,C,E$};
-\path (A) edge [bend right=15] node[below] {$0$} (B);
-\path (A) edge [bend left=15] node[above] {$1$} (B);
-\path (B) edge [bend right=45] node[above] {$0$/$B \rightarrow A, E\rightarrow A$} (A);
-\path (B) edge [loop right=15] node[right] {$0$/$C \rightarrow B$} (B);
-\end{tikzpicture}
-\caption{Initial partition of the graph in Figure \ref{fig:moore_ex}.\label{fig:moore_ini}}
-\end{figure}
+%\begin{figure}
+%\centering
+%\begin {tikzpicture}[-latex ,auto ,node distance =3 cm and 3cm ,on grid ,
+%semithick ,
+%state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+%\node[state] (A)  {$A,D$};
+%\node[state] (B) [right =of A] {$B,C,E$};
+%\path (A) edge [bend right=15] node[below] {$0$} (B);
+%\path (A) edge [bend left=15] node[above] {$1$} (B);
+%\path (B) edge [bend right=45] node[above] {$0$/$B \rightarrow A, E\rightarrow A$} (A);
+%\path (B) edge [loop right=15] node[right] {$0$/$C \rightarrow B$} (B);
+%\end{tikzpicture}
+%\caption{Initial partition of the graph in Figure \ref{fig:moore_ex}.\label{fig:moore_ini}}
+%\end{figure}
 
 \begin{figure}
 \centering
@@ -323,12 +323,12 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \path (B) edge [bend right=15] node[above] {$0$} (A);
 \path (C) edge [bend right=15] node[right] {$0$} (B);
 \end{tikzpicture}
-\caption{Application of Moore algorithm to the initial partition in Figure \ref{fig:moore_ini}.\label{fig:moore_fin}}
+\caption{Application of Moore algorithm to the initial partition.\label{fig:moore_fin}}
 \end{figure}
 
 As the current $\mathcal{P}$ is different from the one stored in $\mathcal{P}^{\prime}$, a new iteration has to be performed. Now, $\mathcal{P}$ overwrites the old $\mathcal{P}^{\prime}$ and we have to compute $\mathcal{P}_0$ and $\mathcal{P}_1$.
 
-First, the result of the splitters for 0 are $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$, $(\{C\},0)|Q = \{\{A,D\},\{B,C,E\}\}$ and $(\{B,E\},0)|Q = \{\{C\},\{A,B,D,E\}\}$ which results in $\mathcal{P}_0 = \{\{B,E\}, \{A,D\}, \{C\}\}$. Similarly, $(\{A,D\},1)|Q = \{\{A,B,C,D,E\}\}$, $(\{C\},1)|Q = \{\{A,B,C,D,E\}\}$ and $(\{B,E\},1)|Q = \{\{A,D\},\{B,C,E\}\}$ and results in $\mathcal{P}_1 = \{\{A,D\},\{B,C,E\}\}$. The coarsest partition between $\mathcal{P}_0$ and $\mathcal{P}_1$ is $\{\{A,D\},\{C\},\{B,E\}\}$ which remains unchanged when its coarsest partition is taken with $\mathcal{P}$. This result is then stored in $\mathcal{P}$ and it is equal to $\mathcal{P}^{\prime}$, which means the algorithm has converged and the minimal graph is shown in Figure \ref{fig:moore_fin}.
+First, the result of the splitters for 0 are $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$, $(\{C\},0)|Q = \{\{A,D\},\{B,C,E\}\}$ and $(\{B,E\},0)|Q = \{\{C\},\{A,B,D,E\}\}$ which results in \linebreak $\mathcal{P}_0 = \{\{B,E\}, \{A,D\}, \{C\}\}$. Similarly, $(\{A,D\},1)|Q = \{\{A,B,C,D,E\}\}$, $(\{C\},1)|Q = \{\{A,B,C,D,E\}\}$ and $(\{B,E\},1)|Q = \{\{A,D\},\{B,C,E\}\}$ and results in \linebreak $\mathcal{P}_1 = \{\{A,D\},\{B,C,E\}\}$. The coarsest partition between $\mathcal{P}_0$ and $\mathcal{P}_1$ is $\{\{A,D\},\{C\},\{B,E\}\}$ which remains unchanged when its coarsest partition is taken with $\mathcal{P}$. This result is then stored in $\mathcal{P}$ and it is equal to $\mathcal{P}^{\prime}$, which means the algorithm has converged and the minimal graph is shown in Figure \ref{fig:moore_fin}.
 
 \subsection{Hopcroft's Algorithm}
 
@@ -342,13 +342,13 @@ First, the result of the splitters for 0 are $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\
       	\While{$\mathcal{W} \neq \emptyset$}
       		\State (\textit{W},$\sigma$) $\leftarrow$ TakeSome($\mathcal{W}$)
       		\For{each \textit{P}$\in \mathcal{P}$ which is split by $(W,\sigma)$}
-				\State \textit{P', P"} $\leftarrow (W,\sigma)|P$      		
+				\State $P^{\prime}, P^{\prime\prime} \leftarrow (W,\sigma)|P$      		
 				Replace \textit{P} by \textit{P'} and \textit{P"} in $\mathcal{P}$
 				\ForAll{$\tau \in \Sigma$}
 					\If{$(P,\tau)\in\mathcal{W}$}
-						\State Replace $(P,\tau)$ by $(P',\tau)$ and $(P",\tau)$ in $\mathcal{W}$
+						\State Replace $(P,\tau)$ by $(P^{\prime},\tau)$ and $(P^{\prime\prime},\tau)$ in $\mathcal{W}$
 					\Else
-						\State Append(($\min$(\textit{P'}, $P"$,$\tau$),$\mathcal{W}$)				
+						\State Append(($\min(P^{\prime}, P^{\prime\prime},\tau),\mathcal{W}$)				
 					\EndIf				
 				\EndFor 
       		\EndFor
@@ -357,11 +357,11 @@ First, the result of the splitters for 0 are $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\
     \end{algorithmic}
   \end{algorithm}
 
-The notation min(\textit{P, P'}) indicates the set of smaller size of the two sets \textit{P} and \textit{P'} or any of them when both have the same size. Hopcroft's algorithm computes the coarsest partition that saturates the set \textit{F} of final states. The algorithm keeps a current partition $\mathcal{P} = \{P_1, \ldots, P_n\}$ and a current set $\mathcal{W}$ of splitters (i.e. pairs (\textit{W,$\sigma$}) that remain to be processed where \textit{W} is a class of $\mathcal{P}$ and $\sigma$ is a letter) which is called the \textit{waiting set}. $\mathcal{P}$ is initialized with the initial partition following the same criteria as described in Moore's algorithm. The waiting set is initialized with all the pairs (min(\textit{F, $F^c$}), $\sigma$) for $\sigma\in\Sigma$.
+The notation min($P,P^{\prime}$) indicates the set of smaller size of the two sets $P$ and $P^{\prime}$ or any of them when both have the same size. Hopcroft's algorithm computes the coarsest partition that saturates the set $F$ of final states. The algorithm keeps a current partition $\mathcal{P} = \{P_1, \ldots, P_n\}$ and a current set $\mathcal{W}$ of splitters (i.e. pairs ($W, \sigma$) that remain to be processed where $W$ is a class of $\mathcal{P}$ and $\sigma$ is a letter) which is called the \textit{waiting set}. $\mathcal{P}$ is initialized with the initial partition following the same criteria as described in Moore's algorithm. The waiting set is initialized with all the pairs (min($F, F^c$), $\sigma$) for $\sigma\in\Sigma$.
 
-For each iteration of the loop, one splitter (\textit{W,$\sigma$}) is taken from the waiting set. It then checks whether (\textit{W,$\sigma$}) splits each class of \textit{P} of $\mathcal{P}$. If it does not split, nothing is done, but if it does then \textit{P'} and \textit{P"} (which are the result of splitting \textit{P} by (\textit{W,$\sigma$})) replace \textit{P} in $\mathcal{P}$. Next, for each letter $\tau\in\Sigma$, if the pair (\textit{P,$\tau$}) is present in $\mathcal{W}$ is replaced by the two pairs (\textit{P',$\tau$}) and (\textit{P",$\tau$}). Otherwise, only (\textit{min(P',P"),$\tau$}) is added to $\mathcal{W}$.
+For each iteration of the loop, one splitter ($W,\sigma$) is taken from the waiting set. It then checks whether ($W, \sigma$) splits each class of $P$ of $\mathcal{P}$. If it does not split, nothing is done, but if it does then $P^{\prime}$ and $P^{\prime\prime}$ (which are the result of splitting \textit{P} by ($W,\sigma$) replace $P$ in $\mathcal{P}$. Next, for each letter $\tau\in\Sigma$, if the pair ($P,\tau$) is present in $\mathcal{W}$ is replaced by the two pairs ($P^{\prime},\tau$) and ($P^{\prime\prime}\tau$). Otherwise, only (\textit{min}$(P^{\prime},P^{\prime\prime}),\tau$) is added to $\mathcal{W}$.
 
-The previous computation is performed until $\mathcal{W}$ is empty. It is proven that the final partition of the algorithm is the same as the one given by the Nerode equivalence. No specific order of pairs (\textit{W,$\sigma$}) is described, which gives rise to different implementations in how the pairs are taken from the waiting set but all of them produce the right partition of states. Hopcroft proved that the running time of any execution of his algorithm is bounded by \textit{O(|$\Sigma| n\log n$)}.
+The previous computation is performed until $\mathcal{W}$ is empty. It is proven that the final partition of the algorithm is the same as the one given by the Nerode equivalence. No specific order of pairs ($W, \sigma$) is described, which gives rise to different implementations in how the pairs are taken from the waiting set but all of them produce the right partition of states. Hopcroft proved that the running time of any execution of his algorithm is bounded by \textit{O(|$\Sigma| n\log n$)}.
 
 \section{Probabilistic Finite State Automata}
 
@@ -373,7 +373,7 @@ A PFSA is defined as a graph $G$ and a probability function $\pi$ associated to 
 Given a state $q \in Q$, the probability distribution $\mathcal{V}(q) = \{ \pi(q, \sigma); \forall \sigma \in \Sigma\}$ associated with $q$ is called its morph.  
 \end{definition}
 
-A PFSA can be drawn with its graph with each outgoing edge labeled with a symbol and the probability $\pi(q,\sigma)$ associated with that transition. An example of a PFSA is shown in Figure \ref{fig:pfsa}. for which $Q$ = $\{A, B, C\}$, $\Sigma = \{0, 1\}$. It is the same graph from Figure \ref{fig:graph} with probabilities associated to its edges to create a PFSA.
+A PFSA is drawn with its graph with each outgoing edge labeled with a symbol and the probability $\pi(q,\sigma)$ associated with that transition. An example of a PFSA is shown in Figure \ref{fig:pfsa}. for which $Q$ = $\{A, B, C\}$, $\Sigma = \{0, 1\}$. It is the same graph from Figure \ref{fig:graph} with probabilities associated to its edges to create a PFSA.
 
 \begin{figure}
 \centering
@@ -400,7 +400,7 @@ Given a PFSA $\{G, \pi\}$, there is a probability associated with each word $\om
 It is useful do adapt the concept of synchronization word to the context of PFSA as defined in \citep{asok.11}.
 
 \begin{definition}[\textbf{PFSA Synchronization Word}]\label{definition:synchword}
-For a state \textit{q} $\in Q$, $w$ is a synchronization word if, $\forall \textit{u} \in \Sigma^*$ and $\forall \textit{v} \in \Sigma^*$:
+The word $w$ is a synchronization word if, $\forall \textit{u} \in \Sigma^*$ and $\forall \textit{v} \in \Sigma^*$:
 
 \begin{equation}
 \Pr(\textit{u}|\textit{w}) = \Pr(\textit{u}|\textit{vw}).
@@ -408,22 +408,21 @@ For a state \textit{q} $\in Q$, $w$ is a synchronization word if, $\forall \text
 \end{equation}
 \end{definition}
 
-\noindent Definition \ref{definition:synchword} means that the probability of obtaining any sequence after the synchronization word does not depend on whatever came before \textit{w}. The main problem with this definition is the fact that is not possible to check (\ref{eq:synchword}) for all \textit{u} $\in \Sigma^*$ and for all \textit{v} $\in \Sigma^*$ as there are an infinite number of sequences.
+\noindent Definition \ref{definition:synchword} means that the probability of obtaining any sequence after the synchronization word does not depend on whatever came before \textit{w}. The main problem with this definition is the fact that is not possible to check (\ref{eq:synchword}) for all \textit{u} $\in \Sigma^*$ and for all \textit{v} $\in \Sigma^*$ as there are an infinite number of sequences.The solution is to use (\ref{eq:practsynchword}):
+
+\begin{equation}
+\Pr(\textit{u|w}) = \Pr(\textit{u|vw}), \forall u \in \cup_{i=1}^{L_1}\Sigma^i, \forall v \in \cup_{j=1}^{L_2}\Sigma^j  
+\label{eq:practsynchword}
+\end{equation}
 
 %  A solution uses the \textit{d}-th order derived frequency, which is the probability using \textit{u} and \textit{v} from $\Sigma^d$, \textit{d} $\in \mathbb{Z}$, instead of taking them from $\Sigma^*$. Calling $\Pr_d(\omega)$ the d-th order derived frequency of $\omega$, a statistical test (such as the Chi-Squared or Kolmogorov-Smirnov) with significance level $\alpha$ has to be performed with the following null hypothesis for \textit{w} being a synchronization word:
 
-The solution is to use (\ref{eq:practsynchword}):
-
-\begin{equation}
-\Pr(\textit{wv}) = \Pr(\textit{uwv}), \forall u \in \cup_{i=1}^{L_1}\Sigma^i, \forall v \in \cup_{j=1}^{L_2}\Sigma^j  
-\label{eq:practsynchword}
-\end{equation}
 
 \noindent where $L_1$ and $L_2$ are precision parameters. This means that all words $u$ of length up to $L_1$ are checked as past previous to $w$ and all words $v$ up to length $L_2$ are checked as continuations. This limits the number of tests to be performed, as the tests have to check $|\Sigma|^{L_1 + 1}$ previous words and $|\Sigma|^{L_2+1}$ continuation words.
 
 %This means that the statistical test compares the probabilities of words \textit{w} with length from 0 to \textit{$L_2$} with the probabilities of words \textit{uw}, where \textit{u} is a prefix of \textit{w} with lengths from 0 to \textit{$L_1$}. This limits the number of tests to be realized.
 
-A synchronization words is a good starting point to model a system from its output sequence because the probability of its occurrence does not depend on what came before it. Therefore, its prefix can be regarded as a transient.
+A synchronization words is a good starting point to model a system from its output sequence because the probability of its occurrence does not depend on what comes before it. Therefore, its prefix can be regarded as a transient.
 
 \subsection{Initial Partition for PFSA}\label{subsec:inipart}
 
@@ -431,7 +430,7 @@ In the current work, when applying a graph minimization algorithm (such as Moore
 
 \begin{definition}\label{def:inipartpfsa}
 
-Given a PFSA $\{G,\pi\}$, two states \textit{p, q} $\in Q$ are grouped together in an equivalence class if their morphs are equivalent via a statistical test, i.e. the null hypothesis $\mathcal{V}(p) = \mathcal{V}(q)$ is true for a confidence level $\alpha$.
+Given a PFSA $\{G,\pi\}$, two states \textit{p, q} $\in Q$ are grouped together in an equivalence class if their morphs are equivalent via a statistical test, i.e., the null hypothesis $\mathcal{V}(p) = \mathcal{V}(q)$ is true for a confidence level $\alpha$.
 
 \end{definition}
 
@@ -443,13 +442,13 @@ In this section, two algorithms that construct a PFSA from a sequence $S$ of len
 
 \subsection{D-Markov Machines}
 
-A D-Markov machine is a PFSA that generates symbols that depend only on the history of at most $D$ previous symbols, in which $D$ is the machine's depth. It generates a Markov process $\{S_n\}$ of order $D$:
+A D-Markov machine is a PFSA that generates symbols that depend only on the history of at most $D$ previous symbols, in which $D$ is the machine's depth. It generates a Markov process $\{s_n\}$ of order $D$:
 
 \[
-P(s_n|\ldots s_{n-D}\ldots s_{n-1}) = P(s_n|s_{n-D}\ldots s_{n-1}).
+\Pr(s_n|\ldots s_{n-D}\ldots s_{n-1}) = \Pr(s_n|s_{n-D}\ldots s_{n-1}).
 \]
 
-\noindent To construct a D-Markov Machine, first all symbol blocks of length \textit{D} are taken as the states in the set $Q$ and their transition probabilities can be computed by frequency counting. Consider state $q$ labeled as $q = \sigma_1\sigma_2\ldots\sigma_{D}$ with $\sigma_n\in\Sigma$ for $n = 1,2,\ldots,D$. There is a transition from $q$ to $\sigma_2\ldots\sigma_{D}\tau$ for $\tau\in\Sigma$ ($\delta(q,\tau) = q'$) with probability:
+\noindent To construct a D-Markov Machine, first all symbol blocks of length \textit{D} are taken as the states in the set $Q$ and their transition probabilities can be computed as follows. Consider state $q$ labeled as $q = \sigma_1\sigma_2\ldots\sigma_{D}$ with $\sigma_n\in\Sigma$ for $n = 1,2,\ldots,D$. There is a transition from $q$ to $q^{\prime} = \sigma_2\ldots\sigma_{D}\tau$ for $\tau\in\Sigma$ that is $\delta(q,\tau) = q^{\prime}$ with probability:
 
 \begin{equation}\label{eq:condprob}
 \Pr(\tau | q) = \frac{\Pr(q')}{\Pr(q)},
@@ -457,7 +456,7 @@ P(s_n|\ldots s_{n-D}\ldots s_{n-1}) = P(s_n|s_{n-D}\ldots s_{n-1}).
 
 \noindent where $\Pr(q)$ and $\Pr(q')$ are the probabilities of $q$ and $q'$ occurring in the original sequence, respectively.
 
-For example, considering a binary sequence \textit{S} of length 100 with the probabilities of words of length $\ell \leq 3$ shown in Table \ref{tab:subseq}. To build a 2-Markov Machine, the states are 00, 01, 10 and 11.  Using Equation (\ref{eq:condprob}), the D-Markov machine shown in Figure \ref{fig:dmarkov} is built.
+For example, considering a binary sequence \textit{S} with the probabilities of words of length $\ell \leq 3$ shown in Table \ref{tab:subseq}. To build a 2-Markov Machine, the states are 00, 01, 10 and 11.  Using Equation (\ref{eq:condprob}), the D-Markov machine shown in Figure \ref{fig:dmarkov} is built.
 
 \begin{table}
 \centering
@@ -515,7 +514,7 @@ The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS)
       \While{$\omega_{syn}$ is null}
       	\State $\Omega \leftarrow \Sigma^d$
       	\ForAll{$\omega \in \Omega$}
-      		\If{(isSynString($\omega, L_1$))}
+      		\If{(isSynString($\omega, L_1, L_2$))}
       			\State $\omega_{syn}\leftarrow\omega$
       			\State \textbf{break}
       		\EndIf
@@ -523,15 +522,15 @@ The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS)
       	\State $d \leftarrow d + 1$
       \EndWhile
       \State \textbf{\#\# Recursive Identification of States:}
-      \State Q $\leftarrow$ \{$\omega_{syn}$\}
+      \State $Q \leftarrow$ \{$\omega_{syn}$\}
       \State \~{Q} $\leftarrow$ \{\}
       \State Add $\omega_{syn}\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i  \forall \sigma\in\Sigma$
       \ForAll{$\omega\in$ \~{Q}}
-      	\If{$\omega$ occurs in \textit{X}}
-      		\State $\omega^* \leftarrow$ matchStates($\omega$, Q, $L_2$)
+      	\If{$\omega$ occurs in \textit{S}}
+      		\State $\omega^* \leftarrow$ matchStates($\omega, Q, L_2$)
       		\If{$\omega^*$ is null}
-      			\State Add $\omega$ to Q
-      			\State Add $\omega\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i  \forall \sigma\in\Sigma$
+      			\State Add $\omega$ to $Q$
+      			\State Add $\omega\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i,\,  \forall \sigma\in\Sigma$
       		\Else
       		\EndIf
       	\EndIf
@@ -551,6 +550,8 @@ The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS)
 \subsubsection{Identification of Shortest Synchronization Word}
 
 Using the definition of a synchronization word given in (\ref{eq:practsynchword}), CRISSiS uses brute force to find the shortest synchronization word with fixed parameters $L_1$ and $L_2$. This is shown in Algorithm \ref{alg:issynstring} where each state morph is checked with the morph of its extensions up to a length $L_2$. If all statistical tests are positive for a given word $\omega$, it is returned as the synchronization word $\omega_{syn}$ to be used.
+
+The auxiliar function \textit{hypothesisTest} is used to check (\ref{eq:practsynchword}) for a given value of $\alpha$. It can be implemented either as $\chi^2$ test or a Kolmogorov-Smirnov test. It returns True when the test states that the probabilities are statistically the same and False when they are not.
   
 \begin{algorithm}[b]
 \caption{isSynString($\omega, L_1, L_2$)\label{alg:issynstring}}
@@ -560,7 +561,7 @@ Using the definition of a synchronization word given in (\ref{eq:practsynchword}
 		\ForAll{$u \in \Sigma^D$}
 			\For{$d$ = 0 to $L_2$}
 				\ForAll{$v \in \Sigma^d$}
-					\If{\textit{statisticalTest}($\omega v, u\omega v, \alpha) = $ False}
+					\If{\textit{hypothesisTest}($\Pr(u|\omega v), \Pr(u,\omega v), \alpha) = $ False}
 						\State \textbf{return} False
 					\EndIf
 				\EndFor
@@ -579,7 +580,7 @@ States are equivalence class of strings under Nerode equivalence class. To check
 \Pr(v|q_1) = \Pr(v|q_2), \forall v \in \Sigma^*
 \end{equation}
 
-\noindent but as it is not feasible to test for strings up to infinite length this simplified version checks for string up to length $L_2$:
+\noindent but as it is not feasible to test for strings up to infinite length, a simplified version checks for string up to length $L_2$:
 
 % Given the synchronization word $\omega$, for any two strings $\omega_1$ and $\omega_2$ that reach a state $q$,
 %
@@ -593,9 +594,9 @@ States are equivalence class of strings under Nerode equivalence class. To check
 \Pr(v|q_1) = \Pr(v|q_2), \forall v \in \Sigma^d, d = 1,\ldots,L_2.
 \end{equation}
 
-If two states pass the statistical test using (\ref{eq:classeqprobd}), they are considered to be statistically the same. Strings $q_1$ and $q_2$ need to be synchronizing in order to use (\ref{eq:classeqprobd}). If $\omega$ is a synchronization word for some $q_i \in Q$, then $\omega\tau$ is also a synchronization word for $q_j = \delta(q_i,\tau)$.
+\noindent If two states pass the statistical test using (\ref{eq:classeqprobd}), they are considered to be statistically the same. Strings $q_1$ and $q_2$ need to be synchronizing in order to use (\ref{eq:classeqprobd}). If $\omega$ is a synchronization word for some $q_i \in Q$, then $\omega\tau$ is also a synchronization word for $q_j = \delta(q_i,\tau)$.
 
-The next procedure starts by letting $Q$ be the set of states to be discovered for the PFSA and it is initialized containing only the state defined by the synchronization word $\omega_{syn}$ found in the first step. Then, a tree is constructed using $\omega_{syn}$ as the root node to $|\Sigma|$ children. Each one of the children nodes is regarded as a candidate states with a representation $\omega_{syn}\sigma$ for $\sigma\in\Sigma$. Each one of them is tested using a statistical test with confidence level $\alpha$ with each of the states in $Q$. If a match is found, the child state is removed and its parent $\sigma$-transition should be connected to the matching state. If it does not match any state in Q, it is considered a new state and it is then added to Q and it should also be split in $|\Sigma|$ new candidate states. This procedure is to be repeated until no new candidate states have to be visited. As CRISSiS should be applied to estimate a finite PFSA, this procedure is guaranteed to terminate. 
+The next procedure starts by letting $Q$ be the set of states to be discovered for the PFSA and it is initialized containing only the state defined by the synchronization word $\omega_{syn}$ found in the first step. Then, a tree is constructed using $\omega_{syn}$ as the root node to $|\Sigma|$ children. Each one of the children nodes is regarded as a candidate states with a representation $\omega_{syn}\sigma$ for $\sigma\in\Sigma$. Each one of them is tested using a statistical test with confidence level $\alpha$ with each of the states in $Q$. If a match is found, the child state is removed and its parent $\sigma$-transition should be connected to the matching state. If it does not match any state in $Q$, it is considered a new state and it is then added to $Q$ and it should also be split in $|\Sigma|$ new candidate states. This procedure is repeated until no new candidate states have to be visited. As CRISSiS should be applied to estimate a finite PFSA, this procedure is guaranteed to terminate. 
 
 \begin{algorithm}[t]
 \caption{matchStates($\omega, Q, L_2$)\label{alg:matchstates}}
@@ -603,7 +604,7 @@ The next procedure starts by letting $Q$ be the set of states to be discovered f
 	\ForAll{$q \in Q$ }
 		\For{$d =$ 0 to $L_2$}
 			\ForAll{$v \in \Sigma^d$}
-				\If{\textit{statisticalTest}($\omega v, qv,\alpha$) = False}
+				\If{\textit{hypothesisTest}($\Pr(\omega v|q), \Pr(v|q),\alpha$) = False}
 					\State \textbf{return} $q$
 				\EndIf
 			\EndFor
@@ -615,7 +616,7 @@ The next procedure starts by letting $Q$ be the set of states to be discovered f
 
 \subsubsection{Estimation of Morph Probabilities}
 
-To recover the morphs of each state in $Q$ found in the last step, the sequence \textit{S} (starting from the first of occurrence of $\omega_{syn}$) is fed to the PFSA starting at state $\omega_{syn}$ and transition following the symbols of the original sequence.. Each transition is counted and then normalized in order to recover an estimation of each state morph.
+To recover the morphs of each state in $Q$ found in the last step, the sequence \textit{S} (starting from the first of occurrence of $\omega_{syn}$) is fed to the PFSA starting at state $\omega_{syn}$ and transition following the symbols of the original sequence. Each transition is counted and then normalized in order to recover an estimation of each state morph.
 
 \subsubsection{Example}
 
@@ -661,13 +662,13 @@ $\ell = 1$ & Prob. & $\ell = 2$ & Prob. & $\ell = 3$ & Prob. & $\ell = 4$ & Prob
 \end{tabular}
 \end{table}
 
-First, the synchronization word needs to be found. States 0, 1 and so on are checked with (\ref{eq:practsynchword}). Starting by 0, $\Pr(0|0) = 0.5607$ is not equal to $\Pr(1|0) = \Pr(01)= 0.4393$ which means they do not pass the $\chi^2$ test. Then, the state 1 is tested, which also fails ($\Pr(0|1) = 0.7387 \neq 0.2613 = \Pr(1|1)$. For state 00, the probabilities are relatively close ($\Pr(0|00) = 0.5 = \Pr(001) = \Pr(1|00)$) and it passes the test, giving 00 the status of synchronization word.
+First, the synchronization word needs to be found. States 0, 1 and so on are checked with (\ref{eq:practsynchword}). Starting by 0, $\Pr(0|0) = 0.5607$ is not equal to $\Pr(1|0) = \Pr(01)= 0.4393$ which means they do not pass the $\chi^2$ test. Then, the state 1 is tested, which also fails ($\Pr(0|1) = 0.7387 \neq 0.2613 = \Pr(1|1)$. For state 00, the probabilities are relatively close ($\Pr(0|00) = 0.5 = \Pr(1|00)$) and it passes the test, giving 00 the status of synchronization word.
 
-The second step starts by defining the synchronization word state 00 adding it to $Q$ and splitting it into two candidates states, 000 and 001 (Figure \ref{fig:tree00}). Each candidate has its morphs compared to that of 00, which is the only state in $Q$, with (\ref{eq:classeqprobd}). $\mathcal{V}(000) = [0.494, 0.506]$ is considerably close to $\mathcal{V}(00) = [0.500, 0.500]$, so they pass the statistical test and 00 and 000 are considered to be the same state. 000 is removed and the edge going from 00 to 000 becomes a self-loop from 00 to itself. On the other hand, $\mathcal{V}(001) = [0.800, 0.200]$ is considerably different from $\mathcal{V}(00)$, therefore it is considered a state and added to $Q$ (which now becomes \{00, 001\}) and then it is split into two new candidates (Figure \ref{fig:tree00-2}).
+The second step starts by defining the synchronization word state 00 adding it to $Q$ and splitting it into two candidates states, 000 and 001 (Figure \ref{fig:tree00}). Each candidate has its morphs compared to that of 00, which is the only state in $Q$, via (\ref{eq:classeqprobd}). $\mathcal{V}(000) = [0.494, 0.506]$ is considerably close to $\mathcal{V}(00) = [0.500, 0.500]$, so they pass the statistical test and 00 and 000 are considered to be an equivalent state. 000 is removed and the edge going from 00 to 000 becomes a self-loop from 00 to itself. On the other hand, $\mathcal{V}(001) = [0.800, 0.200]$ is considerably different from $\mathcal{V}(00)$, therefore it is considered a state and added to $Q$ (which now becomes \{00, 001\}) and then it is split into two new candidates (Figure \ref{fig:tree00-2}).
 
 The same procedure is then repeated for the candidates 0010 and 0011. $\mathcal{V}(0010) = [0.703, 0.297]$ is different from both 00 and 001, therefore it is a new state, it is added to $Q$ and split into the new candidates 00100 and 00101. $\mathcal{V}(0011) = [0.500, 0.500]$ passes the test with $\mathcal{V}(00)$, which means that 0011 is removed and the edge from 001 to 0011 goes back to 00. This leads to the configuration in Figure \ref{fig:tree00-3}, with $Q$ = \{00, 001, 0010\}.
 
-The next candidates are similar to two states in $Q$ ($\mathcal{V}(00100) = [0.505, 0.495]$ passes with 00 and $\mathcal{V}(00101) = [0.700, 0.300]$ passes with $\mathcal{V}(0010)$), so both are removed and its edges rearranged to the configuration in Figure \ref{fig:rectrishift}, which is the same graph as the original Tri-Shift, showing that CRISSiS recovered the PFSA graph. All that is left is to run step 3, feeding the input sequence to the graph and computing the morph probabilities, which recovers an accurate Tri-Shift PFSA.
+The next candidates are similar to two states in $Q$ ($\mathcal{V}(00100) = [0.505, 0.495]$ passes with 00 and $\mathcal{V}(00101) = [0.700, 0.300]$ passes with $\mathcal{V}(0010)$), so both are removed and its edges rearranged to the configuration in Figure \ref{fig:rectrishift}, which is the same graph as the original Tri-Shift, showing that CRISSiS recovered the PFSA graph. All that is left is to feed the input sequence to the graph and computing the morph probabilities, which recovers an accurate Tri-Shift PFSA.
 
 \begin{figure}[t]
 \centering

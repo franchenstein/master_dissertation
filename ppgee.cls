@@ -61,7 +61,7 @@
 \newcommand{\palavraschaves}{Tipografia, Normas}
 \newcommand{\keywords}{Typography, Norms}
 \newcommand{\thesissupervisor}{Orientador}
-\newcommand{\thesiscosupervisor}{Co-orientador}
+\newcommand{\thesiscosupervisor}{Coorientador}
 \newcommand{\thesisauthoraddress}{Brasil}
 \newcommand{\thesisapprovedby}{}
 \newcommand{\thesisapprovedbytypesize}{\large}
@@ -89,9 +89,9 @@
 \newcommand{\InstB}{D}
 \newcommand{\InstC}{D}
 \newcommand{\thesiscommitteetypesize}{\large}
-\newcommand{\thesisvitahead}{Sobre o Autor}
+\newcommand{\thesisvitahead}{About the Author}
 \newcommand{\thesisvitaheadtypesize}{\Large}
-\newcommand{\thesisacknowledgmenthead}{Agradecimentos}
+\newcommand{\thesisacknowledgmenthead}{Acknowledgements}
 \newcommand{\thesisacknowledgmentheadtypesize}{\Large}
 \newcommand{\thesisacknowledgmentsigname}{\thesisauthor}
 \newcommand{\thesisacknowledgmentsignametypesize}{\large}
@@ -251,7 +251,7 @@
        como parte dos re\-qui\-si\-tos para obtenção do grau de
       \textbf{\thesisdegreetypesize \thesisdegree}.\\
       {{{Orientador: \thesissupervisor}}}\\
-      {{{Co-orientador: \thesiscosupervisor}}}\\
+      {{{Coorientador: \thesiscosupervisor}}}\\
       {{{Área de Concentração: \thesisarea}}} \\
       \end{spacing}
       \end{minipage}
@@ -436,7 +436,7 @@
        \noindent
        \textbf{Keywords:} \keywords
      \end{spacing}
-     \selectlanguage{portuges}
+     \selectlanguage{english}
      \newpage
      }
 
@@ -531,7 +531,7 @@
 %    \addcontentsline{toc}{chapter}{\@thesisvitahead}
     \begin{spacing}{\@defaultbaselinestretch}}
     {\end{spacing} \par \vspace{15mm}
-     \noindent Endereço:
+     \noindent Address:
        \begin{minipage}[t]{90mm}
          \thesisauthoraddress
        \end{minipage}
@@ -631,7 +631,7 @@
           \@chapapp{}{
 % Minhas mudanÃ§as... para melhor.. eu acho. Outros nÃ£o acham... hehehe
 %             \strut\hfill \pscharpath[linewidth=.5pt,fillcolor=gray,fillstyle=solid]{\huge {\textsc{capítulo}}} {\fontsize{60}{0}\usefont{T1}{psbj}{m}{n}\selectfont {{\thechapter}}}}
-             \strut\hfill{\huge {\textsc{\textbf{Capítulo}}} }\fontsize{60}{0}\usefont{T1}{psbj}{m}{n}\selectfont \thechapter}            %psbj
+             \strut\hfill{\huge {\textsc{\textbf{Chapter}}} }\fontsize{60}{0}\usefont{T1}{psbj}{m}{n}\selectfont \thechapter}            %psbj
         \fi
  \else
          \ifnum \c@secnumdepth >\m@ne
@@ -723,7 +723,7 @@
 
 
 \renewcommand\tableofcontents{%
-    \renewcommand{\contentsname}{Sumário}
+    \renewcommand{\contentsname}{Table of Contents}
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
