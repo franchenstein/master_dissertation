@@ -748,7 +748,7 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 \caption{Recovered Tri-Shift topology.\label{fig:rectrishift}}
 \end{figure}
 
-\subsubsection{Time Complexity}
+\subsubsection{Time Complexity\label{crissiscomplex}}
 
 As shown in \citep{asok.11}, CRISSiS operates with a time complexity of $O(N)\cdot(|\Sigma|^{O(|Q|^3)+L_1+L_2}+|Q||\Sigma|^{L_2})$, where $N$ is the length of the input sequence, $|\Sigma|$ is the alphabet size, $|Q|$ is the number of states in the original PFSA and $L_1$ and $L_2$ are parameters determining how much of the past and future of a state is needed to determine it. It is stated that as $L_1$ and $L_2$ are both usually small, it does not affect the performance greatly, even though the algorithm is exponential in these parameters.																					
 
