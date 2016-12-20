@@ -694,7 +694,7 @@
     \else
       \@restonecolfalse
     \fi
-    \chapter*{\centering\textsc{\textbf{\listtablename}}
+    \chapter*{\centering\textsc{\textbf{List of Tables}}
       \@mkboth{\uppercase{\listtablename}}{\uppercase{\listtablename}}}%
 %ABNT    \addcontentsline{toc}{chapter}{\textbf{\textsc{\listtablename}}}
     \thispagestyle{empty}
@@ -708,7 +708,7 @@
     \else
       \@restonecolfalse
     \fi
-    \chapter*{\centering\textsc{\textbf{\listfigurename}}
+    \chapter*{\centering\textsc{\textbf{List of Figures}}
       \@mkboth{\uppercase{\listfigurename}}%
               {\uppercase{\listfigurename}}}%
 %ABNT    \addcontentsline{toc}{chapter}{\textbf{\textsc{\listfigurename}}}

@@ -25,29 +25,32 @@
 \contentsline {subsubsection}{Time Complexity}{30}
 \contentsline {chapter}{\numberline {3}\scshape {\bfseries {Algorithm Description}}}{32}
 \contentsline {section}{\numberline {3.1}A New Algorithm for Finding Synchronization Words}{32}
-\contentsline {subsection}{\numberline {3.1.1}An Example}{37}
-\contentsline {section}{\numberline {3.2}PFSA Construction }{40}
-\contentsline {subsection}{\numberline {3.2.1}Termination Criteria}{40}
-\contentsline {subsubsection}{D-Markov Termination}{40}
-\contentsline {subsubsection}{$\Omega $ Termination}{41}
-\contentsline {subsection}{\numberline {3.2.2}ALEPH Algorithm}{41}
-\contentsline {section}{\numberline {3.3}Time Complexity}{43}
-\contentsline {subsection}{\numberline {3.3.1}RTP Construction}{43}
-\contentsline {subsection}{\numberline {3.3.2}Synchronization Word Search}{43}
-\contentsline {subsection}{\numberline {3.3.3}Termination}{45}
-\contentsline {subsection}{\numberline {3.3.4}PFSA Construction}{45}
-\contentsline {chapter}{\numberline {4}\scshape {\bfseries {Results}}}{53}
-\contentsline {section}{\numberline {4.1}Evaluation Metrics}{53}
-\contentsline {subsection}{\numberline {4.1.1}Entropy Rate}{54}
-\contentsline {subsection}{\numberline {4.1.2}Kullback-Leibler Divergence}{54}
-\contentsline {section}{\numberline {4.2}Construction of PFSA for Dynamic Systems}{54}
-\contentsline {subsection}{\numberline {4.2.1}Ternary Even Shift}{55}
-\contentsline {subsection}{\numberline {4.2.2}Tri-Shift}{56}
-\contentsline {subsection}{\numberline {4.2.3}A Six-State PFSA}{57}
-\contentsline {subsection}{\numberline {4.2.4}Maximum Entropy $(d,k)$-Constrained Code}{59}
-\contentsline {chapter}{\numberline {5}\scshape {\bfseries {Applications}}}{62}
-\contentsline {subsection}{\numberline {5.0.1}Logistic Map}{62}
-\contentsline {subsection}{\numberline {5.0.2}Gilbert-Elliot Channel}{63}
-\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{66}
-\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{67}
-\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{68}
+\contentsline {subsection}{\numberline {3.1.1}An Example}{38}
+\contentsline {section}{\numberline {3.2}PFSA Construction }{47}
+\contentsline {subsection}{\numberline {3.2.1}RTP Leaf Connection Criteria}{47}
+\contentsline {subsubsection}{D-Markov Connection}{47}
+\contentsline {subsubsection}{$\Omega $ Connection}{47}
+\contentsline {subsection}{\numberline {3.2.2}ALEPH Algorithm}{48}
+\contentsline {subsubsection}{Step 1: RTP Leaf Termination}{49}
+\contentsline {subsubsection}{Step 2: Grouping in Equivalence Classes}{49}
+\contentsline {subsection}{\numberline {3.2.3}Step 3: Graph Minimization}{50}
+\contentsline {section}{\numberline {3.3}Time Complexity}{50}
+\contentsline {subsection}{\numberline {3.3.1}RTP Construction}{50}
+\contentsline {subsection}{\numberline {3.3.2}Synchronization Word Search}{50}
+\contentsline {subsection}{\numberline {3.3.3}RTP Leaf Connection}{52}
+\contentsline {subsection}{\numberline {3.3.4}PFSA Construction}{52}
+\contentsline {chapter}{\numberline {4}\scshape {\bfseries {Results}}}{55}
+\contentsline {section}{\numberline {4.1}Evaluation Metrics}{55}
+\contentsline {subsection}{\numberline {4.1.1}Entropy Rate}{56}
+\contentsline {subsection}{\numberline {4.1.2}Kullback-Leibler Divergence}{56}
+\contentsline {section}{\numberline {4.2}Construction of PFSA for Dynamic Systems}{56}
+\contentsline {subsection}{\numberline {4.2.1}Ternary Even Shift}{57}
+\contentsline {subsection}{\numberline {4.2.2}Tri-Shift}{58}
+\contentsline {subsection}{\numberline {4.2.3}A Six-State PFSA}{59}
+\contentsline {subsection}{\numberline {4.2.4}Maximum Entropy $(d,k)$-Constrained Code}{61}
+\contentsline {chapter}{\numberline {5}\scshape {\bfseries {Applications}}}{64}
+\contentsline {subsection}{\numberline {5.0.1}Logistic Map}{64}
+\contentsline {subsection}{\numberline {5.0.2}Gilbert-Elliot Channel}{65}
+\contentsline {chapter}{\numberline {6}\scshape {\bfseries {TODO}}}{68}
+\contentsline {chapter}{Ap\^endice{} \numberline {A}\textsc {\textbf {TODO}}}{69}
+\contentsline {chapter}{Ap\^endice{} \numberline {B}\textsc {\textbf {TODO}}}{70}
