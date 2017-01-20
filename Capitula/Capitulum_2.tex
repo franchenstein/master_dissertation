@@ -171,11 +171,7 @@ Given a graph \textit{G = (Q, $\Sigma, \delta$)} and the initial partition $\mat
 L_q^{(h)}(G) = \{w \in \Sigma^* | |w| \leq h, \delta^*(q,w) \in P_j\},
 \]
 
-<<<<<<< HEAD
 \noindent where $\mathcal{P}_j \in \mathcal{P}$  is comprised of all words up to length $h$ that can be generated starting from a certain $q \in Q$ and reaching a state in the equivalence class $\mathcal{P}_j$. The Moore equivalence of order $h$ (denoted by $\equiv_h$) is defined by:
-=======
-\noindent where $P_j$ is an arbitrary equivalence class in the initial partition. The set $L_q^{(h)}$ is comprised of all words up to length $h$ that can be generated starting from a certain $q \in Q$ and reaching a state in the equivalence class $P_j$. The Moore equivalence of order $h$ (denoted by $\equiv_h$) is defined by:
->>>>>>> c36c0aefd7d800ea23687cad1a168257e649c923
 
 \[
 p \equiv_h q \Leftrightarrow L_p^{(h)}(G) = L_q^{(h)}(G).
@@ -203,13 +199,9 @@ For \textit{h} $\geq$ 0, one has
 \mathcal{M}_{h+1} = \mathcal{M}_h \wedge \bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q.
 \end{equation}
 
-<<<<<<< HEAD
-\noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $\mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
-=======
 \noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
 
  This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition until no change occurs between $\mathcal{M}_h$ and $\mathcal{M}_{h+1}$, which means the Nerode equivalence is reached. As it will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (Section \ref{subsec:inipart}).
->>>>>>> c36c0aefd7d800ea23687cad1a168257e649c923
 
  This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition. As will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (see Section \ref{subsec:inipart}).
 
@@ -448,19 +440,19 @@ A D-Markov machine is a PFSA that generates symbols that depend only on the hist
 \Pr(s_n|\ldots s_{n-D}\ldots s_{n-1}) = \Pr(s_n|s_{n-D}\ldots s_{n-1}).
 \]
 
-\noindent To construct a D-Markov Machine, first all symbol blocks of length \textit{D} are taken as the states in the set $Q$ and their transition probabilities can be computed as follows. Consider state $q$ labeled as $q = \sigma_1\sigma_2\ldots\sigma_{D}$ with $\sigma_n\in\Sigma$ for $n = 1,2,\ldots,D$. There is a transition from $q$ to $q^{\prime} = \sigma_2\ldots\sigma_{D}\tau$ for $\tau\in\Sigma$ that is $\delta(q,\tau) = q^{\prime}$ with probability:
+\noindent To construct a D-Markov Machine, first all symbol blocks of length \textit{D} are taken as the states in the set $Q$ and their transition probabilities can be computed as follows. Consider state $q$ labeled as $q = \sigma_1\sigma_2\ldots\sigma_{D}$ with $\sigma_n\in\Sigma\,$, for $n = 1,2,\ldots,D$. There is a transition from $q$ to $q^{\prime} = \sigma_2\ldots\sigma_{D}\tau$ for $\tau\in\Sigma$\,, that is $\delta(q,\tau) = q^{\prime}\,$, with probability:
 
 \begin{equation}\label{eq:condprob}
-\Pr(\tau | q) = \frac{\Pr(q')}{\Pr(q)},
+\Pr(\tau | q) = \frac{\Pr(q\tau)}{\Pr(q)},
 \end{equation}
 
-\noindent where $\Pr(q)$ and $\Pr(q')$ are the probabilities of $q$ and $q'$ occurring in the original sequence, respectively.
+\noindent where $\Pr(q)$ and $\Pr(q\tau)$ are the probabilities of $q$ and $q'$ occurring in the original sequence, respectively.
 
 For example, considering a binary sequence \textit{S} with the probabilities of words of length $\ell \leq 3$ shown in Table \ref{tab:subseq}. To build a 2-Markov Machine, the states are 00, 01, 10 and 11.  Using Equation (\ref{eq:condprob}), the D-Markov machine shown in Figure \ref{fig:dmarkov} is built.
 
 \begin{table}
 \centering
-\caption{Probabilities of words of length up to 3 for the binary sequence \textit{S}. \label{tab:subseq}}
+\caption{Probabilities of words of length up to 3 obtained from a binary sequence \textit{S}. \label{tab:subseq}}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 $\ell = 1$ & Prob. & $\ell = 2$ & Prob. & $\ell = 3$ & Prob. \\
@@ -510,7 +502,7 @@ The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS)
       \State \textbf{Outputs:} PFSA \^{P} = \{$G, \pi$\}
       \State \textbf{\#\# Identification of Shortest Synchronization Word:}
       \State $\omega_{syn} \leftarrow $ null
-      \State d $\leftarrow $ 0
+      \State $d \leftarrow $ 0
       \While{$\omega_{syn}$ is null}
       	\State $\Omega \leftarrow \Sigma^d$
       	\ForAll{$\omega \in \Omega$}
@@ -523,15 +515,16 @@ The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS)
       \EndWhile
       \State \textbf{\#\# Recursive Identification of States:}
       \State $Q \leftarrow$ \{$\omega_{syn}$\}
-      \State \~{Q} $\leftarrow$ \{\}
-      \State Add $\omega_{syn}\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i  \forall \sigma\in\Sigma$
-      \ForAll{$\omega\in$ \~{Q}}
+      \State  \~{Q} $ \leftarrow \{\omega_{syn}\sigma,\, \forall \sigma \in \Sigma\}$
+      \State $\delta(\omega_{syn},\sigma) = \omega_{syn}\sigma  \forall \sigma\in\Sigma$
+      \ForAll{$\omega\in $ \~{Q}}
       	\If{$\omega$ occurs in \textit{S}}
       		\State $\omega^* \leftarrow$ matchStates($\omega, Q, L_2$)
       		\If{$\omega^*$ is null}
       			\State Add $\omega$ to $Q$
-      			\State Add $\omega\sigma_i$ to \~{Q} and $\delta(\omega_{syn},\sigma_i) = \omega_{syn}\sigma_i,\,  \forall \sigma\in\Sigma$
+      			\State Add $\omega\sigma$ to \~{Q} and $\delta(\omega,\sigma) = \omega_{syn}\sigma,\,  \forall \sigma\in\Sigma$
       		\Else
+      			\State Replace all $\omega$ by $\omega^*$ in $\delta$
       		\EndIf
       	\EndIf
       \EndFor
@@ -549,9 +542,9 @@ The Compression via Recursive Identification of Self-Similar Semantics (CRISSiS)
   
 \subsubsection{Identification of Shortest Synchronization Word}
 
-Using the definition of a synchronization word given in (\ref{eq:practsynchword}), CRISSiS uses brute force to find the shortest synchronization word with fixed parameters $L_1$ and $L_2$. This is shown in Algorithm \ref{alg:issynstring} where each state morph is checked with the morph of its extensions up to a length $L_2$. If all statistical tests are positive for a given word $\omega$, it is returned as the synchronization word $\omega_{syn}$ to be used.
+Using the definition of a synchronization word given in (\ref{eq:practsynchword}), CRISSiS uses brute force to find the shortest synchronization word with fixed parameters $L_1$ and $L_2$. This is shown in Algorithm \ref{alg:issynstring} where each state morph is checked with the morph of its extensions up to a length $L_2$. If all statistical tests are positive for a given word $\omega$, it is returned as the synchronization word $\omega_{syn}$.
 
-The auxiliar function \textit{hypothesisTest} is used to check (\ref{eq:practsynchword}) for a given value of $\alpha$. It can be implemented either as $\chi^2$ test or a Kolmogorov-Smirnov test. It returns True when the test states that the probabilities are statistically the same and False when they are not.
+The auxiliar function \textit{hypothesisTest} is used to check (\ref{eq:practsynchword}) for a given value of $\alpha$. It can be implemented either as the $\chi^2$ test or the Kolmogorov-Smirnov test. It returns True when the test states that the probabilities are statistically the same or False when they are not.
   
 \begin{algorithm}[b]
 \caption{isSynString($\omega, L_1, L_2$)\label{alg:issynstring}}
@@ -561,7 +554,7 @@ The auxiliar function \textit{hypothesisTest} is used to check (\ref{eq:practsyn
 		\ForAll{$u \in \Sigma^D$}
 			\For{$d$ = 0 to $L_2$}
 				\ForAll{$v \in \Sigma^d$}
-					\If{\textit{hypothesisTest}($\Pr(u|\omega v), \Pr(u,\omega v), \alpha) = $ False}
+					\If{\textit{hypothesisTest}($\Pr(u|\omega v), \Pr(u|\omega v), \alpha) = $ False}
 						\State \textbf{return} False
 					\EndIf
 				\EndFor
@@ -574,7 +567,7 @@ The auxiliar function \textit{hypothesisTest} is used to check (\ref{eq:practsyn
 
 \subsubsection{Recursive Identification of States}
 
-States are equivalence class of strings under Nerode equivalence class. To check if two states $q_1$ and $q_2$ are the same, it would be necessary to test:
+States are equivalence class of strings under Nerode equivalence class. To check if two states $q_1$ and $q_2$ are equivalent, it would be necessary to test:
 
 \begin{equation}\label{eq:classeqprob}
 \Pr(v|q_1) = \Pr(v|q_2), \forall v \in \Sigma^*
@@ -596,7 +589,9 @@ States are equivalence class of strings under Nerode equivalence class. To check
 
 \noindent If two states pass the statistical test using (\ref{eq:classeqprobd}), they are considered to be statistically the same. Strings $q_1$ and $q_2$ need to be synchronizing in order to use (\ref{eq:classeqprobd}). If $\omega$ is a synchronization word for some $q_i \in Q$, then $\omega\tau$ is also a synchronization word for $q_j = \delta(q_i,\tau)$.
 
-The next procedure starts by letting $Q$ be the set of states to be discovered for the PFSA and it is initialized containing only the state defined by the synchronization word $\omega_{syn}$ found in the first step. Then, a tree is constructed using $\omega_{syn}$ as the root node to $|\Sigma|$ children. Each one of the children nodes is regarded as a candidate states with a representation $\omega_{syn}\sigma$ for $\sigma\in\Sigma$. Each one of them is tested using a statistical test with confidence level $\alpha$ with each of the states in $Q$. If a match is found, the child state is removed and its parent $\sigma$-transition should be connected to the matching state. If it does not match any state in $Q$, it is considered a new state and it is then added to $Q$ and it should also be split in $|\Sigma|$ new candidate states. This procedure is repeated until no new candidate states have to be visited. As CRISSiS should be applied to estimate a finite PFSA, this procedure is guaranteed to terminate. 
+%The next procedure starts by letting $Q$ be the set of states to be discovered for the PFSA and it is initialized containing only the state defined by the synchronization word $\omega_{syn}$ found in the first step, and \~{Q} is the final set of states recovered by the algorithm and it is initialized as an empty set.
+
+ The next procedure starts by letting $Q$ be the set of states that will receive the states for the final machine found by the algorithm and \~{Q} is the set of states to be checked if they are equivalent to some state in $Q$ or if they are a state on their own. It is initialized with the descendants of $\omega_{syn}$. The function $\delta$ for the machine is initialized with $\delta(\omega_{syn},\sigma)$ equal to $\omega_{syn}\sigma$ for all $\sigma\in\Sigma$. This is represent by a tree using $\omega_{syn}$ as the root node to $|\Sigma|$ children, which are the states in \~{Q}. Each one of the children nodes is regarded as a candidate state. Each one of them is tested using a statistical test with confidence level $\alpha$ with each of the states in $Q$. If a match between some $\omega\in$ \~{Q} and some $\omega^*\in Q$ is found, the child state is removed and all the transitions to $\omega$ are redirected to $\omega^*$ (i.e. every $\delta(q,\sigma) = \omega$ now becomes $\delta(q,\sigma) = \omega^*$ for any $q\in Q$ and any $\sigma\in\Sigma$). If it does not match any state in $Q$, it is considered a new state and it is then added to $Q$ and it should also be split in $|\Sigma|$ new candidate states which are added to \~{Q}. This procedure is repeated until no new candidate states have to be visited. As CRISSiS should be applied to estimate a finite PFSA, this procedure is guaranteed to terminate. 
 
 \begin{algorithm}[t]
 \caption{matchStates($\omega, Q, L_2$)\label{alg:matchstates}}

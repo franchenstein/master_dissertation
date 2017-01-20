@@ -68,9 +68,9 @@ The concept of a shortest valid suffix (SVS) also needs to be explained as it is
  
  Along with the \textit{candidacy} dictionary, a second dictionary called \textit{suffixes} is created. It also has the states from $\mathcal{S}$ as keys. The associated value to each key is a list of states for which the key is the shortest valid suffix, i.e. the key state is the shortest state to have a \textit{True} value for its candidacy and also is a suffix for all the word in the associated list.  Another dictionary, $V$ is created to be used in the expansion algorithm and it is explained later in the context of Algorithm \ref{alg:expand}.
 
-To find the synchronization words, Algorithm \ref{alg:findsynchwords} is used. Its inputs are the rooted tree with probabilities $\mathcal{S}$ with maximum depth $L$, the maximum window size $W$, which is a parameter that determines how deep in the tree the algorithm searches. The algorithm starts by creating the queue $\Gamma$ which contains states from $\mathcal{S}$ that are not fully tested for the synchronization word hypothesis during the current iteration. $\Gamma$ is initialized with $\epsilon$. A list $\Theta$ is created and initialized empty. It receives the states from $\mathcal{S}$ which currently have passed the statistical tests. The statistical tests are implemented as either $\chi^2$ or Kolmogorov-Smirnov tests for a given confidence level $\alpha$. This is implemented as the auxiliary function \textit{statisticalTest} which takes two states whose morphs needs to be compared and a confidence level as inputs and returns True if the test passes and False otherwise.
+To find the synchronization words, Algorithm \ref{alg:findsynchwords} is used. Its inputs are the rooted tree with probabilities $\mathcal{S}$ with maximum depth $L$, the maximum window size $W$, which is a parameter that determines how deep in the tree the algorithm searches. The algorithm starts by creating the queue $\Gamma$ which contains states from $\mathcal{S}$ that are not fully tested for the synchronization word hypothesis during the current iteration. As $\epsilon$ is the only value to be tested in the beginning of the algorithm, only \textit{suffixes}$[\epsilon]$ is initialized with a list of the states  $\sigma \in \Sigma$ as they all have $\epsilon$ as their shortest valid suffix. . A list $\Theta$ is created and initialized empty. It receives the states from $\mathcal{S}$ which currently have passed the statistical tests. The statistical tests are implemented as either $\chi^2$ or Kolmogorov-Smirnov tests for a given confidence level $\alpha$. This is implemented as the auxiliary function \textit{statisticalTest} which takes as inputs two states and a significance level $\alpha$ and compares the state morphs with a statistical test with the given confidence level and returns True if the test passes and False otherwise.
 
-As $\epsilon$ is the only value to be tested in the beginning of the algorithm, only \textit{suffixes}$[\epsilon]$ is initialized with a list of the states  $\sigma \in \Sigma$ as they all have $\epsilon$ as their shortest valid suffix. 
+
 
 %When a test fails, $\Theta$ is appended to $\Gamma$ and emptied again, as the states in $\Theta$ have to be checked along with other states that might now have them as suffixes. Once all the tests are performed, $\Theta$ is returned as it contains the list of synchronization words by the end of the algorithm.
  
@@ -213,11 +213,11 @@ When $\zeta \neq d$, $V[\zeta]$ has $d$ appended to it. Later on, if $\zeta$ fai
 
 To illustrate how the algorithm works, the Tri-Shift as it can be compared to CRISSiS in Section \ref{sec:crissis}. All statistical tests in this section use the $\chi^2$ test with $\alpha = 0.95$. The initial RTP with $L = 4$ is shown in Figure \ref{fig:trishifttree0}. We consider $W=3$.  The queue $\Gamma$ is initialized with the root of $\mathcal{S}$. The dictionary \textit{suffixes} is initialized with  \textit{suffixes}[$\epsilon$] = \{0, 1\}. $V$ is initialized as an empty dictionary, $\Theta$ is initialized as an empty list and all the states start with their candidacy set to True.
 
-As $\Gamma$ is not empty, it is dequeued and $c = \epsilon$, which has a label length of zero and is shorter than $W = 3$. It then proceeds to iterate through \textit{suffixes}[$c$] = \textit{suffixes}[$\epsilon$] = $\{0, 1\}$ and $p$ is set to true. It first compares \textit{statisticalTest}$(\epsilon, 0)$. As the morphs are [0.6276, 0.3274] and [0.5615, 0.4385], the test fails, which means $\epsilon$ candidacy is set to False and the expansion algorithm is called. 
+As $\Gamma$ is not empty, it is dequeued and $c = \epsilon$, which has a label length of zero and is shorter than $W = 3$. It then proceeds to iterate through \textit{suffixes}[$c$] = \textit{suffixes}[$\epsilon$] = $\{0, 1\}$ and $p$ is set to true. It first compares \textit{statisticalTest}$(\epsilon, 0, \alpha)$. As the morphs are [0.6276, 0.3274] and [0.5615, 0.4385], the test fails, which means $\epsilon$ candidacy is set to False and the expansion algorithm is called. 
 
-The list $\Psi$ is initialized with the direct descendants of $c = \epsilon$, that is $\Psi = \{0, 1\}$. $V[\epsilon]$ is empty and can be disregarded. It is easy to check that all elements in $\Psi$ are their own shortest valid suffixes after $\epsilon$ candidacy becomes false (seen in Figure \ref{fig:trishifttree1}). This means both of them are queued into $\Gamma$, so that $\Gamma = \{0, 1\}$. For both 0 and 1, they are their direct descendants shortest valid suffixes, which means that suffixes[0] = \{00, 10\} and suffixes[1] = \{01, 11\}. The expansion algorithm returns to the synchronization algorithm. The list $\Theta$ is appended to the end of $\Gamma$, but as it is currently empty it does not change $\Gamma$. This ends the first iteration. 
+The list $\Psi$ is initialized with the direct descendants of $c = \epsilon$, that is $\Psi = \{0, 1\}$. $V[\epsilon]$ is empty and can be disregarded. It is easy to check that all elements in $\Psi$ are their own shortest valid suffixes after $\epsilon$ candidacy becomes false (as seen in Figure \ref{fig:trishifttree1}, since the state is not filled). This means both of them are queued into $\Gamma$, so that $\Gamma = \{0, 1\}$. For both 0 and 1, they are their direct descendants shortest valid suffixes, which means that \textit{suffixes}[0] = \{00, 10\} and \textit{suffixes}[1] = \{01, 11\}. The expansion algorithm returns to the synchronization algorithm. The list $\Theta$ is appended to the end of $\Gamma$, but as it is currently empty it does not change $\Gamma$. This ends the first iteration. 
 
-\begin{figure}[t]
+\begin{figure}[H]
 \centering
 \tikzstyle{level 1}=[level distance=2.5cm, sibling distance=11.5cm]
 \tikzstyle{level 2}=[level distance=2.5cm, sibling distance=5.5cm]
@@ -295,11 +295,11 @@ The list $\Psi$ is initialized with the direct descendants of $c = \epsilon$, th
 \caption{Input Rooted Tree with Probabilities $\mathcal{S}$ for the Tri-Shift Example. \label{fig:trishifttree0}}
 \end{figure}
 
-At the beginning of the next iteration $\mathcal{S}$ is shown in \ref{fig:trishifttree1}, $\Gamma = \{0, 1\}$ and when it is dequeued, $c = 0$, whose label is still shorter than $W$. The list \textit{suffixes}[$0$] $= \{00, 10\}$ has each of its elements tested. First to be tested is $00$ and \textit{statisticalTest}$(0,00)$ returns False as $\mathcal{V}(0) = [0.5615, 0.4385]$ diverges significantly from $\mathcal{V}(00) = [0.5, 0.5]$. This means that \textit{candidacy}[$0$] is set to False and the expansion algorithm is called.
+At the beginning of the next iteration $\mathcal{S}$ is shown in Figure \ref{fig:trishifttree1}, $\Gamma = \{0, 1\}$ and when it is dequeued, $c = 0$, whose label is still shorter than $W$. The list \textit{suffixes}[$0$] $= \{00, 10\}$ has each of its elements tested. First to be tested is $00$ and \textit{statisticalTest}$(0,00,\alpha)$ returns False as $\mathcal{V}(0) = [0.5615, 0.4385]$ diverges significantly from $\mathcal{V}(00) = [0.5, 0.5]$. This means that \textit{candidacy}[$0$] is set to False and the expansion algorithm is called.
 
-For $c = 0$, the expansion algorithm has $\Psi = \{00, 01\}$ and $0$ is not among the keys of $V$, so no other elements are appended to $\Psi$. First, the SVS is checked for $00$ and by examining the tree, it is observed that it is its own shortest valid suffix. This means that $00$ is queued into $\Gamma$. Its children, $000$ and $001$ have $00$ and $1$ as shortest valid suffixes, so the \textit{suffixes} dictionary is updated to \textit{suffixes}[$000$] = $\{000\}$ and suffixes[$1$] = $\{01, 11, 001\}$. Next, the shortest valid suffix of $01$ is shown to be $1$, which means it is not its own shortest valid suffix. This means it has to be appended to $V[1]$, which makes it $V[1] = \{01\}$. The empty list $\Theta$ is once again appended to $\Gamma$ and then emptied. 
+For $c = 0$, the expansion algorithm has $\Psi = \{00, 01\}$ and $0$ is not among the keys of $V$, so no other elements are appended to $\Psi$. First, the SVS is checked for $00$ and by examining the tree, it is observed that it is its own shortest valid suffix. This means that $00$ is queued into $\Gamma$. Its children, $000$ and $001$ have $00$ and $1$ as shortest valid suffixes, so the \textit{suffixes} dictionary is updated to \textit{suffixes}[$000$] = $\{000\}$ and \textit{suffixes}[$1$] = $\{01, 11, 001\}$. Next, the shortest valid suffix of $01$ is shown to be $1$, which means it is not its own shortest valid suffix. This means it has to be appended to $V[1]$, which makes it $V[1] = \{01\}$. The empty list $\Theta$ is once again appended to $\Gamma$ and then emptied. 
 
-In the beginning of the next iteration, we have $\Gamma = \{1, 000\}$, $V[1] = \{01\}$, $\Theta = \emptyset$, suffixes[$1$] = $\{01, 11, 001\}$, suffixes[$00$] = $\{000\}$ and $mathcal{S}$  is shown in Figure \ref{fig:trishifttree2}. $\Gamma$ is dequeued and $c = 1$, \textit{suffixes}[$1$] = $\{01, 11, 001\}$ is iterated through. First, \textit{statisticalTest}$(1,01)$ is checked to be false ($[0.779, 0.221]$ against $[0.739, 0.261]$) making \textit{candidacy}[$1$] = False and the call to the expansion algorithm.
+In the beginning of the next iteration, we have $\Gamma = \{1, 000\}$, $V[1] = \{01\}$, $\Theta = \emptyset$, suffixes[$1$] = $\{01, 11, 001\}$, suffixes[$00$] = $\{000\}$ and $\mathcal{S}$  is shown in Figure \ref{fig:trishifttree2}. $\Gamma$ is dequeued and $c = 1$, \textit{suffixes}[$1$] = $\{01, 11, 001\}$ is iterated through. First, \textit{statisticalTest}$(1,01,\alpha)$ is checked to be false ($[0.779, 0.221]$ against $[0.739, 0.261]$) making \textit{candidacy}[$1$] = False and the call to the expansion algorithm.
 
 In the expansion algorithm, $\Psi = \{10, 11\}$ and it is appended of $01$ because $V[1] = \{01\}$, making $\Psi = \{10, 11, 01\}$. Now that both \textit{candidacy}[$0$] = \textit{candidacy}[$1$] = False, all of them are their own shortest valid suffixes and they are their children nodes' shortest valid suffixes. Thus, $\Gamma = \{00, 01, 10, 11\}$ and \textit{suffixes}[$00$] = $\{000, 100\}$, \textit{suffixes}[$01$] = $\{001, 101\}$, \textit{suffixes}[$10$] = $\{010, 110\}$ and \textit{suffixes}[$11$] = $\{011, 111\}$. Once again $\Theta$ is appended in $\Gamma$ and emptied.
 
@@ -787,91 +787,91 @@ In the ninth iteration, $c = 00$ and \textit{suffixes}$[c] = \{000, 100, 0100, 1
 
 \section{PFSA Construction \label{sec:pfsacons}}
 
-In this section, we discuss the ALEPH algorithm that constructs a PFSA from the RTP $\mathcal{S}$. Whether synchronization words are found or not will influence the operations of the algorithm. The first step is to transform $\mathcal{S}$ into a graph as no leaf states (i.e. states with no outgoing edges) can exist during the PFSA construction. This transformation is done via the criteria described in Section \ref{sec:treeterm}.
+In this section, we discuss the ALEPH algorithm that constructs a PFSA from the RTP $\mathcal{S}$. The first step is to transform $\mathcal{S}$ into a graph as no leaf states (i.e. states with no outgoing edges) can exist during the PFSA construction. This transformation is done via the criterion described in Section \ref{sec:treeterm}.
 
  The final procedure will groups states in equivalence classes of states that have statistically similar morphs (checked by $\chi^2$ or Kolmogorov-Smirnov for a given confidence level $\alpha$ using the same \textit{statisticalTest} auxiliary function described in Section \ref{sec:findsynch}) and the partition given by these equivalence classes is used as an initial partition for a graph minimization algorithm (such as Moore or Hopcroft) to obtain the final reduced PFSA. This is the main contribution of the ALEPH algorithm. It manages to first get a reduced set of equivalence classes, with states in each class sharing statistically similar morphs, and then breaks them apart to obtain a final set of states that generate sequences similar to the original while having as little redundant states as possible for the given input parameters.
 
 \subsection{RTP Leaf Connection Criteria\label{sec:treeterm}}
 
 %Unlike CRISSiS, the algorithms developed in this work need the rooted tree with probabilities to end, otherwise it will keep going without end. The rooted tree with probabilities raised from the sub-sequence probabilities will end in the $L$th level whose states will have outgoing edges initially pointing out to nowhere. 
-The ALEPH algorithm creates equivalence classes for states with statistically similar morphs. In order to have every state in an equivalence class, all of them need to have a morph, which is not the case for leaf states. Two criteria are used to connect the leaf states of the RTP $\mathcal{S}$ and turn it into a PFSA: the first one, the D-Markov connection, is more straightforward while the $\Omega$ connection depends on the system having synchronization words and is able to create connections that better represent the original system.
+The ALEPH algorithm creates equivalence classes for states with statistically similar morphs. In order to have every state in an equivalence class, all of them need to have a morph, which is not the case for leaf states. The $\Omega$ criterion is used to connect the leaf states of the RTP $\mathcal{S}$ and turn it into a PFSA. It depends on the system having synchronization words and is able to create connections that better represent the original system.
 
-\subsubsection{D-Markov Connection}
-
-This is the simplest connection criterion. It will aim to form a D-Markov Machine with the states in the last level. This means that a state labeled with $\omega = \sigma_0\sigma_1\ldots\sigma_L \in \Sigma^L$ hass its $\tau \in \Sigma$ labeled edge connected to the state labeled with $\sigma_1\sigma_2\ldots\sigma_L\tau$ for each $\tau \in \Sigma$. This is shown in Algorithm \ref{alg:dmarkterm}. This connection counts on the amount of cases that are captured in a D-Markov machine and applying the subsequent steps in ALEPH to reduce the PFSA size. 
-
-  \begin{algorithm}
-  \caption{dmarkovTermination($\mathcal{S}, L$)\label{alg:dmarkterm}}
-    \begin{algorithmic}[1]
-      \Procedure{Connect}{}
-      	\State $\Psi \gets \{q \in \mathcal{S}$ if $q$ in level $L\}$
-      	\For{$p \in \Psi$}
-      		\State For $p = \sigma_0\sigma_1\ldots\sigma_L$
-      		\For{$\tau \in \Sigma$}
-      			\State $\delta(\tau, p) \gets \sigma_1\sigma_2\ldots\sigma_L\tau$
-      		\EndFor
-      	\EndFor
-      \EndProcedure
-    \end{algorithmic}
-  \end{algorithm}
-  
-%\textbf{TO DO:}Figure \ref{fig:trishiftdmark} shows the rooted tree with probabilities from the Trishift example with $L=3$ and the D-Markov termination.
+%\subsubsection{D-Markov Connection}
 %
-%%\begin{figure}
-%%\centering
-%%\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
-%%semithick ,
-%%state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
-%%\node[state] (root)
-%%{$\epsilon$};
-%%\node[state] (0) [above right=of root] {$0$};
-%%\node[state] (1) [below right =of root] {$1$};
-%%\node[state] (00) [above right =of 0] {$00$};
-%%\node[state] (01) [right =of 0] {$01$};
-%%\node[state] (10) [right =of 1] {$10$};
-%%\node[state] (11) [below right =of 1] {$11$};
-%%\node[state] (000) [above =of 00] {$000$};
-%%\node[state] (001) [above right =of 00] {$001$};
-%%\node[state] (010) [above right =of 01] {$010$};
-%%\node[state] (011) [right =of 01] {$011$};
-%%\node[state] (100) [right =of 10] {$100$};
-%%\node[state] (101) [below right =of 10] {$101$};
-%%\node[state] (110) [below right =of 11] {$110$};
-%%\node[state] (111) [below =of 11] {$111$};
-%%\path (root) edge state[above] {$0$} (0);
-%%\path (root) edge state[below] {$1$} (1);
-%%\path (0) edge state[above] {$1$} (00);
-%%\path (0) edge state[below] {$0$} (01);
-%%\path (1) edge state[above] {$0$} (10);
-%%\path (1) edge state[below] {$1$} (11);
-%%\path (00) edge state[left] {$0$} (000);
-%%\path (00) edge state[below] {$1$} (001);
-%%\path (01) edge state[above] {$0$} (010);
-%%\path (01) edge state[below] {$1$} (011);
-%%\path (10) edge state[above] {$0$} (100);
-%%\path (10) edge state[below] {$1$} (101);
-%%\path (11) edge state[above] {$0$} (110);
-%%\path (11) edge state[left] {$1$} (111);
-%%\path (000) [loop left] edge state[left] {$0$} (000);
-%%\path (000) edge state[above] {$1$} (001);
-%%\path (001) edge state[right] {$0$} (010);
-%%\path (001) [bend left] edge state[right] {$1$} (011);
-%%\path (010) [bend left] edge state[right] {$0$} (100);
-%%\path (010) [bend right=1.0cm] edge state[below =0.15 cm] {$1$} (101);
-%%\path (011) [bend left] edge state[below =0.15 cm] {$0$} (110);
-%%\path (011) [bend left] edge state[below =0.15 cm] {$1$} (111);
-%%\path (100) [bend left] edge state[below =0.15 cm] {$0$} (000);
-%%\path (100) [bend left] edge state[below =0.15 cm] {$1$} (001);
-%%\path (101) [bend left] edge state[below =0.15 cm] {$0$} (010);
-%%\path (101) [bend left] edge state[below =0.15 cm] {$1$} (011);
-%%\path (110) [bend right] edge state[right] {$0$} (100);
-%%\path (110) edge state[right] {$1$} (101);
-%%\path (111) [loop left] edge state[left] {$1$} (111);
-%%\path (111) edge state[below] {$0$} (110);
-%%\end{tikzpicture}
-%%\caption{Tri-Shift rooted tree with probabilities with D-Markov termination and $L=3$.\label{fig:trishiftdmark}}
-%%\end{figure}
+%This is the simplest connection criterion. It will aim to form a D-Markov Machine with the states in the last level. This means that a state labeled with $\omega = \sigma_0\sigma_1\ldots\sigma_L \in \Sigma^L$ hass its $\tau \in \Sigma$ labeled edge connected to the state labeled with $\sigma_1\sigma_2\ldots\sigma_L\tau$ for each $\tau \in \Sigma$. This is shown in Algorithm \ref{alg:dmarkterm}. This connection counts on the amount of cases that are captured in a D-Markov machine and applying the subsequent steps in ALEPH to reduce the PFSA size. 
 %
+%  \begin{algorithm}
+%  \caption{dmarkovTermination($\mathcal{S}, L$)\label{alg:dmarkterm}}
+%    \begin{algorithmic}[1]
+%      \Procedure{Connect}{}
+%      	\State $\Psi \gets \{q \in \mathcal{S}$ if $q$ in level $L\}$
+%      	\For{$p \in \Psi$}
+%      		\State For $p = \sigma_0\sigma_1\ldots\sigma_L$
+%      		\For{$\tau \in \Sigma$}
+%      			\State $\delta(\tau, p) \gets \sigma_1\sigma_2\ldots\sigma_L\tau$
+%      		\EndFor
+%      	\EndFor
+%      \EndProcedure
+%    \end{algorithmic}
+%  \end{algorithm}
+%  
+%%\textbf{TO DO:}Figure \ref{fig:trishiftdmark} shows the rooted tree with probabilities from the Trishift example with $L=3$ and the D-Markov termination.
+%%
+%%%\begin{figure}
+%%%\centering
+%%%\begin {tikzpicture}[-latex ,auto ,node distance =2 cm and 2 cm ,on grid ,
+%%%semithick ,
+%%%state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
+%%%\node[state] (root)
+%%%{$\epsilon$};
+%%%\node[state] (0) [above right=of root] {$0$};
+%%%\node[state] (1) [below right =of root] {$1$};
+%%%\node[state] (00) [above right =of 0] {$00$};
+%%%\node[state] (01) [right =of 0] {$01$};
+%%%\node[state] (10) [right =of 1] {$10$};
+%%%\node[state] (11) [below right =of 1] {$11$};
+%%%\node[state] (000) [above =of 00] {$000$};
+%%%\node[state] (001) [above right =of 00] {$001$};
+%%%\node[state] (010) [above right =of 01] {$010$};
+%%%\node[state] (011) [right =of 01] {$011$};
+%%%\node[state] (100) [right =of 10] {$100$};
+%%%\node[state] (101) [below right =of 10] {$101$};
+%%%\node[state] (110) [below right =of 11] {$110$};
+%%%\node[state] (111) [below =of 11] {$111$};
+%%%\path (root) edge state[above] {$0$} (0);
+%%%\path (root) edge state[below] {$1$} (1);
+%%%\path (0) edge state[above] {$1$} (00);
+%%%\path (0) edge state[below] {$0$} (01);
+%%%\path (1) edge state[above] {$0$} (10);
+%%%\path (1) edge state[below] {$1$} (11);
+%%%\path (00) edge state[left] {$0$} (000);
+%%%\path (00) edge state[below] {$1$} (001);
+%%%\path (01) edge state[above] {$0$} (010);
+%%%\path (01) edge state[below] {$1$} (011);
+%%%\path (10) edge state[above] {$0$} (100);
+%%%\path (10) edge state[below] {$1$} (101);
+%%%\path (11) edge state[above] {$0$} (110);
+%%%\path (11) edge state[left] {$1$} (111);
+%%%\path (000) [loop left] edge state[left] {$0$} (000);
+%%%\path (000) edge state[above] {$1$} (001);
+%%%\path (001) edge state[right] {$0$} (010);
+%%%\path (001) [bend left] edge state[right] {$1$} (011);
+%%%\path (010) [bend left] edge state[right] {$0$} (100);
+%%%\path (010) [bend right=1.0cm] edge state[below =0.15 cm] {$1$} (101);
+%%%\path (011) [bend left] edge state[below =0.15 cm] {$0$} (110);
+%%%\path (011) [bend left] edge state[below =0.15 cm] {$1$} (111);
+%%%\path (100) [bend left] edge state[below =0.15 cm] {$0$} (000);
+%%%\path (100) [bend left] edge state[below =0.15 cm] {$1$} (001);
+%%%\path (101) [bend left] edge state[below =0.15 cm] {$0$} (010);
+%%%\path (101) [bend left] edge state[below =0.15 cm] {$1$} (011);
+%%%\path (110) [bend right] edge state[right] {$0$} (100);
+%%%\path (110) edge state[right] {$1$} (101);
+%%%\path (111) [loop left] edge state[left] {$1$} (111);
+%%%\path (111) edge state[below] {$0$} (110);
+%%%\end{tikzpicture}
+%%%\caption{Tri-Shift rooted tree with probabilities with D-Markov termination and $L=3$.\label{fig:trishiftdmark}}
+%%%\end{figure}
+%%
 \subsubsection{$\Omega$ Connection}
 
 %This connection criterion relies more on using synchronization words, which means it is more suitable to systems that synchronize and that have some memory. 
@@ -916,29 +916,39 @@ For each state $p$ in level $L+1$ of $\mathcal{S}$, this criterion checks via st
 
 \subsection{ALEPH Algorithm}
 
-The full ALEPH algorithm is shown in Algorithm \ref{alg:aleph}. It takes an RTP $\mathcal{S}$, the maximum considered depth $L$ and a list of synchronization words $\Omega_{syn}$ as inputs. It is further broken in 3 steps: the RTP leaf termination, separating the states in an initial partition of equivalence classes and applying a graph minimization algorithm.
+The full ALEPH algorithm is shown in Algorithm \ref{alg:aleph}. It takes an RTP $\mathcal{S}$, the maximum considered depth $L$ and a list of synchronization words $\Omega_{syn}$ as inputs. It is further broken in 4 steps: 
+\begin{itemize}
+\item[i] the RTP leaf connection;
+\item[ii] a state reduction;
+\item[iii] grouping the states in an initial partition of equivalence classes and
+\item[iv] applying a graph minimization algorithm.
+\end{itemize}
 
 \subsubsection{Step 1: RTP Leaf Termination}
 
-There are two cases for leaf termination: when $\Omega_{syn}$ is empty (no synchronization words) and when it is not.
+%There are two cases for leaf termination: when $\Omega_{syn}$ is empty (no synchronization words) and when it is not.
 
-When  $\Omega_{syn}$ list is not empty, the $\Omega$ connection is used in $\mathcal{S}$. After the connection process is finished a process is used to discard some branches of $\mathcal{S}$ in order to obtain fewer starting states in the next two steps, which implies in a smaller complexity. Each state $q^{\prime}\in\mathcal{S}$ is visited, starting by the synchronization word states and it is checked if any of its descendents (i.e. $\delta(q^{\prime},\sigma)$ for some $\sigma \in \Sigma$) has a synchronization word $\omega$ as suffix. In the affirmative case, this outgoing edge is reassigned to $\omega$. This is done because a state that has a synchronization word as suffix has a morph similar to the synchronization word and generate the same sequences with the same probabilities, which means these longer states that have synchronization words as suffixes can be discarded. By discarding them, the rest of its branch is also discarded, reducing the number of initial states even further. 
+The $\Omega$ connection which is previously described is used in $\mathcal{S}$. The output of this step is a complete probabilistic graph instead of a tree with leaf nodes.
 
-This is done by creating a copy of $\Omega_{syn}$ called $Q_0$ and an empty list called $P_1$. The first element in the list is taken by a dequeue and stored in $q_0$, which means starting to visit the state of $\mathcal{S}$ by the synchronization words. All descendants of $q_0$ are checked to see if they have one of the synchronization words as suffix, and in the affirmative case $\delta(q_0,\sigma)$ is reassigned to that synchronization word (lines 9 to 12 of Algorithm \ref{alg:aleph}). If a descendant of $q_0$ does not end in a synchronization word, the descendant is added to the list $Q_0$ if it not already in it and neither in $P_0$ (lines 13 to 15 of Algorithm \ref{alg:aleph}). This is done to make sure states will not be visited twice. After all descendants of $q_0$ are checked, $q_0$ is appended to $P_0$.
+\subsection{Step 2: State Reduction}
+
+ After the RTP connection process is finished a technique is used to discard some branches of $\mathcal{S}$ in order to obtain fewer starting states in the next two steps, which implies in a smaller complexity. Each state $q^{\prime}\in\mathcal{S}$ is visited, starting by the synchronization word states and it is checked if any of its descendents (i.e. $\delta(q^{\prime},\sigma)$ for some $\sigma \in \Sigma$) has a synchronization word $\omega$ as suffix. In the affirmative case, the outgoing edge of $q^{\prime}$ is reassigned to $\omega$. This is done because a state that has a synchronization word as suffix has a morph similar to that of the synchronization word and generates the same sequences with the same probabilities, which means these states that have synchronization words as suffixes can be discarded. By discarding them, the rest of its branch is also discarded, reducing the number of states even further. 
+
+This is done by creating a copy of $\Omega_{syn}$ called $Q_0$ and an empty list called $P_0$. The first element of $Q_0$ is taken by a dequeue and stored in $q_0$, which means starting to visit the state of $\mathcal{S}$ by the synchronization words. All $q_0$ descendants are checked to see if they have one of the synchronization words as suffix, and in the affirmative case, $\delta(q_0,\sigma)$ is reassigned to that synchronization word (lines 9 to 12 of Algorithm \ref{alg:aleph}). If a descendant of $q_0$ does not end in a synchronization word, the descendant is added to the list $Q_0$ if it is not already in it and neither in $P_0$ (lines 13 to 15 of Algorithm \ref{alg:aleph}). This is done to make sure that states are not visited twice. After all descendants of $q_0$ are checked, $q_0$ is appended to $P_0$.
 
 Finally, the initial equivalence classes are created: one for each synchronization word (line 17 of Algorithm \ref{alg:aleph}).
 
-Otherwise, the D-Markov connection is applied to $\mathcal{S}$ and a starting equivalence class is created with just the root state $\epsilon$ (lines 18 to 20 of Algorithm \ref{alg:aleph}). 
+%Otherwise, the D-Markov connection is applied to $\mathcal{S}$ and a starting equivalence class is created with just the root state $\epsilon$ (lines 18 to 20 of Algorithm \ref{alg:aleph}). 
 
-\subsubsection{Step 2: Grouping in Equivalence Classes}
+\subsubsection{Step 3: Grouping the States in Equivalence Classes}
 
-The initial equivalence classes created in the previous step are stored in the list $\mathcal{P}$. Given an equivalence class $p$, its head state is the first state that is added to $p$ and it is denoted by $p[0]$. A list $Q$ is created containing the descendants of the head states in each of the initial equivalence classes.  
+The initial equivalence classes created in the previous step are stored in the list $\mathcal{P}$. Given an equivalence class $C$, its head state is the first state that is added to $C$ and it is denoted by $C[0]$. A list \~{Q} is created containing the descendants of the head states in each of the initial equivalence classes.  
 
-For each element $q$ of $Q$, statistical tests are performed with the head state of each partition $p$ already present in $\mathcal{P}$. If a test result is positive, the state $q$ is added to the partition $p$. If no test is successful, a new equivalence class is created for $q$ and this class is subsequently added to $\mathcal{P}$. This process is repeated until every state of $\mathcal{S}$ is present in one equivalence class of the partition $\mathcal{P}$.
+For each element $q$ of \~{Q}, statistical tests are performed with the head state of each equivalence class $C$ already present in $\mathcal{P}$. If a test result is positive, the state $q$ is added to the partition $C$. If no test is successful, a new equivalence class is created for $q$ and this class is subsequently added to $\mathcal{P}$. This process is repeated until every state of $\mathcal{S}$ is present in one equivalence class of the partition $\mathcal{P}$.
 
-\subsection{Step 3: Graph Minimization}
+\subsubsection{Step 4: Graph Minimization}
 
-  Once every state of $\mathcal{S}$ is in one class of the initial partition $\mathcal{P}$, a graph minimization algorithm (either Moore or Hopcroft) is applied using $\mathcal{P}$ as the initial partition. This initial partition guarantees that the elements in the equivalence class have the same morph and the reduction algorithm will break this class if they eventually point to states with different morphs.  The final result is the PFSA that represents the original system for the given parameters.  
+  Once every state of $\mathcal{S}$ is in one class of the initial partition $\mathcal{P}$, a graph minimization algorithm (either Moore or Hopcroft) is applied using $\mathcal{P}$ as the initial partition. This initial partition guarantees that the states in the same equivalence class have the same morph and the reduction algorithm breaks this class if paths starting at these states eventually reach states with different morphs.  The final result is a PFSA that represents the original system for the given parameters. The accuracy and the number of states depend on the parameters $L$ and the confidence level $\alpha$.  
 
 %Two different methods can be used to retrieve the final PFSA: the $\aleph_0$ and $\aleph_1$ algorithms. As with the termination criteria, each one of them is better suited for a specific type of application. The $\aleph_0$ algorithm is less dependent on synchronization words and performs better in systems that do not synchronize. The $\aleph_1$ algorithm is faster, but heavily relies on synchronization words, so it tends to construct better PFSA when the original system synchronizes. Both algorithms take as inputs a terminated rooted tree with probabilities (using one of the criteria from Section \ref{sec:treeterm}) $\mathcal{S}$ and a list of synchronization words $\Omega_{syn}$.
 %
@@ -986,8 +996,9 @@ For each element $q$ of $Q$, statistical tests are performed with the head state
     \begin{algorithmic}[1]
       \Procedure{}{}
       	\State \textbf{\#\# Step 1: RTP Leaf State Connection}
-      	\If{$\Omega_{syn} \neq \emptyset$}
+   %   	\If{$\Omega_{syn} \neq \emptyset$}
       		\State $\mathcal{S} \gets$ \textit{omegaConnection}($\mathcal{S}, L$)
+      	\State \textbf{\#\# Step 2: State Reduction}
 	      	\State $Q_0 \gets \Omega_{syn}$
 	      	\State $P_0 \gets \emptyset$
 	      	\While{$Q_0 \neq \emptyset$}
@@ -1005,18 +1016,18 @@ For each element $q$ of $Q$, statistical tests are performed with the head state
 	      		\EndFor
 	      	\EndWhile	      	
       		\State $\mathcal{P} \gets \{\{\omega\}, \forall \omega \in \Omega_{syn}\}$
-      	\Else
-      		\State $\mathcal{S} \gets$ \textit{dmarkovConnection}($\mathcal{S}, L$)
-      		\State $\mathcal{P} \gets \{\epsilon\}$
-      	\EndIf
-      	\State \textbf{\#\# Step 2: Grouping in Equivalence Classes}
-      	\State $Q \gets \{\delta(\sigma, q_1[0]), \, \forall \sigma \in \Sigma$ and $\forall q_1[0]\in \mathcal{P}\}$
+%      	\Else
+%      		\State $\mathcal{S} \gets$ \textit{dmarkovConnection}($\mathcal{S}, L$)
+%      		\State $\mathcal{P} \gets \{\epsilon\}$
+%      	\EndIf
+      	\State \textbf{\#\# Step 3: Grouping in Equivalence Classes}
+      	\State $Q \gets \{\delta(\sigma, C[0]), \, \forall \sigma \in \Sigma$ and $\forall C\in \mathcal{P}\}$
       	\For{$q \in Q$}
       		\State $r \gets$ False
-      		\For{$p \in \mathcal{P}$}
-      			\State $r \gets$ \textit{statisticalTest}($q, p[0], \aleph$)
+      		\For{$C \in \mathcal{P}$}
+      			\State $r \gets$ \textit{statisticalTest}($q, C[0], \alpha$)
       			\If{$r =$ True}
-      				\State $p \gets p\cup\{q\}$
+      				\State $C \gets C\cup\{q\}$
       				\State \textbf{break}
       			\EndIf
       		\EndFor
@@ -1026,7 +1037,7 @@ For each element $q$ of $Q$, statistical tests are performed with the head state
       		\EndIf 
       		\State $Q \gets Q\cup\{\delta(\sigma,q),\forall \sigma\in\Sigma|\delta(\sigma,q)$ not in any $p\in\mathcal{P}\}$
       	\EndFor
-      	\State \textbf{\#\# Step 3: Graph Minimization (either Moore or Hopcroft)}
+      	\State \textbf{\#\# Step 4: Graph Minimization (either Moore or Hopcroft)}
       	\State $G \gets$ GraphMin($\mathcal{P}$)
       	\State \textbf{return} $G$
       \EndProcedure
