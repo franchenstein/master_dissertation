@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.13)  20 JAN 2017 05:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2016.12.13)  9 FEB 2017 02:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1092,6 +1092,9 @@ librarygraphs.standard.code.tex
 File: tikzlibrarygraphs.standard.code.tex 2012/02/27 v3.0.1a (rcs-revision 1.9)
 
 )
+(/usr/share/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 trees.code.tex
 File: tikzlibrarytrees.code.tex 2008/02/24 v3.0.1a (rcs-revision 1.2)
@@ -1137,8 +1140,8 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 \c@endproof2ctr=\count315
 \c@proof2=\count316
 \savedwidth=\skip83
-LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 242.
-LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 243.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 243.
+LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 244.
 \@float@every@Program=\toks70
 \c@Program=\count317
 \mygraphic=\box53
@@ -1149,7 +1152,7 @@ LaTeX Warning: Label `eq:mooreequiv' multiply defined.
 
 ) (./Capitula/Capitulum_3.aux) (./Capitula/Capitulum_7.aux)
 (./Capitula/Capitulum_8.aux) (./Capitula/Capitulum_6.aux)
-(./Capitula/Capitulum_4.aux) (./Capitula/Capitulum_5.aux))
+(./Capitula/Capitulum_4.aux))
 \openout1 = `DissertacaoFranch.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
@@ -1167,8 +1170,7 @@ LaTeX Font Info:    ... okay on input line 192.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 192.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 192.
 
-
-(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 192.
@@ -1302,13 +1304,13 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
 LaTeX Font Info:    Font shape `T1/ptm/bx/sc' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/sc' tried instead on input line 223.
  (./Capitula/Resumo.tex) [3] (./Capitula/Abstract.tex) [4]
-(./DissertacaoFranch.lof)
+(./DissertacaoFranch.lof [5
+
+])
 \tf@lof=\write7
 \openout7 = `DissertacaoFranch.lof'.
 
- [5
-
-] [6] (./DissertacaoFranch.lot)
+ [6] (./DissertacaoFranch.lot)
 \tf@lot=\write8
 \openout8 = `DissertacaoFranch.lot'.
 
@@ -1348,20 +1350,20 @@ LaTeX Font Warning: Font shape `T1/psbj/m/n' in size <60> not available
 [10
 
 
-] [11]) [12]
+] [11] [12]) [13]
 \openout2 = `Capitula/Capitulum_2.aux'.
 
  (./Capitula/Capitulum_2.tex
   2.
-[13
+[14
 
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 53.
- [14] [15] [16] [17] [18] [19]
-Underfull \hbox (badness 4108) in paragraph at lines 259--260
+ [15] [16] [17] [18] [19] [20]
+Underfull \hbox (badness 4108) in paragraph at lines 263--264
 $\OMS/cmsy/m/n/11 P[]$ \T1/ptm/m/n/11 is then the co-ar-sest par-ti-tion betwee
 n $\OT1/cmr/m/n/11 (\OMS/cmsy/m/n/11 f\OML/cmm/m/it/11 A; D\OMS/cmsy/m/n/11 g\O
 ML/cmm/m/it/11 ; \OT1/cmr/m/n/11 0)\OMS/cmsy/m/n/11 j\OML/cmm/m/it/11 Q \OT1/cm
@@ -1371,13 +1373,13 @@ r/m/n/11 = \OMS/cmsy/m/n/11 ff\OML/cmm/m/it/11 B; E\OMS/cmsy/m/n/11 g\OML/cmm/m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--286
+Underfull \hbox (badness 10000) in paragraph at lines 289--290
 \T1/ptm/m/n/11 The co-ar-sest par-ti-tion between $\OMS/cmsy/m/n/11 ff\OML/cmm/
 m/it/11 A; B; C; D; E\OMS/cmsy/m/n/11 gg$ \T1/ptm/m/n/11 and
  []
 
 
-Overfull \hbox (6.24437pt too wide) in paragraph at lines 287--288
+Overfull \hbox (6.24437pt too wide) in paragraph at lines 291--292
 []\T1/ptm/m/n/11 The next step is to take the co-ar-sest par-ti-tion between $\
 OMS/cmsy/m/n/11 P[]$ \T1/ptm/m/n/11 and $\OMS/cmsy/m/n/11 P[]$\T1/ptm/m/n/11 , 
 which is $\OMS/cmsy/m/n/11 ff\OML/cmm/m/it/11 A; D\OMS/cmsy/m/n/11 g\OML/cmm/m/
@@ -1386,7 +1388,7 @@ it/11 ; \OMS/cmsy/m/n/11 f\OML/cmm/m/it/11 C\OMS/cmsy/m/n/11 g\OML/cmm/m/it/11
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 \OMS/cmsy/m/n/11 ff\OML/cmm/m/it/11 A; D\OMS/cmsy/m/n/11 g\OML/cmm/m/it/11 ; \O
 MS/cmsy/m/n/11 f\OML/cmm/m/it/11 B; C; E\OMS/cmsy/m/n/11 gg$ \T1/ptm/m/n/11 and
  $\OT1/cmr/m/n/11 (\OMS/cmsy/m/n/11 f\OML/cmm/m/it/11 B; E\OMS/cmsy/m/n/11 g\OM
@@ -1397,7 +1399,7 @@ m/n/11 which re-sults in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 \OMS/cmsy/m/n/11 ff\OML/cmm/m/it/11 A; B; C; D; E\OMS/cmsy/m/n/11 gg$ \T1/ptm/m
 /n/11 and $\OT1/cmr/m/n/11 (\OMS/cmsy/m/n/11 f\OML/cmm/m/it/11 B; E\OMS/cmsy/m/
 n/11 g\OML/cmm/m/it/11 ; \OT1/cmr/m/n/11 1)\OMS/cmsy/m/n/11 j\OML/cmm/m/it/11 Q
@@ -1406,26 +1408,26 @@ ML/cmm/m/it/11 ; \OMS/cmsy/m/n/11 f\OML/cmm/m/it/11 B; C; E\OMS/cmsy/m/n/11 gg$
  \T1/ptm/m/n/11 and re-sults in
  []
 
-[20] [21] [22] [23] [24] [25] [26] [27] [28]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 679.
+[21] [22] [23] [24] [25] [26] [27] [28] [29]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 651.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [29]) [30] [31]
+) [30] [31]) [32]
 \openout2 = `Capitula/Capitulum_3.aux'.
 
 
 (./Capitula/Capitulum_3.tex
   3.
-[32
+[33
 
 
 
-] [33] [34] [35] [36] [37] [38]
+] [34] [35] [36] [37] [38] [39]
 Overfull \vbox (9.15932pt too high) has occurred while \output is active []
 
 
-[39] [40]
+[40] [41]
 Overfull \hbox (25.77966pt too wide) in paragraph at lines 314--315
 \OMS/cmsy/m/n/11 f\OT1/cmr/m/n/11 1010\OMS/cmsy/m/n/11 g$\T1/ptm/m/n/11 , \T1/p
 tm/m/it/11 suf-fi-xes\T1/ptm/m/n/11 [$\OT1/cmr/m/n/11 00$\T1/ptm/m/n/11 ] = $\O
@@ -1438,10 +1440,6 @@ r/m/n/11 101$\T1/ptm/m/n/11 ] = $\OMS/cmsy/m/n/11 f\OT1/cmr/m/n/11 0101\OML/cmm
 y/m/n/11 f\OT1/cmr/m/n/11 1110\OML/cmm/m/it/11 ; \OT1/cmr/m/n/11 0110\OMS/cmsy/
 m/n/11 g$\T1/ptm/m/n/11 ,
  []
-
-[41]
-Overfull \vbox (9.15932pt too high) has occurred while \output is active []
-
 
 [42]
 Overfull \vbox (9.15932pt too high) has occurred while \output is active []
@@ -1463,20 +1461,72 @@ Overfull \vbox (9.15932pt too high) has occurred while \output is active []
 Overfull \vbox (9.15932pt too high) has occurred while \output is active []
 
 
-[47] [48] [49] [50] [51] [52] [53]) [54]
+[47]
+Overfull \vbox (9.15932pt too high) has occurred while \output is active []
+
+
+[48] [49] [50] [51] [52] [53] [54]) [55]
 \openout2 = `Capitula/Capitulum_7.aux'.
 
  (./Capitula/Capitulum_7.tex
   4.
-[55
+[56
 
 
 
-] [56] [57] [58] [59] [60] [61]) [62] [63]
+] [57] [58] [59] [60] [61] [62]) [63] [64]
 \openout2 = `Capitula/Capitulum_8.aux'.
 
  (./Capitula/Capitulum_8.tex
   5.
+[65
+
+
+
+] [66] [67] [68] [69]
+Package epstopdf Info: Source file: <Figuras/ternaryeven_h_mk4.eps>
+(epstopdf)                    date: 2017-02-09 00:50:11
+(epstopdf)                    size: 56247 bytes
+(epstopdf)             Output file: <Figuras/ternaryeven_h_mk4-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2017-02-09 00:57:48
+(epstopdf)                    size: 26209 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figuras/ternaryeven_h_mk4-
+eps-converted-to.pdf Figuras/ternaryeven_h_mk4.eps>
+(epstopdf)             \includegraphics on input line 113.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figuras/ternaryeven_h_mk4-eps-converted-to.pdf, id=252, 748.7975pt x 649.42625
+pt>
+File: Figuras/ternaryeven_h_mk4-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figuras/ternaryeven_h_mk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/ternaryeven_h_mk4-eps-converted-to.pdf used on
+ input line 113.
+(pdftex.def)             Requested size: 262.08305pt x 227.3026pt.
+Package epstopdf Info: Source file: <Figuras/ternaryeven_kld_mk4.eps>
+(epstopdf)                    date: 2017-02-09 00:49:46
+(epstopdf)                    size: 54842 bytes
+(epstopdf)             Output file: <Figuras/ternaryeven_kld_mk4-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2017-02-09 00:57:49
+(epstopdf)                    size: 25368 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figuras/ternaryeven_kld_mk
+4-eps-converted-to.pdf Figuras/ternaryeven_kld_mk4.eps>
+(epstopdf)             \includegraphics on input line 119.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figuras/ternaryeven_kld_mk4-eps-converted-to.pdf, id=253, 740.7675pt x 649.426
+25pt>
+File: Figuras/ternaryeven_kld_mk4-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figuras/ternaryeven_kld_mk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/ternaryeven_kld_mk4-eps-converted-to.pdf used 
+on input line 119.
+(pdftex.def)             Requested size: 259.2725pt x 227.3026pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[70 <./Figuras/ternaryeven_h_mk4-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figuras/logisticmap.eps>
 (epstopdf)                    date: 2016-12-13 16:44:04
 (epstopdf)                    size: 36097 bytes
@@ -1485,91 +1535,155 @@ Package epstopdf Info: Source file: <Figuras/logisticmap.eps>
 (epstopdf)                    size: 21532 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figuras/logisticmap-eps-co
 nverted-to.pdf Figuras/logisticmap.eps>
-(epstopdf)             \includegraphics on input line 20.
+(epstopdf)             \includegraphics on input line 140.
 Package epstopdf Info: Output file is already uptodate.
-<Figuras/logisticmap-eps-converted-to.pdf, id=233, 1734.48pt x 881.2925pt>
+
+<Figuras/logisticmap-eps-converted-to.pdf, id=325, 1734.48pt x 881.2925pt>
 File: Figuras/logisticmap-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figuras/logisticmap-eps-converted-to.pdf>
 Package pdftex.def Info: Figuras/logisticmap-eps-converted-to.pdf used on input
- line 20.
+ line 140.
 (pdftex.def)             Requested size: 433.61894pt x 220.32259pt.
- [64
-
-
-
-] [65 <./Figuras/logisticmap-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figuras/figgec.eps>
-(epstopdf)                    date: 2016-12-13 16:44:04
-(epstopdf)                    size: 133979 bytes
-(epstopdf)             Output file: <Figuras/figgec-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-12-13 16:44:04
-(epstopdf)                    size: 29998 bytes
-(epstopdf)             Command: <repstopdf --outfile=Figuras/figgec-eps-convert
-ed-to.pdf Figuras/figgec.eps>
-(epstopdf)             \includegraphics on input line 51.
+Package epstopdf Info: Source file: <Figuras/logisticmap_h_mk4.eps>
+(epstopdf)                    date: 2017-02-09 00:48:45
+(epstopdf)                    size: 50775 bytes
+(epstopdf)             Output file: <Figuras/logisticmap_h_mk4-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2017-02-09 00:50:22
+(epstopdf)                    size: 26490 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figuras/logisticmap_h_mk4-
+eps-converted-to.pdf Figuras/logisticmap_h_mk4.eps>
+(epstopdf)             \includegraphics on input line 148.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figuras/figgec-eps-converted-to.pdf, id=276, 958.58125pt x 667.49374pt>
-File: Figuras/figgec-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Figuras/figgec-eps-converted-to.pdf>
-Package pdftex.def Info: Figuras/figgec-eps-converted-to.pdf used on input line
- 51.
-(pdftex.def)             Requested size: 227.62154pt x 170.71281pt.
-
-
-LaTeX Warning: Command \^ invalid in math mode on input line 64.
+<Figuras/logisticmap_h_mk4-eps-converted-to.pdf, id=326, 748.7975pt x 649.42625
+pt>
+File: Figuras/logisticmap_h_mk4-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figuras/logisticmap_h_mk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/logisticmap_h_mk4-eps-converted-to.pdf used on
+ input line 148.
+(pdftex.def)             Requested size: 262.08305pt x 227.3026pt.
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 64.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-Missing character: There is no Â in font cmr10!
-Missing character: There is no Â in font cmr10!
-[66 <./Figuras/figgec-eps-converted-to.pdf>]) [67]
+Package epstopdf Info: Source file: <Figuras/logisticmap_kld_mk4.eps>
+(epstopdf)                    date: 2017-02-09 00:49:12
+(epstopdf)                    size: 44299 bytes
+(epstopdf)             Output file: <Figuras/logisticmap_kld_mk4-eps-converted-
+to.pdf>
+(epstopdf)                    date: 2017-02-09 00:50:22
+(epstopdf)                    size: 23551 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figuras/logisticmap_kld_mk
+4-eps-converted-to.pdf Figuras/logisticmap_kld_mk4.eps>
+(epstopdf)             \includegraphics on input line 154.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figuras/logisticmap_kld_mk4-eps-converted-to.pdf, id=327, 740.7675pt x 649.426
+25pt>
+File: Figuras/logisticmap_kld_mk4-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figuras/logisticmap_kld_mk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/logisticmap_kld_mk4-eps-converted-to.pdf used 
+on input line 154.
+(pdftex.def)             Requested size: 259.2725pt x 227.3026pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[71 <./Figuras/ternaryeven_kld_mk4-eps-converted-to.pdf>] [72] [73 <./Figuras/l
+ogisticmap-eps-converted-to.pdf> <./Figuras/logisticmap_h_mk4-eps-converted-to.
+pdf>] [74 <./Figuras/logisticmap_kld_mk4-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figuras/10dbq1_h_mk4.eps>
+(epstopdf)                    date: 2017-02-09 02:47:33
+(epstopdf)                    size: 49923 bytes
+(epstopdf)             Output file: <Figuras/10dbq1_h_mk4-eps-converted-to.pdf>
+
+(epstopdf)             Command: <repstopdf --outfile=Figuras/10dbq1_h_mk4-eps-c
+onverted-to.pdf Figuras/10dbq1_h_mk4.eps>
+(epstopdf)             \includegraphics on input line 201.
+runsystem(repstopdf --outfile=Figuras/10dbq1_h_mk4-eps-converted-to.pdf Figuras
+/10dbq1_h_mk4.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <Figuras/10dbq1_h_mk4-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2017-02-09 02:49:09
+(epstopdf)                    size: 25303 bytes.
+
+<Figuras/10dbq1_h_mk4-eps-converted-to.pdf, id=576, 756.8275pt x 649.42625pt>
+File: Figuras/10dbq1_h_mk4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figuras/10dbq1_h_mk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/10dbq1_h_mk4-eps-converted-to.pdf used on inpu
+t line 201.
+(pdftex.def)             Requested size: 264.89359pt x 227.3026pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <Figuras/10dbq1_kld_mk4.eps>
+(epstopdf)                    date: 2017-02-09 02:47:49
+(epstopdf)                    size: 47260 bytes
+(epstopdf)             Output file: <Figuras/10dbq1_kld_mk4-eps-converted-to.pd
+f>
+(epstopdf)             Command: <repstopdf --outfile=Figuras/10dbq1_kld_mk4-eps
+-converted-to.pdf Figuras/10dbq1_kld_mk4.eps>
+(epstopdf)             \includegraphics on input line 207.
+runsystem(repstopdf --outfile=Figuras/10dbq1_kld_mk4-eps-converted-to.pdf Figur
+as/10dbq1_kld_mk4.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <Figuras/10dbq1_kld_mk4-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-09 02:49:09
+(epstopdf)                    size: 24126 bytes.
+
+<Figuras/10dbq1_kld_mk4-eps-converted-to.pdf, id=577, 756.8275pt x 649.42625pt>
+File: Figuras/10dbq1_kld_mk4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figuras/10dbq1_kld_mk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figuras/10dbq1_kld_mk4-eps-converted-to.pdf used on in
+put line 207.
+(pdftex.def)             Requested size: 264.89359pt x 227.3026pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[75
+
+]) [76 <./Figuras/10dbq1_h_mk4-eps-converted-to.pdf> <./Figuras/10dbq1_kld_mk4-
+eps-converted-to.pdf>]
 \openout2 = `Capitula/Capitulum_6.aux'.
 
  (./Capitula/Capitulum_6.tex
   6.
-) [68
+[77
 
 
 
-]
+]) [78] [79]
 \openout2 = `Capitula/Capitulum_4.aux'.
 
  (./Capitula/Capitulum_4.tex
   A.
-) [69
+[80
 
 
 
-]
-\openout2 = `Capitula/Capitulum_5.aux'.
-
- (./Capitula/Capitulum_5.tex
-  B.
-) [70
+]) [81] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [82
 
 
+] [83
 
-] (./Capitula/Vitae.tex) (./DissertacaoFranch.bbl [71
-
-
-] [72
-
-])
+] [84])
 
 AED: lastpage setting LastPage
-[73]
+[85]
 \tf@thm=\write10
 \openout10 = `DissertacaoFranch.thm'.
 
  (./DissertacaoFranch.aux (./Capitula/Capitulum_1.aux)
 (./Capitula/Capitulum_2.aux) (./Capitula/Capitulum_3.aux)
 (./Capitula/Capitulum_7.aux) (./Capitula/Capitulum_8.aux)
-(./Capitula/Capitulum_6.aux) (./Capitula/Capitulum_4.aux)
-(./Capitula/Capitulum_5.aux))
+(./Capitula/Capitulum_6.aux) (./Capitula/Capitulum_4.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 24.17pt have occurred.
@@ -1592,13 +1706,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 10 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25207 strings out of 493013
- 464144 string characters out of 6139316
- 633925 words of memory out of 5000000
- 28045 multiletter control sequences out of 15000+600000
+ 25254 strings out of 493013
+ 465856 string characters out of 6139316
+ 633044 words of memory out of 5000000
+ 28090 multiletter control sequences out of 15000+600000
  141075 words of font info for 177 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,16n,92p,2020b,1980s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,16n,92p,2020b,1978s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/
 texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public
@@ -1617,10 +1731,10 @@ are/texmf-dist/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf-dist/
 fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DissertacaoFranch.pdf (74 pages, 476516 bytes).
+Output written on DissertacaoFranch.pdf (86 pages, 597161 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 241 compressed objects within 3 object streams
+ 816 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 60 words of extra memory for PDF output out of 10000 (max. 10000000)
 

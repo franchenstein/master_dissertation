@@ -1,5 +1,32 @@
 \begin{thebibliography}{10}
 
+\bibitem{luenberger1979introduction}
+D.~Luenberger, ``Introduction to dynamic systems: theory, models, and
+  applications,'' 1979.
+
+\bibitem{strogatz2001nonlinear}
+S.~Strogatz, ``Nonlinear dynamics and chaos: With applications to physics,
+  biology, chemistry and engineering,'' 2001.
+
+\bibitem{brianmarcus}
+D.~Lind and B.~Marcus, {\em An Introduction To Symbolic Dynamics and Codings}.
+\newblock Cambridge University Press, 1995.
+
+\bibitem{rajagopalan2006symbolic}
+V.~Rajagopalan and A.~Ray, ``Symbolic time series analysis via wavelet-based
+  partitioning,'' {\em Signal Processing}, vol.~86, no.~11, pp.~3309--3320,
+  2006.
+
+\bibitem{li2008circuit}
+H.~Li, W.-Y. Yin, K.~Banerjee, and J.-F. Mao, ``Circuit modeling and
+  performance analysis of multi-walled carbon nanotube interconnects,'' {\em
+  IEEE Transactions on electron devices}, vol.~55, no.~6, pp.~1328--1337, 2008.
+
+\bibitem{norgaard2000neural}
+P.~M. N{\o}rg{\aa}rd, O.~Ravn, N.~K. Poulsen, and L.~K. Hansen, ``Neural
+  networks for modelling and control of dynamic systems-a practitioner's
+  handbook,'' 2000.
+
 \bibitem{boulard1999characterization}
 T.~Boulard, R.~Haxaire, M.~Lamrani, J.~Roy, and A.~Jaffrin, ``Characterization
   and modelling of the air fluxes induced by natural ventilation in a
@@ -16,29 +43,15 @@ M.~D. Lewis, ``Bridging emotion theory and neurobiology through dynamic systems
   modeling,'' {\em Behavioral and brain sciences}, vol.~28, no.~02,
   pp.~169--194, 2005.
 
-\bibitem{strogatz2001nonlinear}
-S.~Strogatz, ``Nonlinear dynamics and chaos: With applications to physics,
-  biology, chemistry and engineering,'' 2001.
+\bibitem{zeigler2000theory}
+B.~P. Zeigler, H.~Praehofer, and T.~G. Kim, {\em Theory of modeling and
+  simulation: integrating discrete event and continuous complex dynamic
+  systems}.
+\newblock Academic press, 2000.
 
-\bibitem{brianmarcus}
-D.~Lind and B.~Marcus, {\em An Introduction To Symbolic Dynamics and Codings}.
-\newblock Cambridge University Press, 1995.
-
-\bibitem{rajagopalan2006symbolic}
-V.~Rajagopalan and A.~Ray, ``Symbolic time series analysis via wavelet-based
-  partitioning,'' {\em Signal Processing}, vol.~86, no.~11, pp.~3309--3320,
-  2006.
-
-\bibitem{asok.11}
-I.~Chattopadhyay, Y.~Wen, A.~Ray, and S.~Phoha, ``Unsupervised inductive
-  learning in symbolic sequences via recursive identification of self-similar
-  semantics,'' {\em American Control Conference}, June 2011.
-
-\bibitem{vidal.05}
-E.~Vidal, F.~Thollard, C.~de~la Higuera, F.~Casacuberta, and R.~C. Carrasco,
-  ``Probabilistic finite-state machines - part {I},'' {\em IEEE Transactions On
-  Pattern Analysis And Machine Intelligence}, vol.~27, pp.~1013--1025, July
-  2005.
+\bibitem{willsky1976survey}
+A.~S. Willsky, ``A survey of design methods for failure detection in dynamic
+  systems,'' {\em Automatica}, vol.~12, no.~6, pp.~601--611, 1976.
 
 \bibitem{heckerman1995learning}
 D.~Heckerman, D.~Geiger, and D.~M. Chickering, ``Learning bayesian networks:
@@ -54,6 +67,17 @@ A.~Corazza and G.~Satta, ``Probabilistic context-free grammars estimated from
 L.~R. Rabiner, ``A tutorial on hidden markov models and selected applications
   in speech recognition,'' {\em Proceedings of the IEEE}, vol.~77, no.~2,
   pp.~257--286, 1989.
+
+\bibitem{asok.11}
+I.~Chattopadhyay, Y.~Wen, A.~Ray, and S.~Phoha, ``Unsupervised inductive
+  learning in symbolic sequences via recursive identification of self-similar
+  semantics,'' {\em American Control Conference}, June 2011.
+
+\bibitem{vidal.05}
+E.~Vidal, F.~Thollard, C.~de~la Higuera, F.~Casacuberta, and R.~C. Carrasco,
+  ``Probabilistic finite-state machines - part {I},'' {\em IEEE Transactions On
+  Pattern Analysis And Machine Intelligence}, vol.~27, pp.~1013--1025, July
+  2005.
 
 \bibitem{murphy1995passively}
 K.~P. Murphy {\em et~al.}, ``Passively learning finite automata,'' Santa Fe
@@ -86,19 +110,21 @@ T.~H. Cormen, C.~E. Leiserson, R.~L. Rivest, and C.~Stein, {\em Introduction to
 T.~M. Cover and J.~A. Thomas, {\em Elements of information theory}.
 \newblock John Wiley \& Sons, 2012.
 
-\bibitem{asok.14}
-K.~Mukherjee and A.~Ray, ``State splitting and merging in probabilistic finite
-  state automata for signal representation and analysis,'' {\em Signal
-  Processing}, vol.~104, pp.~105--119, April 2014.
-
 \bibitem{immink.98}
 K.~A. Schouhamer, P.~H. Siegel, and J.~K. Wolf, ``Codes for digital
   recorders,'' {\em IEEE Transactions on Information Theory}, vol.~44, no.~6,
   pp.~2260--2299, October 1998.
 
+\bibitem{asok.14}
+K.~Mukherjee and A.~Ray, ``State splitting and merging in probabilistic finite
+  state automata for signal representation and analysis,'' {\em Signal
+  Processing}, vol.~104, pp.~105--119, April 2014.
+
+\bibitem{clarke1968statistical}
+R.~Clarke, ``A statistical theory of mobile-radio reception,'' {\em Bell Labs
+  Technical Journal}, vol.~47, no.~6, pp.~957--1000, 1968.
+
 \bibitem{mushkin.89}
-M.~Mushkin and I.~Bar-David, ``Capacity and coding for the gilbert-elliot
-  channels,'' {\em IEEE Transactions on Information Theory}, vol.~35, no.~6,
-  pp.~1277--1290, November 1989.
+
 
 \end{thebibliography}

@@ -9,7 +9,7 @@
   leaf/.style    = {treenode,font=\ttfamily\normalsize, bottom color=red}
 }
 
-{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{I}{n} this chapter we revise concepts from graphs and PFSA \cite{brianmarcus}\cite{vidal.05} that will be required in the subsequent chapters. The concept of graph minimization is presented and two mainstream algorithms to achieve this are described, Moore and Hopcroft. Finally, two well known algorithms to model dynamic systems with PFSA are presented, D-Markov and CRISSiS.
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{I}{n} this chapter we revise concepts from graphs and PFSA \cite{brianmarcus}\cite{vidal.05} that will be required in the subsequent chapters. The concept of graph minimization is presented and a mainstream algorithm to achieve this is described, Moore (another algorithm, Hopcroft, is shown in Appendix A). Finally, two well known algorithms to model dynamic systems with PFSA are presented, D-Markov and CRISSiS.
 
 \section{Sequences of Discrete Symbols}
 This section provides tools to describe sequences of discrete symbols. A finite sequence $u$ of symbols from an alphabet $\Sigma$ is called a word and its length is denoted by $|\textit{u}|$. The empty word $\varepsilon$ is defined as the sequence with length 0. The set of all possible words of length $n$ symbols from $\Sigma$ is $\Sigma^n$ and the set of all sequences of symbols from $\Sigma$ with all possible lengths, including the empty sequence sequence $\varepsilon$, is $\Sigma^*$. 
@@ -70,6 +70,10 @@ The language $\mathcal{L}$ of a graph \textit{G} is the the set of follower sets
 \noindent A word $\omega \in \Sigma^*$ is called a synchronization word of $G$ if starting from any state $q \in Q$ that generates $\omega$ the same state in $Q$ is reached. That is, if $\omega$ is a synchronization word, $\delta^*(q, \omega) = q^{\prime}$, for any $q\in Q$ that generates $\omega$. In the graph of Figure \ref{fig:graph}, $0$ is a synchronization word that synchronizes to state $A$.
 
 \section{Graph Minimization}
+
+In this section the topic of graph minimization is discussed and the Moore algorithm is shown as an example of graph minimization algorithm. An alternative algorithm for graph minimization, the Hopcroft algorithm, is shown in Appendix \ref{cap:hopcroft}. The aim of graph minimization is to obtain an irreducible graph from an input graph which are capable of generating the same sequences, i.e. they are equivalent.
+
+\subsection{Preliminary Notions}
 
 Suppose that two graphs $G_1 = \{Q_1, \Sigma, \delta_1\}$ and $G_2 = \{Q_2, \Sigma, \delta_2\}$ with $|Q_1|\neq |Q_2|$ and are capable of generating the same language. It is desirable to use a graph with fewer states as it can be represented with a lower memory requirement. This is called a minimal graph. 
 
@@ -149,7 +153,7 @@ The partition corresponding to the Nerode equivalence is the coarsest partition 
 %\]
 \subsection{Moore Algorithm}
 
-The first minimization algorithm is the Moore algorithm \cite{moore1956gedanken}. It is based on the idea of taking an initial partition with a very wide criteria and then refining it until the Nerode equivalence classes are obtained. The outline of the algorithm is shown in Algorithm \ref{alg:moore}.
+An important minimization algorithm is the Moore algorithm \cite{moore1956gedanken}. It is based on the idea of taking an initial partition with a very wide criteria and then refining it until the Nerode equivalence classes are obtained. The outline of the algorithm is shown in Algorithm \ref{alg:moore}.
 
 \begin{algorithm} [b]
   \caption{Moore(\textit{G})\label{alg:moore}}
@@ -199,11 +203,11 @@ For \textit{h} $\geq$ 0, one has
 \mathcal{M}_{h+1} = \mathcal{M}_h \wedge \bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q.
 \end{equation}
 
-\noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
+\noindent This computation means that for each symbol $\sigma\in\Sigma$ and for each equivalence class $P\in\mathcal{M}_h$ (where $\mathcal{M}_h$ is the partition of the previous iteration) a splitter $(P,\sigma)$ is created and applied to the original set of states $Q$. This will create partitions that show which states of $Q$ reach states in $P$ with symbol $\sigma$ and which do not. Then the coarsest partition $\bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ is taken, which will separate the equivalence classes of states of $Q$ that reach different equivalence classes of $\mathcal{M}_h$ with a given symbol $\sigma$. After this, the coarsest partition $\bigwedge_{\sigma\in\Sigma} \bigwedge_{P\in\mathcal{M}_h}(P,\sigma)|Q$ between these equivalence classes are taken, separating $Q$ in classes that reach classes in $\mathcal{M}_h$ with each different symbol of $\Sigma$. This effectively computes the $\delta(p,\sigma) \equiv_h \delta(q,\sigma), \; \forall \sigma \in \Sigma$ part of (\ref{eq:mooreequiv}). To finish (\ref{eq:mooreequiv}) the coarsest partition of this last step and of $\mathcal{M}_h$ is taken, resulting in the effective computation of an increment in the Moore equivalence classes.
 
  This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition until no change occurs between $\mathcal{M}_h$ and $\mathcal{M}_{h+1}$, which means the Nerode equivalence is reached. As it will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (Section \ref{subsec:inipart}).
 
- This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition. As will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (see Section \ref{subsec:inipart}).
+% This previous computation is performed in Algorithm \ref{alg:moore} in which the loop refines the current partition. As will be explored in this work, the initial partition can be created with different criteria. For a graph, it is done by grouping together states in $Q$ which have outgoing edges with the same labels, but another criterion is used in the probabilistic case (see Section \ref{subsec:inipart}).
 
 Moore algorithm of the refinement of $k$ partition of a set with $n$ elements can be done in time $O(kn^2)$. Each loop is processed in time $O(kn)$, so the total time is $O(m kn)$, where $m$ is the total number of refinement steps needed to compute the Nerode equivalence.
 
@@ -322,38 +326,6 @@ As the current $\mathcal{P}$ is different from the one stored in $\mathcal{P}^{\
 
 First, the result of the splitters for 0 are $(\{A,D\},0)|Q = \{\{B,E\},\{A,C,D\}\}$, $(\{C\},0)|Q = \{\{A,D\},\{B,C,E\}\}$ and $(\{B,E\},0)|Q = \{\{C\},\{A,B,D,E\}\}$ which results in \linebreak $\mathcal{P}_0 = \{\{B,E\}, \{A,D\}, \{C\}\}$. Similarly, $(\{A,D\},1)|Q = \{\{A,B,C,D,E\}\}$, $(\{C\},1)|Q = \{\{A,B,C,D,E\}\}$ and $(\{B,E\},1)|Q = \{\{A,D\},\{B,C,E\}\}$ and results in \linebreak $\mathcal{P}_1 = \{\{A,D\},\{B,C,E\}\}$. The coarsest partition between $\mathcal{P}_0$ and $\mathcal{P}_1$ is $\{\{A,D\},\{C\},\{B,E\}\}$ which remains unchanged when its coarsest partition is taken with $\mathcal{P}$. This result is then stored in $\mathcal{P}$ and it is equal to $\mathcal{P}^{\prime}$, which means the algorithm has converged and the minimal graph is shown in Figure \ref{fig:moore_fin}.
 
-\subsection{Hopcroft's Algorithm}
-
-\begin{algorithm} 
-  \caption{Hopcroft(\textit{G})\label{alg:hop}}
-    \begin{algorithmic}[1]
-      \State $\mathcal{P} \leftarrow InitialPartition(G)$
-      \State $\mathcal{W} \leftarrow \emptyset$
-      \ForAll{$\sigma \in \Sigma$}
-      	\State Append(($\min$(\textit{F}, $F^c$,$\sigma$),$\mathcal{W}$)
-      	\While{$\mathcal{W} \neq \emptyset$}
-      		\State (\textit{W},$\sigma$) $\leftarrow$ TakeSome($\mathcal{W}$)
-      		\For{each \textit{P}$\in \mathcal{P}$ which is split by $(W,\sigma)$}
-				\State $P^{\prime}, P^{\prime\prime} \leftarrow (W,\sigma)|P$      		
-				Replace \textit{P} by \textit{P'} and \textit{P"} in $\mathcal{P}$
-				\ForAll{$\tau \in \Sigma$}
-					\If{$(P,\tau)\in\mathcal{W}$}
-						\State Replace $(P,\tau)$ by $(P^{\prime},\tau)$ and $(P^{\prime\prime},\tau)$ in $\mathcal{W}$
-					\Else
-						\State Append(($\min(P^{\prime}, P^{\prime\prime},\tau),\mathcal{W}$)				
-					\EndIf				
-				\EndFor 
-      		\EndFor
-      	\EndWhile
-      \EndFor
-    \end{algorithmic}
-  \end{algorithm}
-
-The notation min($P,P^{\prime}$) indicates the set of smaller size of the two sets $P$ and $P^{\prime}$ or any of them when both have the same size. Hopcroft's algorithm computes the coarsest partition that saturates the set $F$ of final states. The algorithm keeps a current partition $\mathcal{P} = \{P_1, \ldots, P_n\}$ and a current set $\mathcal{W}$ of splitters (i.e. pairs ($W, \sigma$) that remain to be processed where $W$ is a class of $\mathcal{P}$ and $\sigma$ is a letter) which is called the \textit{waiting set}. $\mathcal{P}$ is initialized with the initial partition following the same criteria as described in Moore's algorithm. The waiting set is initialized with all the pairs (min($F, F^c$), $\sigma$) for $\sigma\in\Sigma$.
-
-For each iteration of the loop, one splitter ($W,\sigma$) is taken from the waiting set. It then checks whether ($W, \sigma$) splits each class of $P$ of $\mathcal{P}$. If it does not split, nothing is done, but if it does then $P^{\prime}$ and $P^{\prime\prime}$ (which are the result of splitting \textit{P} by ($W,\sigma$) replace $P$ in $\mathcal{P}$. Next, for each letter $\tau\in\Sigma$, if the pair ($P,\tau$) is present in $\mathcal{W}$ is replaced by the two pairs ($P^{\prime},\tau$) and ($P^{\prime\prime}\tau$). Otherwise, only (\textit{min}$(P^{\prime},P^{\prime\prime}),\tau$) is added to $\mathcal{W}$.
-
-The previous computation is performed until $\mathcal{W}$ is empty. It is proven that the final partition of the algorithm is the same as the one given by the Nerode equivalence. No specific order of pairs ($W, \sigma$) is described, which gives rise to different implementations in how the pairs are taken from the waiting set but all of them produce the right partition of states. Hopcroft proved that the running time of any execution of his algorithm is bounded by \textit{O(|$\Sigma| n\log n$)}.
 
 \section{Probabilistic Finite State Automata}
 
@@ -638,7 +610,7 @@ state/.style ={ circle , draw = black , text=black , minimum width =1 cm}]
 
 \begin{table}
 \centering
-\caption{Probabilities of words generated by the Tri-Shift up to length 10000. \label{tab:trishiftsub}}
+\caption{Probabilities of words generated by the Tri-Shift. \label{tab:trishiftsub}}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
 $\ell = 1$ & Prob. & $\ell = 2$ & Prob. & $\ell = 3$ & Prob. & $\ell = 4$ & Prob. & $\ell \geq 5$ & Prob.\\

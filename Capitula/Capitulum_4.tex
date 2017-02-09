@@ -1,4 +1,35 @@
-\chapter{TODO}\label{cap:correcao}
+\chapter{Hopcroft Algorithm}\label{cap:hopcroft}
 
 
-{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{T}{ODO} 
+{\lettrine[loversize=0.25,findent=0.2em,nindent=0em]{T}{his } appendix presents an alternative graph minimization algorithm that can be used instead of Moore. It has a lower complexity but it is slightly more complicated to implement. The pseudo-code is shown in Algorithm \ref{alg:hop}. 
+
+\begin{algorithm} 
+  \caption{Hopcroft(\textit{G})\label{alg:hop}}
+    \begin{algorithmic}[1]
+      \State $\mathcal{P} \leftarrow InitialPartition(G)$
+      \State $\mathcal{W} \leftarrow \emptyset$
+      \ForAll{$\sigma \in \Sigma$}
+      	\State Append(($\min$(\textit{F}, $F^c$,$\sigma$),$\mathcal{W}$)
+      	\While{$\mathcal{W} \neq \emptyset$}
+      		\State (\textit{W},$\sigma$) $\leftarrow$ TakeSome($\mathcal{W}$)
+      		\For{each \textit{P}$\in \mathcal{P}$ which is split by $(W,\sigma)$}
+				\State $P^{\prime}, P^{\prime\prime} \leftarrow (W,\sigma)|P$      		
+				Replace \textit{P} by \textit{P'} and \textit{P"} in $\mathcal{P}$
+				\ForAll{$\tau \in \Sigma$}
+					\If{$(P,\tau)\in\mathcal{W}$}
+						\State Replace $(P,\tau)$ by $(P^{\prime},\tau)$ and $(P^{\prime\prime},\tau)$ in $\mathcal{W}$
+					\Else
+						\State Append(($\min(P^{\prime}, P^{\prime\prime},\tau),\mathcal{W}$)				
+					\EndIf				
+				\EndFor 
+      		\EndFor
+      	\EndWhile
+      \EndFor
+    \end{algorithmic}
+  \end{algorithm}
+
+The notation min($P,P^{\prime}$) indicates the set of smaller size of the two sets $P$ and $P^{\prime}$ or any of them when both have the same size. Hopcroft's algorithm computes the coarsest partition that saturates the set $F$ of final states. The algorithm keeps a current partition $\mathcal{P} = \{P_1, \ldots, P_n\}$ and a current set $\mathcal{W}$ of splitters (i.e. pairs ($W, \sigma$) that remain to be processed where $W$ is a class of $\mathcal{P}$ and $\sigma$ is a letter) which is called the \textit{waiting set}. $\mathcal{P}$ is initialized with the initial partition following the same criteria as described in Moore's algorithm. The waiting set is initialized with all the pairs (min($F, F^c$), $\sigma$) for $\sigma\in\Sigma$.
+
+For each iteration of the loop, one splitter ($W,\sigma$) is taken from the waiting set. It then checks whether ($W, \sigma$) splits each class of $P$ of $\mathcal{P}$. If it does not split, nothing is done, but if it does then $P^{\prime}$ and $P^{\prime\prime}$ (which are the result of splitting \textit{P} by ($W,\sigma$) replace $P$ in $\mathcal{P}$. Next, for each letter $\tau\in\Sigma$, if the pair ($P,\tau$) is present in $\mathcal{W}$ is replaced by the two pairs ($P^{\prime},\tau$) and ($P^{\prime\prime}\tau$). Otherwise, only (\textit{min}$(P^{\prime},P^{\prime\prime}),\tau$) is added to $\mathcal{W}$.
+
+The previous computation is performed until $\mathcal{W}$ is empty. It is proven that the final partition of the algorithm is the same as the one given by the Nerode equivalence. No specific order of pairs ($W, \sigma$) is described, which gives rise to different implementations in how the pairs are taken from the waiting set but all of them produce the right partition of states. Hopcroft proved that the running time of any execution of his algorithm is bounded by \textit{O(|$\Sigma| n\log n$)}.
